@@ -71,7 +71,49 @@
 
 ---
 
+## V2.0 新增决策
+
+### 双模（暗/亮）兼容策略
+
+| 维度 | 决策 | 理由 | 日期 |
+|------|------|------|------|
+| 技术方案 | 全组件使用 `<picture><source media="(prefers-color-scheme: dark)">` | GitHub 原生支持，无 JS 依赖，SSR 友好 | 2026-02-25 |
+| Stats 浅色主题 | `theme=default` | 最通用，不需要额外账号 | 2026-02-25 |
+| Streak 浅色主题 | `theme=default` | 与 Stats 保持一致 | 2026-02-25 |
+| Activity Graph 浅色 | `theme=minimal` | 白底灰线，干净不抢眼 | 2026-02-25 |
+| capsule-render 浅色 | 渐变 `0:dbeafe,100:bfdbfe`（蓝白） | 与品牌色 `#58a6ff` 同色系 | 2026-02-25 |
+| 渐变分隔线 | `type=soft&height=4`，深色版 `#1a2744`，浅色版 `#93c5fd` | 比 `---` 有视觉层次感，不过于突兀 | 2026-02-25 |
+
+### JSON 自述扩展
+
+| 维度 | 决策 | 日期 |
+|------|------|------|
+| 新增字段 | `llm_stack`, `languages`, `current_proj`, `open_to`, `fun_fact` | 2026-02-25 |
+| 英文叙事段 | 3 句话：定位 + 当前探索方向 + 每个项目是实验 | 2026-02-25 |
+
+### Astro 站点扩展
+
+| 维度 | 决策 | 理由 | 日期 |
+|------|------|------|------|
+| 导航风格 | 固定顶栏 + 毛玻璃 `backdrop-filter: blur(12px)` | 现代 SPA 必备，终端品牌名 `~/njueeray` | 2026-02-25 |
+| 页脚风格 | 终端 `echo $FOOTER` + 光标闪烁 | 延续终端美学 | 2026-02-25 |
+| Blog 方案 | Astro Content Collections + MDX，本地文件，零第三方 CMS | 简单可靠，完全离线可编辑，与 GitHub Pages 零摩擦 | 2026-02-25 |
+| MDX 版本 | `@astrojs/mdx@3`（Astro 4.x 兼容）| Astro 5.x 的 mdx@4 与 Astro 4.16.x 不兼容 | 2026-02-25 |
+| View Transitions | Astro 内置 `<ViewTransitions />` | 零依赖，页面切换平滑，对 blog 页面尤其有效 | 2026-02-25 |
+| Projects 修正 | 移除 MediaCrawler（fork） | 与 Profile README 同步，避免归属误解 | 2026-02-25 |
+
+### 工程规范
+
+| 维度 | 决策 | 日期 |
+|------|------|------|
+| Link check | lycheeverse/lychee-action，排除动态 badge 域名（避免误报） | 2026-02-25 |
+| Markdown lint | DavidAnson/markdownlint-cli2-action，关闭 MD013/MD033/MD041（Profile README 场景不适用） | 2026-02-25 |
+| .editorconfig | LF 行尾，UTF-8，indent 2（Markdown/YAML/TS/Astro），4（Python/C++） | 2026-02-25 |
+
+---
+
 ## 变更历史
 
 - `[2026-02-25]` — 项目初始化，全部设计决策确定（视觉风格 + Header + Stats + 技术栈 + Featured）
 - `[2026-02-25]` — 迭代二完成：主题统一、WakaTime/Activity Graph/贡献蛇接入、强调色对齐
+- `[2026-02-25]` — **V2.0**：双模兼容全组件 + README 叙事重构 + Astro 多页（Nav/Footer/Blog）+ CI Actions + v1.0.0 tag

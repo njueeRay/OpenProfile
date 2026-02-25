@@ -198,3 +198,67 @@
 
 - Actions → General → Workflow permissions → **Read and write permissions**
 - 首次需手动触发 workflow（Actions 页面 → Run workflow）
+
+---
+
+## V2.0 新增：双模（暗/亮）兼容模式
+
+所有可视组件使用 `<picture>` 标签实现 GitHub 原生暗/亮双版本。
+
+### 标准模板
+
+```html
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="暗色版URL" />
+  <img alt="组件说明文字" src="浅色版URL" />
+</picture>
+```
+
+### 各组件主题对照表
+
+| 组件 | 暗色参数 | 浅色参数 |
+|------|---------|---------|
+| github-readme-stats | `theme=github_dark_dimmed` | `theme=default` |
+| streak-stats | `theme=github-dark-blue` | `theme=default` |
+| activity-graph | `theme=github-compact` | `theme=minimal` |
+| skill-icons | `theme=dark` | `theme=light` |
+| contribution-snake | `*-dark.svg` | `*.svg`（无 dark 后缀） |
+| capsule-render（Header） | `color=0:0d1117,100:1a1b27` | `color=0:dbeafe,100:bfdbfe` |
+| capsule-render（Footer） | `color=0:1a1b27,100:0d1117` | `color=0:bfdbfe,100:dbeafe` |
+
+---
+
+## capsule-render 渐变分隔线（V2.0）
+
+在区块之间插入品牌色渐变细线，作为视觉分隔器。
+
+```html
+<picture>
+  <source media="(prefers-color-scheme: dark)"
+          srcset="https://capsule-render.vercel.app/api?type=soft&color=0:0d1117,50:1a2744,100:0d1117&height=4&section=header" />
+  <img alt=""
+       src="https://capsule-render.vercel.app/api?type=soft&color=0:dbeafe,50:93c5fd,100:dbeafe&height=4&section=header" />
+</picture>
+```
+
+参数说明：`type=soft`（圆角）、`height=4`（4px 细线）、`color` 渐变从两端的背景色过渡到中间的品牌色调。
+
+---
+
+## komarev 访客计数器（V2.0）
+
+显示 Profile 页面总访问量。
+
+```markdown
+![Visitor Count](https://komarev.com/ghpvc/?username=njueeRay&style=flat-square&color=58a6ff&label=Profile+Views)
+```
+
+| 参数 | 说明 |
+|------|------|
+| `username` | GitHub 用户名 |
+| `style` | `flat-square` / `flat` / `for-the-badge` / `plastic` |
+| `color` | 徽章颜色（支持 hex，无 `#` 前缀） |
+| `label` | 显示文字 |
+
+- 无需注册，计数自动开始
+- 计数第一次访问时创建，不可重置
