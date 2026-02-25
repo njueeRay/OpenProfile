@@ -159,7 +159,7 @@ njueeray/
 
 ## 当前迭代状态
 
-**阶段：** V3.0 规划完成，待执行
+**阶段：** V3.0 执行准备中（开源定位强化完成）
 **个人信息：** ✅ 已确认
 **配置文件：** ✅ 已同步
 **语言偏好：** ✅ 中文（所有原创内容默认中文，技术符号保持英文）
@@ -171,6 +171,13 @@ njueeray/
 - ✅ Agent 团队 V2.0 重构：brain / pm / dev / code-reviewer 新增/更名
 - ✅ 团队核心资产沉淀：team-playbook.md + 复盘纪要
 - ✅ 文档同步：design-decisions.md + component-guide.md + agent-workflow.md
+
+**开源品牌化（2026-02-25，紧接 v2.0.0）：**
+- ✅ GitHub Release v1.0.0 发布（REST API 方式）
+- ✅ GitHub Release v2.0.0 发布（标记为 latest）
+- ✅ OpenProfile SVG LOGO 设计（assets/logo.svg，终端风格，58a6ff 品牌色）
+- ✅ README.md 全面重写（259 行，开源社区版：Why/Features/Roadmap/Contributing）
+- ✅ 开源战略文档：docs/open-source-strategy.md
 
 **V3.0 待执行（Phase X/Y/Z）：**
 

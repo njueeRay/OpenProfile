@@ -1,103 +1,157 @@
-<div align="center">
+﻿<div align="center">
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&pause=1000&color=58A6FF&center=true&vCenter=true&width=600&lines=OpenProfile+%E2%80%94+AI-Native+GitHub+Profile;Built+with+GitHub+Copilot+Agents;Open+Source+%7C+Reproducible+%7C+Extensible)](https://readme-typing-svg.demolab.com)
+<img src="assets/logo.svg" alt="OpenProfile Logo" width="480"/>
 
-[![Stars](https://img.shields.io/github/stars/njueeRay/OpenProfile?style=flat-square&color=gold)](https://github.com/njueeRay/OpenProfile/stargazers)
+<br/>
+
+[![Stars](https://img.shields.io/github/stars/njueeRay/OpenProfile?style=flat-square&color=gold&logo=github)](https://github.com/njueeRay/OpenProfile/stargazers)
+[![Forks](https://img.shields.io/github/forks/njueeRay/OpenProfile?style=flat-square&color=58a6ff&logo=github)](https://github.com/njueeRay/OpenProfile/network/members)
+[![Latest Release](https://img.shields.io/github/v/release/njueeRay/OpenProfile?style=flat-square&color=3fb950&logo=github)](https://github.com/njueeRay/OpenProfile/releases)
 [![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](./LICENSE)
 [![Built with Copilot](https://img.shields.io/badge/Built%20with-GitHub%20Copilot-0078d4?style=flat-square&logo=github)](https://github.com/features/copilot)
-[![Visit Site](https://img.shields.io/badge/Visit%20My%20Profile-njueeray.github.io-58a6ff?style=flat-square&logo=safari)](https://njueeray.github.io)
+[![CI](https://img.shields.io/github/actions/workflow/status/njueeRay/OpenProfile/link-check.yml?style=flat-square&label=link-check)](https://github.com/njueeRay/OpenProfile/actions)
+
+<br/>
+
+**Stop hand-editing Markdown. Let an AI Agent team build your GitHub Profile.**
+
+*OpenProfile is a complete, reproducible workflow  fork it, configure one file, and let Copilot Agents take over.*
+
+<br/>
+
+[![See the live profile](https://img.shields.io/badge/%F0%9F%9A%80%20See%20the%20live%20profile%20%E2%86%92-njueeray.github.io-58a6ff?style=for-the-badge)](https://njueeray.github.io)
+[![Star on GitHub](https://img.shields.io/badge/%E2%AD%90%20Star%20this%20repo-0d1117?style=for-the-badge&logo=github&logoColor=white)](https://github.com/njueeRay/OpenProfile)
 
 </div>
 
 ---
 
-## What is OpenProfile?
+## Why OpenProfile?
 
-**OpenProfile** is both a working GitHub Profile configuration and an open-source template that demonstrates how to build and maintain a developer profile using a **GitHub Copilot Agent team**.
+Most developer profiles are frozen in time  written once, then forgotten.
 
-Instead of tweaking Markdown by hand, you delegate tasks to specialized Agents — a designer, a writer, a researcher, and a reviewer — each with its own role, tools, and scope. This repo is the exact setup that powers [@njueeRay](https://github.com/njueeRay)'s profile, shipped as a reusable starting point for anyone who wants an AI-Native workflow.
+**OpenProfile** treats your GitHub Profile as a living, AI-maintained system:
 
-> **Two things at once:** a live profile you can visit, and a template you can fork.
+| Without OpenProfile | With OpenProfile |
+|---------------------|-----------------|
+| Edit Markdown by hand | Describe goals in plain English; Agents implement |
+| Hunt for badge URLs manually | Researcher Agent audits components for you |
+| Push and hope it looks right | Code-Reviewer Agent validates before every merge |
+| No context between sessions | Brain Agent maintains project memory & strategy |
+| Hours for a redesign | Minutes with the right Agent and a clear prompt |
 
-<div align="center">
-
-[![Visit My Profile →](https://img.shields.io/badge/%F0%9F%9A%80%20Visit%20My%20Profile%20%E2%86%92-njueeray.github.io-58a6ff?style=for-the-badge&logo=safari)](https://njueeray.github.io)
-
-</div>
+> **This is the exact repo that powers [@njueeRay](https://github.com/njueeRay)'s profile.** Fork it and it becomes yours.
 
 ---
 
-## Agent Team Architecture
+## Features
 
-Four specialized Agents collaborate in a pipeline. You stay in the loop only for goals and final approval.
+- **Agent Team V2.0**  Brain, PM, Dev, and Code-Reviewer with formal handoff protocol
+- **One-file config**  All personal data lives in `.github/copilot-instructions.md`
+- **VS Code ready**  Toolset permissions and MCP server wired out of the box
+- **Dynamic stats**  WakaTime, Contribution Snake, Activity Graph, GitHub Stats
+- **Astro blog**  Full personal site at [njueeray.github.io](https://njueeray.github.io)
+- **CI/CD**  Link checker (Lychee) and Markdown linter on every push
+- **Team docs**  Design decisions, component guide, meeting minutes, team playbook
+- **Living roadmap**  V3.0 already in planning: SEO, RSS, blog tags, 3D contributions
+
+---
+
+## Agent Team Architecture (V2.0)
 
 ```
-You (goal & decision)
-        │
-        ▼
-┌─────────────────────┐
-│  profile-designer   │  Visual architect — layout, component selection
-└────────┬────────────┘
-         │
-         ▼
-┌─────────────────────┐
-│   dev    │  Code engineer — turns designs into Markdown
-└────────┬────────────┘
-         │
-         ▼
-┌─────────────────────┐
-│    code-reviewer      │  Quality gate — 6-dimension review checklist
-└────────┬────────────┘
-         │
-         ▼
-┌─────────────────────┐
-│     researcher      │  Intel officer — deep dives without burning context
-└─────────────────────┘
+You (set the goal)
+        |
+        v
++------------------------+
+|         brain          |  Strategist  synthesizes context, plans sprints
++------------+-----------+
+             | delegates
+             v
++------------------------+
+|           pm           |  Project Manager  scope, task breakdown, handoffs
++-------+----------------+
+        | implements           | reviews
+        v                      v
++-------------+      +-------------------+
+|     dev     |      |   code-reviewer   |
+| (full stack)|      |  (7-dim QA gate)  |
++-------------+      +-------------------+
 ```
 
-| Agent | Role | Trigger |
-|-------|------|---------|
-| `profile-designer` | Plans visual layout; outputs design doc, never touches README directly | Before any major redesign |
-| `dev` | Writes actual Markdown/SVG/badge code | After design is approved |
-| `researcher` | Audits third-party components, benchmarks profiles | When evaluating new tools |
-| `code-reviewer` | Validates links, themes, mobile layout, load time | Before every merge |
-
-Agent instructions live in [`.github/agents/`](.github/agents/).
+| Agent | File | Role |
+|-------|------|------|
+| `brain` | [`.github/agents/brain.agent.md`](.github/agents/brain.agent.md) | Strategic coordinator; synthesizes project context |
+| `pm` | [`.github/agents/pm.agent.md`](.github/agents/pm.agent.md) | Sprint planner; writes task breakdowns |
+| `dev` | [`.github/agents/content-writer.agent.md`](.github/agents/content-writer.agent.md) | Full-stack implementer; Markdown, Astro, SVG |
+| `code-reviewer` | [`.github/agents/qa-reviewer.agent.md`](.github/agents/qa-reviewer.agent.md) | Pre-merge validator; 7-dimension checklist |
+| `researcher` | [`.github/agents/researcher.agent.md`](.github/agents/researcher.agent.md) | Intel officer; deep dives without burning context |
 
 ---
 
 ## Quick Start
 
-Replicate this workflow in 3 steps:
+### Prerequisites
 
-**Step 1 — Fork & personalize**
+- [VS Code](https://code.visualstudio.com/) with [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension
+- A `<username>/<username>` GitHub repo (your profile repo)
+
+### 5-minute setup
+
+**1. Fork & clone**
 
 ```bash
-# Fork this repo, then clone it
+# Fork https://github.com/njueeRay/OpenProfile on GitHub, then:
 git clone https://github.com/YOUR_USERNAME/OpenProfile.git
 cd OpenProfile
 ```
 
-Open [`.github/copilot-instructions.md`](.github/copilot-instructions.md) and replace the `Personal Info` block with your own data (username, role, tech stack, links).
+**2. Personalize the global config**
 
-**Step 2 — Activate Copilot Agents in VS Code**
+Open [`.github/copilot-instructions.md`](.github/copilot-instructions.md) and fill in the Personal Identity JSON:
 
-Make sure [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) is installed. Open the Copilot Chat panel, switch to **Agent mode**, and reference one of the Agent files:
+```json
+{
+  "name": "Your Name",
+  "github": "your-username",
+  "tagline": "What you build in one sentence",
+  "role": "Your title",
+  "location": "City, Country",
+  "timezone": "UTC+X",
+  "primary_stack": ["Python", "TypeScript"],
+  "interests": ["area 1", "area 2"],
+  "currently_building": "What you are working on",
+  "site": "https://your-site.dev",
+  "email": "you@example.com",
+  "language_preference": "English"
+}
+```
+
+**3. Start an Agent session in VS Code**
+
+Open Copilot Chat, switch to **Agent mode**, and reference an agent file:
 
 ```
-@workspace #file:.github/agents/profile-designer.agent.md
-Design my profile header section.
+@workspace #file:.github/agents/brain.agent.md
+I want to redesign my profile header. Think strategically.
 ```
 
-**Step 3 — Push to your `<username>/<username>` repo**
+Or jump straight to implementation:
 
-GitHub automatically renders `<username>/README.md` as your profile page. Push your changes and visit `github.com/<username>` to see the result.
+```
+@workspace #file:.github/agents/content-writer.agent.md
+Add a Currently Building section with a WakaTime stats integration.
+```
+
+**4. Push to your profile repo**
 
 ```bash
 git add README.md
-git commit -m "feat: initialize profile with OpenProfile template"
+git commit -m "feat: AI-Native profile with OpenProfile"
 git push origin main
 ```
+
+Visit `github.com/YOUR_USERNAME`  your new profile is live.
 
 ---
 
@@ -105,41 +159,48 @@ git push origin main
 
 ```
 OpenProfile/
-├── .github/
-│   ├── copilot-instructions.md        ← Global Agent config (start here)
-│   ├── agents/
-│   │   ├── brain.agent.md             ← Strategic coordinator
-│   │   ├── pm.agent.md                ← Project manager
-│   │   ├── content-writer.agent.md    ← dev role (full-stack implementer)
-│   │   ├── researcher.agent.md        ← Research-only Agent
-│   │   ├── qa-reviewer.agent.md       ← code-reviewer role (7-dim QA)
-│   │   └── profile-designer.agent.md  ← Visual architect (specialized)
-│   ├── ISSUE_TEMPLATE/                ← Bug / feature templates
-│   └── PULL_REQUEST_TEMPLATE.md
-├── .vscode/
-│   ├── toolsets.jsonc                 ← Tool groups (readonly/writer/runner)
-│   ├── mcp.json                       ← MCP server config for Agents
-│   └── settings.json
-├── docs/
-│   ├── design-decisions.md            ← Why things look the way they do
-│   ├── component-guide.md             ← Dynamic component reference
-│   ├── agent-workflow.md              ← Full AI workflow documentation
-│   ├── team-playbook.md               ← Portable methodology handbook
-│   └── meetings/                      ← Meeting minutes archive
-├── CONTRIBUTING.md
-├── CHANGELOG.md
-└── LICENSE
++-- .github/
+|   +-- copilot-instructions.md     <- START HERE: global Agent config
+|   +-- agents/
+|   |   +-- brain.agent.md          <- Strategic coordinator
+|   |   +-- pm.agent.md             <- Sprint planner
+|   |   +-- content-writer.agent.md <- Full-stack implementer
+|   |   +-- researcher.agent.md     <- Research-only Agent
+|   |   +-- qa-reviewer.agent.md    <- Pre-merge quality gate
+|   |   +-- profile-designer.agent.md  <- Visual architect
+|   +-- workflows/
+|   |   +-- link-check.yml          <- Lychee link validator
+|   |   +-- markdown-lint.yml       <- Markdown style linter
+|   +-- ISSUE_TEMPLATE/
+|   +-- PULL_REQUEST_TEMPLATE.md
++-- .vscode/
+|   +-- toolsets.jsonc              <- Tool permission groups
+|   +-- mcp.json                    <- MCP server connections
+|   +-- settings.json
++-- assets/
+|   +-- logo.svg                   <- Project logo
++-- docs/
+|   +-- design-decisions.md        <- Why things look the way they do
+|   +-- component-guide.md         <- Dynamic badge & stats reference
+|   +-- agent-workflow.md          <- Full AI workflow explained
+|   +-- team-playbook.md           <- Team vocabulary & quality gates
+|   +-- meetings/                  <- Sprint retrospectives & planning
++-- CONTRIBUTING.md
++-- CHANGELOG.md
++-- LICENSE
 ```
 
 ---
 
-## Tech Stack
+## Roadmap
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![C++](https://img.shields.io/badge/C++-00599C?style=flat-square&logo=cplusplus&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![GitHub Copilot](https://img.shields.io/badge/GitHub%20Copilot-0078d4?style=flat-square&logo=github&logoColor=white)
+| Version | Status | Highlights |
+|---------|--------|-----------|
+| v1.0.0 | Released | Foundation: agent team, CI, dynamic stats |
+| v2.0.0 | Released | Agent V2.0 (Brain/PM), Astro blog, CI hardening |
+| v3.0.0 | In Progress | SEO (sitemap, RSS, OG meta), blog tag filters, 3D contributions |
+
+See the [Releases page](https://github.com/njueeRay/OpenProfile/releases) and [CHANGELOG.md](CHANGELOG.md) for full version history.
 
 ---
 
@@ -147,17 +208,53 @@ OpenProfile/
 
 | Document | Description |
 |----------|-------------|
-| [docs/agent-workflow.md](docs/agent-workflow.md) | Full AI-Native workflow explanation |
-| [docs/component-guide.md](docs/component-guide.md) | Dynamic badge & stats component reference |
+| [docs/agent-workflow.md](docs/agent-workflow.md) | How Agents collaborate end-to-end |
+| [docs/component-guide.md](docs/component-guide.md) | Every dynamic widget explained |
 | [docs/design-decisions.md](docs/design-decisions.md) | Rationale behind visual choices |
-| [CONTRIBUTING.md](CONTRIBUTING.md) | How to contribute to this project |
-| [CHANGELOG.md](CHANGELOG.md) | Version history |
+| [docs/team-playbook.md](docs/team-playbook.md) | Shared vocabulary and quality gates |
+| [docs/open-source-strategy.md](docs/open-source-strategy.md) | Growth strategy, audience, and V3.x roadmap |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | How to contribute |
+| [CHANGELOG.md](CHANGELOG.md) | Full version history |
+
+---
+
+## Contributing
+
+All contributions are welcome  from first-timers to veteran open-source contributors.
+
+**Ways to contribute:**
+
+- **Star the repo**  the simplest way to show support
+- **Report bugs**  open an [issue](https://github.com/njueeRay/OpenProfile/issues/new)
+- **Suggest features**  ideas for V3.0 and beyond
+- **Submit PRs**  read [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines
+- **Share your profile**  built with OpenProfile? open a PR to add it below
+
+**Built something with OpenProfile?** Open a PR to add your profile here  we'd love to feature it.
+
+---
+
+## Tech Stack
+
+OpenProfile itself is Markdown + YAML + SVG. The personal site it powers uses:
+
+![Astro](https://img.shields.io/badge/Astro-FF5D01?style=flat-square&logo=astro&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)
+![GitHub Copilot](https://img.shields.io/badge/GitHub%20Copilot-0078d4?style=flat-square&logo=github&logoColor=white)
 
 ---
 
 ## License
 
-MIT © [njueeRay](https://github.com/njueeRay) — see [LICENSE](./LICENSE) for details.
+MIT (c) [njueeRay](https://github.com/njueeRay)  see [LICENSE](./LICENSE) for full terms.
 
-Feel free to fork, adapt, and ship your own AI-Native profile.
-Contributions welcome — read [CONTRIBUTING.md](CONTRIBUTING.md) to get started.
+Fork it, adapt it, ship it. This template is designed to be replaced by your own story.
+
+---
+
+<div align="center">
+
+*Built AI-Natively with [GitHub Copilot](https://github.com/features/copilot)  Maintained by [@njueeRay](https://github.com/njueeRay)*
+
+</div>
