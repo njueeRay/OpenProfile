@@ -11,10 +11,12 @@
 |------|------|------------|--------|
 | [capsule-render](#capsule-render) | Header/Footer 渐变图 | 否 | ⭐⭐⭐⭐⭐ |
 | [readme-typing-svg](#readme-typing-svg) | 打字动画 | 否 | ⭐⭐⭐⭐⭐ |
-| [github-readme-stats](#github-readme-stats) | GitHub 统计卡片 | 否 | ⭐⭐⭐⭐ |
+| [github-readme-stats](#github-readme-stats) | GitHub 统计卡片 + Pin 卡片 | 否 | ⭐⭐⭐⭐ |
 | [github-readme-streak-stats](#github-readme-streak-stats) | 连续贡献统计 | 否 | ⭐⭐⭐⭐ |
 | [skill-icons](#skill-icons) | 技术栈图标 | 否 | ⭐⭐⭐⭐⭐ |
 | [waka-readme-stats](#waka-readme-stats) | 编程时间统计 | ✅ 需要 WakaTime | ⭐⭐⭐⭐ |
+| [github-readme-activity-graph](#github-readme-activity-graph) | 贡献活动曲线图 | 否 | ⭐⭐⭐⭐ |
+| [snk (Contribution Snake)](#contribution-snake) | 贡献蛇动画 | 否 | ⭐⭐⭐⭐ |
 
 ---
 
@@ -117,10 +119,82 @@
 ### 接入步骤
 1. 注册 WakaTime：https://wakatime.com
 2. 安装 WakaTime VS Code 插件
-3. 在 GitHub Settings → Secrets 中添加 `WAKATIME_API_KEY`
+3. 在 GitHub Settings → Secrets 中添加 `WAKATIME_API_KEY` + `GH_TOKEN`（PAT，需 `repo` + `user` scope）
 4. 在 README.md 中添加占位注释（Actions 自动填充）
 
 ```markdown
 <!--START_SECTION:waka-->
 <!--END_SECTION:waka-->
 ```
+
+### 本项目使用的 Action 配置
+
+```yaml
+# .github/workflows/waka-readme.yml
+- uses: anmol098/waka-readme-stats@master
+  with:
+    WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
+    GH_TOKEN: ${{ secrets.GH_TOKEN }}
+    SHOW_OS: "True"
+    SHOW_PROJECTS: "True"
+    SHOW_EDITORS: "True"
+    LANG_COUNT: "6"
+```
+
+> ⚠️ WakaTime 免费账号数据保留 14 天。需持续使用编辑器才有数据填充。
+
+---
+
+## github-readme-activity-graph
+
+**仓库：** https://github.com/Ashutosh00710/github-readme-activity-graph
+
+### 基础用法
+
+```markdown
+![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=njueeRay&theme=github-compact&hide_border=true&area=true)
+```
+
+### 关键参数
+
+| 参数 | 说明 | 本项目使用值 |
+|------|------|------------|
+| `theme` | 配色主题 | `github-compact`（深色极简） |
+| `hide_border` | 隐藏边框 | `true` |
+| `area` | 面积填充 | `true`（视觉更厚重） |
+| `custom_title` | 自定义标题 | `Contribution Activity` |
+
+### 推荐暗色主题
+
+`github-compact` · `react-dark` · `xcode` · `tokyo-night`
+
+---
+
+## Contribution Snake
+
+**仓库：** https://github.com/Platane/snk
+
+通过 GitHub Actions 自动生成贡献蛇动画 SVG，推送到 `output` 分支。
+
+### 本项目使用的 Action 配置
+
+```yaml
+# .github/workflows/snake.yml
+- uses: Platane/snk/svg-only@v3
+  with:
+    github_user_name: njueeRay
+    outputs: |
+      dist/github-contribution-grid-snake.svg
+      dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+```
+
+### README 中引用
+
+```markdown
+![snake](https://raw.githubusercontent.com/njueeRay/njueeRay/output/github-contribution-grid-snake-dark.svg)
+```
+
+### 前置要求
+
+- Actions → General → Workflow permissions → **Read and write permissions**
+- 首次需手动触发 workflow（Actions 页面 → Run workflow）

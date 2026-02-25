@@ -1,11 +1,11 @@
 <div align="center">
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&pause=1000&color=00B4D8&center=true&vCenter=true&width=600&lines=OpenProfile+%E2%80%94+AI-Native+GitHub+Profile;Built+with+GitHub+Copilot+Agents;Open+Source+%7C+Reproducible+%7C+Extensible)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&pause=1000&color=58A6FF&center=true&vCenter=true&width=600&lines=OpenProfile+%E2%80%94+AI-Native+GitHub+Profile;Built+with+GitHub+Copilot+Agents;Open+Source+%7C+Reproducible+%7C+Extensible)](https://readme-typing-svg.demolab.com)
 
 [![Stars](https://img.shields.io/github/stars/njueeRay/OpenProfile?style=flat-square&color=gold)](https://github.com/njueeRay/OpenProfile/stargazers)
 [![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](./LICENSE)
 [![Built with Copilot](https://img.shields.io/badge/Built%20with-GitHub%20Copilot-0078d4?style=flat-square&logo=github)](https://github.com/features/copilot)
-[![Visit Site](https://img.shields.io/badge/Visit%20My%20Profile-njueeray.github.io-00b4d8?style=flat-square&logo=safari)](https://njueeray.github.io)
+[![Visit Site](https://img.shields.io/badge/Visit%20My%20Profile-njueeray.github.io-58a6ff?style=flat-square&logo=safari)](https://njueeray.github.io)
 
 </div>
 
@@ -21,7 +21,7 @@ Instead of tweaking Markdown by hand, you delegate tasks to specialized Agents �
 
 <div align="center">
 
-[![Visit My Profile →](https://img.shields.io/badge/%F0%9F%9A%80%20Visit%20My%20Profile%20%E2%86%92-njueeray.github.io-00b4d8?style=for-the-badge&logo=safari)](https://njueeray.github.io)
+[![Visit My Profile →](https://img.shields.io/badge/%F0%9F%9A%80%20Visit%20My%20Profile%20%E2%86%92-njueeray.github.io-58a6ff?style=for-the-badge&logo=safari)](https://njueeray.github.io)
 
 </div>
 
@@ -115,6 +115,7 @@ OpenProfile/
 │   ├── ISSUE_TEMPLATE/                ← Bug / feature templates
 │   └── PULL_REQUEST_TEMPLATE.md
 ├── .vscode/
+│   ├── toolsets.jsonc                 ← Tool groups (readonly/writer/runner)
 │   ├── mcp.json                       ← MCP server config for Agents
 │   └── settings.json
 ├── docs/

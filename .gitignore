@@ -3,3 +3,8 @@
 Thumbs.db
 *.log
 .vscode/extensions.json
+
+# 本地参考文档（不属于 OpenProfile 项目）
+claude-code-handbook.md
+ClaudeCode*.md
+GitHub-Copilot-*.md

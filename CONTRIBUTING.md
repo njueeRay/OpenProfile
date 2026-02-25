@@ -22,8 +22,8 @@
 
 ```bash
 # Fork 后克隆到本地
-git clone https://github.com/YOUR_USERNAME/njueeray.git
-cd njueeray
+git clone https://github.com/YOUR_USERNAME/OpenProfile.git
+cd OpenProfile
 ```
 
 ### 2. 创建分支
