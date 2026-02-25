@@ -8,15 +8,39 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+---
+
+## [2.0.0] — 2026-02-25
+
 ### Added
-- Profile README 区块顺序重组（V2.0 新顺序）
-- Profile README 添加 `<picture>` 双模（暗/亮）兼容：Header / Footer / Stats / Streak / Activity Graph / Skill Icons / Featured / 贡献蛇
+- Profile README 区块顺序重组（V2.0 新顺序：叙事节奏驱动）
+- Profile README `<picture>` 双模兼容（暗/亮）：Header / Footer / Stats / Streak / Activity Graph / Skill Icons / Featured / 贡献蛇
 - Profile README JSON 自述扩展至 12 字段 + 英文叙事段
-- Profile README Typing SVG 文案改为个人身份标签
+- Profile README Typing SVG 文案改为个人身份标签（5 行）
 - Profile README WakaTime 改为 `<details>` 折叠区块，附 fallback 说明
 - Profile README 新增 🤝 Connect with Me 区块（Portfolio + GitHub + OpenProfile badge）
 - Profile README 新增页面浏览计数器（komarev.com）
 - Profile README 新增三处 capsule-render 渐变分隔线
+- Astro 站点新增固定导航栏（Nav.astro，毛玻璃效果）
+- Astro 站点新增页脚（Footer.astro，终端 echo 风格）
+- Astro 站点接入 ViewTransitions（页面切换动画）
+- Astro 站点新增 Blog 系统（Content Collections + @astrojs/mdx@3 + 2 篇首发文章）
+- GitHub Actions：link-check.yml（lychee 链接可达性检查）
+- GitHub Actions：markdown-lint.yml（DavidAnson/markdownlint-cli2-action）
+- `.editorconfig` 统一编辑器缩进规范
+- `.markdownlint.jsonc` Markdown 格式规范配置
+- `.gitattributes` 强制 LF 行尾（防 Windows CRLF 污染）
+- Agent 团队 V2.0 重构：新增 `brain`（战略协调）+ `pm`（项目管理）角色
+- Agent 团队 V2.0 重构：`content-writer` → `dev`（全栈通用实现）
+- Agent 团队 V2.0 重构：`qa-reviewer` → `code-reviewer`（七维度质量门禁）
+- 新增 `docs/team-playbook.md`（可跨项目复用的团队方法论手册）
+- 新增 `docs/meetings/2026-02-25-retrospective.md`（复盘会议 #003 纪要）
+
+### Changed
+- Astro 站点 Projects 区块：移除 MediaCrawler，替换为 wechat_article_exporter
+- `copilot-instructions.md` Agent 团队表格同步为 V2.0 五角色架构
+- `docs/agent-workflow.md` 更新为 Brain/PM/Dev/Researcher/CodeReviewer 拓扑
+- CHANGELOG `[Unreleased]` 拆分：重命名为 `[1.0.0]`，启用版本对比链接
 
 ---
 
@@ -25,7 +49,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 - 初始化项目目录结构
 - 创建 `.github/copilot-instructions.md` 主指令文件
-- 创建 `.github/agents/` 专项 Agent 团队（profile-designer、content-writer、researcher、qa-reviewer）
+- 创建 `.github/agents/` 专项 Agent 团队（profile-designer、dev、researcher、code-reviewer）
 - 创建 `.vscode/` 工具集和 MCP 配置
 - 创建 `docs/design-decisions.md` 设计决策日志
 - 添加开源工程规范文件（CONTRIBUTING.md、CHANGELOG.md、LICENSE）
@@ -67,9 +91,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 | v0.3.0 | 视觉升级：Header 动画 + 技术栈图标 | ✅ 完成 |
 | v0.4.0 | 动态数据：WakaTime + Activity Graph + 贡献蛇 | ✅ 完成 |
 | v1.0.0 | 迭代一完成：全组件上线 + 文档同步 + 开源发布 | ✅ 完成 |
-| **v2.0.0** | **V2.0：叙事重构 + 浅色兼容 + Astro 多页 + CI** | 🏗️ 进行中 |
+| **v2.0.0** | **V2.0：叙事重构 + 浅色兼容 + Astro 多页 + CI + Agent 团队重构** | ✅ 完成 |
+| v3.0.0 | V3.0：待规划 | 🗓️ 规划中 |
 
 ---
 
-[Unreleased]: https://github.com/njueeRay/OpenProfile/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/njueeRay/OpenProfile/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/njueeRay/OpenProfile/compare/v1.0.0...v2.0.0
 [1.0.0]: https://github.com/njueeRay/OpenProfile/releases/tag/v1.0.0

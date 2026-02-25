@@ -41,12 +41,12 @@ You (goal & decision)
          │
          ▼
 ┌─────────────────────┐
-│   content-writer    │  Code engineer — turns designs into Markdown
+│   dev    │  Code engineer — turns designs into Markdown
 └────────┬────────────┘
          │
          ▼
 ┌─────────────────────┐
-│    qa-reviewer      │  Quality gate — 6-dimension review checklist
+│    code-reviewer      │  Quality gate — 6-dimension review checklist
 └────────┬────────────┘
          │
          ▼
@@ -58,9 +58,9 @@ You (goal & decision)
 | Agent | Role | Trigger |
 |-------|------|---------|
 | `profile-designer` | Plans visual layout; outputs design doc, never touches README directly | Before any major redesign |
-| `content-writer` | Writes actual Markdown/SVG/badge code | After design is approved |
+| `dev` | Writes actual Markdown/SVG/badge code | After design is approved |
 | `researcher` | Audits third-party components, benchmarks profiles | When evaluating new tools |
-| `qa-reviewer` | Validates links, themes, mobile layout, load time | Before every merge |
+| `code-reviewer` | Validates links, themes, mobile layout, load time | Before every merge |
 
 Agent instructions live in [`.github/agents/`](.github/agents/).
 
@@ -108,10 +108,12 @@ OpenProfile/
 ├── .github/
 │   ├── copilot-instructions.md        ← Global Agent config (start here)
 │   ├── agents/
-│   │   ├── profile-designer.agent.md  ← Visual architect Agent
-│   │   ├── content-writer.agent.md    ← Markdown engineer Agent
+│   │   ├── brain.agent.md             ← Strategic coordinator
+│   │   ├── pm.agent.md                ← Project manager
+│   │   ├── content-writer.agent.md    ← dev role (full-stack implementer)
 │   │   ├── researcher.agent.md        ← Research-only Agent
-│   │   └── qa-reviewer.agent.md       ← QA checklist Agent
+│   │   ├── qa-reviewer.agent.md       ← code-reviewer role (7-dim QA)
+│   │   └── profile-designer.agent.md  ← Visual architect (specialized)
 │   ├── ISSUE_TEMPLATE/                ← Bug / feature templates
 │   └── PULL_REQUEST_TEMPLATE.md
 ├── .vscode/
@@ -121,7 +123,9 @@ OpenProfile/
 ├── docs/
 │   ├── design-decisions.md            ← Why things look the way they do
 │   ├── component-guide.md             ← Dynamic component reference
-│   └── agent-workflow.md              ← Full AI workflow documentation
+│   ├── agent-workflow.md              ← Full AI workflow documentation
+│   ├── team-playbook.md               ← Portable methodology handbook
+│   └── meetings/                      ← Meeting minutes archive
 ├── CONTRIBUTING.md
 ├── CHANGELOG.md
 └── LICENSE
