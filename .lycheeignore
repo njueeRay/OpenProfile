@@ -1,0 +1,27 @@
+# Lychee 链接检查忽略规则
+# 语法：每行一条规则，支持正则表达式（以 ^ 开头）和字面字符串
+
+# ── 忽略整个文件 ──────────────────────────────────────────────────────────────
+# 参考文献/学习笔记，链接不受 OpenProfile 项目管控
+claude-code-handbook.md
+ClaudeCode最佳实践.md
+ClaudeCode用法介绍.md
+GitHub-Copilot-最佳实践.md
+GitHub-Copilot-Agents-指南.md
+
+# ── 忽略已知高频率限制或反爬的域名 ────────────────────────────────────────────
+# LinkedIn 会对爬虫返回 999
+^https://www\.linkedin\.com/
+
+# marketplace.visualstudio.com 有时需要登录才返回 200
+^https://marketplace\.visualstudio\.com/
+
+# VS Code 文档有时重定向或需要浏览器 UA
+^https://code\.visualstudio\.com/docs/
+
+# GitHub Docs（通过 GITHUB_TOKEN 检查，但偶发 429）
+^https://docs\.github\.com/
+
+# ── 忽略草稿/锚点内部链接 ──────────────────────────────────────────────────────
+# 文档内的 #heading 锚点链接（lychee 不解析 HTML 锚点）
+^#

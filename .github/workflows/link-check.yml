@@ -27,6 +27,9 @@ jobs:
           args: >-
             --verbose
             --no-progress
+            --timeout 10
+            --max-retries 3
+            --accept 200,429,403
             --exclude "komarev.com"
             --exclude "streak-stats.demolab.com"
             --exclude "github-readme-stats.vercel.app"
@@ -35,6 +38,15 @@ jobs:
             --exclude "capsule-render.vercel.app"
             --exclude "skillicons.dev"
             --exclude "raw.githubusercontent.com/njueeRay/njueeRay/output"
+            --exclude "marketplace.visualstudio.com"
+            --exclude "code.visualstudio.com/docs"
+            --exclude "docs.github.com"
+            --exclude "linkedin.com"
+            --exclude-path "claude-code-handbook.md"
+            --exclude-path "ClaudeCode最佳实践.md"
+            --exclude-path "ClaudeCode用法介绍.md"
+            --exclude-path "GitHub-Copilot-最佳实践.md"
+            --exclude-path "GitHub-Copilot-Agents-指南.md"
             '**/*.md'
           fail: true
         env:

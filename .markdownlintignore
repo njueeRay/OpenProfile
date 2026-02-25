@@ -1,0 +1,14 @@
+# markdownlint 忽略文件
+# 以下为参考文献/学习笔记，不属于 OpenProfile 项目输出，不纳入格式检查
+
+# Claude Code 参考文档（外部引入，格式不受控）
+claude-code-handbook.md
+ClaudeCode最佳实践.md
+ClaudeCode用法介绍.md
+
+# GitHub Copilot 参考文档（外部引入，格式不受控）
+GitHub-Copilot-最佳实践.md
+GitHub-Copilot-Agents-指南.md
+
+# Agent 定义文件（chatagent YAML 嵌套在代码块内，非标准 Markdown）
+.github/agents/*.agent.md
