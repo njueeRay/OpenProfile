@@ -124,12 +124,13 @@ njueeray/
 
 > 每次完成一次迭代后，将确认的设计决策记录在这里，避免 Agent 重复讨论
 
-- [ ] 整体色调（待决定）
-- [ ] Header 样式（待决定：capsule-render / 自定义图片 / typing SVG）
-- [ ] 统计组件（待决定：github-readme-stats 主题）
-- [ ] 技术栈展示方式（待决定：skill-icons / shields.io badges / 表格）
-- [ ] WakaTime 编程数据（需要提前注册账号：https://wakatime.com）
-- [ ] 开源项目 License（默认计划：MIT）
+- [x] **整体色调**：GitHub Dark (#0d1117 背景) + 蓝色强调 (#58a6ff / #00b4d8) + matrix green (merko 主题)
+- [x] **Header 样式**：capsule-render — waving 类型，深色渐变 (0:0d1117 → 100:1a1b27)，twinkling 动画
+- [x] **统计组件**：github-readme-stats merko 主题 + DemoLab streak tokyonight-duo 主题，无边框
+- [x] **技术栈展示**：skill-icons 深色版（py, cpp, ts, js, react, docker, git, linux）
+- [x] **WakaTime**：待接入（用户需注册 https://wakatime.com）
+- [x] **开源 License**：MIT（2026，njueeRay）
+- [x] **Profile README 自述格式**：JSON 代码块风格（anmol098 风格）
 
 ---
 
@@ -152,10 +153,23 @@ njueeray/
 
 ## 当前迭代状态
 
-**阶段：** 设计启动
-**个人信息：** ✅ 已确认
-**配置文件：** ✅ 已初始化
-**下一步：** `profile-designer` Agent 输出首版视觉设计方案
+**阶段：** 迭代一（Profile README + Astro 站点 v1）完成
+**个人信息：** ✅ 已确认  
+**配置文件：** ✅ 已初始化  
+
+**已完成：**
+- ✅ OpenProfile 仓库：https://github.com/njueeRay/OpenProfile
+- ✅ Astro 个人站点：https://github.com/njueeRay/njueeray.github.io（构建通过，等待用户开启 Pages）
+- ✅ Profile README：本地就绪，等待用户创建 `njueeRay/njueeRay` 仓库后推送
+
+**下一步（用户操作）：**
+1. 创建 GitHub 特殊仓库 `njueeRay/njueeRay`（名称必须与用户名完全一致，包括大小写）
+2. 前往 https://github.com/njueeRay/njueeray.github.io/settings/pages → Source → GitHub Actions
+
+**下一步（Agent）：**
+- 推送 Profile README 到 `njueeRay/njueeRay`
+- 接入 WakaTime（用户完成注册后）
+- Astro 站点增加 Projects / About 区块内容迭代
 
 ---
 

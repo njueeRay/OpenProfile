@@ -16,12 +16,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - 创建 `docs/design-decisions.md` 设计决策日志
 - 添加开源工程规范文件（CONTRIBUTING.md、CHANGELOG.md、LICENSE）
 - 添加 GitHub Issue 模板和 PR 模板
+- 推送 `njueeRay/OpenProfile` 仓库（AI-Native 工作流开源模板）
+- 推送 `njueeRay/njueeray.github.io` 仓库（Astro 4.x 个人简历站点）
+- 添加 `docs/meetings/2026-02-25-kickoff.md` 启动会议纪要
 
 ### Changed
-- N/A
+- Hero 组件优化：添加技术栈标签、zsh 风格提示符、GitHub 图标按钮
 
 ### Fixed
-- N/A
+- Astro 版本从 5.x 降级至 4.16.18（解决 `ohash@^2.0.11` 依赖缺失问题）
+- OpenProfile git 根目录修复（从父目录移动到独立仓库）
 
 ---
 
