@@ -27,11 +27,13 @@
 njueeray/
 ├── .github/
 │   ├── copilot-instructions.md        ← 本文件，全局指令
-│   ├── agents/                        ← 专项 Agent 团队
-│   │   ├── profile-designer.agent.md
-│   │   ├── content-writer.agent.md
-│   │   ├── researcher.agent.md
-│   │   └── qa-reviewer.agent.md
+│   ├── agents/                        ← 核心 Agent 团队（V2.0）
+│   │   ├── brain.agent.md             ← 战略协调（NEW）
+│   │   ├── pm.agent.md                ← 项目管理（NEW）
+│   │   ├── content-writer.agent.md    ← dev 角色（已更新）
+│   │   ├── researcher.agent.md        ← 技术调研
+│   │   ├── qa-reviewer.agent.md       ← code-reviewer 角色（已更新）
+│   │   └── profile-designer.agent.md  ← 专项：视觉规划
 │   ├── workflows/                     ← GitHub Actions：自动统计更新
 │   │   └── update-stats.yml           ← WakaTime / 贡献数据定时刷新
 │   ├── ISSUE_TEMPLATE/                ← 开源：Issue 模板
@@ -110,13 +112,15 @@ njueeray/
 - ⚠️ **破坏性变更**（重构整体布局、删除已有内容区块）
 - ⚠️ **开源决策**（是否公开某些内容、选择 License 类型）
 
-### Agent 团队分工
-| Agent | 权限级别 | 核心职责 |
-|-------|---------|----------|
-| `profile-designer` | 只读 + 决策 | 视觉方案规划、组件选型（有技术路径优先权） |
-| `content-writer` | 读写 | README.md 实际编写与迭代 |
-| `researcher` | 只读 | 外部资源调研、方案分析（不修改文件） |
-| `qa-reviewer` | 只读 + 诊断 | 质量审查、问题报告 |
+### Agent 团队分工（V2.0）
+| Agent | 文件 | 权限级别 | 核心职责 |
+|-------|------|---------|----------|
+| `brain` | `brain.agent.md` | 读写 + 决策 | 战略协调中枢，用户唯一汇报窗口 |
+| `pm` | `pm.agent.md` | 读写 + 规划 | Sprint 规划、DoD 执行、版本管理 |
+| `dev` | `content-writer.agent.md` | 读写 | 全栈实现（代码/文档/配置/CI） |
+| `researcher` | `researcher.agent.md` | 只读 | 技术调研，输出浓缩结论（不修改文件） |
+| `code-reviewer` | `qa-reviewer.agent.md` | 只读 + 诊断 | 七维度质量门禁，输出结构化审查报告 |
+| `profile-designer` | `profile-designer.agent.md` | 只读 + 决策 | 专项：视觉规划、组件选型（按需启用） |
 
 ---
 
@@ -155,36 +159,26 @@ njueeray/
 
 ## 当前迭代状态
 
-**阶段：** V2.0 规划完成，待执行
+**阶段：** V2.0 已完成，Agent 团队 V2.0 重构完成
 **个人信息：** ✅ 已确认
 **配置文件：** ✅ 已同步
 
-**V1.x 已完成：**
-- ✅ OpenProfile 仓库：https://github.com/njueeRay/OpenProfile
-- ✅ Astro 个人站点：https://github.com/njueeRay/njueeray.github.io（Pages 已启用）
-- ✅ Profile README 已上线：https://github.com/njueeRay/njueeRay
-- ✅ WakaTime Action + Secrets 已配置
-- ✅ 贡献蛇 Action 已上线（每日自动更新）
-- ✅ Activity Graph 已接入
-- ✅ Stats/Streak 主题统一（github_dark_dimmed / github-dark-blue）
-- ✅ 全项目强调色统一 #58a6ff
-- ✅ 全部文档同步至最新状态
+**V2.0 已完成（2026-02-25）：**
+- ✅ Phase A/B：Profile README 完整重写（双模 `<picture>` + 12 字段 JSON + Typing SVG）
+- ✅ Phase C：Astro 站点（Nav + Footer + ViewTransitions + Blog 系统，2 篇首发文章）
+- ✅ Phase D：CI（link-check + markdown-lint）+ .editorconfig + v1.0.0 Tag + CHANGELOG 拆分
+- ✅ Agent 团队 V2.0 重构：brain / pm / dev / code-reviewer 新增/更名
+- ✅ 团队核心资产沉淀：team-playbook.md + 复盘纪要
+- ✅ 文档同步：design-decisions.md + component-guide.md + agent-workflow.md
 
-**V2.0 目标：**
-从「组件陈列室」进化为「有叙事节奏的个人品牌页」
+**待用户操作：**
+- ⚠️ 审阅 Blog 首发文章（`src/content/blog/` 两篇）上线前内容确认
+- ⚠️ njueeray.github.io 实际构建验证（`npm run build`）
 
-**V2.0 待执行（Agent）：**
-- Profile README 结构重组 + Typing SVG 重定位
-- 浅色/暗色双模兼容（`<picture>` 标签）
-- Stats/Streak 并排布局 + WakaTime 折叠
-- Connect / Social 区块
-- Astro 站点多页改造（导航栏 + 页脚 + Blog）
-- CI 自动化（link-check + markdown-lint）
-- 打 v1.0.0 Tag + Release
-
-**V2.0 待执行（用户操作）：**
-- 确认是否公开联系方式（Email / LinkedIn）
-- 审阅 Blog 首发文章内容
+**下一迭代方向（V2.1 候选）：**
+- RSS Feed 支持
+- Blog 文章标签/分类系统
+- OpenGraph 图片自动生成
 
 ---
 
