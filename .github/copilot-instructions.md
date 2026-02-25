@@ -30,9 +30,9 @@ njueeray/
 │   ├── agents/                        ← 核心 Agent 团队（V2.0）
 │   │   ├── brain.agent.md             ← 战略协调（NEW）
 │   │   ├── pm.agent.md                ← 项目管理（NEW）
-│   │   ├── content-writer.agent.md    ← dev 角色（已更新）
+│   │   ├── dev.agent.md    ← dev 角色（已更新）
 │   │   ├── researcher.agent.md        ← 技术调研
-│   │   ├── qa-reviewer.agent.md       ← code-reviewer 角色（已更新）
+│   │   ├── code-reviewer.agent.md       ← code-reviewer 角色（已更新）
 │   │   └── profile-designer.agent.md  ← 专项：视觉规划
 │   ├── workflows/                     ← GitHub Actions：自动统计更新
 │   │   └── update-stats.yml           ← WakaTime / 贡献数据定时刷新
@@ -117,9 +117,9 @@ njueeray/
 |-------|------|---------|----------|
 | `brain` | `brain.agent.md` | 读写 + 决策 | 战略协调中枢，用户唯一汇报窗口 |
 | `pm` | `pm.agent.md` | 读写 + 规划 | Sprint 规划、DoD 执行、版本管理 |
-| `dev` | `content-writer.agent.md` | 读写 | 全栈实现（代码/文档/配置/CI） |
+| `dev` | `dev.agent.md` | 读写 | 全栈实现（代码/文档/配置/CI） |
 | `researcher` | `researcher.agent.md` | 只读 | 技术调研，输出浓缩结论（不修改文件） |
-| `code-reviewer` | `qa-reviewer.agent.md` | 只读 + 诊断 | 七维度质量门禁，输出结构化审查报告 |
+| `code-reviewer` | `code-reviewer.agent.md` | 只读 + 诊断 | 七维度质量门禁，输出结构化审查报告 |
 | `profile-designer` | `profile-designer.agent.md` | 只读 + 决策 | 专项：视觉规划、组件选型（按需启用） |
 
 ---
@@ -159,26 +159,43 @@ njueeray/
 
 ## 当前迭代状态
 
-**阶段：** V2.0 已完成，Agent 团队 V2.0 重构完成
+**阶段：** V3.0 规划完成，待执行
 **个人信息：** ✅ 已确认
 **配置文件：** ✅ 已同步
+**语言偏好：** ✅ 中文（所有原创内容默认中文，技术符号保持英文）
 
-**V2.0 已完成（2026-02-25）：**
+**V2.0 已完成（2026-02-25，tag: v2.0.0）：**
 - ✅ Phase A/B：Profile README 完整重写（双模 `<picture>` + 12 字段 JSON + Typing SVG）
-- ✅ Phase C：Astro 站点（Nav + Footer + ViewTransitions + Blog 系统，2 篇首发文章）
+- ✅ Phase C：Astro 站点（Nav + Footer + ViewTransitions + Blog 系统，2 篇中文首发文章）
 - ✅ Phase D：CI（link-check + markdown-lint）+ .editorconfig + v1.0.0 Tag + CHANGELOG 拆分
 - ✅ Agent 团队 V2.0 重构：brain / pm / dev / code-reviewer 新增/更名
 - ✅ 团队核心资产沉淀：team-playbook.md + 复盘纪要
 - ✅ 文档同步：design-decisions.md + component-guide.md + agent-workflow.md
 
-**待用户操作：**
-- ⚠️ 审阅 Blog 首发文章（`src/content/blog/` 两篇）上线前内容确认
-- ⚠️ njueeray.github.io 实际构建验证（`npm run build`）
+**V3.0 待执行（Phase X/Y/Z）：**
 
-**下一迭代方向（V2.1 候选）：**
-- RSS Feed 支持
-- Blog 文章标签/分类系统
-- OpenGraph 图片自动生成
+**Phase X — Astro 站点 SEO 地基**
+- `@astrojs/sitemap` → sitemap-index.xml 自动生成
+- `@astrojs/rss` → /rss.xml 可订阅
+- `BaseLayout.astro` PageMeta props（title / description / og）
+- 所有页面传入正确 meta
+- `src/pages/404.astro` 自定义 404 页面
+
+**Phase Y — Blog 标签系统**
+- content/config.ts tags 字段确认
+- `/blog/tags/` 标签云页面
+- `/blog/tags/[tag]` 标签过滤页面
+- blog/index.astro 标签筛选 UI
+- [slug].astro 文章页标签 pill
+
+**Phase Z — Profile README 新组件**
+- github-profile-3d-contrib Action（每日更新 SVG）
+- github-profile-trophy（darkhub 横排 6 个）
+- 3D 贡献图插入 Profile（`<details>` 折叠）
+- Profile 页脚添加 RSS 订阅 badge
+
+**待用户确认：**
+- ⚠️ 确认授权后 dev 立即推进 Phase X
 
 ---
 
@@ -211,4 +228,4 @@ njueeray/
 - [ ] 会议纪要已存档至 `docs/meetings/`
 - [ ] commit message 遵循语义化格式
 - [ ] 所有外部链接可达（无 git.io 短链、无 404）
-- [ ] qa-reviewer 已完成审查并输出报告
+- [ ] code-reviewer 已完成审查并输出报告
