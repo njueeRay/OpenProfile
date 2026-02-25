@@ -1,10 +1,4 @@
 {
-  // ===== GitHub Copilot 核心设置 =====
-
-  // 在 Agent 模式下启用 MCP 服务器
-  "chat.mcp.enabled": true,
-
-  // 允许 Copilot 自动执行某些终端命令（无需每次确认）
   "github.copilot.chat.agent.terminal.allowList": {
     // ✅ 允许的只读/安全命令（不修改文件/系统）
     "git status": true,
@@ -52,5 +46,6 @@
   },
 
   // ===== 推荐的工作区扩展（安装后团队成员自动获得提示）=====
-  "extensions.ignoreRecommendations": false
+  "extensions.ignoreRecommendations": false,
+  "chat.mcp.access": "all"
 }

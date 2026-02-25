@@ -9,6 +9,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### Added
+- Profile README 区块顺序重组（V2.0 新顺序）
+- Profile README 添加 `<picture>` 双模（暗/亮）兼容：Header / Footer / Stats / Streak / Activity Graph / Skill Icons / Featured / 贡献蛇
+- Profile README JSON 自述扩展至 12 字段 + 英文叙事段
+- Profile README Typing SVG 文案改为个人身份标签
+- Profile README WakaTime 改为 `<details>` 折叠区块，附 fallback 说明
+- Profile README 新增 🤝 Connect with Me 区块（Portfolio + GitHub + OpenProfile badge）
+- Profile README 新增页面浏览计数器（komarev.com）
+- Profile README 新增三处 capsule-render 渐变分隔线
+
+---
+
+## [1.0.0] — 2026-02-25
+
+### Added
 - 初始化项目目录结构
 - 创建 `.github/copilot-instructions.md` 主指令文件
 - 创建 `.github/agents/` 专项 Agent 团队（profile-designer、content-writer、researcher、qa-reviewer）
@@ -53,11 +67,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 | v0.3.0 | 视觉升级：Header 动画 + 技术栈图标 | ✅ 完成 |
 | v0.4.0 | 动态数据：WakaTime + Activity Graph + 贡献蛇 | ✅ 完成 |
 | v1.0.0 | 迭代一完成：全组件上线 + 文档同步 + 开源发布 | ✅ 完成 |
-| **v2.0.0** | **V2.0：叙事重构 + 浅色兼容 + Astro 多页 + CI** | 🔄 规划中 |
+| **v2.0.0** | **V2.0：叙事重构 + 浅色兼容 + Astro 多页 + CI** | 🏗️ 进行中 |
 
 ---
 
-<!-- 版本链接（待打 v1.0.0 tag 后启用）
 [Unreleased]: https://github.com/njueeRay/OpenProfile/compare/v1.0.0...HEAD
 [1.0.0]: https://github.com/njueeRay/OpenProfile/releases/tag/v1.0.0
--->

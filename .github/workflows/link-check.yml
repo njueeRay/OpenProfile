@@ -1,0 +1,41 @@
+name: Link Check
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.md'
+  pull_request:
+    branches: [main]
+    paths:
+      - '**.md'
+  schedule:
+    # 每周一 UTC 02:00 定时检查
+    - cron: '0 2 * * 1'
+  workflow_dispatch:
+
+jobs:
+  lychee:
+    runs-on: ubuntu-latest
+    name: Check links
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Lychee link checker
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --verbose
+            --no-progress
+            --exclude "komarev.com"
+            --exclude "streak-stats.demolab.com"
+            --exclude "github-readme-stats.vercel.app"
+            --exclude "github-readme-activity-graph.vercel.app"
+            --exclude "readme-typing-svg.demolab.com"
+            --exclude "capsule-render.vercel.app"
+            --exclude "skillicons.dev"
+            --exclude "raw.githubusercontent.com/njueeRay/njueeRay/output"
+            '**/*.md'
+          fail: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

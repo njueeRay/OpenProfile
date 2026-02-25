@@ -1,0 +1,31 @@
+# EditorConfig: https://editorconfig.org
+# 适用于三个子项目（njueeRay-profile / njueeray.github.io / OpenProfile）
+
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = space
+indent_size = 2
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.md]
+# Markdown 行尾空格有特殊含义（<br>），不裁剪
+trim_trailing_whitespace = false
+
+[*.{yml,yaml}]
+indent_size = 2
+
+[*.json]
+indent_size = 2
+
+[*.{ts,js,astro,tsx,jsx}]
+indent_size = 2
+
+[*.py]
+indent_size = 4
+
+[*.cpp]
+indent_size = 4

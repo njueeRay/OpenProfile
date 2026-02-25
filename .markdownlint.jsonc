@@ -1,0 +1,19 @@
+{
+  // https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md
+  "default": true,
+
+  // MD013: Line length — 关闭（badge URL / 表格内容常超限）
+  "MD013": false,
+
+  // MD033: Inline HTML — 关闭（Profile README 大量使用 <div> / <picture>）
+  "MD033": false,
+
+  // MD041: First line should be top-level heading — 关闭（部分文件以图片开头）
+  "MD041": false,
+
+  // MD024: No duplicate headings — 仅在同一父节点下限制
+  "MD024": { "siblings_only": true },
+
+  // MD029: Ordered list item prefix — 允许有序列表使用连续编号
+  "MD029": { "style": "ordered" }
+}
