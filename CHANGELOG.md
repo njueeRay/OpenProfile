@@ -37,6 +37,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - OpenProfile git 根目录修复（从父目录移动到独立仓库）
 - Profile README git.io 短链修复 → 直接使用完整 URL
 
+### Docs
+- 全量同步 6 份过时文档（design-decisions、meeting minutes、agent-workflow、component-guide、README、CONTRIBUTING）
+- copilot-instructions.md 设计选择同步至实际状态
+- CHANGELOG 版本规划表修正
+
 ---
 
 ## 版本规划
@@ -44,14 +49,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 | 版本 | 目标 | 状态 |
 |------|------|------|
 | v0.1.0 | 项目初始化：目录结构 + Agent 配置 | ✅ 完成 |
-| v0.2.0 | 首版 README：基础信息 + Stats 组件 | 🔄 进行中 |
-| v0.3.0 | 视觉升级：Header 动画 + 技术栈图标 | ⏸️ 待开始 |
-| v0.4.0 | 动态数据：WakaTime 编程统计 | ⏸️ 待开始 |
-| v1.0.0 | 开源发布：完整文档 + 组件指南 | ⏸️ 待开始 |
+| v0.2.0 | 首版 README：基础信息 + Stats 组件 | ✅ 完成 |
+| v0.3.0 | 视觉升级：Header 动画 + 技术栈图标 | ✅ 完成 |
+| v0.4.0 | 动态数据：WakaTime + Activity Graph + 贡献蛇 | ✅ 完成 |
+| v1.0.0 | 迭代一完成：全组件上线 + 文档同步 + 开源发布 | ✅ 完成 |
+| **v2.0.0** | **V2.0：叙事重构 + 浅色兼容 + Astro 多页 + CI** | 🔄 规划中 |
 
 ---
 
-<!-- 版本链接（待发布第一个 tag 后取消注释）
-[Unreleased]: https://github.com/njueeray/njueeray/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/njueeray/njueeray/releases/tag/v0.1.0
+<!-- 版本链接（待打 v1.0.0 tag 后启用）
+[Unreleased]: https://github.com/njueeRay/OpenProfile/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/njueeRay/OpenProfile/releases/tag/v1.0.0
 -->

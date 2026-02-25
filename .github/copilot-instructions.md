@@ -124,11 +124,13 @@ njueeray/
 
 > 每次完成一次迭代后，将确认的设计决策记录在这里，避免 Agent 重复讨论
 
-- [x] **整体色调**：GitHub Dark (#0d1117 背景) + 蓝色强调 (#58a6ff / #00b4d8) + matrix green (merko 主题)
+- [x] **整体色调**：GitHub Dark (#0d1117 背景) + 蓝色强调 (#58a6ff) —— 已废弃 #00b4d8
 - [x] **Header 样式**：capsule-render — waving 类型，深色渐变 (0:0d1117 → 100:1a1b27)，twinkling 动画
-- [x] **统计组件**：github-readme-stats merko 主题 + DemoLab streak tokyonight-duo 主题，无边框
+- [x] **统计组件**：github-readme-stats `github_dark_dimmed` 主题 + DemoLab streak `github-dark-blue` 主题，无边框 —— 已废弃 merko / tokyonight-duo
 - [x] **技术栈展示**：skill-icons 深色版（py, cpp, ts, js, react, docker, git, linux）
-- [x] **WakaTime**：待接入（用户需注册 https://wakatime.com）
+- [x] **WakaTime**：✅ 已接入 — anmol098/waka-readme-stats Action + 用户已配置 Secrets
+- [x] **贡献蛇**：✅ Platane/snk v3，每日 UTC 12:00 更新，暗色版 SVG
+- [x] **Activity Graph**：✅ github-readme-activity-graph，github-compact 主题 + area fill
 - [x] **开源 License**：MIT（2026，njueeRay）
 - [x] **Profile README 自述格式**：JSON 代码块风格（anmol098 风格）
 
@@ -153,21 +155,36 @@ njueeray/
 
 ## 当前迭代状态
 
-**阶段：** 迭代一（Profile README + Astro 站点 v1）完成
-**个人信息：** ✅ 已确认  
-**配置文件：** ✅ 已初始化  
+**阶段：** V2.0 规划完成，待执行
+**个人信息：** ✅ 已确认
+**配置文件：** ✅ 已同步
 
-**已完成：**
+**V1.x 已完成：**
 - ✅ OpenProfile 仓库：https://github.com/njueeRay/OpenProfile
 - ✅ Astro 个人站点：https://github.com/njueeRay/njueeray.github.io（Pages 已启用）
 - ✅ Profile README 已上线：https://github.com/njueeRay/njueeRay
+- ✅ WakaTime Action + Secrets 已配置
+- ✅ 贡献蛇 Action 已上线（每日自动更新）
+- ✅ Activity Graph 已接入
+- ✅ Stats/Streak 主题统一（github_dark_dimmed / github-dark-blue）
+- ✅ 全项目强调色统一 #58a6ff
+- ✅ 全部文档同步至最新状态
 
-**下一步（用户操作）：**
-- WakaTime Action 就绪：向 `njueeRay/njueeRay` 仓库添加 2 个 Secrets（见下方手册）
+**V2.0 目标：**
+从「组件陈列室」进化为「有叙事节奏的个人品牌页」
 
-**下一步（Agent）：**
-- Astro 站点增加导航栏 / 页面键盘导航
-- Profile README 接入 lowlighter/metrics 等距日历插件（可选）
+**V2.0 待执行（Agent）：**
+- Profile README 结构重组 + Typing SVG 重定位
+- 浅色/暗色双模兼容（`<picture>` 标签）
+- Stats/Streak 并排布局 + WakaTime 折叠
+- Connect / Social 区块
+- Astro 站点多页改造（导航栏 + 页脚 + Blog）
+- CI 自动化（link-check + markdown-lint）
+- 打 v1.0.0 Tag + Release
+
+**V2.0 待执行（用户操作）：**
+- 确认是否公开联系方式（Email / LinkedIn）
+- 审阅 Blog 首发文章内容
 
 ---
 
@@ -185,3 +202,19 @@ njueeray/
 - ⚠️ 准备执行**破坏性变更**（重构布局、删除区块）前，先描述影响范围
 - ⚠️ 涉及**隐私信息**的内容是否应该公开
 - ⚠️ **开源内容**是否符合用户预期
+
+---
+
+## 迭代完成检查项（DoD Checklist）
+
+> 每次迭代收尾时，逐条确认以下事项，全部 ✅ 后才算迭代完成。
+
+- [ ] `CHANGELOG.md` 已更新（Added / Changed / Fixed 按实际变更填写）
+- [ ] `docs/design-decisions.md` 中新决策已记录（含日期和理由）
+- [ ] `docs/component-guide.md` 中新组件已补充（含参数和用法）
+- [ ] 本文件「已决定的设计选择」已同步
+- [ ] 本文件「当前迭代状态」已更新
+- [ ] 会议纪要已存档至 `docs/meetings/`
+- [ ] commit message 遵循语义化格式
+- [ ] 所有外部链接可达（无 git.io 短链、无 404）
+- [ ] qa-reviewer 已完成审查并输出报告
