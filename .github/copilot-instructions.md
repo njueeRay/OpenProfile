@@ -159,17 +159,13 @@ njueeray/
 
 **已完成：**
 - ✅ OpenProfile 仓库：https://github.com/njueeRay/OpenProfile
-- ✅ Astro 个人站点：https://github.com/njueeRay/njueeray.github.io（构建通过，等待用户开启 Pages）
-- ✅ Profile README：本地就绪，等待用户创建 `njueeRay/njueeRay` 仓库后推送
-
-**下一步（用户操作）：**
-1. 创建 GitHub 特殊仓库 `njueeRay/njueeRay`（名称必须与用户名完全一致，包括大小写）
-2. 前往 https://github.com/njueeRay/njueeray.github.io/settings/pages → Source → GitHub Actions
+- ✅ Astro 个人站点：https://github.com/njueeRay/njueeray.github.io（Pages 已启用）
+- ✅ Profile README 已上线：https://github.com/njueeRay/njueeRay
 
 **下一步（Agent）：**
-- 推送 Profile README 到 `njueeRay/njueeRay`
 - 接入 WakaTime（用户完成注册后）
 - Astro 站点增加 Projects / About 区块内容迭代
+- Profile README 接入 WakaTime Weekly Stats 区块
 
 ---
 
