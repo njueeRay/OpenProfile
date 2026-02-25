@@ -162,10 +162,12 @@ njueeray/
 - ✅ Astro 个人站点：https://github.com/njueeRay/njueeray.github.io（Pages 已启用）
 - ✅ Profile README 已上线：https://github.com/njueeRay/njueeRay
 
+**下一步（用户操作）：**
+- WakaTime Action 就绪：向 `njueeRay/njueeRay` 仓库添加 2 个 Secrets（见下方手册）
+
 **下一步（Agent）：**
-- 接入 WakaTime（用户完成注册后）
-- Astro 站点增加 Projects / About 区块内容迭代
-- Profile README 接入 WakaTime Weekly Stats 区块
+- Astro 站点增加导航栏 / 页面键盘导航
+- Profile README 接入 lowlighter/metrics 等距日历插件（可选）
 
 ---
 

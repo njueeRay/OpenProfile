@@ -19,13 +19,23 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - 推送 `njueeRay/OpenProfile` 仓库（AI-Native 工作流开源模板）
 - 推送 `njueeRay/njueeray.github.io` 仓库（Astro 4.x 个人简历站点）
 - 添加 `docs/meetings/2026-02-25-kickoff.md` 启动会议纪要
+- Profile README 接入 WakaTime（anmol098/waka-readme-stats）
+- Profile README 接入 Contribution Snake（Platane/snk）
+- Profile README 接入 Activity Graph（github-readme-activity-graph）
+- Astro 站点 About 区块填入 LLM Engineer 叙事文案
+- Astro 站点 Projects 区块填入 3 个真实项目数据
 
 ### Changed
+- Profile README Stats/Streak 主题统一为 `github_dark_dimmed` / `github-dark-blue`（解决撞色问题）
+- Profile README Featured：MediaCrawler → wechat_article_exporter
+- Astro 站点强调色统一为 `#58a6ff`（与 Profile README 品牌一致）
 - Hero 组件优化：添加技术栈标签、zsh 风格提示符、GitHub 图标按钮
+- Projects 组件：fork 标签使用黄色差异化样式
 
 ### Fixed
 - Astro 版本从 5.x 降级至 4.16.18（解决 `ohash@^2.0.11` 依赖缺失问题）
 - OpenProfile git 根目录修复（从父目录移动到独立仓库）
+- Profile README git.io 短链修复 → 直接使用完整 URL
 
 ---
 
