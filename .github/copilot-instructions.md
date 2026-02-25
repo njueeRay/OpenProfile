@@ -178,6 +178,7 @@ njueeray/
 - ✅ OpenProfile SVG LOGO 设计（assets/logo.svg，终端风格，58a6ff 品牌色）
 - ✅ README.md 全面重写（259 行，开源社区版：Why/Features/Roadmap/Contributing）
 - ✅ 开源战略文档：docs/open-source-strategy.md
+- ✅ `docs/team-playbook.md` 全面重写（524 行，基于复盘 #003 全员决议）— 会话连续性协议、执行管道、CI 先行、七维度 QG、Pre-flight 清单
 
 **V3.0 待执行（Phase X/Y/Z）：**
 

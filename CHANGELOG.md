@@ -8,6 +8,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Changed
+- `docs/team-playbook.md` 全面重写（524 行，18.6KB）— 基于复盘会议 #003 全员决议
+  - 新增 § 会话连续性协议（Session Open / Close 标准操作流程）
+  - 新增 § 任务执行管道（Pre-flight Research + Implementation Plan 规范）
+  - 新增 § CI 先行原则（含 CI 建立时机与基础套件）
+  - 新增 § 七维度质量门（code-reviewer 输出格式标准化）
+  - 新增 § 新项目 Pre-flight 清单（四类检查项）
+  - 新增 § 升级路径（Escalation Path）与反模式警示
+  - 完善角色边界表（绝不做的事）、信息单一来源表、核心资产迁移清单
+
 ---
 
 ## [2.0.0] — 2026-02-25
