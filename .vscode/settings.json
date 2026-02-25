@@ -1,0 +1,56 @@
+{
+  // ===== GitHub Copilot 核心设置 =====
+
+  // 在 Agent 模式下启用 MCP 服务器
+  "chat.mcp.enabled": true,
+
+  // 允许 Copilot 自动执行某些终端命令（无需每次确认）
+  "github.copilot.chat.agent.terminal.allowList": {
+    // ✅ 允许的只读/安全命令（不修改文件/系统）
+    "git status": true,
+    "git log": true,
+    "git diff": true,
+    "git branch": true,
+    "cat": true,
+    "ls": true,
+    "dir": true,
+    "echo": true,
+    "curl --head": true,
+    "curl -I": true,
+
+    // ✅ 允许的构建/检查命令
+    "npm run build": true,
+    "npm run lint": true,
+    "npm test": true,
+    "markdownlint": true,
+
+    // ❌ 危险命令（不在此列表，需要手动确认）
+    // rm -rf, git push --force, sudo 等
+  },
+
+  // ===== 编辑器设置 =====
+
+  // Markdown 文件使用软换行（适合 README 编辑）
+  "[markdown]": {
+    "editor.wordWrap": "on",
+    "editor.rulers": [120],
+    "editor.quickSuggestions": {
+      "other": "on",
+      "comments": "off",
+      "strings": "off"
+    }
+  },
+
+  // 启用 GitHub Markdown 预览扩展（需要安装 shd101wyy.markdown-preview-enhanced）
+  "markdown-preview-enhanced.previewTheme": "github-dark.css",
+
+  // ===== 文件排除设置 =====
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/node_modules": true
+  },
+
+  // ===== 推荐的工作区扩展（安装后团队成员自动获得提示）=====
+  "extensions.ignoreRecommendations": false
+}

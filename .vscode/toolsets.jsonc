@@ -1,0 +1,43 @@
+{
+  // 工具集定义：控制不同 Agent 可以使用的工具范围
+  // 参考：https://code.visualstudio.com/docs/copilot/agents/agent-tools#_tool-sets
+
+  "readonly": {
+    // 只读工具集：用于调研和审查类 Agent（researcher、qa-reviewer）
+    "description": "只读操作：代码库浏览、网络搜索和资源获取",
+    "tools": [
+      "codebase",    // 语义搜索代码库
+      "fetch",       // 获取远程 URL 内容
+      "search",      // Bing/GitHub 搜索
+      "problems"     // 读取编辑器错误和警告
+    ]
+  },
+
+  "writer": {
+    // 写入工具集：用于内容撰写类 Agent（content-writer）
+    "description": "读写操作：在 readonly 基础上增加文件编辑能力",
+    "tools": [
+      "codebase",
+      "fetch",
+      "search",
+      "problems",
+      "editFiles",   // 创建和修改文件
+      "findTestFiles"
+    ]
+  },
+
+  "runner": {
+    // 运行工具集：完整权限（通常只给 profile-designer 的高级操作使用）
+    "description": "完整工具集：在 writer 基础上增加终端执行能力",
+    "tools": [
+      "codebase",
+      "fetch",
+      "search",
+      "problems",
+      "editFiles",
+      "findTestFiles",
+      "runCommands",    // 执行终端命令（需配合 auto-approve 规则）
+      "runTasks"        // 运行 VS Code Tasks
+    ]
+  }
+}

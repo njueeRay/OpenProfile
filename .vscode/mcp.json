@@ -1,0 +1,21 @@
+{
+  // MCP 服务器配置
+  // 参考：https://code.visualstudio.com/docs/copilot/agents/mcp-servers
+
+  "servers": {
+    // GitHub MCP：用于查询仓库信息、README 结构、工作流状态等
+    "github": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/",
+      "gallery": true
+    },
+
+    // Fetch MCP：用于抓取参考主页、组件文档等外部资源
+    "fetch": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": ["mcp-server-fetch"],
+      "env": {}
+    }
+  }
+}
