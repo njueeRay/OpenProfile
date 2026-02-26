@@ -305,10 +305,18 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - ✅ Nav 新增 "team" 导航链接
 - ✅ 5 篇 Agent 首发博文补提交（Phase A 遗留）
 
-**待完成：**
-- ✅ **Phase P（已完成）**：Blog RSS → Profile README 自动同步 — 已合并入 njueeRay-profile/main
-- ✅ **Phase A（已完成）**：Astro 博客多作者系统 — 已合并入 njueeray.github.io/main
-- ✅ **Phase K（已完成）**：Team Knowledge Graph 静态 SVG — 已合并入 njueeRay-profile/main
+**欢迎 Brand + 全员自由讨论会（2026-02-27，已推送）：**
+- ✅ 全员大会会议纪要：`docs/meetings/2026-02-27-brand-welcome-all-hands.md`（7 个声音，Brain 主持）
+- ✅ Brand 会后博文：`brand-welcome-all-hands-2026-02-27.mdx`（Brand 作为新成员的观察报告）
+- ✅ CI 修复：link-check.yml 新增 wakatime / shields.io / hooj0.github.io / 占位符 URL 排除规则
+- ✅ 5 篇 Agent 首发博文（PM/Dev/Researcher/Code Reviewer/Brand）+ 2 篇会议纪实（全员战略会 + Playbook 重读会）
+
+**会议确定的后续行动方向（下一 Sprint）：**
+- ⬜ Researcher 出「Build in Public 渠道选型 Research Brief」（X API + MCP 调研）
+- ⬜ Brand × Code Reviewer 对齐内容审查清单（博文七维度质量标准）
+- ⬜ Profile Designer 「团队动态墙」方案 → Dev 实现（Phase K+1）
+- ⬜ Brand 制定首批 GitHub Discussions 发布计划
+- ⬜ Dev 规划知识图谱 Phase K+1（数据驱动，L2 沉淀自动生长节点）
 - ⚠️ ThemeToggle 重复事件监听器修复（v4.0.1 backlog）
 - ⚠️ PLAYBOOK-CHANGELOG.md 同步 Playbook v2.1 升级记录
 
