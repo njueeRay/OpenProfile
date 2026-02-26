@@ -122,6 +122,27 @@ njueeray/
 | `code-reviewer` | `code-reviewer.agent.md` | 只读 + 诊断 | 七维度质量门禁，输出结构化审查报告 |
 | `profile-designer` | `profile-designer.agent.md` | 只读 + 决策 | 专项：视觉规划、组件选型（按需启用） |
 
+### 版本总览
+
+| 层级 | 当前版本 | 维护位置 |
+|------|----------|----------|
+| L1 项目 | `v3.0.0` | `CHANGELOG.md` + GitHub Tag |
+| L2 Playbook | `Playbook v2.0` | `PLAYBOOK-CHANGELOG.md` + `team-playbook.md` 头部 |
+| L3 Agent | 各 `v1.0` | 各 Agent 文件 `agentVersion` 字段 |
+
+### 团队能力快照
+
+> **新接手者读这张表即知当前团队状态。** Brain 维护，每次团队变化时更新。
+
+| Agent | 版本 | 核心能力 | 权限级别 | 依赖工具 | 已知局限 |
+|-------|------|----------|----------|----------|----------|
+| `brain` | v1.0 | 战略规划、任务分派、跨角色协调、用户汇报 | 读写 + 决策 | codebase, editFiles, fetch, search, problems, runCommands | 不写业务代码 |
+| `pm` | v1.0 | Sprint 规划、DoD 执行、版本发布、CHANGELOG 维护 | 读写 + 规划 | codebase, editFiles | 不写业务代码、不做技术决策 |
+| `dev` | v1.0 | 全语言全栈实现（Python/TS/Astro/YAML/Shell/Markdown） | 读写 | codebase, editFiles, fetch, search, runCommands | 不做架构决策、不做最终审查 |
+| `researcher` | v1.0 | 技术调研、方案分析、浓缩摘要输出 | 只读 | fetch, search, codebase | 不修改任何文件 |
+| `code-reviewer` | v1.0 | 七维度质量门禁、结构化审查报告 | 只读 + 诊断 | codebase, fetch, search, problems | 不修改文件、只输出报告 |
+| `profile-designer` | v1.0 | GitHub Profile 视觉规划、组件选型 | 只读 + 决策 | fetch, search, codebase | 按需启用，不写实现代码 |
+
 ---
 
 ## 已决定的设计选择
@@ -159,7 +180,7 @@ njueeray/
 
 ## 当前迭代状态
 
-**阶段：** V3.0 已发布 (tag: v3.0.0)
+**阶段：** V4.0 开发中（Phase V 版本体系独立化 + Phase W Astro 站点深化 + Phase P Profile 深化）
 **个人信息：** ✅ 已确认
 **配置文件：** ✅ 已同步
 **语言偏好：** ✅ 中文（所有原创内容默认中文，技术符号保持英文）

@@ -1,6 +1,7 @@
 ﻿```chatagent
 ---
 name: dev
+agentVersion: v1.0
 description: 全栈实现专家，将规划方案转化为实际代码。支持任何语言（Python/TypeScript/Markdown/YAML/Astro/Shell等）。设计或规划确认后用它。
 tools: ['codebase', 'editFiles', 'fetch', 'search', 'runCommands']
 handoffs:

@@ -1,6 +1,7 @@
 ```chatagent
 ---
 name: brain
+agentVersion: v1.0
 description: 战略大脑，团队协调中枢，用户的唯一汇报点。所有新任务、复杂决策、跨角色协调都从这里开始。
 tools: ['codebase', 'editFiles', 'fetch', 'search', 'problems', 'runCommands']
 model: claude-sonnet-4.5

@@ -1,5 +1,6 @@
 ---
 name: researcher
+agentVersion: v1.0
 description: 技术调研员，专注信息收集和方案分析。调研外部资源时用它，不修改任何文件。
 tools: ['fetch', 'search', 'codebase']
 user-invokable: true

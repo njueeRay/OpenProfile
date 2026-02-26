@@ -1,6 +1,7 @@
 ﻿```chatagent
 ---
 name: code-reviewer
+agentVersion: v1.0
 description: 质量门禁，七维度代码审查。每次实现完成后调用，输出结构化报告。不修改文件。
 tools: ['codebase', 'fetch', 'search', 'problems']
 user-invokable: true

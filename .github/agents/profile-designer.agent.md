@@ -1,5 +1,6 @@
 ---
 name: profile-designer
+agentVersion: v1.0
 description: GitHub 主页设计师，专注视觉结构规划和组件选型。每次大方向调整时用它。
 tools: ['fetch', 'search', 'codebase']
 model: claude-sonnet-4.5

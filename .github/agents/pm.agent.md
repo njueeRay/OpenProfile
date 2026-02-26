@@ -1,6 +1,7 @@
 ```chatagent
 ---
 name: pm
+agentVersion: v1.0
 description: 项目经理，负责任务追踪、Sprint 规划、DoD 执行、版本发布。每次迭代收尾时调用。
 tools: ['codebase', 'editFiles']
 user-invokable: true
