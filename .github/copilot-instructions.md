@@ -157,7 +157,7 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - ⚠️ **破坏性变更**（重构整体布局、删除已有内容区块）
 - ⚠️ **开源决策**（是否公开某些内容、选择 License 类型）
 
-### Agent 团队分工（V2.0）
+### Agent 团队分工（V2.1）
 | Agent | 文件 | 权限级别 | 核心职责 |
 |-------|------|---------|----------|
 | `brain` | `brain.agent.md` | 读写 + 决策 | 战略协调中枢，用户唯一汇报窗口 |
@@ -166,13 +166,14 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 | `researcher` | `researcher.agent.md` | 只读 | 技术调研，输出浓缩结论（不修改文件） |
 | `code-reviewer` | `code-reviewer.agent.md` | 只读 + 诊断 | 七维度质量门禁，输出结构化审查报告 |
 | `profile-designer` | `profile-designer.agent.md` | 只读 + 决策 | 专项：视觉规划、组件选型（按需启用） |
+| `brand` | `brand.agent.md` | 读写（内容）+ 品牌决策 | 团队品牌运营、Build in Public、内容发布策略 |
 
 ### 版本总览
 
 | 层级 | 当前版本 | 维护位置 |
 |------|----------|----------|
 | L1 项目 | `v4.0.0` | `CHANGELOG.md` + GitHub Tag |
-| L2 Playbook | `Playbook v2.0` | `PLAYBOOK-CHANGELOG.md` + `team-playbook.md` 头部 |
+| L2 Playbook | `Playbook v2.1` | `PLAYBOOK-CHANGELOG.md` + `team-playbook.md` 头部 |
 | L3 Agent | 各 `v1.0` | 各 Agent 文件 `agentVersion` 字段 |
 
 ### 团队能力快照
@@ -187,6 +188,7 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 | `researcher` | v1.0 | 技术调研、方案分析、浓缩摘要输出 | 只读 | fetch, search, codebase | 不修改任何文件 |
 | `code-reviewer` | v1.0 | 七维度质量门禁、结构化审查报告 | 只读 + 诊断 | codebase, fetch, search, problems | 不修改文件、只输出报告 |
 | `profile-designer` | v1.0 | GitHub Profile 视觉规划、组件选型 | 只读 + 决策 | fetch, search, codebase | 按需启用，不写实现代码 |
+| `brand` | v1.0 | 品牌运营、内容策略、Build in Public、社媒发布 | 读写（内容）+ 品牌决策 | editFiles, fetch, GitHub API | 不写技术代码、不做技术决策 |
 
 ---
 
@@ -281,10 +283,20 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - ✅ LangToggle.astro + 双语博文 `ai-native-person-paradigm.mdx` 发布（njueeray.github.io a898edb）
 - ✅ 会议纪要：自由思想交流会 + AI-native 峰会 + Playbook 重读对齐会
 
+**v4.0 会话补充 — Worktree 工作流 + 团队品牌化（2026-02-27，已推送）：**
+- ✅ Git Worktree 并行工作流完整跑通（创建→任务→汇报→合并→清理）
+- ✅ `worktree-context.md` 约定写入团队规范
+- ✅ Co-authorship `.gitmessage` 模板三仓库全部配置
+- ✅ **Brand Agent 正式加入团队**（`brand.agent.md`，品牌运营 + Build in Public）
+- ✅ **§14 L2 知识库正式落地**（`.github/agents/knowledge/`，五个 Agent 各一份 patterns.md）
+- ✅ 全体战略会议纪要（2026-02-27-all-hands-strategic.md）记录三大路线图：Phase P / A / K
+
 **待完成：**
 - ⚠️ **Phase P（P0）**：Blog RSS → Profile README 自动同步 Action（njueeray-profile 仓库）
+- ⚠️ **Phase A（P1）**：Astro 博客多作者系统（author frontmatter + `/blog/authors/` 路由 + 首批 Agent 博文）
+- ⚠️ **Phase K（P2）**：Team Knowledge Graph 静态 SVG 原型 → Profile README
 - ⚠️ ThemeToggle 重复事件监听器修复（v4.0.1 backlog）
-- ⚠️ PLAYBOOK-CHANGELOG.md 同步 Playbook v2.0→v2.1 升级记录
+- ⚠️ PLAYBOOK-CHANGELOG.md 同步 Playbook v2.1 升级记录
 
 ---
 
@@ -336,3 +348,4 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 | 2026-02-25 | 新增 | `pm` | 创建 pm.agent.md，Sprint 规划与版本发布 | 复盘 #003：无 PM 导致任务状态追踪混乱 |
 | 2026-02-25 | 改造 | `dev` | 由 content-writer 泛化为全栈 dev，覆盖任意语言 | 复盘 #003：原名称限制了职责认知范围 |
 | 2026-02-25 | 改造 | `code-reviewer` | 泛化为全语言质量门，不限于 Markdown | 复盘 #003：质量职责应覆盖所有产出物 |
+| 2026-02-27 | 新增 | `brand` | 创建 brand.agent.md，品牌运营 + Build in Public + 内容发布 | 全体战略会议：团队需要对外可见的声音层 |

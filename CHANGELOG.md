@@ -8,6 +8,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Added
+- `.github/agents/brand.agent.md` — Brand Agent 正式加入团队（品牌运营 + Build in Public + 内容发布策略）
+- `.github/agents/knowledge/` — §14 L2 知识库正式落地（brain / pm / dev / researcher / code-reviewer 各一份 patterns.md + README 索引）
+- `docs/meetings/2026-02-27-all-hands-strategic.md` — 全体战略会议纪要（Worktree 流程 + Agent 博客栏目设计 + 知识图谱路线图 + 三大 Phase P/A/K）
+
+### Changed
+- `.github/copilot-instructions.md` — 同步 brand Agent、知识库路径、三大路线图、团队进化记录、Worktree 完整规范
+
 ### Docs
 - `README.md` 全面更新至 v4.0.0 状态：修正 Agent 文件路径（`content-writer` → `dev`，`qa-reviewer` → `code-reviewer`）、补充 3D 贡献图/Trophy/RSS/博客标签/AI-native philosophy 功能亮点、Roadmap 全部版本标记为 Released（包含 v4.0.0 条目）、profile-designer Agent 补入 Agent 团队表
 - `docs/meetings/2026-02-26-free-brainstorm.md` — 团队自由思想交流会（阶段性成果庆典 + 无界畅想，v4.0.0 发布后）
