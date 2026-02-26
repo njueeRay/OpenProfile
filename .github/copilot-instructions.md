@@ -126,7 +126,7 @@ njueeray/
 
 | 层级 | 当前版本 | 维护位置 |
 |------|----------|----------|
-| L1 项目 | `v3.0.0` | `CHANGELOG.md` + GitHub Tag |
+| L1 项目 | `v4.0.0` | `CHANGELOG.md` + GitHub Tag |
 | L2 Playbook | `Playbook v2.0` | `PLAYBOOK-CHANGELOG.md` + `team-playbook.md` 头部 |
 | L3 Agent | 各 `v1.0` | 各 Agent 文件 `agentVersion` 字段 |
 
@@ -180,7 +180,7 @@ njueeray/
 
 ## 当前迭代状态
 
-**阶段：** V4.0 开发中（Phase V 版本体系独立化 + Phase W Astro 站点深化 + Phase P Profile 深化）
+**阶段：** v4.0.0 已发布（Phase V 版本体系独立化 ✅ + Phase W Astro 站点深化 ✅）— Phase P Profile 深化待执行，V5.0 规划中
 **个人信息：** ✅ 已确认
 **配置文件：** ✅ 已同步
 **语言偏好：** ✅ 中文（所有原创内容默认中文，技术符号保持英文）

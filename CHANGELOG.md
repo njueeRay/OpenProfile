@@ -8,24 +8,36 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Docs
+- `docs/meetings/2026-02-26-free-brainstorm.md` — 团队自由思想交流会（阶段性成果庆典 + 无界畅想，v4.0.0 发布后）
+
+---
+
+## [4.0.0] — 2026-02-26
+
+> **三层版本体系独立化（Playbook v2.0）+ Astro 站点体验深化**  
+> **Playbook 版本**：Playbook v2.0（见 PLAYBOOK-CHANGELOG.md）  
+> code-reviewer: `APPROVED`
+
 ### Added
 
-#### V4.0 Phase V — 版本体系独立化（Playbook v2.0）
+#### Phase V — 版本体系独立化（Playbook v2.0）
 - `PLAYBOOK-CHANGELOG.md` — 独立 L2 Playbook 变更日志，解耦项目版本
 - 三层版本体系规范（L1 Project / L2 Playbook / L3 Agent）写入 `team-playbook.md` §18
 - 6 个 Agent 文件全部新增 `agentVersion: v1.0` 元数据
 - `copilot-instructions.md` 新增版本总览表 + 团队能力快照卡
 - `team-playbook.md` §13.3 招募决策树 + §17.3 冷启动阶段 3 能力评估 + 附录 C Agent 快照卡格式
 
-#### V4.0 Phase W — Astro 站点体验深化
+#### Phase W — Astro 站点体验深化（njueeray.github.io）
 - **W-1 Pagefind 全站搜索** — `Search.astro` 搜索弹窗 + Ctrl+K 快捷键 + Nav 搜索按钮
 - **W-2 暗色/亮色主题切换** — `ThemeToggle.astro` + localStorage 持久化 + 系统偏好跟随 + `:root[data-theme="light"]` CSS 变量
 - **W-3 阅读进度条** — `ReadingProgress.astro`，博客文章顶部 3px 强调色进度条
 - **W-4 博客目录 TOC** — `TableOfContents.astro`，右侧边栏 + IntersectionObserver 高亮 + 平滑滚动
-- **W-5 Giscus 评论系统** — `Giscus.astro`，绑定 njueeray.github.io GitHub Discussions (Announcements)，支持主题联动
+- **W-5 Giscus 评论系统** — `Giscus.astro`，绑定 njueeray.github.io GitHub Discussions (Announcements)，支持主题联动；GitHub Discussions 已启用，Repo ID 已配置
 
 ### Docs
 - `docs/meetings/2026-02-26-v4-planning.md` — V4.0 全体规划会议纪要（三层版本体系决议 + Phase V/W/P 执行计划）
+- `docs/design-decisions.md` — 补录 V3.0 SEO/标签决策 + V4.0 站点增强 + 版本体系设计决策
 
 ---
 
