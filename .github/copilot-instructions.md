@@ -89,6 +89,31 @@ njueeray/
 8. **commit message 使用语义化格式**：`feat/fix/docs/style/chore: 描述`
 9. **不向主分支直接推送破坏性更改**，走 PR + Agent 审查流程
 
+### 并行工作约定（Git Worktree）
+
+**活跃 Worktree：**
+
+| 目录 | 分支 | 职责 |
+|------|------|------|
+| `OpenProfile/` | `main` | 主线：profile + 个人主页持续开发 |
+| `OpenProfile-readme/` | `feature/readme-update` | 专项：README 文档更新 |
+
+**Worktree 操作规范：**
+- 新开专项任务时：`git worktree add -b feature/<name> ..\<dir> main`
+- 专项完成后：在主窗口 `git merge feature/<name>`，然后 `git worktree remove ..\<dir>`
+- 跨 worktree **禁止** checkout 到对方分支（会占用冲突）
+
+### Co-authorship 约定
+
+所有由 Copilot Agent 协作完成的提交，**必须**在 commit message 末尾附加：
+
+```
+Co-authored-by: GitHub Copilot <copilot@github.com>
+```
+
+已通过 `.gitmessage` 模板自动注入（三个仓库均已配置 `commit.template`）。
+`git commit`（不带 `-m`）时自动弹出带模板的编辑器；`git commit -m` 时需手动追加。
+
 ---
 
 ## 个人信息（供 Agent 参考）
