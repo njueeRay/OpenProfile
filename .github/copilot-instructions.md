@@ -100,7 +100,9 @@ njueeray/
 
 **Worktree 操作规范：**
 - 新开专项任务时：`git worktree add -b feature/<name> ..\<dir> main`
-- 专项完成后：在主窗口 `git merge feature/<name>`，然后 `git worktree remove ..\<dir>`
+- 同步创建 `.github/worktree-context.md`（任务目标 + DoD + 汇报模板），提交到 feature 分支
+- 专项完成后，用以下提示触发主窗口合并：`feature/<name> worktree 任务已完成。变更摘要：[…] 请执行合并流程。`
+- 主窗口执行：`git merge feature/<name>` → `git push origin main` → `git worktree remove` → `git branch -d`
 - 跨 worktree **禁止** checkout 到对方分支（会占用冲突）
 
 ### Co-authorship 约定
