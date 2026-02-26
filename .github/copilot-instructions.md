@@ -159,7 +159,7 @@ njueeray/
 
 ## 当前迭代状态
 
-**阶段：** V3.0 已发布（Playbook 项目无关化，可移植团队方法论）
+**阶段：** V3.0 开发中（Playbook 已完成可移植化，Phase X/Y/Z 待执行）
 **个人信息：** ✅ 已确认
 **配置文件：** ✅ 已同步
 **语言偏好：** ✅ 中文（所有原创内容默认中文，技术符号保持英文）
@@ -172,7 +172,7 @@ njueeray/
 - ✅ 团队核心资产沉淀：team-playbook.md + 复盘纪要
 - ✅ 文档同步：design-decisions.md + component-guide.md + agent-workflow.md
 
-**V3.0 已完成（2026-02-26，tag: v3.0.0）：**
+**Playbook 深化（2026-02-26，已合入 [Unreleased]）：**
 - ✅ Playbook 项目无关化重构（清除全部 OpenProfile 特定引用）
 - ✅ §12 新团队接手协议 + §13 团队自主进化
 - ✅ §4.5 Emoji Commit + §5.4 版本自主决策权

@@ -8,11 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
----
-
-## [3.0.0] — 2026-02-26
-
-> **里程碑：Playbook 从项目绑定文档升级为可移植的团队方法论框架。**
+> Playbook 从项目绑定文档升级为可移植的团队方法论框架。
 
 ### Added
 - `docs/team-playbook.md` 新增 §12 新团队接手协议（Project Onboarding Protocol）
@@ -54,8 +50,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - §16 品牌化视觉语言改为由 Brain 根据项目定位决定
   - §16.5 "Built with Copilot" badge 由必选改为可选
   - 尾部修订记录精简为版本号 + 日期，历史修订迁入 CHANGELOG
-- Playbook 版本标识更新为 v3.0.0
-- `copilot-instructions.md` 迭代状态更新（Playbook 完整版 v3）
+- Playbook 版本标识更新
+- `copilot-instructions.md` 迭代状态更新
 
 ---
 
@@ -141,11 +137,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 | v0.4.0 | 动态数据：WakaTime + Activity Graph + 贡献蛇 | ✅ 完成 |
 | v1.0.0 | 迭代一完成：全组件上线 + 文档同步 + 开源发布 | ✅ 完成 |
 | **v2.0.0** | **V2.0：叙事重构 + 浅色兼容 + Astro 多页 + CI + Agent 团队重构** | ✅ 完成 |
-| **v3.0.0** | **V3.0：Playbook 项目无关化 + 17 章节完整版 + 可移植团队方法论** | ✅ 完成 |
+| v3.0.0 | V3.0：SEO 地基 + Blog 标签系统 + Profile 新组件 + Playbook 可移植化 | 🚧 进行中 |
 
 ---
 
-[Unreleased]: https://github.com/njueeRay/OpenProfile/compare/v3.0.0...HEAD
-[3.0.0]: https://github.com/njueeRay/OpenProfile/compare/v2.0.0...v3.0.0
+[Unreleased]: https://github.com/njueeRay/OpenProfile/compare/v2.0.0...HEAD
 [2.0.0]: https://github.com/njueeRay/OpenProfile/compare/v1.0.0...v2.0.0
 [1.0.0]: https://github.com/njueeRay/OpenProfile/releases/tag/v1.0.0
