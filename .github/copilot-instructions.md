@@ -296,6 +296,15 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - ✅ **§14 L2 知识库正式落地**（`.github/agents/knowledge/`，五个 Agent 各一份 patterns.md）
 - ✅ 全体战略会议纪要（2026-02-27-all-hands-strategic.md）记录三大路线图：Phase P / A / K
 
+**团队进化可视化（2026-02-27，已推送）：**
+- ✅ 团队进化可视化设计会（2026-02-27-team-evolution-design.md）
+- ✅ `/team` 页面上线 — Git Graph 风格垂直时间线（15 个里程碑 + 5 色节点 + 滚动渐显）
+- ✅ `src/data/team-evolution.ts` 数据驱动：新事件只需追加数据
+- ✅ Playbook 迭代档案（可折叠 v2.1 / v2.0 / v1.0）
+- ✅ 团队成员 Grid 入口（链接到 /blog/authors/[agent]）
+- ✅ Nav 新增 "team" 导航链接
+- ✅ 5 篇 Agent 首发博文补提交（Phase A 遗留）
+
 **待完成：**
 - ✅ **Phase P（已完成）**：Blog RSS → Profile README 自动同步 — 已合并入 njueeRay-profile/main
 - ✅ **Phase A（已完成）**：Astro 博客多作者系统 — 已合并入 njueeray.github.io/main
