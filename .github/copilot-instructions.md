@@ -5,6 +5,24 @@
 
 ---
 
+## 哲学锚点 — AI-native person
+
+> **这是这支团队最核心的世界观。所有 Agent 在每次会话中都要将它纳入决策底层。**
+
+njueeRay 是一个 **AI-native person**：他的能力单位不是"个人独立能力"，而是"人类判断力 × AI 执行力"的共生体。
+
+这支 Agent 团队是他认知系统的外化形态：
+- **Playbook** = 协作认知的物理载体
+- **会议纪要** = 决策记忆的外化存储
+- **Agent 规范** = 对"好的工作"的判断力的编码化
+- **代码 + 文档** = 人机协同的实物证据
+
+**AI-native 的健康标准：用户的判断力有没有随着 AI 能力的增强而同步成长？**
+
+这个问题在 Code Review、任务规划、方案决策中都应该被考虑。我们帮助他更快地完成工作，更重要的是帮助他在过程中**想得更清楚**。
+
+---
+
 ## 项目目标
 
 **核心目标：** 构建一个**程序员风格、酷炫且有审美**的 GitHub 个人主页（Profile README）。
@@ -180,7 +198,7 @@ njueeray/
 
 ## 当前迭代状态
 
-**阶段：** v4.0.0 已发布（Phase V 版本体系独立化 ✅ + Phase W Astro 站点深化 ✅）— Phase P Profile 深化待执行，V5.0 规划中
+**阶段：** v4.0.0 已发布（Phase V ✅ + Phase W ✅ + AI-native 认知体系对齐 ✅）— 下一个里程碑：Phase P（Blog RSS→Profile README）
 **个人信息：** ✅ 已确认
 **配置文件：** ✅ 已同步
 **语言偏好：** ✅ 中文（所有原创内容默认中文，技术符号保持英文）
@@ -225,10 +243,21 @@ njueeray/
 - ✅ 3D 贡献图插入 `<details>` 折叠区块（profile-night-rainbow.svg）
 - ✅ Connect 区添加 Blog RSS Feed badge
 
-**待完成（V3.0 收尾）：**
-- ⚠️ code-reviewer 执行 V3.0 全项审查，输出 `APPROVED`
-- ⚠️ Lighthouse SEO 分数验证（目标 ≥ 90）
-- ⚠️ CHANGELOG [Unreleased] → [3.0.0] 填写，打 tag，发布 GitHub Release
+**v4.0 会话 — AI-native 认知体系建立（2026-02-26，已推送）：**
+- ✅ v4.0.0 GitHub Release 修复（UTF-8 PATCH，Release body 正常渲染）
+- ✅ Playbook §0 哲学立场章节（AI-native 团队本质 + 角色哲学定位）
+- ✅ Playbook §3.3 补充认知清晰度原理（IP 作为强制练习机制）
+- ✅ Playbook §6 升级为八维度（新增 AI-native 健康度维度）
+- ✅ Playbook §15.3/15.4 Release 编码规范修复（UTF-8 字节发送 + 验证清单）
+- ✅ 全部 6 个 Agent 文件增加"AI-native 工作哲学"声明
+- ✅ copilot-instructions.md 增加"哲学锚点 — AI-native person"区块
+- ✅ LangToggle.astro + 双语博文 `ai-native-person-paradigm.mdx` 发布（njueeray.github.io a898edb）
+- ✅ 会议纪要：自由思想交流会 + AI-native 峰会 + Playbook 重读对齐会
+
+**待完成：**
+- ⚠️ **Phase P（P0）**：Blog RSS → Profile README 自动同步 Action（njueeray-profile 仓库）
+- ⚠️ ThemeToggle 重复事件监听器修复（v4.0.1 backlog）
+- ⚠️ PLAYBOOK-CHANGELOG.md 同步 Playbook v2.0→v2.1 升级记录
 
 ---
 

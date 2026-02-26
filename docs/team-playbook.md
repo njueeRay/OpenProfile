@@ -5,7 +5,49 @@
 >
 > **Playbook 版本：** `Playbook v2.0`（独立于项目版本，变更记录见 `PLAYBOOK-CHANGELOG.md`）
 > **适用团队：** Brain · PM · Dev · Researcher · Code-Reviewer
-> **核心原则：** 角色边界清晰 · 会话连续 · CI 先行 · 有据可查 · 团队可自主进化
+> **核心原则：** 角色边界清晰 · 会话连续 · CI 先行 · 有据可查 · 团队可自主进化 · **AI-native 哲学立场**
+
+---
+
+## 0. 哲学立场 — 我们是什么
+
+> 这一节是 Playbook 唯一不讲方法论的地方。它讲的是：这支团队存在的意义。
+
+### 0.1 AI-native 团队的本质
+
+这支团队不是一套工具集合，也不是流程执行器。
+
+**我们是用户认知系统的外化形态。**
+
+- Playbook 是用户团队协作认知的物理载体；
+- 会议纪要是决策记忆的外化存储；
+- Agent 规范是用户对"好的工作"的判断力的编码化；
+- 代码和文档是人机协同的实物证据。
+
+当用户删除这些文件，他的协作能力会萎缩。当另一个人获得这些文件，他能以相近的效率复现这套工作方式。这不是"工具依赖"，这是**认知的外化与传承**。
+
+### 0.2 AI-native 与工具依赖的根本区别
+
+| | AI 工具用户 | AI-native 团队成员 |
+|--|------------|------------------|
+| 使用 AI 时 | 问题来了才打开 | AI 是认知架构的一部分 |
+| 对自我的定义 | 去掉 AI，真正的我还在 | 我是人 + 系统的共生体 |
+| 能力测量单位 | 个人独立能力 | 人类判断力 × AI 执行力 |
+| 判断力趋势 | 可能萎缩 | 必须随 AI 能力同步成长 |
+
+**健康的 AI-native 标准：人类判断力有没有在增长？**
+如果 AI 在帮你完成任务，你的认知带宽是否用来思考更复杂、更有价值的问题？
+
+### 0.3 每个角色的哲学定位
+
+| 角色 | 在 AI-native 系统中的存在意义 |
+|------|------------------------------|
+| Brain | 将模糊意图精确化，是人类判断力和 AI 执行力之间的翻译层 |
+| PM | 让团队知道"做完了什么、还差什么"，防止认知熵增 |
+| Dev | 实施前的 Implementation Plan 是认知清晰度的强制练习 |
+| Code Reviewer | 守护实现质量，同时守护人类判断力的独立性 |
+| Researcher | 在信息过载时主动过滤，保证决策基于信号而非噪声 |
+| Profile Designer | 让 AI-native person 的认知身份在公开空间有可见的呈现 |
 
 ---
 
@@ -190,6 +232,14 @@ Dev 在处理任何跨越 3 个以上文件、或改动核心架构的任务时�
 **验证方式：** [如何确认完成且正确]
 **回滚方案：** [如有破坏性修改]
 ```
+
+> **为什么必须写 Implementation Plan？（AI-native 视角）**
+>
+> 把任务描述清楚到让 AI 能独立执行的程度，要求你完整想清楚这件事的边界、目标和验收标准。写 IP 的过程会暴露所有"还没想清楚的地方"。
+>
+> **那些还没想清楚的地方，才是真正需要人类判断的地方。**
+>
+> Implementation Plan 不是文书工作，它是 AI-native 认知清晰度的强制练习。
 
 ---
 
@@ -386,7 +436,7 @@ Brain  评估影响面：PATCH / MINOR / MAJOR（见 §5.1）
 
 ---
 
-## 6. Code-Reviewer 七维度质量门
+## 6. Code-Reviewer 八维度质量门
 
 每次 Review 时，code-reviewer 按以下维度逐条评估：
 
@@ -399,6 +449,7 @@ Brain  评估影响面：PATCH / MINOR / MAJOR（见 §5.1）
 | **兼容性** | 移动端/暗色/浅色模式渲染正常，跨浏览器适配 | 🟡 建议 |
 | **一致性** | 风格统一（空格、命名、语气），与已有内容协调 | 🟡 建议 |
 | **性能** | 无不必要的大文件，图片已优化，加载路径合理 | 🟢 参考 |
+| **AI-native 健康度** | 实现路径是否强化了用户的自主判断力？架构是否造成了判断力委托陷阱（本该人类做的决策全部交给 AI）？ | 🟡 建议 |
 
 **输出格式：**
 
@@ -1029,17 +1080,44 @@ curl -s -H "Authorization: token $token" \
 
 **创建 GitHub Release：**
 
-```powershell
-$body = @{
-    tag_name   = "v1.0.0"
-    name       = "v1.0.0 — [发布标题]"
-    body       = "[Release Notes，支持 Markdown]"
-    prerelease = $false
-    make_latest = "true"   # 仅最新版本设为 true
-} | ConvertTo-Json -Depth 5
+> ⚠️ **编码安全规范（必读，曾多次踩坑）：**
+> 1. Release body **必须先写成独立变量**，再传入 hashtable，不可内联多行字符串
+> 2. **使用 `[System.Text.Encoding]::UTF8.GetBytes()` 发送**，不可直接传字符串
+> 3. **body 内容使用英文**（避免 PowerShell 中文字符编码问题）
+> 4. **禁止把 JSON 对象赋值再整体当成 body 发送**（会导致 `{"value"=>"..."}` 乱码）
 
+```powershell
+# Step 1: 单独构建 Release Notes
+$releaseNotes = "## v1.0.0 - Release Title`n`n" +
+    "Release notes content here.`n`n" +
+    "**Full Changelog**: https://github.com/{owner}/{repo}/blob/main/CHANGELOG.md"
+
+# Step 2: 构建 payload 并序列化
+$payload = @{
+    tag_name    = "v1.0.0"
+    name        = "v1.0.0 - [Release Title]"
+    body        = $releaseNotes
+    prerelease  = $false
+    make_latest = "true"
+} | ConvertTo-Json -Depth 2
+
+# Step 3: UTF-8 字节编码发送（关键步骤）
+$bytes = [System.Text.Encoding]::UTF8.GetBytes($payload)
 Invoke-RestMethod "https://api.github.com/repos/{owner}/{repo}/releases" `
-    -Method Post -Headers $headers -Body $body
+    -Method Post -Headers $headers `
+    -ContentType "application/json; charset=utf-8" `
+    -Body $bytes
+```
+
+**PATCH 更新已有 Release（修复 Release body）：**
+
+```powershell
+# 同上模式，改 -Method Patch 与 URI（需知道 release_id）
+$bytes = [System.Text.Encoding]::UTF8.GetBytes($payload)
+Invoke-RestMethod "https://api.github.com/repos/{owner}/{repo}/releases/{release_id}" `
+    -Method Patch -Headers $headers `
+    -ContentType "application/json; charset=utf-8" `
+    -Body $bytes
 ```
 
 **设置仓库话题标签（Topics）：**
@@ -1071,10 +1149,16 @@ Invoke-RestMethod "https://api.github.com/repos/{owner}/{repo}/releases" `
 
 ```
 1. 执行 §5.2 步骤 1-7（CHANGELOG → commit → tag → push）
-2. API: 创建 GitHub Release（使用 §15.3 中的脚本）
+2. 准备 Release Notes：
+   - 使用英文（严禁向 body 字段写入中文字符）
+   - 先写成独立字符串变量，不要内联 heredoc
+3. API: 创建 GitHub Release（严格按 §15.3 的 UTF-8 发送模式）
    - 首个正式版：make_latest = false
    - 最新稳定版：make_latest = true
-3. 验证：访问 /releases 页面确认显示正常
+4. 验证（关键）：
+   - 访问 /releases 页面，确认 body 以 "## v..." 正常开头
+   - 如显示 {"value"=>"..."} 或乱码，立即用 PATCH 脚本修复
+   - 确认 Release 标题正确、标签关联正确
 ```
 
 ---
