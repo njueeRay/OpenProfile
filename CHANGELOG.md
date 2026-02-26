@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### Docs
+- `README.md` 全面更新至 v4.0.0 状态：修正 Agent 文件路径（`content-writer` → `dev`，`qa-reviewer` → `code-reviewer`）、补充 3D 贡献图/Trophy/RSS/博客标签/AI-native philosophy 功能亮点、Roadmap 全部版本标记为 Released（包含 v4.0.0 条目）、profile-designer Agent 补入 Agent 团队表
 - `docs/meetings/2026-02-26-free-brainstorm.md` — 团队自由思想交流会（阶段性成果庆典 + 无界畅想，v4.0.0 发布后）
 - `docs/meetings/2026-02-26-ai-native-person-summit.md` — AI-native person 范式深度峰会（全员参与，涵盖认知革命历史坐标、判断力独立性风险、博文策略决策）
 - `docs/meetings/2026-02-26-playbook-reread-alignment.md` — Playbook 重读 + AI-native 认知对齐全员会议

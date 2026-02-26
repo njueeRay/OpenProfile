@@ -46,14 +46,15 @@ Most developer profiles are frozen in time  written once, then forgotten.
 
 ## Features
 
-- **Agent Team V2.0**  Brain, PM, Dev, and Code-Reviewer with formal handoff protocol
+- **Agent Team V2.0**  Brain, PM, Dev, Code-Reviewer and Researcher with formal handoff protocol
 - **One-file config**  All personal data lives in `.github/copilot-instructions.md`
 - **VS Code ready**  Toolset permissions and MCP server wired out of the box
-- **Dynamic stats**  WakaTime, Contribution Snake, Activity Graph, GitHub Stats
-- **Astro blog**  Full personal site at [njueeray.github.io](https://njueeray.github.io)
+- **Dynamic stats**  WakaTime, Contribution Snake, Activity Graph, GitHub Stats, 3D Contributions
+- **GitHub Trophy**  `github-profile-trophy` achievement badges (darkhub theme, 1×6 layout)
+- **Astro blog**  Full personal site at [njueeray.github.io](https://njueeray.github.io) with RSS feed, blog tag system, and bilingual posts
+- **AI-native philosophy**  Team playbook encodes the AI-native person paradigm; full agent capability snapshots
 - **CI/CD**  Link checker (Lychee) and Markdown linter on every push
 - **Team docs**  Design decisions, component guide, meeting minutes, team playbook
-- **Living roadmap**  V3.0 already in planning: SEO, RSS, blog tags, 3D contributions
 
 ---
 
@@ -83,9 +84,10 @@ You (set the goal)
 |-------|------|------|
 | `brain` | [`.github/agents/brain.agent.md`](.github/agents/brain.agent.md) | Strategic coordinator; synthesizes project context |
 | `pm` | [`.github/agents/pm.agent.md`](.github/agents/pm.agent.md) | Sprint planner; writes task breakdowns |
-| `dev` | [`.github/agents/content-writer.agent.md`](.github/agents/content-writer.agent.md) | Full-stack implementer; Markdown, Astro, SVG |
-| `code-reviewer` | [`.github/agents/qa-reviewer.agent.md`](.github/agents/qa-reviewer.agent.md) | Pre-merge validator; 7-dimension checklist |
+| `dev` | [`.github/agents/dev.agent.md`](.github/agents/dev.agent.md) | Full-stack implementer; Markdown, Astro, SVG, YAML, Shell |
+| `code-reviewer` | [`.github/agents/code-reviewer.agent.md`](.github/agents/code-reviewer.agent.md) | Pre-merge validator; 8-dimension checklist |
 | `researcher` | [`.github/agents/researcher.agent.md`](.github/agents/researcher.agent.md) | Intel officer; deep dives without burning context |
+| `profile-designer` | [`.github/agents/profile-designer.agent.md`](.github/agents/profile-designer.agent.md) | Visual architect; component selection & layout planning |
 
 ---
 
@@ -139,7 +141,7 @@ I want to redesign my profile header. Think strategically.
 Or jump straight to implementation:
 
 ```
-@workspace #file:.github/agents/content-writer.agent.md
+@workspace #file:.github/agents/dev.agent.md
 Add a Currently Building section with a WakaTime stats integration.
 ```
 
@@ -164,10 +166,10 @@ OpenProfile/
 |   +-- agents/
 |   |   +-- brain.agent.md          <- Strategic coordinator
 |   |   +-- pm.agent.md             <- Sprint planner
-|   |   +-- content-writer.agent.md <- Full-stack implementer
+|   |   +-- dev.agent.md            <- Full-stack implementer
+|   |   +-- code-reviewer.agent.md  <- Pre-merge quality gate (8-dim)
 |   |   +-- researcher.agent.md     <- Research-only Agent
-|   |   +-- qa-reviewer.agent.md    <- Pre-merge quality gate
-|   |   +-- profile-designer.agent.md  <- Visual architect
+|   |   +-- profile-designer.agent.md  <- Visual architect (on-demand)
 |   +-- workflows/
 |   |   +-- link-check.yml          <- Lychee link validator
 |   |   +-- markdown-lint.yml       <- Markdown style linter
@@ -196,9 +198,10 @@ OpenProfile/
 
 | Version | Status | Highlights |
 |---------|--------|-----------|
-| v1.0.0 | Released | Foundation: agent team, CI, dynamic stats |
-| v2.0.0 | Released | Agent V2.0 (Brain/PM), Astro blog, CI hardening |
-| v3.0.0 | In Progress | SEO (sitemap, RSS, OG meta), blog tag filters, 3D contributions |
+| v1.0.0 | ✅ Released | Foundation: agent team, CI, dynamic stats |
+| v2.0.0 | ✅ Released | Agent V2.0 (Brain/PM), Astro blog, CI hardening |
+| v3.0.0 | ✅ Released | SEO (sitemap, RSS, OG meta), blog tag filters, 3D contributions, Trophy |
+| v4.0.0 | ✅ Released | Three-tier versioning, Playbook v2.0, Astro search/theme/TOC/comments, AI-native philosophy |
 
 See the [Releases page](https://github.com/njueeRay/OpenProfile/releases) and [CHANGELOG.md](CHANGELOG.md) for full version history.
 
