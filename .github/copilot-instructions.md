@@ -96,7 +96,8 @@ njueeray/
 | 目录 | 仓库 | 分支 | 职责 |
 |------|------|------|------|
 | `OpenProfile/` | OpenProfile | `main` | 协调中枢（本窗口）|
-| `njueeray-kg/` | njueeRay-profile | `feature/knowledge-graph` | Phase K：Team Knowledge Graph |
+
+**Phase P + Phase A + Phase K 已并入 main**。`njueeRay-rss/` 、`njueeray-blog-authors/` 、`njueeray-kg/` 关闭 VS Code 窗口后手动删除目录即可。
 
 **Phase P + Phase A 已并入 main**。`njueeRay-rss/` 和 `njueeray-blog-authors/` 关闭 VS Code 窗口后手动删除目录即可。
 
@@ -231,7 +232,7 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 
 ## 当前迭代状态
 
-**阶段：** v4.0.0 已发布（Phase V ✅ + Phase W ✅ + AI-native 认知体系对齐 ✅）— 下一个里程碑：Phase P（Blog RSS→Profile README）
+**阶段：** v4.0.0 已发布（Phase V ✅ + Phase W ✅ + AI-native 认知体系对齐 ✅）— Phase P ✅ + Phase A ✅ + Phase K ✅ 全部完成
 **个人信息：** ✅ 已确认
 **配置文件：** ✅ 已同步
 **语言偏好：** ✅ 中文（所有原创内容默认中文，技术符号保持英文）
@@ -298,7 +299,7 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 **待完成：**
 - ✅ **Phase P（已完成）**：Blog RSS → Profile README 自动同步 — 已合并入 njueeRay-profile/main
 - ✅ **Phase A（已完成）**：Astro 博客多作者系统 — 已合并入 njueeray.github.io/main
-- 🔄 **Phase K（进行中）**：Team Knowledge Graph 静态 SVG → Profile README — worktree: `njueeray-kg/`
+- ✅ **Phase K（已完成）**：Team Knowledge Graph 静态 SVG — 已合并入 njueeRay-profile/main
 - ⚠️ ThemeToggle 重复事件监听器修复（v4.0.1 backlog）
 - ⚠️ PLAYBOOK-CHANGELOG.md 同步 Playbook v2.1 升级记录
 
