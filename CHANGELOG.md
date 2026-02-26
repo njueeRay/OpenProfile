@@ -8,45 +8,54 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
-### Changed
+---
+
+## [3.0.0] — 2026-02-26
+
+> **里程碑：Playbook 从项目绑定文档升级为可移植的团队方法论框架。**
+
+### Added
 - `docs/team-playbook.md` 新增 §12 新团队接手协议（Project Onboarding Protocol）
   - 四阶段流程：静默阅读 → 对齐会议 → 状态报告 → 团队适配
   - 各角色阅读清单与私有笔记格式
   - 对齐会议纪要模板 + 项目状态报告输出格式
 - `docs/team-playbook.md` 新增 §13 团队自主进化（Team Self-Evolution）
   - Brain 确立为团队架构师：可自主招募/改造/停用 Agent
-  - Brain 确立为 `copilot-instructions.md` 唯一责任人，含三个固定操作时机
-  - 新 Agent 文件最小结构规范
-  - 改造现有 Agent 的步骤规范
-  - 进化记录（Evolution Log）表格标准
-- `docs/team-playbook.md` 头部更新版本原则（新增"团队可自主进化"）
-- `.github/copilot-instructions.md` 新增 Brain 自主权限（招募/改造/所有权）
-- `.github/copilot-instructions.md` 新增「团队进化记录」区块，回溯 V2.0 团队建立历史
-- `.github/copilot-instructions.md` 新增"削减核心 Agent 职责须告知用户"条目
+  - Brain 确立为 `copilot-instructions.md` 唯一责任人
+  - 新 Agent 文件最小结构规范 + 改造步骤 + 进化记录表
 - `docs/team-playbook.md` 新增 §4.5 Emoji Commit 倡议
-  - 15 种 emoji 与 commit 类型对照表（✨feat、🐛fix、📝docs 等）
-  - 标准格式规范与 5 条示例
+  - 15 种 emoji 与 commit 类型对照表 + 5 条示例
 - `docs/team-playbook.md` 新增 §5.4 团队自主版本决策权
-  - PM 主动识别的 4 条发版信号（Unreleased ≥5 / Sprint 完成 / 用户可见能力 / ≥2周未发版）
-  - Brain 版本提案标准格式模板
+  - PM 主动识别的 4 条发版信号 + Brain 版本提案标准格式
 - `docs/team-playbook.md` 新增 §14 Agent 经验沉淀机制
-  - L1/L2/L3 三层知识体系（原始观察/验证模式/核心原则）
-  - 各层存储路径、生命周期与升级触发时机
-  - 各角色沉淀重点与 L2 文件结构规范
+  - L1/L2/L3 三层知识体系 + 各角色沉淀重点 + L2 文件结构规范
 - `docs/team-playbook.md` 新增 §15 GitHub API 操作规范
-  - API vs CLI vs 手动操作的选择矩阵
-  - Windows PowerShell Token 提取标准方法
-  - 创建 Release / 设置 Topics / 更新描述的完整 PowerShell 脚本
-  - PM 的 Release 操作顺序清单
+  - API/CLI/手动选择矩阵 + 跨平台 Token 提取（PowerShell + Bash）
+  - 创建 Release / 设置 Topics / 更新描述的完整脚本
 - `docs/team-playbook.md` 新增 §16 开源项目品牌化规范
-  - 品牌化时机判断标准（4 条信号）
-  - Logo 设计规范（SVG，480×160，终端美学）
-  - 话题标签策略（技术/场景/理念三层）
-  - Badge 套件规范与执行角色分工
-- `docs/team-playbook.md` 附录 B 新增 3 条反模式
-  - 经验笔记不分级 → L1/L2/L3 分层（§14）
-  - 被动等待发版 → PM 主动监控信号（§5.4）
-  - 手动操作 GitHub 不留记录 → 封装为 API 脚本（§15）
+  - 品牌化时机判断 + Logo 规格 + 话题标签策略 + Badge 套件
+- `docs/team-playbook.md` 新增 §17 Playbook 定制指南
+  - 直接复用 vs 需定制的章节矩阵
+  - 零上下文冷启动协议（全新空白仓库）
+  - Playbook 版本管理策略
+- 附录 B 扩充 3 条新反模式（经验不分级 / 被动发版 / 手动操作不记录）
+- `docs/meetings/2026-02-26-v3-release-review.md` V3.0 发布前终审会议纪要
+- `.github/copilot-instructions.md` 新增 Brain 自主权限 + 团队进化记录区块
+
+### Changed
+- **Playbook 项目无关化重构（Breaking）：**
+  - 清除全部 OpenProfile 特定引用（§1.4/§4.3/§4.4/§7/§11）
+  - §4.3 Scope 改为通用 + 项目特定由 Brain 定制
+  - §4.5 Emoji 表去重，含义列引用 §4.2
+  - §9.2 docs/ 子文件夹名改为推荐示例
+  - §9.5 首次 commit 模板改为通用
+  - §15.2 补充 macOS/Linux Bash 等效命令
+  - §15.4 精简，核心步骤引用 §5.2
+  - §16 品牌化视觉语言改为由 Brain 根据项目定位决定
+  - §16.5 "Built with Copilot" badge 由必选改为可选
+  - 尾部修订记录精简为版本号 + 日期，历史修订迁入 CHANGELOG
+- Playbook 版本标识更新为 v3.0.0
+- `copilot-instructions.md` 迭代状态更新（Playbook 完整版 v3）
 
 ---
 
@@ -132,10 +141,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 | v0.4.0 | 动态数据：WakaTime + Activity Graph + 贡献蛇 | ✅ 完成 |
 | v1.0.0 | 迭代一完成：全组件上线 + 文档同步 + 开源发布 | ✅ 完成 |
 | **v2.0.0** | **V2.0：叙事重构 + 浅色兼容 + Astro 多页 + CI + Agent 团队重构** | ✅ 完成 |
-| v3.0.0 | V3.0：待规划 | 🗓️ 规划中 |
+| **v3.0.0** | **V3.0：Playbook 项目无关化 + 17 章节完整版 + 可移植团队方法论** | ✅ 完成 |
 
 ---
 
-[Unreleased]: https://github.com/njueeRay/OpenProfile/compare/v2.0.0...HEAD
+[Unreleased]: https://github.com/njueeRay/OpenProfile/compare/v3.0.0...HEAD
+[3.0.0]: https://github.com/njueeRay/OpenProfile/compare/v2.0.0...v3.0.0
 [2.0.0]: https://github.com/njueeRay/OpenProfile/compare/v1.0.0...v2.0.0
 [1.0.0]: https://github.com/njueeRay/OpenProfile/releases/tag/v1.0.0

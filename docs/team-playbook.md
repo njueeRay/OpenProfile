@@ -1,10 +1,10 @@
 ﻿# Team Playbook  AI-Native 团队协作手册
 
 > **本手册是团队最高优先级的核心资产。**
-> 它不绑定任何特定项目记录的是方法论、协同规范与共识，可随团队带入任意新项目。
+> 它不绑定任何特定项目——记录的是方法论、协同规范与共识，可随团队带入任意新项目。
 >
-> **最后更新：** 2026-02-26（新增 §12 接手协议 + §13 团队自主进化）
-> **适用版本：** Team V2.0（Brain · PM · Dev · Researcher · Code-Reviewer）
+> **版本：** v3.0.0（2026-02-26）
+> **适用团队：** Brain · PM · Dev · Researcher · Code-Reviewer
 > **核心原则：** 角色边界清晰 · 会话连续 · CI 先行 · 有据可查 · 团队可自主进化
 
 ---
@@ -56,7 +56,7 @@
 
 ### 1.4 角色边界的根本原则
 
-> **复盘会议 #003 教训：角色边界模糊是最大的效率损耗点。**
+> **核心教训：角色边界模糊是最大的效率损耗点。**
 
 - **Brain 不写代码**：Brain 负责"要做什么"，Dev 负责"怎么做"
 - **Dev 不定策略**：Dev 执行经 brain 和 pm 明确的任务，有疑问时向上升级（Escalate）
@@ -237,8 +237,8 @@ docs(playbook): add session continuity protocol
 chore(deps): pin astro to 4.16.18
 ```
 
-常用 Scope：`readme`  `astro`  `blog`  `ci`  `docs`  `agent`  `deps`  `config`  
-（项目可自定义扩展，约定后写入 copilot-instructions.md）
+通用 Scope：`docs`  `ci`  `agent`  `deps`  `config`  `readme`  
+（项目特定 Scope 由 Brain 在接手时写入 copilot-instructions.md，如 `blog`、`api`、`ui` 等）
 
 ### 4.4 多仓库 commit 约定
 
@@ -247,9 +247,9 @@ chore(deps): pin astro to 4.16.18
 ```
 feat(readme): restructure Profile README for V2.0
 
-Affects: njueeRay-profile, OpenProfile
-- Phase A: dual-mode <picture> header
-- Phase B: 12-field JSON identity + Typing SVG
+Affects: {repo-a}, {repo-b}
+- Phase A: [变更描述 1]
+- Phase B: [变更描述 2]
 ```
 
 ### 4.5 Emoji Commit 倡议
@@ -258,25 +258,25 @@ Affects: njueeRay-profile, OpenProfile
 
 在 `<type>` 前加一个 emoji，让 commit log 在视觉上一目了然。这不是强制规范，是**团队倡议**——鼓励使用，不因缺少 emoji 拒绝 PR。
 
-**与 §4.2 Type 的对应关系：**
+**与 §4.2 Type 的对应关系（含义详见 §4.2）：**
 
-| Emoji | Type | 含义 |
-|-------|------|------|
-| ✨ | `feat` | 新功能、新组件 |
-| 🐛 | `fix` | Bug 修复 |
-| 📝 | `docs` | 文档变更 |
-| ♻️ | `refactor` | 代码重构 |
-| 🎨 | `style` | 格式/排版（不影响逻辑） |
-| 🔧 | `chore` | 构建、配置、依赖 |
-| 👷 | `ci` | CI/CD 工作流 |
-| ⚡ | `perf` | 性能优化 |
-| ✅ | `test` | 测试相关 |
-| ⏪ | `revert` | 回滚 |
-| 🎉 | `chore(init)` | 项目初始化、首次提交 |
-| 🚀 | `docs(changelog)` | 版本发布 Release |
-| 🔒 | `fix(security)` | 安全修复 |
-| 🏷️ | — | 打 Tag、版本标记 |
-| 💡 | `docs` | 补充注释或说明 |
+| Emoji | Type |
+|-------|------|
+| ✨ | `feat` |
+| 🐛 | `fix` |
+| 📝 | `docs` |
+| ♻️ | `refactor` |
+| 🎨 | `style` |
+| 🔧 | `chore` |
+| 👷 | `ci` |
+| ⚡ | `perf` |
+| ✅ | `test` |
+| ⏪ | `revert` |
+| 🎉 | `chore(init)` |
+| 🚀 | `docs(changelog)` |
+| 🔒 | `fix(security)` |
+| 🏷️ | —（Tag） |
+| 💡 | `docs`（注释） |
 
 **示例：**
 
@@ -285,7 +285,7 @@ Affects: njueeRay-profile, OpenProfile
 🐛 fix(ci): exclude rate-limited domains from lychee
 📝 docs(playbook): add emoji commit guide
 🚀 docs(changelog): release v3.0.0
-🎉 chore(init): bootstrap project with OpenProfile template
+🎉 chore(init): bootstrap new project
 ```
 
 ---
@@ -421,7 +421,7 @@ Brain  评估影响面：PATCH / MINOR / MAJOR（见 §5.1）
 
 ## 7. CI 先行原则
 
-> **来自 code-reviewer 的铁律（复盘会议 #003）：**
+> **code-reviewer 铁律：**
 > *"CI 完全缺失时，所有质量依赖人的记忆。这不可接受。"*
 
 ### 7.1 CI 建立时机
@@ -495,7 +495,7 @@ Brain  评估影响面：PATCH / MINOR / MAJOR（见 §5.1）
 - [ ] `.editorconfig`  统一缩进、换行、编码
 - [ ] `.gitattributes`  强制 LF 换行，防 CRLF 污染
 - [ ] `CHANGELOG.md`  初始化，仅含 `[Unreleased]`
-- [ ] `docs/`  创建目录骨架（design-decisions / component-guide / agent-workflow / meetings/）
+- [ ] `docs/`  创建目录骨架（推荐：meetings/ + 项目所需的子目录，由 Brain 根据项目类型决定）
 - [ ] `CONTRIBUTING.md`  开源项目必备
 
 ### 9.3 CI 配置（第二个 commit 包含）
@@ -514,10 +514,10 @@ Brain  评估影响面：PATCH / MINOR / MAJOR（见 §5.1）
 ### 9.5 首次 commit 规范
 
 ```bash
-git commit -m "chore(init): bootstrap project with OpenProfile team template
+git commit -m "chore(init): bootstrap project with team playbook v3
 
 Team: brain  pm  dev  researcher  code-reviewer
-Template: OpenProfile vX.Y.Z"
+Playbook: vX.Y.Z"
 ```
 
 ---
@@ -947,20 +947,33 @@ Major 版本复盘（Brain 触发）：
 | 更新仓库描述 | API (`PATCH /repos/{owner}/{repo}`) | 同上 |
 | 普通 push/pull/tag | git CLI | 原生支持，无需 API |
 
-### 15.2 Token 获取（本地 PowerShell）
+### 15.2 Token 获取（本地环境）
+
+**Windows PowerShell：**
 
 ```powershell
-# 从 Git 凭据管理器提取（适用于已登录 GitHub 的 Windows 环境）
+# 从 Git 凭据管理器提取
 Set-Content "$env:TEMP\cred_input.txt" "protocol=https`nhost=github.com`n"
 $lines = Get-Content "$env:TEMP\cred_input.txt" | git credential fill
 $token = ($lines | Where-Object { $_ -like "password=*" }) -replace "password=",""
 
-# 设置通用请求头
 $headers = @{
     "Authorization" = "token $token"
     "Accept"        = "application/vnd.github.v3+json"
     "Content-Type"  = "application/json"
 }
+```
+
+**macOS / Linux (Bash)：**
+
+```bash
+# 从 Git 凭据管理器提取
+token=$(echo -e "protocol=https\nhost=github.com\n" | git credential fill | grep '^password=' | cut -d= -f2)
+
+# curl 请求示例
+curl -s -H "Authorization: token $token" \
+     -H "Accept: application/vnd.github.v3+json" \
+     https://api.github.com/repos/{owner}/{repo}/releases
 ```
 
 ### 15.3 标准操作速查
@@ -1005,15 +1018,14 @@ Invoke-RestMethod "https://api.github.com/repos/{owner}/{repo}/releases" `
 
 ### 15.4 PM 的 Release 操作清单
 
-发版时，PM 按以下顺序执行 API 操作（§5.2 流程完成后）：
+完成 §5.2 发布检查流程后，PM 追加 API 操作：
 
 ```
-1. git tag -a vX.Y.Z -m "Release vX.Y.Z"
-2. git push && git push --tags
-3. API: 创建 GitHub Release（tag_name + name + body）
-   - v1.0.0：make_latest = false
+1. 执行 §5.2 步骤 1-7（CHANGELOG → commit → tag → push）
+2. API: 创建 GitHub Release（使用 §15.3 中的脚本）
+   - 首个正式版：make_latest = false
    - 最新稳定版：make_latest = true
-4. 验证：访问 /releases 页面确认 Release 显示正常
+3. 验证：访问 /releases 页面确认显示正常
 ```
 
 ---
@@ -1044,7 +1056,7 @@ Invoke-RestMethod "https://api.github.com/repos/{owner}/{repo}/releases" `
 | **话题标签 Topics** | ✅ | 5-8 个，见 §16.4 |
 | **Badge 套件** | ✅ | Stars / License / Release / CI，见 §16.5 |
 | **品牌色** | ✅ | 在 `copilot-instructions.md` 中锁定 |
-| **字体标识** | 推荐 | README 中使用 Fira Code / JetBrains Mono + 品牌色 |
+| **字体标识** | 推荐 | 与项目调性匹配的字体 + 品牌色 |
 
 ### 16.3 Logo 设计规范
 
@@ -1053,11 +1065,11 @@ Invoke-RestMethod "https://api.github.com/repos/{owner}/{repo}/releases" `
 - 格式：SVG（可缩放，体积小）
 - 存储：`assets/logo.svg`，`assets/logo-square.svg`
 
-**视觉语言（AI-Native 开源项目参考）：**
-- 背景：深色（`#0d1117` GitHub Dark 或项目品牌深色）
-- 强调色：项目品牌色（如 `#58a6ff`）
-- 字体风格：等宽字体（`SFMono-Regular`, `Consolas`, `Courier New`）
-- 视觉元素：终端 / 代码风格（macOS 窗口点、光标动画、`$` 提示符）
+**视觉语言（由 Brain 根据项目定位决定）：**
+- 背景：深色（如 `#0d1117`）或浅色，视项目调性而定
+- 强调色：项目品牌色（在 copilot-instructions.md 中锁定）
+- 字体风格：与项目气质匹配（如工程项目用等宽字体，设计项目用无衬线字体）
+- 视觉元素：与项目领域相关的图标或风格
 
 **光标动画（可选，增加活力）：**
 
@@ -1087,8 +1099,13 @@ Invoke-RestMethod "https://api.github.com/repos/{owner}/{repo}/releases" `
 [![Forks](https://img.shields.io/github/forks/{owner}/{repo}?style=flat-square&color=58a6ff&logo=github)]()
 [![Latest Release](https://img.shields.io/github/v/release/{owner}/{repo}?style=flat-square&color=3fb950)]()
 [![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)]()
-[![Built with Copilot](https://img.shields.io/badge/Built%20with-GitHub%20Copilot-0078d4?style=flat-square&logo=github)]()
 [![CI](https://img.shields.io/github/actions/workflow/status/{owner}/{repo}/{workflow}.yml?style=flat-square&label=CI)]()
+```
+
+**可选 Badge（按需添加）：**
+
+```markdown
+[![Built with Copilot](https://img.shields.io/badge/Built%20with-GitHub%20Copilot-0078d4?style=flat-square&logo=github)]()
 ```
 
 **一句话描述位置：** Logo 图片下方，badges 上方，**加粗**显示。
@@ -1100,6 +1117,79 @@ Brain   → 决定品牌化时机，确认调性方向（深色/浅色，终端�
 dev     → 实现 SVG Logo，更新 README，通过 API 设置 Description 和 Topics
 code-reviewer → 验证 Logo 在 GitHub dark/light 双主题下的显示效果
 PM      → CHANGELOG 记录品牌化变更，触发相应版本号（通常 MINOR）
+```
+
+---
+
+## 17. Playbook 定制指南
+
+> **本章是 Brain 进入任何新项目时的第一份参考。**
+> Playbook 的设计目标是"拿走就能用"，但"拿走"不等于"一字不改"。
+> 以下规则明确了哪些部分原样复用、哪些部分需要定制。
+
+### 17.1 哪些直接复用（不改动）
+
+| 章节 | 理由 |
+|------|------|
+| §1 团队拓扑与角色边界 | 五角色模型是通用底座 |
+| §2 会话连续性协议 | 解决 context 清零的通用问题 |
+| §3 任务执行流程 | 标准执行管道适用于所有项目 |
+| §4 Commit 规范 | 语义化提交是工程通用实践 |
+| §5 版本发布规则 | SemVer + 发布流程通用 |
+| §6 Code-Reviewer 七维度 | 质量门适用于所有代码类项目 |
+| §7 CI 先行原则 | 通用工程原则 |
+| §8 会议体系 | 会议类型和纪要格式通用 |
+| §10 DoD 核查清单 | 质量保障通用 |
+| §12 接手协议 | 专为零上下文设计 |
+| §13 团队自主进化 | 适用于任何项目 |
+| §14 经验沉淀机制 | 知识管理通用 |
+| 附录 A/B | 通用反模式 + 升级路径 |
+
+### 17.2 哪些需要定制
+
+| 需定制项 | 定制方式 | 由谁定制 | 定制时机 |
+|---------|---------|---------|---------|
+| §4.3 Scope 约定 | 补充项目特有 scope 到 copilot-instructions.md | Brain | 接手时 |
+| §9 Pre-flight 清单 | 按实际项目类型勾选项 | Brain | 首次会话 |
+| §11 核心资产清单路径 | 更新为实际文件路径 | PM | 仓库初始化后 |
+| §15 API 操作 | 替换 `{owner}/{repo}` 为真实值 | Dev | 首次操作时 |
+| §16 品牌化 | 视觉语言、品牌色由 Brain 根据项目确定 | Brain | 品牌化时机 |
+
+### 17.3 零上下文冷启动协议
+
+**当进入一个全新的空白仓库时（无任何已有文件），Brain 按以下顺序建立全部上下文：**
+
+```
+阶段 0  信息收集（Brain 向用户提问，必须覆盖以下 4 项）
+         1. 项目类型和核心目标（一句话）
+         2. 主要受众（个人 / 团队 / 开源社区）
+         3. 技术栈偏好（语言 + 框架，或"由团队决定"）
+         4. 内容边界（哪些信息需要保密）
+
+阶段 1  骨架搭建（Dev 执行，Brain 审核）
+         → 按 §9 Pre-flight 建立仓库基础结构
+         → 创建 copilot-instructions.md（Brain 按 §13.2 结构编写）
+         → 复制核心 Agent 文件
+
+阶段 2  CI 建立（Dev 执行）
+         → 按 §7 CI 先行原则，第二个 commit 包含基础 CI
+
+阶段 3  首次架构会（Brain 主持）
+         → 全员参与架构启动会（§8.1）
+         → 输出 V1.x 执行计划
+         → PM 创建首个 Sprint 规划
+```
+
+### 17.4 Playbook 版本管理
+
+```
+本手册存放路径：docs/team-playbook.md
+更新周期：每次里程碑复盘会议后
+更新流程：Brain 起草修改方案 → 全体会议讨论 → PM 更新 CHANGELOG → 发版
+
+每个项目可以 fork 自己的 Playbook 副本。
+但是团队的核心方法论改进应回流到 Playbook 主版本。
+当团队同时服务多个项目时，Playbook 主版本以最新项目中的为准。
 ```
 
 ---
@@ -1137,6 +1227,5 @@ PM 发现任务范围蔓延  汇报 Brain  Brain 与用户对齐
 
 ---
 
-*本手册由 Brain + PM 共同维护，每次复盘会议后更新版本。*
-*最后重大修订：2026-02-26 — 新增 §12 新团队接手协议 + §13 团队自主进化；Brain 确立为 copilot-instructions.md 唯一责任人。*
-*第二次重大修订：2026-02-26 — 新增 §4.5 Emoji Commit 倡议、§5.4 团队版本自主决策权、§14 Agent 经验沉淀、§15 GitHub API 操作规范、§16 开源品牌化规范；附录 B 扩充 3 条新反模式。*
+*本手册由 Brain + PM 共同维护，每次复盘会议后更新版本。*  
+*当前版本：v3.0.0 — 2026-02-26 — 项目无关化终审，全部历史修订见 CHANGELOG.md。*

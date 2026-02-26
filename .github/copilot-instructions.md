@@ -159,7 +159,7 @@ njueeray/
 
 ## 当前迭代状态
 
-**阶段：** V3.0 执行准备中（Playbook 完整版 v2 完成）
+**阶段：** V3.0 已发布（Playbook 项目无关化，可移植团队方法论）
 **个人信息：** ✅ 已确认
 **配置文件：** ✅ 已同步
 **语言偏好：** ✅ 中文（所有原创内容默认中文，技术符号保持英文）
@@ -172,23 +172,18 @@ njueeray/
 - ✅ 团队核心资产沉淀：team-playbook.md + 复盘纪要
 - ✅ 文档同步：design-decisions.md + component-guide.md + agent-workflow.md
 
-**开源品牌化（2026-02-25，紧接 v2.0.0）：**
-- ✅ GitHub Release v1.0.0 发布（REST API 方式）
-- ✅ GitHub Release v2.0.0 发布（标记为 latest）
-- ✅ OpenProfile SVG LOGO 设计（assets/logo.svg，终端风格，58a6ff 品牌色）
-- ✅ README.md 全面重写（259 行，开源社区版：Why/Features/Roadmap/Contributing）
-- ✅ 开源战略文档：docs/open-source-strategy.md
-- ✅ `docs/team-playbook.md` 全面重写（基于复盘 #003 全员决议）
+**V3.0 已完成（2026-02-26，tag: v3.0.0）：**
+- ✅ Playbook 项目无关化重构（清除全部 OpenProfile 特定引用）
+- ✅ §12 新团队接手协议 + §13 团队自主进化
+- ✅ §4.5 Emoji Commit + §5.4 版本自主决策权
+- ✅ §14 Agent 经验沉淀 + §15 GitHub API 规范 + §16 品牌化规范
+- ✅ §17 Playbook 定制指南（零上下文冷启动协议）
+- ✅ 跨平台支持（PowerShell + Bash）
+- ✅ 冗余清理 + 附录 B 扩充
 
-**Playbook 深化（2026-02-26，待 commit）：**
-- ✅ §12 新团队接手协议（Project Onboarding Protocol）
-- ✅ §13 团队自主进化（Team Self-Evolution）
-- ✅ §4.5 Emoji Commit 倡议（15 种对照表 + 示例）
-- ✅ §5.4 团队自主版本决策权（发版信号 + Brain 提案模板）
-- ✅ §14 Agent 经验沉淀机制（L1/L2/L3 三层知识体系）
-- ✅ §15 GitHub API 操作规范（Token 提取 + 标准脚本速查）
-- ✅ §16 开源项目品牌化规范（Logo/Topics/Badge/角色分工）
-- ✅ 附录 B 扩充 3 条新反模式
+**开源品牌化（2026-02-25，紧接 v2.0.0）：**
+- ✅ GitHub Release v1.0.0 + v2.0.0 发布
+- ✅ OpenProfile SVG LOGO + README.md 重写 + 开源战略文档
 
 **V3.0 待执行（Phase X/Y/Z）：**
 
