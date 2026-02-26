@@ -252,6 +252,42 @@ Affects: njueeRay-profile, OpenProfile
 - Phase B: 12-field JSON identity + Typing SVG
 ```
 
+### 4.5 Emoji Commit 倡议
+
+> 参考：[Git Commit Emoji Guide](https://hooj0.github.io/git-emoji-guide/)
+
+在 `<type>` 前加一个 emoji，让 commit log 在视觉上一目了然。这不是强制规范，是**团队倡议**——鼓励使用，不因缺少 emoji 拒绝 PR。
+
+**与 §4.2 Type 的对应关系：**
+
+| Emoji | Type | 含义 |
+|-------|------|------|
+| ✨ | `feat` | 新功能、新组件 |
+| 🐛 | `fix` | Bug 修复 |
+| 📝 | `docs` | 文档变更 |
+| ♻️ | `refactor` | 代码重构 |
+| 🎨 | `style` | 格式/排版（不影响逻辑） |
+| 🔧 | `chore` | 构建、配置、依赖 |
+| 👷 | `ci` | CI/CD 工作流 |
+| ⚡ | `perf` | 性能优化 |
+| ✅ | `test` | 测试相关 |
+| ⏪ | `revert` | 回滚 |
+| 🎉 | `chore(init)` | 项目初始化、首次提交 |
+| 🚀 | `docs(changelog)` | 版本发布 Release |
+| 🔒 | `fix(security)` | 安全修复 |
+| 🏷️ | — | 打 Tag、版本标记 |
+| 💡 | `docs` | 补充注释或说明 |
+
+**示例：**
+
+```
+✨ feat(blog): add RSS feed generation
+🐛 fix(ci): exclude rate-limited domains from lychee
+📝 docs(playbook): add emoji commit guide
+🚀 docs(changelog): release v3.0.0
+🎉 chore(init): bootstrap project with OpenProfile template
+```
+
 ---
 
 ## 5. 版本发布规则
@@ -303,6 +339,49 @@ Affects: njueeRay-profile, OpenProfile
 
 [Unreleased]: https://github.com/{owner}/{repo}/compare/vX.Y.Z...HEAD
 [X.Y.Z]: https://github.com/{owner}/{repo}/compare/vA.B.C...vX.Y.Z
+```
+
+### 5.4 团队自主版本决策权
+
+> **成熟团队的标志之一：** 不依赖用户定义"什么时候该发版"，团队自己有判断力。
+
+**职责分工：**
+
+```
+PM  持续观察 CHANGELOG [Unreleased] 的积累量
+    当达到发版信号时，主动向 Brain 发起提案
+
+Brain  评估影响面：PATCH / MINOR / MAJOR（见 §5.1）
+       向用户发出版本提案，陈述理由，等待确认
+
+用户  审批（通常一句话：同意 / 调整为 X.Y.Z）
+```
+
+**PM 的发版信号（满足任一即触发提案）：**
+
+| 信号 | 说明 |
+|------|------|
+| `[Unreleased]` 积累了 5 条以上 Added/Changed/Fixed | 变更量足够体现价值 |
+| 一个完整的 Phase / Sprint 目标全部完成 | 里程碑达成 |
+| 包含对用户可见的新能力（非仅内部重构） | 有用户价值 |
+| 距离上次发版超过 2 周，且有实质变更 | 保持活跃节奏 |
+
+**Brain 提案格式：**
+
+```
+────────────────────────────────────────
+【版本发布提案】
+
+建议版本：vX.Y.Z
+类型：PATCH / MINOR / MAJOR
+理由：[一句话说明为什么是这个版本号]
+
+本次 [Unreleased] 变更摘要：
+  Added: X 项  |  Changed: Y 项  |  Fixed: Z 项
+
+主要亮点：[1-3 个关键变更]
+────────────────────────────────────────
+等待用户确认后执行 §5.2 发布流程。
 ```
 
 ---
@@ -761,6 +840,268 @@ tools: [allowed-tool-1, allowed-tool-2]
 | YYYY-MM-DD | 改造 | `dev` | 扩展 Python 工具集权限 | 新项目后端为 Python |
 | YYYY-MM-DD | 停用 | `profile-designer` | 移入 archive/ | 主站已稳定，不再需要专项设计角色 |
 ```
+
+---
+
+## 14. Agent 经验沉淀机制
+
+> **核心理念：** 每位 Agent 不是无状态的执行器，而是随项目成长的"资深成员"。
+> 在开发过程中遇到的教训、发现的模式、验证的方案，应当被有选择地沉淀下来——
+> 不追求记录所有信息，只保留**高质量、可复用**的内容。
+
+### 14.1 三层知识体系
+
+```
+L1 原始观察（Raw Observations）      最轻量，可丢弃
+   └─ 位置：会议记录 / 会话笔记（临时）
+   └─ 内容：本次遇到的问题、尝试的方案、失败原因
+   └─ 生命周期：Sprint 结束后复查，升级为 L2 或丢弃
+
+L2 验证模式（Validated Patterns）    可复用，值得保留
+   └─ 位置：.github/agents/knowledge/<role>-patterns.md
+   └─ 内容：在多次场景中验证有效的做法，含适用条件和注意事项
+   └─ 生命周期：每次 Major 版本复盘时审查，升级为 L3 或保留更新
+
+L3 核心原则（Core Principles）       最高提炼，写入角色配置
+   └─ 位置：.github/agents/<role>.agent.md 本身
+   └─ 内容：已经成为角色行为准则的原则，无需每次重新学习
+   └─ 生命周期：长期有效，修改须经 Brain 审批
+```
+
+**质量门控原则：只存储你会再次用到的内容。**
+
+| 值得升级到 L2 的 | 不值得保存的 |
+|----------------|------------|
+| 解决了"执行时才发现的坑" | 单次偶发问题 |
+| 在 2+ 次项目中重现的模式 | 项目特定的一次性决策 |
+| 与官方文档矛盾的真实行为 | 已有文档明确覆盖的内容 |
+| 节省了 >30 分钟的技巧 | 主观偏好或风格选择 |
+
+### 14.2 各角色的沉淀重点
+
+| Agent | L2 沉淀重点 | L3 提炼方向 |
+|-------|-----------|-----------|
+| `brain` | 跨项目有效的策略模式、项目接手的关键判断依据 | 战略决策框架 |
+| `pm` | 任务拆解的粒度经验、常见 scope creep 信号 | 版本节奏规律 |
+| `dev` | 依赖兼容性坑、已验证的代码片段模板 | 实现质量标准 |
+| `researcher` | 各领域可信信息源、常见技术选型决策树 | 调研效率方法 |
+| `code-reviewer` | 高频问题检查点、项目特有的质量规律 | 质量门扩展项 |
+
+### 14.3 沉淀触发时机
+
+```
+Sprint 结束时（PM 触发）：
+  → 每位 Agent 用 5 分钟检视本轮 L1 笔记
+  → 判断：有没有可以升级为 L2 的内容？
+  → 有 → 写入 .github/agents/knowledge/<role>-patterns.md
+  → 无 → 丢弃 L1 笔记
+
+Major 版本复盘（Brain 触发）：
+  → Brain 审查所有 L2 文件
+  → 判断：哪些已经成为团队基础共识？
+  → 成熟的 → 提炼为 L3，写入对应 .agent.md
+  → 过时的 → 标注废弃，不删除（保留历史）
+
+发现重要教训时（任意 Agent 随时）：
+  → 立即记录为 L1（不超过 5 行）
+  → 在会话收尾时由 PM 判断是否升级
+```
+
+### 14.4 知识文件命名规范
+
+```
+.github/agents/knowledge/
+├── brain-patterns.md       ← brain 的 L2 经验库
+├── pm-patterns.md          ← pm 的 L2 经验库
+├── dev-patterns.md         ← dev 的 L2 经验库（含代码片段）
+├── researcher-patterns.md  ← researcher 的 L2 信息源 + 决策树
+└── code-reviewer-patterns.md ← code-reviewer 的 L2 高频检查项
+```
+
+**L2 文件结构（每条记录）：**
+
+```markdown
+## [模式名称]
+
+**适用场景：** 何时使用这个模式
+**验证场景：** 在哪个项目/版本中验证过（不超过 3 例）
+**核心方法：** 怎么做（简洁，重点突出）
+**注意事项：** 容易踩的坑
+**状态：** 活跃 / 待观察 / 已废弃（YYYY-MM-DD）
+```
+
+---
+
+## 15. GitHub API 操作规范
+
+> 熟练使用 GitHub API 是团队自治的基础设施能力。
+> 避免"需要 GitHub 操作时才想起来要怎么做"的低效状态。
+
+### 15.1 何时使用 API vs CLI vs 手动
+
+| 操作场景 | 推荐方式 | 原因 |
+|---------|---------|------|
+| CI/CD 中创建 Release | GitHub Actions + token | 自动化，无需本地 |
+| 本地开发中创建 Release | PowerShell `Invoke-RestMethod` | gh CLI 可能缺少 scope |
+| 设置仓库话题标签 | API (`PUT /repos/{owner}/{repo}/topics`) | gh CLI 无此专用命令 |
+| 更新仓库描述 | API (`PATCH /repos/{owner}/{repo}`) | 同上 |
+| 普通 push/pull/tag | git CLI | 原生支持，无需 API |
+
+### 15.2 Token 获取（本地 PowerShell）
+
+```powershell
+# 从 Git 凭据管理器提取（适用于已登录 GitHub 的 Windows 环境）
+Set-Content "$env:TEMP\cred_input.txt" "protocol=https`nhost=github.com`n"
+$lines = Get-Content "$env:TEMP\cred_input.txt" | git credential fill
+$token = ($lines | Where-Object { $_ -like "password=*" }) -replace "password=",""
+
+# 设置通用请求头
+$headers = @{
+    "Authorization" = "token $token"
+    "Accept"        = "application/vnd.github.v3+json"
+    "Content-Type"  = "application/json"
+}
+```
+
+### 15.3 标准操作速查
+
+**创建 GitHub Release：**
+
+```powershell
+$body = @{
+    tag_name   = "v1.0.0"
+    name       = "v1.0.0 — [发布标题]"
+    body       = "[Release Notes，支持 Markdown]"
+    prerelease = $false
+    make_latest = "true"   # 仅最新版本设为 true
+} | ConvertTo-Json -Depth 5
+
+Invoke-RestMethod "https://api.github.com/repos/{owner}/{repo}/releases" `
+    -Method Post -Headers $headers -Body $body
+```
+
+**设置仓库话题标签（Topics）：**
+
+```powershell
+$topics = @{ names = @("tag1", "tag2", "tag3") } | ConvertTo-Json
+Invoke-RestMethod "https://api.github.com/repos/{owner}/{repo}/topics" `
+    -Method Put -Headers $headers -Body $topics
+```
+
+**更新仓库描述：**
+
+```powershell
+$desc = @{ description = "一句话项目描述（120 字符内）" } | ConvertTo-Json
+Invoke-RestMethod "https://api.github.com/repos/{owner}/{repo}" `
+    -Method Patch -Headers $headers -Body $desc
+```
+
+**检查当前 Releases：**
+
+```powershell
+Invoke-RestMethod "https://api.github.com/repos/{owner}/{repo}/releases" `
+    -Headers $headers | Select-Object tag_name, name, html_url
+```
+
+### 15.4 PM 的 Release 操作清单
+
+发版时，PM 按以下顺序执行 API 操作（§5.2 流程完成后）：
+
+```
+1. git tag -a vX.Y.Z -m "Release vX.Y.Z"
+2. git push && git push --tags
+3. API: 创建 GitHub Release（tag_name + name + body）
+   - v1.0.0：make_latest = false
+   - 最新稳定版：make_latest = true
+4. 验证：访问 /releases 页面确认 Release 显示正常
+```
+
+---
+
+## 16. 开源项目品牌化规范
+
+> 品牌化不是锦上添花，而是开源项目成熟度的可见信号。
+> 一个有 Logo、有调性、有清晰描述的项目，在开发者的第一眼印象中会比同类项目高一个档位。
+
+### 16.1 品牌化时机
+
+**Brain 判断以下任一条件成立时，主动发起品牌化提案：**
+
+| 信号 | 说明 |
+|------|------|
+| 首个正式 Release 发布 | 项目对外公开，需要门面 |
+| GitHub Stars ≥ 5 | 说明有人在关注 |
+| 项目决定面向开源社区（非个人使用） | 受众扩大，形象优先级提升 |
+| README 需要大幅改写时 | 顺势品牌化 |
+
+### 16.2 品牌化组件清单
+
+| 组件 | 必须 | 规范 |
+|------|------|------|
+| **Logo** | ✅ | SVG 格式，`assets/logo.svg`，见 §16.3 |
+| **项目一句话描述** | ✅ | ≤ 120 字符，置于 README 副标题 |
+| **仓库 Description** | ✅ | 同上，通过 API 设置（§15.3） |
+| **话题标签 Topics** | ✅ | 5-8 个，见 §16.4 |
+| **Badge 套件** | ✅ | Stars / License / Release / CI，见 §16.5 |
+| **品牌色** | ✅ | 在 `copilot-instructions.md` 中锁定 |
+| **字体标识** | 推荐 | README 中使用 Fira Code / JetBrains Mono + 品牌色 |
+
+### 16.3 Logo 设计规范
+
+**规格：**
+- 尺寸：宽版 `480×160px`（README 用）+ 方形 `160×160px`（头像/图标用）
+- 格式：SVG（可缩放，体积小）
+- 存储：`assets/logo.svg`，`assets/logo-square.svg`
+
+**视觉语言（AI-Native 开源项目参考）：**
+- 背景：深色（`#0d1117` GitHub Dark 或项目品牌深色）
+- 强调色：项目品牌色（如 `#58a6ff`）
+- 字体风格：等宽字体（`SFMono-Regular`, `Consolas`, `Courier New`）
+- 视觉元素：终端 / 代码风格（macOS 窗口点、光标动画、`$` 提示符）
+
+**光标动画（可选，增加活力）：**
+
+```svg
+<rect ...>
+  <animate attributeName="opacity" values="0.9;0.1;0.9"
+           dur="1.2s" repeatCount="indefinite"/>
+</rect>
+```
+
+### 16.4 话题标签策略
+
+**选择原则：**
+- 技术标签（具体）：`astro`, `typescript`, `github-actions`
+- 场景标签（中等宽度）：`github-profile`, `developer-portfolio`
+- 理念标签（宽泛）：`ai-native`, `open-source`, `workflow-template`
+- **避免过泛标签**：`web`, `tool`, `project`（竞争太大，无区分度）
+
+**设置方式：** 使用 §15.3 中的 API 操作，不要在 GitHub 网页上手动拖拽。
+
+### 16.5 Badge 套件规范
+
+**标准 Badge 顺序（README 顶部 `div align="center"` 内）：**
+
+```markdown
+[![Stars](https://img.shields.io/github/stars/{owner}/{repo}?style=flat-square&color=gold&logo=github)]()
+[![Forks](https://img.shields.io/github/forks/{owner}/{repo}?style=flat-square&color=58a6ff&logo=github)]()
+[![Latest Release](https://img.shields.io/github/v/release/{owner}/{repo}?style=flat-square&color=3fb950)]()
+[![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)]()
+[![Built with Copilot](https://img.shields.io/badge/Built%20with-GitHub%20Copilot-0078d4?style=flat-square&logo=github)]()
+[![CI](https://img.shields.io/github/actions/workflow/status/{owner}/{repo}/{workflow}.yml?style=flat-square&label=CI)]()
+```
+
+**一句话描述位置：** Logo 图片下方，badges 上方，**加粗**显示。
+
+### 16.6 执行角色分工
+
+```
+Brain   → 决定品牌化时机，确认调性方向（深色/浅色，终端风/简约风）
+dev     → 实现 SVG Logo，更新 README，通过 API 设置 Description 和 Topics
+code-reviewer → 验证 Logo 在 GitHub dark/light 双主题下的显示效果
+PM      → CHANGELOG 记录品牌化变更，触发相应版本号（通常 MINOR）
+```
+
 ---
 
 ## 附录 A：升级路径（Escalation Path）
@@ -790,8 +1131,12 @@ PM 发现任务范围蔓延  汇报 Brain  Brain 与用户对齐
 | CI 缺失时靠人工 QA | 人工质量不稳定，漏检率高 | CI 先行，第二个 commit |
 | 设计决策不记录 | 下次会话重新争论已决定的事 | 实时更新 copilot-instructions.md |
 | 会话结束不更新状态 | 下次开场"失忆"，重复工作 | 执行会话关闭协议 |
+| 经验笔记不分级，所有内容堆在一起 | 低价值信息掩盖高价值模式，越堆越乱 | 按 L1/L2/L3 分层管理（§14） |
+| 等用户提议发版，团队被动等待 | 版本节奏失控，Unreleased 越堆越长 | PM 主动监控发版信号，发出提案（§5.4） |
+| 手动操作 GitHub（Release/Topics）不留记录 | 操作不可重复，非成员无法复现，难以纳入 CI | 封装为 §15 中的 API 脚本并写入 Playbook |
 
 ---
 
 *本手册由 Brain + PM 共同维护，每次复盘会议后更新版本。*
 *最后重大修订：2026-02-26 — 新增 §12 新团队接手协议 + §13 团队自主进化；Brain 确立为 copilot-instructions.md 唯一责任人。*
+*第二次重大修订：2026-02-26 — 新增 §4.5 Emoji Commit 倡议、§5.4 团队版本自主决策权、§14 Agent 经验沉淀、§15 GitHub API 操作规范、§16 开源品牌化规范；附录 B 扩充 3 条新反模式。*

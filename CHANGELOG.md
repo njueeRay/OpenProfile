@@ -23,6 +23,30 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - `.github/copilot-instructions.md` 新增 Brain 自主权限（招募/改造/所有权）
 - `.github/copilot-instructions.md` 新增「团队进化记录」区块，回溯 V2.0 团队建立历史
 - `.github/copilot-instructions.md` 新增"削减核心 Agent 职责须告知用户"条目
+- `docs/team-playbook.md` 新增 §4.5 Emoji Commit 倡议
+  - 15 种 emoji 与 commit 类型对照表（✨feat、🐛fix、📝docs 等）
+  - 标准格式规范与 5 条示例
+- `docs/team-playbook.md` 新增 §5.4 团队自主版本决策权
+  - PM 主动识别的 4 条发版信号（Unreleased ≥5 / Sprint 完成 / 用户可见能力 / ≥2周未发版）
+  - Brain 版本提案标准格式模板
+- `docs/team-playbook.md` 新增 §14 Agent 经验沉淀机制
+  - L1/L2/L3 三层知识体系（原始观察/验证模式/核心原则）
+  - 各层存储路径、生命周期与升级触发时机
+  - 各角色沉淀重点与 L2 文件结构规范
+- `docs/team-playbook.md` 新增 §15 GitHub API 操作规范
+  - API vs CLI vs 手动操作的选择矩阵
+  - Windows PowerShell Token 提取标准方法
+  - 创建 Release / 设置 Topics / 更新描述的完整 PowerShell 脚本
+  - PM 的 Release 操作顺序清单
+- `docs/team-playbook.md` 新增 §16 开源项目品牌化规范
+  - 品牌化时机判断标准（4 条信号）
+  - Logo 设计规范（SVG，480×160，终端美学）
+  - 话题标签策略（技术/场景/理念三层）
+  - Badge 套件规范与执行角色分工
+- `docs/team-playbook.md` 附录 B 新增 3 条反模式
+  - 经验笔记不分级 → L1/L2/L3 分层（§14）
+  - 被动等待发版 → PM 主动监控信号（§5.4）
+  - 手动操作 GitHub 不留记录 → 封装为 API 脚本（§15）
 
 ---
 

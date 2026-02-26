@@ -159,7 +159,7 @@ njueeray/
 
 ## 当前迭代状态
 
-**阶段：** V3.0 执行准备中（开源定位强化完成）
+**阶段：** V3.0 执行准备中（Playbook 完整版 v2 完成）
 **个人信息：** ✅ 已确认
 **配置文件：** ✅ 已同步
 **语言偏好：** ✅ 中文（所有原创内容默认中文，技术符号保持英文）
@@ -178,7 +178,17 @@ njueeray/
 - ✅ OpenProfile SVG LOGO 设计（assets/logo.svg，终端风格，58a6ff 品牌色）
 - ✅ README.md 全面重写（259 行，开源社区版：Why/Features/Roadmap/Contributing）
 - ✅ 开源战略文档：docs/open-source-strategy.md
-- ✅ `docs/team-playbook.md` 全面重写（524 行，基于复盘 #003 全员决议）— 会话连续性协议、执行管道、CI 先行、七维度 QG、Pre-flight 清单
+- ✅ `docs/team-playbook.md` 全面重写（基于复盘 #003 全员决议）
+
+**Playbook 深化（2026-02-26，待 commit）：**
+- ✅ §12 新团队接手协议（Project Onboarding Protocol）
+- ✅ §13 团队自主进化（Team Self-Evolution）
+- ✅ §4.5 Emoji Commit 倡议（15 种对照表 + 示例）
+- ✅ §5.4 团队自主版本决策权（发版信号 + Brain 提案模板）
+- ✅ §14 Agent 经验沉淀机制（L1/L2/L3 三层知识体系）
+- ✅ §15 GitHub API 操作规范（Token 提取 + 标准脚本速查）
+- ✅ §16 开源项目品牌化规范（Logo/Topics/Badge/角色分工）
+- ✅ 附录 B 扩充 3 条新反模式
 
 **V3.0 待执行（Phase X/Y/Z）：**
 
