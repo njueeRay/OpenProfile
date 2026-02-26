@@ -3,7 +3,7 @@
 > **本手册是团队最高优先级的核心资产。**
 > 它不绑定任何特定项目——记录的是方法论、协同规范与共识，可随团队带入任意新项目。
 >
-> **Playbook 版本：** `Playbook v2.0`（独立于项目版本，变更记录见 `PLAYBOOK-CHANGELOG.md`）
+> **Playbook 版本：** `Playbook v2.1`（独立于项目版本，变更记录见 `PLAYBOOK-CHANGELOG.md`）
 > **适用团队：** Brain · PM · Dev · Researcher · Code-Reviewer
 > **核心原则：** 角色边界清晰 · 会话连续 · CI 先行 · 有据可查 · 团队可自主进化 · **AI-native 哲学立场**
 
