@@ -112,8 +112,51 @@
 
 ---
 
+## V3.0 新增决策
+
+### SEO 与订阅
+
+| 维度 | 决策 | 理由 | 日期 |
+|------|------|------|------|
+| Sitemap | `@astrojs/sitemap` 自动生成 | 零配置，Google/Bing 友好 | 2026-02-26 |
+| RSS | `@astrojs/rss` → `/rss.xml` | 博客订阅标配，zh-cn | 2026-02-26 |
+| OG/Twitter meta | 条件性注入 `ogImage` prop | 分享预览优化，无图时 fallback summary 卡 | 2026-02-26 |
+| 404 页面 | 终端风格 `$ 404 not_found` | 品牌一致性，含快捷导航 | 2026-02-26 |
+
+### Blog 标签系统
+
+| 维度 | 决策 | 理由 | 日期 |
+|------|------|------|------|
+| 标签云 | 频次驱动字号渐变 + count badge | 视觉信息编码，一眼看出热门主题 | 2026-02-26 |
+| 标签页 | `[tag].astro` 静态路由 | SSG 模式，构建时生成所有标签路由 | 2026-02-26 |
+
+---
+
+## V4.0 新增决策
+
+### 站点体验深化
+
+| 维度 | 决策 | 理由 | 日期 |
+|------|------|------|------|
+| 全站搜索 | Pagefind（`is:inline` 动态 import） | 零服务器依赖，构建后索引，Ctrl+K 弹窗 UX | 2026-02-26 |
+| 暗/亮主题 | `data-theme` + CSS 变量覆盖 + localStorage | 无 FOUC（同步读取），系统偏好 fallback | 2026-02-26 |
+| 阅读进度 | 顶部 3px 固定条（`position: fixed; z-index: 1001`） | 仅博客文章页显示，不干扰导航栏 | 2026-02-26 |
+| 目录 TOC | 右侧边栏 @ 1280px+，IntersectionObserver 高亮 | 桌面端增强，移动端隐藏，不侵入内容区 | 2026-02-26 |
+| 评论系统 | Giscus → GitHub Discussions (Announcements) | 零数据库，主题联动（dark_dimmed / light），pathname 映射 | 2026-02-26 |
+| Navbar 背景 | `rgba(var(--nav-bg-rgb), 0.85)` | 支持暗/亮双模切换，动态透明度 | 2026-02-26 |
+
+### 版本体系
+
+| 维度 | 决策 | 理由 | 日期 |
+|------|------|------|------|
+| L1 Project | semver (CHANGELOG.md + GitHub Tag) | 行业标准 | 2026-02-26 |
+| L2 Playbook | 独立变更日志 (PLAYBOOK-CHANGELOG.md) | 方法论独立于产品迭代 | 2026-02-26 |
+| L3 Agent | `agentVersion` in YAML front matter | 粒度到个体，能力追溯 | 2026-02-26 |
+
 ## 变更历史
 
 - `[2026-02-25]` — 项目初始化，全部设计决策确定（视觉风格 + Header + Stats + 技术栈 + Featured）
 - `[2026-02-25]` — 迭代二完成：主题统一、WakaTime/Activity Graph/贡献蛇接入、强调色对齐
 - `[2026-02-25]` — **V2.0**：双模兼容全组件 + README 叙事重构 + Astro 多页（Nav/Footer/Blog）+ CI Actions + v1.0.0 tag
+- `[2026-02-26]` — **V3.0**：SEO 地基 + Blog 标签 + Profile 3D 贡献/Trophy + Playbook 可移植化
+- `[2026-02-26]` — **V4.0**：三层版本体系 + Pagefind 搜索 + 暗/亮主题 + 进度条 + TOC + Giscus 评论
