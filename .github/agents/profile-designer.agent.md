@@ -5,11 +5,11 @@ tools: ['fetch', 'search', 'codebase']
 model: claude-sonnet-4.5
 handoffs:
   - label: 交给内容撰写
-    agent: content-writer
+    agent: dev
     prompt: 设计方案已确定，请按照方案撰写具体的 README 内容和 Markdown 代码。
     send: false
   - label: 交给质量审查
-    agent: qa-reviewer
+    agent: code-reviewer
     prompt: 请审查当前 README.md 的视觉效果、信息完整性和技术实现质量。
     send: true
 ---

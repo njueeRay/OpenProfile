@@ -1,7 +1,7 @@
 # 团队复盘会议 #003 — AI 协作范式深化与核心资产沉淀
 
 **日期：** 2026-02-25  
-**参与者：** brain（新设）· profile-designer · content-writer · researcher · qa-reviewer · pm（新设）  
+**参与者：** brain（新设）· profile-designer · dev · researcher · code-reviewer · pm（新设）  
 **会议模式：** 全体复盘会议（并行发言 → 主 Agent 综合）  
 **触发：** 用户提议 — 沉淀团队核心资产，为未来跨项目可复用做准备  
 **状态：** ✅ 决议形成，已执行配置更新
@@ -50,7 +50,7 @@
 
 ---
 
-### ✍️ content-writer
+### ✍️ dev
 
 > **我是执行层，执行质量取决于上游规划的颗粒度。**
 
@@ -77,7 +77,7 @@
 
 ---
 
-### ✅ qa-reviewer
+### ✅ code-reviewer
 
 > **我是守门人，但门在 Phase D 才建起来——这是根本性问题。**
 
@@ -90,7 +90,7 @@ V1.x 整个迭代中，CI 完全缺失。所有质量依赖我的手动审查报
 **三个铁律建议：**
 1. **CI 先行**：任何新项目第一个 commit 后，第二个 commit 就要建立基础 CI（lint + link-check）
 2. **QG 门禁自动化**：能用 Action 检查的，不依赖手动 QA
-3. **我的角色泛化**：`qa-reviewer` → `code-reviewer`，职责扩展到所有语言的代码质量，不仅限于 Markdown
+3. **我的角色泛化**：`code-reviewer` → `code-reviewer`，职责扩展到所有语言的代码质量，不仅限于 Markdown
 
 ---
 
@@ -107,9 +107,9 @@ V1.x 整个迭代中，CI 完全缺失。所有质量依赖我的手动审查报
 ─────────────────────────────────────────────────────
 主 Agent（无明确定义）     →   brain（战略大脑，用户唯一汇报点）
 profile-designer           →   designer / architect（信息架构，方案输出）
-content-writer             →   dev（全栈实现，任何语言）
+dev             →   dev（全栈实现，任何语言）
 researcher                 →   researcher（保留，通用）
-qa-reviewer                →   code-reviewer（质量门，泛化）
+code-reviewer                →   code-reviewer（质量门，泛化）
 （缺失）                   →   pm（项目管理，任务追踪，版本发布）
 ```
 
@@ -258,8 +258,8 @@ qa-reviewer                →   code-reviewer（质量门，泛化）
 |------|------|--------|
 | 创建 `brain.agent.md` | dev | P0 |
 | 创建 `pm.agent.md` | dev | P0 |
-| 泛化 `content-writer` → `dev.agent.md` | dev | P0 |
-| 泛化 `qa-reviewer` → `code-reviewer.agent.md` | dev | P0 |
+| 泛化 `dev` → `dev.agent.md` | dev | P0 |
+| 泛化 `code-reviewer` → `code-reviewer.agent.md` | dev | P0 |
 | 新建 `docs/team-playbook.md`（核心资产手册） | dev | P0 |
 | 更新 `copilot-instructions.md`（新团队结构 + DoD） | dev | P0 |
 | 更新 `agent-workflow.md`（新协作模型） | dev | P0 |
@@ -274,8 +274,8 @@ qa-reviewer                →   code-reviewer（质量门，泛化）
 
 - [ ] 创建 `brain.agent.md`
 - [ ] 创建 `pm.agent.md`
-- [ ] 更新 `content-writer.agent.md` → 泛化为 `dev`
-- [ ] 更新 `qa-reviewer.agent.md` → 泛化为 `code-reviewer`
+- [ ] 更新 `dev.agent.md` → 泛化为 `dev`
+- [ ] 更新 `code-reviewer.agent.md` → 泛化为 `code-reviewer`
 - [ ] 新建 `docs/team-playbook.md`
 - [ ] 更新 `.github/copilot-instructions.md`
 - [ ] 更新 `docs/agent-workflow.md`

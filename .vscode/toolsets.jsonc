@@ -3,7 +3,7 @@
   // 参考：https://code.visualstudio.com/docs/copilot/agents/agent-tools#_tool-sets
 
   "readonly": {
-    // 只读工具集：用于调研和审查类 Agent（researcher、qa-reviewer）
+    // 只读工具集：用于调研和审查类 Agent（researcher、code-reviewer）
     "description": "只读操作：代码库浏览、网络搜索和资源获取",
     "tools": [
       "codebase",    // 语义搜索代码库
@@ -14,7 +14,7 @@
   },
 
   "writer": {
-    // 写入工具集：用于内容撰写类 Agent（content-writer）
+    // 写入工具集：用于内容撰写类 Agent（dev）
     "description": "读写操作：在 readonly 基础上增加文件编辑能力",
     "tools": [
       "codebase",
