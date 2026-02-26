@@ -8,52 +8,44 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
-> Playbook 从项目绑定文档升级为可移植的团队方法论框架。
-> V3.0 Phase X/Y/Z 功能全部开发完成，待 code-reviewer 审查后正式发布。
+---
+
+## [3.0.0] — 2026-02-26
+
+> **SEO 地基 + Blog 标签系统 + Profile 新组件 + Playbook 可移植化**
+> code-reviewer: `APPROVED`
 
 ### Added
 
-#### V3.0 Phase X — Astro 站点 SEO 地基（2026-02-26）
+#### V3.0 Phase X — Astro 站点 SEO 地基
 - `njueeray.github.io` 安装 `@astrojs/sitemap@3.2.1` → `sitemap-index.xml` 自动生成
 - `njueeray.github.io` 安装 `@astrojs/rss` → `src/pages/rss.xml.ts`，可订阅 Feed（语言 `zh-cn`）
-- `BaseLayout.astro` 新增 `ogImage` prop，注入 canonical / OG / Twitter Card meta tags
+- `BaseLayout.astro` 新增 `ogImage` prop（可选），条件性注入 canonical / OG / Twitter Card meta tags
 - 首页 `index.astro` 补充独立 description；Footer 添加 RSS SVG 图标入口
 - `src/pages/404.astro` 自定义终端风格 404 页面（含 ← Home / Blog 快捷按钮）
 
-#### V3.0 Phase Y — Blog 标签系统（2026-02-26）
+#### V3.0 Phase Y — Blog 标签系统
 - `src/pages/blog/tags/index.astro` 标签云页面（频次驱动字号渐变，count badge）
 - `src/pages/blog/tags/[tag].astro` 标签过滤页面（7 条静态路由自动生成）
 - `blog/index.astro` 文章卡片结构重构：tag 从父级 `<a>` 内迁出，变为独立 `<a>` 链接
 - `[slug].astro` 文章页 tag pill 全部改为可点击链接 + 「全部标签 →」入口
 
-#### V3.0 Phase Z — Profile README 新组件（2026-02-26）
-- `njueeRay-profile` `.github/workflows/3d-contrib.yml` — 每日 UTC 18:00 自动更新 3D 贡献图 SVG
+#### V3.0 Phase Z — Profile README 新组件
+- `njueeRay-profile` `.github/workflows/3d-contrib.yml` — 每日 UTC 18:00 自动更新 3D 贡献图 SVG（推送到 `output` 分支）
 - `njueeRay-profile` README 新增 `## 🏆 Achievements` 区块 — github-profile-trophy（darkhub, 1×6）
 - `njueeRay-profile` README 插入 3D 贡献图 `<details>` 折叠区块（night-rainbow 主题 SVG）
 - `njueeRay-profile` README Connect 区添加 Blog RSS Feed 订阅 badge
-  - 四阶段流程：静默阅读 → 对齐会议 → 状态报告 → 团队适配
-  - 各角色阅读清单与私有笔记格式
-  - 对齐会议纪要模板 + 项目状态报告输出格式
-- `docs/team-playbook.md` 新增 §13 团队自主进化（Team Self-Evolution）
-  - Brain 确立为团队架构师：可自主招募/改造/停用 Agent
-  - Brain 确立为 `copilot-instructions.md` 唯一责任人
-  - 新 Agent 文件最小结构规范 + 改造步骤 + 进化记录表
-- `docs/team-playbook.md` 新增 §4.5 Emoji Commit 倡议
-  - 15 种 emoji 与 commit 类型对照表 + 5 条示例
-- `docs/team-playbook.md` 新增 §5.4 团队自主版本决策权
-  - PM 主动识别的 4 条发版信号 + Brain 版本提案标准格式
-- `docs/team-playbook.md` 新增 §14 Agent 经验沉淀机制
-  - L1/L2/L3 三层知识体系 + 各角色沉淀重点 + L2 文件结构规范
-- `docs/team-playbook.md` 新增 §15 GitHub API 操作规范
-  - API/CLI/手动选择矩阵 + 跨平台 Token 提取（PowerShell + Bash）
-  - 创建 Release / 设置 Topics / 更新描述的完整脚本
-- `docs/team-playbook.md` 新增 §16 开源项目品牌化规范
-  - 品牌化时机判断 + Logo 规格 + 话题标签策略 + Badge 套件
-- `docs/team-playbook.md` 新增 §17 Playbook 定制指南
-  - 直接复用 vs 需定制的章节矩阵
-  - 零上下文冷启动协议（全新空白仓库）
-  - Playbook 版本管理策略
-- 附录 B 扩充 3 条新反模式（经验不分级 / 被动发版 / 手动操作不记录）
+
+#### Playbook 深化 — team-playbook.md
+- 新增 §12 新团队接手协议（四阶段流程：静默阅读 → 对齐会议 → 状态报告 → 团队适配）
+- 新增 §13 团队自主进化（Brain 作为架构师，自主招募/改造/停用 Agent）
+- 新增 §4.5 Emoji Commit 倡议（15 种映射表）
+- 新增 §5.4 团队自主版本决策权（PM 发版信号 + Brain 提案格式）
+- 新增 §14 Agent 经验沉淀机制（L1/L2/L3 三层知识体系）
+- 新增 §15 GitHub API 操作规范（跨平台 Token 提取，PowerShell + Bash）
+- 新增 §16 开源项目品牌化规范
+- 新增 §17 Playbook 定制指南（零上下文冷启动协议）
+- 附录 B 扩充 3 条新反模式
 - `docs/meetings/2026-02-26-v3-release-review.md` V3.0 发布前终审会议纪要
 - `.github/copilot-instructions.md` 新增 Brain 自主权限 + 团队进化记录区块
 
@@ -71,6 +63,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - 尾部修订记录精简为版本号 + 日期，历史修订迁入 CHANGELOG
 - Playbook 版本标识更新
 - `copilot-instructions.md` 迭代状态更新
+
+### Fixed
+- `OG/Twitter meta tags`：`og:image` 改为条件性输出，移除不存在的 `/og-default.png` 默认值（避免全站 OG 图片 404）
+- `3d-contrib.yml`：workflow 推送目标从 `main` 修正为 `output` 分支，与 README 中的 SVG URL 路径保持一致
 
 ---
 
@@ -156,10 +152,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 | v0.4.0 | 动态数据：WakaTime + Activity Graph + 贡献蛇 | ✅ 完成 |
 | v1.0.0 | 迭代一完成：全组件上线 + 文档同步 + 开源发布 | ✅ 完成 |
 | **v2.0.0** | **V2.0：叙事重构 + 浅色兼容 + Astro 多页 + CI + Agent 团队重构** | ✅ 完成 |
-| v3.0.0 | V3.0：SEO 地基 + Blog 标签系统 + Profile 新组件 + Playbook 可移植化 | 🚧 进行中 |
+| **v3.0.0** | **V3.0：SEO 地基 + Blog 标签系统 + Profile 新组件 + Playbook 可移植化** | ✅ 完成 |
 
 ---
 
-[Unreleased]: https://github.com/njueeRay/OpenProfile/compare/v2.0.0...HEAD
+[Unreleased]: https://github.com/njueeRay/OpenProfile/compare/v3.0.0...HEAD
+[3.0.0]: https://github.com/njueeRay/OpenProfile/compare/v2.0.0...v3.0.0
 [2.0.0]: https://github.com/njueeRay/OpenProfile/compare/v1.0.0...v2.0.0
 [1.0.0]: https://github.com/njueeRay/OpenProfile/releases/tag/v1.0.0
