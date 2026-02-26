@@ -9,9 +9,28 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 > Playbook 从项目绑定文档升级为可移植的团队方法论框架。
+> V3.0 Phase X/Y/Z 功能全部开发完成，待 code-reviewer 审查后正式发布。
 
 ### Added
-- `docs/team-playbook.md` 新增 §12 新团队接手协议（Project Onboarding Protocol）
+
+#### V3.0 Phase X — Astro 站点 SEO 地基（2026-02-26）
+- `njueeray.github.io` 安装 `@astrojs/sitemap@3.2.1` → `sitemap-index.xml` 自动生成
+- `njueeray.github.io` 安装 `@astrojs/rss` → `src/pages/rss.xml.ts`，可订阅 Feed（语言 `zh-cn`）
+- `BaseLayout.astro` 新增 `ogImage` prop，注入 canonical / OG / Twitter Card meta tags
+- 首页 `index.astro` 补充独立 description；Footer 添加 RSS SVG 图标入口
+- `src/pages/404.astro` 自定义终端风格 404 页面（含 ← Home / Blog 快捷按钮）
+
+#### V3.0 Phase Y — Blog 标签系统（2026-02-26）
+- `src/pages/blog/tags/index.astro` 标签云页面（频次驱动字号渐变，count badge）
+- `src/pages/blog/tags/[tag].astro` 标签过滤页面（7 条静态路由自动生成）
+- `blog/index.astro` 文章卡片结构重构：tag 从父级 `<a>` 内迁出，变为独立 `<a>` 链接
+- `[slug].astro` 文章页 tag pill 全部改为可点击链接 + 「全部标签 →」入口
+
+#### V3.0 Phase Z — Profile README 新组件（2026-02-26）
+- `njueeRay-profile` `.github/workflows/3d-contrib.yml` — 每日 UTC 18:00 自动更新 3D 贡献图 SVG
+- `njueeRay-profile` README 新增 `## 🏆 Achievements` 区块 — github-profile-trophy（darkhub, 1×6）
+- `njueeRay-profile` README 插入 3D 贡献图 `<details>` 折叠区块（night-rainbow 主题 SVG）
+- `njueeRay-profile` README Connect 区添加 Blog RSS Feed 订阅 badge
   - 四阶段流程：静默阅读 → 对齐会议 → 状态报告 → 团队适配
   - 各角色阅读清单与私有笔记格式
   - 对齐会议纪要模板 + 项目状态报告输出格式

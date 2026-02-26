@@ -159,7 +159,7 @@ njueeray/
 
 ## 当前迭代状态
 
-**阶段：** V3.0 开发中（Playbook 已完成可移植化，Phase X/Y/Z 待执行）
+**阶段：** V3.0 功能开发完成（Phase X/Y/Z 已全部执行，待 code-reviewer 审查发布）
 **个人信息：** ✅ 已确认
 **配置文件：** ✅ 已同步
 **语言偏好：** ✅ 中文（所有原创内容默认中文，技术符号保持英文）
@@ -185,30 +185,29 @@ njueeray/
 - ✅ GitHub Release v1.0.0 + v2.0.0 发布
 - ✅ OpenProfile SVG LOGO + README.md 重写 + 开源战略文档
 
-**V3.0 待执行（Phase X/Y/Z）：**
+**V3.0 Phase X — Astro SEO 地基（2026-02-26，已推送）：**
+- ✅ `@astrojs/sitemap` → sitemap-index.xml 自动生成
+- ✅ `@astrojs/rss` → /rss.xml 可订阅（zh-cn）
+- ✅ `BaseLayout.astro` PageMeta（canonical / OG / Twitter Card）
+- ✅ 首页传入正确 description，Footer 添加 RSS 图标入口
+- ✅ `src/pages/404.astro` 自定义终端风格 404 页面
 
-**Phase X — Astro 站点 SEO 地基**
-- `@astrojs/sitemap` → sitemap-index.xml 自动生成
-- `@astrojs/rss` → /rss.xml 可订阅
-- `BaseLayout.astro` PageMeta props（title / description / og）
-- 所有页面传入正确 meta
-- `src/pages/404.astro` 自定义 404 页面
+**V3.0 Phase Y — Blog 标签系统（2026-02-26，已推送）：**
+- ✅ `/blog/tags/` 标签云页面（频次驱动字号渐变）
+- ✅ `/blog/tags/[tag]` 标签过滤页面（7 条路由自动生成）
+- ✅ blog/index.astro 卡片结构重构，标签拆分为独立 `<a>` 链接
+- ✅ [slug].astro 文章页标签 pill 改为可点击 + 「全部标签」入口
 
-**Phase Y — Blog 标签系统**
-- content/config.ts tags 字段确认
-- `/blog/tags/` 标签云页面
-- `/blog/tags/[tag]` 标签过滤页面
-- blog/index.astro 标签筛选 UI
-- [slug].astro 文章页标签 pill
+**V3.0 Phase Z — Profile README 新组件（2026-02-26，已推送）：**
+- ✅ `.github/workflows/3d-contrib.yml` 每日自动更新 3D 贡献图 SVG
+- ✅ `## Achievements` 新区块 — github-profile-trophy（darkhub, 1×6 横排）
+- ✅ 3D 贡献图插入 `<details>` 折叠区块（profile-night-rainbow.svg）
+- ✅ Connect 区添加 Blog RSS Feed badge
 
-**Phase Z — Profile README 新组件**
-- github-profile-3d-contrib Action（每日更新 SVG）
-- github-profile-trophy（darkhub 横排 6 个）
-- 3D 贡献图插入 Profile（`<details>` 折叠）
-- Profile 页脚添加 RSS 订阅 badge
-
-**待用户确认：**
-- ⚠️ 确认授权后 dev 立即推进 Phase X
+**待完成（V3.0 收尾）：**
+- ⚠️ code-reviewer 执行 V3.0 全项审查，输出 `APPROVED`
+- ⚠️ Lighthouse SEO 分数验证（目标 ≥ 90）
+- ⚠️ CHANGELOG [Unreleased] → [3.0.0] 填写，打 tag，发布 GitHub Release
 
 ---
 
