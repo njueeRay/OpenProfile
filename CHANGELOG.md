@@ -10,6 +10,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Docs
 - `docs/meetings/2026-02-26-free-brainstorm.md` — 团队自由思想交流会（阶段性成果庆典 + 无界畅想，v4.0.0 发布后）
+- `docs/meetings/2026-02-26-ai-native-person-summit.md` — AI-native person 范式深度峰会（全员参与，涵盖认知革命历史坐标、判断力独立性风险、博文策略决策）
+
+### Blog (njueeray.github.io)
+- 新博文 `ai-native-person-paradigm.mdx` — 双语（ZH+EN），AI-native person 完整范式叙事
+- `LangToggle.astro` — 中英文双语切换组件（localStorage 持久化，navigator.language 默认值，ViewTransitions 兼容）
+- `BaseLayout.astro` — `data-lang` 属性驱动的 `.lang-zh` / `.lang-en` CSS 显示控制
+- `content/config.ts` — Blog schema 新增 `bilingual: boolean` 字段
 
 ---
 
