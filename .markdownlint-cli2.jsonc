@@ -1,0 +1,21 @@
+{
+  // markdownlint-cli2 配置文件
+  // 此文件控制 CLI 行为（忽略文件等），规则配置在 .markdownlint.jsonc 中
+
+  // 忽略非项目核心产出的文件
+  "ignores": [
+    // 外部引入的参考文档（格式不受控）
+    "claude-code-handbook.md",
+    "ClaudeCode*.md",
+    "GitHub-Copilot-*.md",
+
+    // Agent 定义文件（YAML 嵌套在代码块内，非标准 Markdown）
+    ".github/agents/**",
+
+    // copilot-instructions（大量嵌套表格/列表/代码块，格式由功能决定）
+    ".github/copilot-instructions.md",
+
+    // 会议纪要（blockquote 内嵌列表、多行引用是记录的固有格式）
+    "docs/meetings/**"
+  ]
+}

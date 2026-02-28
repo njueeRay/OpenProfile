@@ -12,7 +12,7 @@ assignees: njueeray
 
 ## 复现步骤
 
-1. 打开 https://github.com/njueeray
+1. 打开 <https://github.com/njueeray>
 2. 查看 ...
 3. 发现 ...
 

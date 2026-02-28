@@ -27,6 +27,7 @@ This positions OpenProfile as:
 **Secondary**: Teams adopting AI-Native practices who want a concrete, reproducible example to learn from.
 
 **Not our audience** (deliberate exclusions):
+
 - Users seeking a one-click profile generator with no coding
 - Users who want a fixed template with no customization hooks
 - Non-developers looking for a resume builder
@@ -51,6 +52,7 @@ Our moat: **structured context persistence across sessions**. `copilot-instructi
 ### Phase 1 — Credibility (Current: V2.0) ✅
 
 Establish credibility through a polished, fully-documented public reference:
+
 - Releases on GitHub (v1.0.0, v2.0.0) ✅
 - Professional LOGO and README ✅
 - CI/CD green on main ✅
@@ -60,6 +62,7 @@ Establish credibility through a polished, fully-documented public reference:
 ### Phase 2 — Discoverability (Target: V3.0)
 
 Make the project findable and shareable:
+
 - **SEO**: Astro sitemap + RSS feed for the companion blog
 - **Blog content**: Continue publishing AI-Native workflow posts — organic discovery
 - **Topics**: Add GitHub repo topics (`github-profile`, `github-copilot`, `ai-native`, `developer-tools`)
@@ -68,6 +71,7 @@ Make the project findable and shareable:
 ### Phase 3 — Community (Target: V3.1+)
 
 Enable others to contribute and extend:
+
 - **GitHub Discussions**: Q&A channel for people adapting the template
 - **"Made with OpenProfile" gallery**: PR-based showcase (similar to Astro themes gallery)
 - **Contribution guide expansion**: Specific contribution tracks (new agent, new component, new doc)
@@ -76,6 +80,7 @@ Enable others to contribute and extend:
 ### Phase 4 — Ecosystem (Long-term: V4.0 vision)
 
 If traction warrants it:
+
 - `npx create-openprofile` — CLI scaffold that clones the template and runs initial setup
 - Multi-platform support: not just GitHub Profile, but also LinkedIn banner, portfolio site
 - Agent team as a reusable pattern library: `brain.agent.md` usable in any Copilot project

@@ -22,7 +22,7 @@
 
 ## capsule-render
 
-**仓库：** https://github.com/kyechan99/capsule-render
+**仓库：** <https://github.com/kyechan99/capsule-render>
 
 ### 基础用法
 
@@ -45,7 +45,7 @@
 
 ## readme-typing-svg
 
-**仓库：** https://github.com/DenverCoder1/readme-typing-svg
+**仓库：** <https://github.com/DenverCoder1/readme-typing-svg>
 
 ### 基础用法
 
@@ -67,7 +67,7 @@
 
 ## github-readme-stats
 
-**仓库：** https://github.com/anuraghazra/github-readme-stats
+**仓库：** <https://github.com/anuraghazra/github-readme-stats>
 
 ### 基础用法
 
@@ -90,7 +90,7 @@
 
 ## github-readme-streak-stats
 
-**仓库：** https://github.com/DenverCoder1/github-readme-streak-stats
+**仓库：** <https://github.com/DenverCoder1/github-readme-streak-stats>
 
 ```markdown
 ![Streak](https://streak-stats.demolab.com?user=njueeray&theme=tokyonight&hide_border=true)
@@ -100,24 +100,24 @@
 
 ## skill-icons
 
-**仓库：** https://github.com/tandpfun/skill-icons
+**仓库：** <https://github.com/tandpfun/skill-icons>
 
 ```markdown
 ![Skills](https://skillicons.dev/icons?i=python,cpp,ts,js,react,docker,git&theme=dark)
 ```
 
-完整图标列表：https://skillicons.dev
+完整图标列表：<https://skillicons.dev>
 
 ---
 
 ## waka-readme-stats
 
-**仓库：** https://github.com/anmol098/waka-readme-stats
+**仓库：** <https://github.com/anmol098/waka-readme-stats>
 
 > ⚠️ 需要先注册 [WakaTime](https://wakatime.com) 账号并在 VS Code 安装插件
 
 ### 接入步骤
-1. 注册 WakaTime：https://wakatime.com
+1. 注册 WakaTime：<https://wakatime.com>
 2. 安装 WakaTime VS Code 插件
 3. 在 GitHub Settings → Secrets 中添加 `WAKATIME_API_KEY` + `GH_TOKEN`（PAT，需 `repo` + `user` scope）
 4. 在 README.md 中添加占位注释（Actions 自动填充）
@@ -147,7 +147,7 @@
 
 ## github-readme-activity-graph
 
-**仓库：** https://github.com/Ashutosh00710/github-readme-activity-graph
+**仓库：** <https://github.com/Ashutosh00710/github-readme-activity-graph>
 
 ### 基础用法
 
@@ -172,7 +172,7 @@
 
 ## Contribution Snake
 
-**仓库：** https://github.com/Platane/snk
+**仓库：** <https://github.com/Platane/snk>
 
 通过 GitHub Actions 自动生成贡献蛇动画 SVG，推送到 `output` 分支。
 

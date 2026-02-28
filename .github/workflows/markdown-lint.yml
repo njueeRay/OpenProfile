@@ -5,10 +5,14 @@ on:
     branches: [main]
     paths:
       - '**.md'
+      - '.markdownlint.jsonc'
+      - '.markdownlint-cli2.jsonc'
   pull_request:
     branches: [main]
     paths:
       - '**.md'
+      - '.markdownlint.jsonc'
+      - '.markdownlint-cli2.jsonc'
   workflow_dispatch:
 
 jobs:
