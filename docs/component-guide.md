@@ -262,3 +262,51 @@
 
 - 无需注册，计数自动开始
 - 计数第一次访问时创建，不可重置
+
+---
+
+## Astro 站点组件（v4.2.0 新增）
+
+> 以下组件用于 njueeray.github.io Astro 博客站点，不是 README Profile 组件。
+
+### BlogCard
+
+**文件：** `src/components/BlogCard.astro`
+
+单篇博文卡片，用于博客列表页。
+
+| 参数 | 类型 | 说明 |
+|------|------|------|
+| `slug` | `string` | 文章 slug |
+| `title` | `string` | 文章标题 |
+| `description` | `string` | 文章描述 |
+| `pubDate` | `Date` | 发布日期 |
+| `contentType` | `ContentType` | 内容类型（insight / technical / member-essay / meeting）|
+| `tags` | `string[]` | 标签列表（显示前 4 个）|
+| `authorId` | `string` | 作者 ID |
+| `authorData` | `object \| null` | 作者信息（displayName / avatar / isAgent）|
+
+### FilterTabs
+
+**文件：** `src/components/FilterTabs.astro`
+
+博客分类筛选标签栏，含客户端筛选逻辑和 URL hash 深链接。
+
+| 参数 | 类型 | 说明 |
+|------|------|------|
+| `counts` | `Record<'all' \| ContentType, number>` | 各分类文章数量 |
+
+- 自动支持 `#insight` / `#technical` / `#member-essay` / `#meeting` URL hash
+- 移动端 ≤480px 自动切换为水平滚动
+
+### global.css 设计令牌
+
+**文件：** `src/styles/global.css`
+
+所有 CSS 自定义属性（custom properties）的唯一真实来源。通过 `import '../styles/global.css'` 在 BaseLayout 中引入。
+
+**颜色变量：** `--color-bg`, `--color-bg-2`, `--color-bg-3`, `--color-accent`, `--color-accent-2`, `--color-text`, `--color-text-muted`, `--color-border`, `--color-green`, `--color-yellow`, `--color-purple`, `--color-orange`, `--color-pink`, `--color-red`
+
+**间距变量：** `--space-xs` (0.25rem) ~ `--space-2xl` (3rem)
+
+**布局变量：** `--max-w` (780px), `--max-w-wide` (900px), `--nav-h` (52px), `--radius-sm`, `--radius-md`, `--radius-pill`
