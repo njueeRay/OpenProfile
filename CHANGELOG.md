@@ -10,7 +10,43 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
-## [4.4.0] — 2026-03-02
+## [4.5.0] — 2026-03-01
+
+> **SEO & 性能 Sprint — JSON-LD / hreflang / Lighthouse CI / axe-core CI / Astro 5 调研**
+> 六项任务交付：S-1 JSON-LD · S-2 hreflang · S-3 Lighthouse CI · S-4 axe-core CI · S-5 构建缓存 · S-6 Astro 5 报告
+
+### Added
+
+- **S-1 JSON-LD 结构化数据（P1）**
+  - `BaseLayout.astro` — 添加 `jsonLd` prop，支持传入单个或数组 JSON-LD 对象
+    自动注入 `<script type="application/ld+json">` 到 `<head>`
+  - `index.astro` — 注入 `Person` + `WebSite` schema（含 `sameAs` GitHub URL、`knowsAbout` 技能数组）
+  - `[...slug].astro` — 注入 `BlogPosting` schema（`headline` / `datePublished` / `dateModified` / `author` / `keywords`）
+    Agent 作者使用 `SoftwareApplication` 类型，人类作者使用 `Person` 类型
+- **S-2 hreflang 双语标签（P2）**
+  - `BaseLayout.astro` — 添加 `hreflangLinks` prop，渲染 `<link rel="alternate" hreflang>` 标签
+  - `[...slug].astro` — 双语文章（`bilingual: true`）自动生成 `zh` / `en` / `x-default` 三条 hreflang
+- **S-3 Lighthouse CI（P1）**
+  - `.github/workflows/lighthouse-ci.yml` — `treosh/lighthouse-ci-action@v12`
+    最低分数阈值：accessibility ≥ 0.90（error）、seo ≥ 0.90（error）、performance ≥ 0.85（warn）
+  - `.lighthouserc.json` — Lighthouse CI 配置文件（`staticDistDir` 模式，无需启动服务器）
+  - 产物上传至 `temporary-public-storage`，PR 内可直接查看报告链接
+- **S-4 axe-core CI（P2）**
+  - `.github/workflows/accessibility.yml` — 构建后启动 `serve` 静态服务，`@axe-core/cli` 扫描首页、博客列表、team 页
+  - `--exit` flag：发现 violation 时 CI 失败
+- **S-5 构建缓存优化（P2）**
+  - `deploy.yml` — 新增 `actions/cache@v4` 缓存 `.astro/` 增量构建目录
+  - `lighthouse-ci.yml` / `accessibility.yml` — 同步添加 `.astro` 缓存步骤
+  - 缓存键：`astro-${{ hashFiles('src/**','public/**','astro.config.mjs','package-lock.json') }}`
+  - 预期效果：增量部署构建时间减少 ~40%
+- **S-6 Astro 5 迁移可行性报告（P1）**
+  - `docs/research/astro-v5-feasibility-2026.md` — Researcher 完整报告
+    结论：✅ 迁移可行，工作量约半天，建议纳入 v5.0.0
+    核心依赖兼容性矩阵 + 迁移路径 + 风险评估
+
+---
+
+## [4.4.0] — 2026-03-01
 
 > **体验精修 Sprint — a11y / 博客微交互 / Hero 打字动画 / 团队动态墙**
 > 四项功能任务全部交付：U-1 博客卡片微交互 · U-2 Hero 增强 · U-3 a11y 基础（P1）· U-4 团队动态墙

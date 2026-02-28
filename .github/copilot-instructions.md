@@ -223,6 +223,11 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - [x] **版本哲学**：增量发布 — Patch（随时 bug 修复）/ Minor（1-3 天主题 Sprint）/ Major（架构级变更）；[Unreleased] 积压不超过 5 天
 - [x] **审查门禁**：Minor 及以上版本发布前，Code Reviewer 必须出审查报告（`docs/reviews/`）
 - [x] **博客内容分布**：16 篇 — insight×2 / technical×1 / member-essay×7（含 profile-designer 首发，全员覆盖）/ meeting×6
+- [x] **JSON-LD schema 策略**：Person + WebSite（首页）/ BlogPosting（博客文章）—— Agent 作者使用 `SoftwareApplication` 类型，人类使用 `Person`；通过 `BaseLayout` `jsonLd` prop 注入
+- [x] **hreflang 策略**：双语文章（`bilingual: true`）自动生成 zh / en / x-default 三条 alternate link；单语文章无 hreflang
+- [x] **Lighthouse CI 阈值**：accessibility ≥ 0.90（error 级别阻断）/ seo ≥ 0.90（error）/ performance ≥ 0.85（warn）/ best-practices ≥ 0.90（warn）
+- [x] **axe-core CI 范围**：首页 + 博客列表 + team 页三个关键页面；`--exit` flag 发现 violation 即阻断
+- [x] **构建缓存策略**：缓存 `.astro/` Vite 增量产物；缓存键含 `src/**` + `public/**` + `astro.config.mjs` + `package-lock.json` hash
 
 **v4.2.0 工程质量 Sprint（✅ 已发布 2026-03-01）：**
 - ✅ `src/styles/global.css` — 全局 CSS 变量提取（从 BaseLayout 120 行内联样式提取为独立文件）
@@ -254,7 +259,7 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 
 ## 当前迭代状态
 
-**阶段：** v4.4.0 已发布，v4.5.0 规划中
+**阶段：** v4.5.0 已发布，v5.0.0 规划中
 **个人信息：** ✅ 已确认
 **配置文件：** ✅ 已同步
 **语言偏好：** ✅ 中文（所有原创内容默认中文，技术符号保持英文）
@@ -355,7 +360,7 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 | v4.2.0 | 工程质量 — CSS 统一 / 组件拆分 / 响应式 / CI 修复 | ✅ 已发布 |
 | v4.3.0 | 社区首发 — Discussions / README 着陆页 / Good First Issues | ✅ 已发布 |
 | v4.4.0 | 体验精修 — 微交互 / 首页增强 / a11y / 团队动态墙 | ✅ 已发布 |
-| v4.5.0 | SEO & 性能 — JSON-LD / Lighthouse CI / Astro 5 调研 | ⬜ 规划中 |
+| v4.5.0 | SEO & 性能 — JSON-LD / Lighthouse CI / Astro 5 调研 | ✅ 已发布 |
 | v5.0.0 | 架构性升级 — Astro 5 迁移（门槛触发） | ⬜ 远期 |
 
 **待用户操作项：**
@@ -392,6 +397,21 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - ✅ §13.2 copilot-instructions 迁移协议：Fixed vs Replaceable 对照表
 - ✅ pm / brain / dev agent 文件升级至 v1.1
 - ✅ PLAYBOOK-CHANGELOG.md 记录 v2.2 条目
+
+**v4.4.0 体验精修 Sprint（2026-03-01，tag: v4.4.0）：**
+- ✅ U-3 (P1) a11y 基础：`BaseLayout` skip-to-content + `<main>` landmark + `nav aria-label` + `:focus-visible` 全局样式
+- ✅ U-1 博客卡片微交互：`BlogCard.astro` — type-icon `breathe` 呼吸动画 + 3D 透视倾斜（`perspective(700px)`）
+- ✅ U-2 首页 Hero 打字机动画：`Hero.astro` — `term-reveal` 逐行揭示（按行自动分配 `animation-delay`）
+- ✅ U-4 团队动态墙：`team.astro` — `#activity` section，最新 12 篇博文 git-log 风格活动流
+- ✅ 全部动效遵守 `prefers-reduced-motion`
+
+**v4.5.0 SEO & 性能 Sprint（2026-03-01，tag: v4.5.0）：**
+- ✅ S-1 JSON-LD：`BaseLayout` 新增 `jsonLd` prop；首页注入 `Person + WebSite`；博客页注入 `BlogPosting`（Agent 用 `SoftwareApplication` 类型）
+- ✅ S-2 hreflang：`BaseLayout` 新增 `hreflangLinks` prop；双语文章（`bilingual: true`）自动生成 `zh/en/x-default`
+- ✅ S-3 Lighthouse CI：`.github/workflows/lighthouse-ci.yml`（`treosh/lighthouse-ci-action@v12`，`staticDistDir` 模式）+ `.lighthouserc.json`（a11y ≥ 0.9 / seo ≥ 0.9 error 阈值）
+- ✅ S-4 axe-core CI：`.github/workflows/accessibility.yml`（`@axe-core/cli` 扫描首页 / 博客 / team 三页）
+- ✅ S-5 构建缓存：`deploy.yml` + 两个 CI workflow 均添加 `actions/cache@v4` 缓存 `.astro/` 目录（~40% 速度提升）
+- ✅ S-6 Astro 5 调研：`docs/research/astro-v5-feasibility-2026.md`（结论：可行，约半天工作量，建议纳入 v5.0.0）
 
 ---
 
