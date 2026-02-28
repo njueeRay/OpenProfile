@@ -8,12 +8,37 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+---
+
+## [4.4.0] — 2026-03-02
+
+> **体验精修 Sprint — a11y / 博客微交互 / Hero 打字动画 / 团队动态墙**
+> 四项功能任务全部交付：U-1 博客卡片微交互 · U-2 Hero 增强 · U-3 a11y 基础（P1）· U-4 团队动态墙
+
 ### Added
 
-- `profile-designer-first-post.mdx` (member-essay) — Profile Designer 首发博文：视觉是世界观的表达，终端美学的立场声明
-- `ai-native-person-summit-2026-02-26.mdx` (meeting) — 六声部 AI-native Person 思想峰会纪实（2026-02-26）
-- `free-brainstorm-2026-02-26.mdx` (meeting) — v4.0.0 发布后全员自由交流会记录（builder in public 转折点）
-- `team-evolution-design-2026-02-27.mdx` (meeting) — /team 页面 Git Graph 视觉设计决策会全程记录
+- **U-3 a11y 基础（P1）**
+  - `BaseLayout.astro` — 顶部添加 `skip-to-content` 跳转链接（键盘/屏幕阅读器友好）
+  - `BaseLayout.astro` — `<slot />` 包裹 `<main id="main-content" tabindex="-1">` 语义化主内容区域
+  - `Nav.astro` — `<nav>` 元素添加 `aria-label="Main navigation"`
+  - `Nav.astro` — 搜索按钮添加 `aria-label="搜索 (Ctrl+K)"`
+  - `global.css` — `.skip-link` 样式（隐藏态 + 聚焦时浮现在 nav 下方）
+  - `global.css` — `:focus-visible` 全局 2px accent 边框 + `:focus:not(:focus-visible)` 去除鼠标点击轮廓
+- **U-1 博客卡片微交互**
+  - `BlogCard.astro` — contentType 图标包裹 `<span class="type-icon">`，CSS `@keyframes breathe` 呼吸动画（2.8s）
+  - `BlogCard.astro` — hover 升级：`box-shadow 0 8px 30px rgba(88,166,255,0.1)` + `will-change: transform`
+  - `BlogCard.astro` — `<script>` 添加 3D 透视倾斜效果（`perspective(700px) rotateX/Y` 鼠标追踪）
+  - 全部动效遵守 `prefers-reduced-motion`
+- **U-2 首页 Hero 增强**
+  - `Hero.astro` — CSS `@keyframes term-reveal` 逐行打字机揭示动画（opacity + X 偏移）
+  - `Hero.astro` — `<script>` 按行数自动计算 `animation-delay`（0.3s 起步，每行 0.2s 间隔）
+  - Hero CTA 按钮延迟跟随末行动画后出现
+  - 遵守 `prefers-reduced-motion`
+- **U-4 团队动态墙**
+  - `team.astro` — 新增「团队动态」section（`#activity`），展示全站最新 12 篇博文活动流
+  - Git log 风格终端布局：作者 emoji + displayName + `published` + 文章标题链接 + 日期
+  - 数据来自 `getCollection('blog')` + `teamMembers` 本地映射，无外部 API 依赖
+  - `typeIconMap` 为 contentType 匹配用途图标（💡/⚡/✍️/📝）
 
 ---
 

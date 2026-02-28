@@ -254,7 +254,7 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 
 ## 当前迭代状态
 
-**阶段：** v4.3.0 已发布，v4.4.0 规划中
+**阶段：** v4.4.0 已发布，v4.5.0 规划中
 **个人信息：** ✅ 已确认
 **配置文件：** ✅ 已同步
 **语言偏好：** ✅ 中文（所有原创内容默认中文，技术符号保持英文）
@@ -354,7 +354,7 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 | v4.1.0 | 团队品牌化 + 内容架构 | ✅ 已发布 |
 | v4.2.0 | 工程质量 — CSS 统一 / 组件拆分 / 响应式 / CI 修复 | ✅ 已发布 |
 | v4.3.0 | 社区首发 — Discussions / README 着陆页 / Good First Issues | ✅ 已发布 |
-| v4.4.0 | 体验精修 — 微交互 / 首页增强 / a11y / 团队动态墙 | ⬜ 规划中 |
+| v4.4.0 | 体验精修 — 微交互 / 首页增强 / a11y / 团队动态墙 | ✅ 已发布 |
 | v4.5.0 | SEO & 性能 — JSON-LD / Lighthouse CI / Astro 5 调研 | ⬜ 规划中 |
 | v5.0.0 | 架构性升级 — Astro 5 迁移（门槛触发） | ⬜ 远期 |
 
