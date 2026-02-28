@@ -319,16 +319,34 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - ✅ CI 修复：link-check.yml 新增 wakatime / shields.io / hooj0.github.io / 占位符 URL 排除规则
 - ✅ 5 篇 Agent 首发博文（PM/Dev/Researcher/Code Reviewer/Brand）+ 2 篇会议纪实（全员战略会 + Playbook 重读会）
 
-**会议确定的后续行动方向（下一 Sprint）：**
+**会议确定的后续行动方向：**
 - ✅ Researcher 出「Build in Public 渠道选型 Research Brief」→ `docs/research/build-in-public-channels-2026.md`
 - ✅ Brand × Code Reviewer 对齐内容审查清单（博文八维度质量标准）→ `docs/brand-content-checklist.md`
 - ✅ Brand 制定首批 GitHub Discussions 发布计划 → `docs/brand-discussions-plan.md`
 - ✅ ThemeToggle 重复事件监听器修复（`window._themeListenerBound` 标志位）
 - ✅ PLAYBOOK-CHANGELOG.md 同步 Playbook v2.1 升级记录 + `[Playbook v2.1]` 引用链接
-- ⬜ Profile Designer 「团队动态墙」方案 → Dev 实现（Phase K+1）— 待 Sprint 规划
-- ⬜ Dev 规划知识图谱 Phase K+1（数据驱动，L2 沉淀自动生长节点）— 待 Sprint 规划
-- ⬜ Discussions 分类架构实际创建（需 Ray 管理员操作，参考 `brand-discussions-plan.md`）
-- ⬜ 首批 Discussions 帖子发布（等待分类架构建好后 Brand 执行）
+
+**V5 路线图规划会议（2026-02-28）：**
+- ✅ 全体规划会议纪要：`docs/meetings/2026-02-28-v5-roadmap-planning.md`（7 Agent 全员参会，Brain 主持）
+- ✅ 版本哲学共识：增量发布（Patch/Minor/Major 三级准则），拒绝 [Unreleased] 积压 > 5 天
+- ✅ 回顾性 v4.1.0 决议 — 对当前 [Unreleased] 切版（团队品牌化 + 内容架构）
+- ✅ v4.2→v4.5 路线图：质量→社区→体验→性能四个 Sprint
+- ✅ v5.0.0 门槛明确：仅架构级变化（Astro 5 迁移等）才升 Major
+
+**V5 路线图版本规划：**
+
+| 版本 | 主题 | 状态 |
+|------|------|------|
+| v4.1.0 | 团队品牌化 + 内容架构（回顾性切版） | 🔜 待发布 |
+| v4.2.0 | 工程质量 — CSS 统一 / 组件拆分 / 响应式 | ⬜ 规划中 |
+| v4.3.0 | 社区首发 — Discussions / README 着陆页 / Good First Issues | ⬜ 规划中 |
+| v4.4.0 | 体验精修 — 微交互 / 首页增强 / a11y / 团队动态墙 | ⬜ 规划中 |
+| v4.5.0 | SEO & 性能 — JSON-LD / Lighthouse CI / Astro 5 调研 | ⬜ 规划中 |
+| v5.0.0 | 架构性升级 — Astro 5 迁移（门槛触发） | ⬜ 远期 |
+
+**待用户操作项：**
+- ⬜ Discussions 分类架构实际创建（需 Ray 管理员操作，v4.3.0 前置）
+- ⬜ 确认首页重设计方向（v4.4.0 规划时）
 
 **2026-02-28 Blog 内容架构 + 信息流重构（`9a33d12`）：**
 - ✅ `contentType` 字段 + 12 篇文章 frontmatter 更新（四类：insight / technical / member-essay / meeting）

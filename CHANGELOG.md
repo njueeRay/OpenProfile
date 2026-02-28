@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### Added
+- `docs/meetings/2026-02-28-v5-roadmap-planning.md` — V5 路线图全体规划会议纪要（7 Agent 全员参会，增量版本哲学共识 + v4.1→v4.5 路线图 + v5.0 门槛定义）
 - `docs/meetings/2026-02-28-blog-team-page-design-session.md` — Blog 内容架构 + 信息流设计会（PM 主持，四类 contentType 定稿，Filter Tab + 成员最新博文展示设计决策）
 - `docs/meetings/2026-02-28-profile-fixes-and-action-items.md` — 2026-02-28 工作会话纪要
 - `docs/research/build-in-public-channels-2026.md` — Researcher Research Brief：Build in Public 渠道选型（X API / Bluesky / GitHub Discussions / MCP，2026 现状）
@@ -244,8 +245,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 | v0.3.0 | 视觉升级：Header 动画 + 技术栈图标 | ✅ 完成 |
 | v0.4.0 | 动态数据：WakaTime + Activity Graph + 贡献蛇 | ✅ 完成 |
 | v1.0.0 | 迭代一完成：全组件上线 + 文档同步 + 开源发布 | ✅ 完成 |
-| **v2.0.0** | **V2.0：叙事重构 + 浅色兼容 + Astro 多页 + CI + Agent 团队重构** | ✅ 完成 |
-| **v3.0.0** | **V3.0：SEO 地基 + Blog 标签系统 + Profile 新组件 + Playbook 可移植化** | ✅ 完成 |
+| **v2.0.0** | **叙事重构 + 浅色兼容 + Astro 多页 + CI + Agent 团队重构** | ✅ 完成 |
+| **v3.0.0** | **SEO 地基 + Blog 标签系统 + Profile 新组件 + Playbook 可移植化** | ✅ 完成 |
+| **v4.0.0** | **三层版本体系独立化 + Astro 站点体验深化** | ✅ 完成 |
+| **v4.1.0** | **团队品牌化 + 内容架构（回顾性切版）** | 🔜 待发布 |
+| v4.2.0 | 工程质量 Sprint — CSS 统一 / 组件拆分 / 响应式 | ⬜ 规划中 |
+| v4.3.0 | 社区首发 Sprint — Discussions / README 着陆页 / Good First Issues | ⬜ 规划中 |
+| v4.4.0 | 体验精修 Sprint — 微交互 / 首页增强 / a11y / 团队动态墙 | ⬜ 规划中 |
+| v4.5.0 | SEO & 性能 Sprint — JSON-LD / Lighthouse CI / Astro 5 调研 | ⬜ 规划中 |
+| **v5.0.0** | **架构性升级 — Astro 5 迁移（门槛触发）** | ⬜ 远期 |
 
 ---
 
