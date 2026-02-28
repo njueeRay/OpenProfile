@@ -93,6 +93,13 @@ git commit -m "docs: 完善 capsule-render 参数说明"
 
 ---
 
+## 社区与讨论
+
+- 💬 **GitHub Discussions**：在 [njueeray.github.io Discussions](https://github.com/njueeRay/njueeray.github.io/discussions) 中提问、分享想法
+- 🌱 **入门任务**：查找标记为 [`good first issue`](https://github.com/njueeRay/OpenProfile/labels/good%20first%20issue) 的 Issue，适合新贡献者
+
+---
+
 ## 问题反馈
 
 - 使用 [Issue 模板](.github/ISSUE_TEMPLATE/) 提交问题

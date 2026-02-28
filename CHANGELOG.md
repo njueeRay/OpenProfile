@@ -308,8 +308,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 | **v3.0.0** | **SEO 地基 + Blog 标签系统 + Profile 新组件 + Playbook 可移植化** | ✅ 完成 |
 | **v4.0.0** | **三层版本体系独立化 + Astro 站点体验深化** | ✅ 完成 |
 | **v4.1.0** | **团队品牌化 + 内容架构** | ✅ 完成 |
-| v4.2.0 | 工程质量 Sprint — CSS 统一 / 组件拆分 / 响应式 | ⬜ 规划中 |
-| v4.3.0 | 社区首发 Sprint — Discussions / README 着陆页 / Good First Issues | ⬜ 规划中 |
+| v4.2.0 | 工程质量 Sprint — CSS 统一 / 组件拆分 / 响应式 | ✅ 完成 |
+| v4.3.0 | 社区首发 Sprint — Discussions / README 着陆页 / Good First Issues | ✅ 完成 |
 | v4.4.0 | 体验精修 Sprint — 微交互 / 首页增强 / a11y / 团队动态墙 | ⬜ 规划中 |
 | v4.5.0 | SEO & 性能 Sprint — JSON-LD / Lighthouse CI / Astro 5 调研 | ⬜ 规划中 |
 | **v5.0.0** | **架构性升级 — Astro 5 迁移（门槛触发）** | ⬜ 远期 |

@@ -220,7 +220,7 @@ OpenProfile/
 | v4.0.0 | ✅ Released | Three-tier versioning, Playbook v2.0, Astro search/theme/TOC/comments, AI-native philosophy |
 | v4.1.0 | ✅ Released | Team brand identity, content architecture (4 content types), Brand Agent |
 | v4.2.0 | ✅ Released | Engineering quality: CSS tokens, component extraction, responsive nav, CI fix |
-| v4.3.0 | 🔄 In Progress | Community launch: Discussions, Good First Issues, landing page |
+| v4.3.0 | ✅ Released | Community launch: Discussions, Good First Issues, landing page |
 | v4.4.0 | 📋 Planned | Experience polish: micro-interactions, a11y, team activity wall |
 | v4.5.0 | 📋 Planned | SEO & Performance: JSON-LD, Lighthouse CI, Astro 5 research |
 
@@ -277,7 +277,7 @@ OpenProfile itself is Markdown + YAML + SVG. The personal site it powers uses:
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=njueeRay/OpenProfile&type=Date&theme=dark" />
     <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=njueeRay/OpenProfile&type=Date" />
-    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=njueeRay/OpenProfile&type=Date" width="600" />
+    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=njueeRay/OpenProfile&type=Date" />
   </picture>
 </a>
 </div>
