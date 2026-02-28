@@ -222,6 +222,7 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - [x] **Team 页成员卡片**：显示该成员最新一篇博文标题和链接（getCollection 构建映射）
 - [x] **版本哲学**：增量发布 — Patch（随时 bug 修复）/ Minor（1-3 天主题 Sprint）/ Major（架构级变更）；[Unreleased] 积压不超过 5 天
 - [x] **审查门禁**：Minor 及以上版本发布前，Code Reviewer 必须出审查报告（`docs/reviews/`）
+- [x] **博客内容分布**：16 篇 — insight×2 / technical×1 / member-essay×7（含 profile-designer 首发，全员覆盖）/ meeting×6
 
 **v4.2.0 工程质量 Sprint（✅ 已发布 2026-03-01）：**
 - ✅ `src/styles/global.css` — 全局 CSS 变量提取（从 BaseLayout 120 行内联样式提取为独立文件）
@@ -253,7 +254,7 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 
 ## 当前迭代状态
 
-**阶段：** v4.2.0 已发布，v4.3.0 规划中
+**阶段：** v4.3.0 已发布，v4.4.0 规划中
 **个人信息：** ✅ 已确认
 **配置文件：** ✅ 已同步
 **语言偏好：** ✅ 中文（所有原创内容默认中文，技术符号保持英文）
@@ -352,13 +353,13 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 |------|------|------|
 | v4.1.0 | 团队品牌化 + 内容架构 | ✅ 已发布 |
 | v4.2.0 | 工程质量 — CSS 统一 / 组件拆分 / 响应式 / CI 修复 | ✅ 已发布 |
-| v4.3.0 | 社区首发 — Discussions / README 着陆页 / Good First Issues | ⬜ 规划中 |
+| v4.3.0 | 社区首发 — Discussions / README 着陆页 / Good First Issues | ✅ 已发布 |
 | v4.4.0 | 体验精修 — 微交互 / 首页增强 / a11y / 团队动态墙 | ⬜ 规划中 |
 | v4.5.0 | SEO & 性能 — JSON-LD / Lighthouse CI / Astro 5 调研 | ⬜ 规划中 |
 | v5.0.0 | 架构性升级 — Astro 5 迁移（门槛触发） | ⬜ 远期 |
 
 **待用户操作项：**
-- ⬜ Discussions 分类架构实际创建（需 Ray 管理员操作，v4.3.0 前置）
+- ✅ Discussions 分类架构已创建（Announcements / Team Insights / AI-native Journey）
 - ⬜ 确认首页重设计方向（v4.4.0 规划时）
 
 **2026-02-28 Blog 内容架构 + 信息流重构（`9a33d12`）：**
@@ -374,6 +375,13 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - ✅ 3D 贡献图增加 light 模式独立 SVG（green-animate）
 - ✅ Pin cards 增加 `cache_seconds=86400`
 - ✅ 博客首次访问默认深色模式（`556e053`）
+
+**2026-03-01 博客内容扩充（`e1060e6`）：**
+- ✅ `profile-designer-first-post.mdx` (member-essay) — Profile Designer 首发：视觉即世界观，✅ 闭合「全员覆盖」缺口
+- ✅ `ai-native-person-summit-2026-02-26.mdx` (meeting) — 六声部思想峰会纪实：AI-native 身份认知 × 历史坐标 × 认知外化
+- ✅ `free-brainstorm-2026-02-26.mdx` (meeting) — v4.0.0 庆典自由讨论：builder in public 转折点，最坦诚的团队声音
+- ✅ `team-evolution-design-2026-02-27.mdx` (meeting) — /team 页 Git Graph 设计决策全程记录
+- ✅ 博客内容分布更新：16 篇（insight×2 / technical×1 / member-essay×7 / meeting×6）
 
 ---
 

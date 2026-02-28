@@ -8,20 +8,31 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+---
+
+## [4.3.0] — 2026-03-01
+
 ### Added
 
-- `profile-designer-first-post.mdx` (member-essay) — Profile Designer 首发博文：视觉是世界观的表达，终端美学的立场声明，AI-native 视觉语言探索
-- `ai-native-person-summit-2026-02-26.mdx` (meeting) — 2026-02-26 AI-native Person 思想峰会纪实：六声部对话，从身份认知到历史坐标，团队最深度的哲学讨论
-- `free-brainstorm-2026-02-26.mdx` (meeting) — v4.0.0 发布后全员自由交流会：builder in public、叙事力空缺、Playbook 开源方向，最坦诚的团队声音
-- `team-evolution-design-2026-02-27.mdx` (meeting) — /team 页面 Git Graph 设计会：色彩系统决策、数据驱动架构、为什么选 Git Graph
+- **GitHub Discussions 社区上线** — Announcements / Team Insights / AI-native Journey 三个自定义分类 + 3 篇首发帖
+- **4 个 Good First Issues** 创建（#1-#4）：组件指南翻译、设计决策更新、Agent 速查卡、组件健康监控
+- **README 着陆页增强** — Preview 区块、Star History 图表、Contributors 头像列表、双 CI badge（markdown-lint + link-check）、Roadmap 扩展至 v4.5.0
+- **`docs/release-sop.md`** — 版本发布标准操作流程（从代码冻结到 Release 的完整步骤）
+- **`docs/brand-release-template.md`** — Brand 版本发布博文模板（WHY > WHAT 叙事原则）
+- `profile-designer-first-post.mdx` (member-essay) — Profile Designer 首发博文
+- `ai-native-person-summit-2026-02-26.mdx` (meeting) — AI-native Person 思想峰会纪实
+- `free-brainstorm-2026-02-26.mdx` (meeting) — v4.0.0 发布后全员自由交流会
+- `team-evolution-design-2026-02-27.mdx` (meeting) — /team 页面 Git Graph 设计会
 
 ### Fixed
 
-- **CI markdown-lint 全面修复**：从 282 errors → 0 errors
+- **CI markdown-lint 全面修复**：282 errors → 0 errors
   - 新增 `.markdownlint-cli2.jsonc` 使用原生 `ignores` 机制（替代不工作的 `.markdownlintignore`）
   - 禁用与项目紧凑文档风格冲突的 4 条规则：MD022/MD028/MD031/MD032
   - 修复 11 处 MD034 裸 URL（`component-guide.md` + `bug_report.md`）
   - Workflow 触发条件扩展到 `.jsonc` 配置文件变更
+- **BlogCard 嵌套 `<a>` 修复**（W-01）— 改用 stretched-link 模式，消除非法嵌套 HTML
+- **汉堡菜单焦点管理**（W-02）— 添加 Escape 关闭 + Tab 焦点循环 + 开启时自动聚焦
 
 ---
 
@@ -305,7 +316,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
-[Unreleased]: https://github.com/njueeRay/OpenProfile/compare/v4.1.0...HEAD
+[Unreleased]: https://github.com/njueeRay/OpenProfile/compare/v4.3.0...HEAD
+[4.3.0]: https://github.com/njueeRay/OpenProfile/compare/v4.2.0...v4.3.0
+[4.2.0]: https://github.com/njueeRay/OpenProfile/compare/v4.1.0...v4.2.0
 [4.1.0]: https://github.com/njueeRay/OpenProfile/compare/v4.0.0...v4.1.0
 [4.0.0]: https://github.com/njueeRay/OpenProfile/compare/v3.0.0...v4.0.0
 [3.0.0]: https://github.com/njueeRay/OpenProfile/compare/v2.0.0...v3.0.0

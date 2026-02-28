@@ -9,18 +9,33 @@
 [![Latest Release](https://img.shields.io/github/v/release/njueeRay/OpenProfile?style=flat-square&color=3fb950&logo=github)](https://github.com/njueeRay/OpenProfile/releases)
 [![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](./LICENSE)
 [![Built with Copilot](https://img.shields.io/badge/Built%20with-GitHub%20Copilot-0078d4?style=flat-square&logo=github)](https://github.com/features/copilot)
-[![CI](https://img.shields.io/github/actions/workflow/status/njueeRay/OpenProfile/link-check.yml?style=flat-square&label=link-check)](https://github.com/njueeRay/OpenProfile/actions)
+[![Markdown Lint](https://img.shields.io/github/actions/workflow/status/njueeRay/OpenProfile/markdown-lint.yml?style=flat-square&label=markdown-lint)](https://github.com/njueeRay/OpenProfile/actions/workflows/markdown-lint.yml)
+[![Link Check](https://img.shields.io/github/actions/workflow/status/njueeRay/OpenProfile/link-check.yml?style=flat-square&label=link-check)](https://github.com/njueeRay/OpenProfile/actions/workflows/link-check.yml)
 
 <br/>
 
 **Stop hand-editing Markdown. Let an AI Agent team build your GitHub Profile.**
 
-*OpenProfile is a complete, reproducible workflow  fork it, configure one file, and let Copilot Agents take over.*
+*OpenProfile is a complete, reproducible workflow — fork it, configure one file, and let Copilot Agents take over.*
 
 <br/>
 
 [![See the live profile](https://img.shields.io/badge/%F0%9F%9A%80%20See%20the%20live%20profile%20%E2%86%92-njueeray.github.io-58a6ff?style=for-the-badge)](https://njueeray.github.io)
 [![Star on GitHub](https://img.shields.io/badge/%E2%AD%90%20Star%20this%20repo-0d1117?style=for-the-badge&logo=github&logoColor=white)](https://github.com/njueeRay/OpenProfile)
+
+</div>
+
+---
+
+## Preview
+
+<div align="center">
+
+| 🖥️ GitHub Profile | 📝 Personal Blog |
+|:-:|:-:|
+| Dark terminal aesthetic with dynamic stats | Astro-powered blog with 16+ posts |
+| WakaTime · Streak · Activity Graph · 3D Contrib | Content types · Tag filters · RSS · Giscus comments |
+| [**→ Visit Profile**](https://github.com/njueeRay) | [**→ Visit Blog**](https://njueeray.github.io) |
 
 </div>
 
@@ -88,6 +103,7 @@ You (set the goal)
 | `code-reviewer` | [`.github/agents/code-reviewer.agent.md`](.github/agents/code-reviewer.agent.md) | Pre-merge validator; 8-dimension checklist |
 | `researcher` | [`.github/agents/researcher.agent.md`](.github/agents/researcher.agent.md) | Intel officer; deep dives without burning context |
 | `profile-designer` | [`.github/agents/profile-designer.agent.md`](.github/agents/profile-designer.agent.md) | Visual architect; component selection & layout planning |
+| `brand` | [`.github/agents/brand.agent.md`](.github/agents/brand.agent.md) | Brand strategist; Build in Public & content publishing |
 
 ---
 
@@ -202,6 +218,11 @@ OpenProfile/
 | v2.0.0 | ✅ Released | Agent V2.0 (Brain/PM), Astro blog, CI hardening |
 | v3.0.0 | ✅ Released | SEO (sitemap, RSS, OG meta), blog tag filters, 3D contributions, Trophy |
 | v4.0.0 | ✅ Released | Three-tier versioning, Playbook v2.0, Astro search/theme/TOC/comments, AI-native philosophy |
+| v4.1.0 | ✅ Released | Team brand identity, content architecture (4 content types), Brand Agent |
+| v4.2.0 | ✅ Released | Engineering quality: CSS tokens, component extraction, responsive nav, CI fix |
+| v4.3.0 | 🔄 In Progress | Community launch: Discussions, Good First Issues, landing page |
+| v4.4.0 | 📋 Planned | Experience polish: micro-interactions, a11y, team activity wall |
+| v4.5.0 | 📋 Planned | SEO & Performance: JSON-LD, Lighthouse CI, Astro 5 research |
 
 See the [Releases page](https://github.com/njueeRay/OpenProfile/releases) and [CHANGELOG.md](CHANGELOG.md) for full version history.
 
@@ -216,6 +237,7 @@ See the [Releases page](https://github.com/njueeRay/OpenProfile/releases) and [C
 | [docs/design-decisions.md](docs/design-decisions.md) | Rationale behind visual choices |
 | [docs/team-playbook.md](docs/team-playbook.md) | Shared vocabulary and quality gates |
 | [docs/open-source-strategy.md](docs/open-source-strategy.md) | Growth strategy, audience, and V3.x roadmap |
+| [docs/release-sop.md](docs/release-sop.md) | Version release standard operating procedure |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | How to contribute |
 | [CHANGELOG.md](CHANGELOG.md) | Full version history |
 
@@ -245,6 +267,32 @@ OpenProfile itself is Markdown + YAML + SVG. The personal site it powers uses:
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)
 ![GitHub Copilot](https://img.shields.io/badge/GitHub%20Copilot-0078d4?style=flat-square&logo=github&logoColor=white)
+
+---
+
+## Star History
+
+<div align="center">
+<a href="https://star-history.com/#njueeRay/OpenProfile&Date">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=njueeRay/OpenProfile&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=njueeRay/OpenProfile&type=Date" />
+    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=njueeRay/OpenProfile&type=Date" width="600" />
+  </picture>
+</a>
+</div>
+
+---
+
+## Contributors
+
+<div align="center">
+<a href="https://github.com/njueeRay/OpenProfile/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=njueeRay/OpenProfile" alt="Contributors" />
+</a>
+
+*Made with [contrib.rocks](https://contrib.rocks)*
+</div>
 
 ---
 
