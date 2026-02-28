@@ -215,6 +215,9 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - [x] **博客默认主题**：首次访问始终深色（`localStorage || 'dark'`，不跟随系统偏好）
 - [x] **Build in Public 主渠道**：GitHub Discussions（X API 不接入，Bluesky 作长期备选）
 - [x] **内容审查流程**：博文发布前经过 Code Reviewer 八维度 + Brand 发布价值判断，双层审查
+- [x] **博客内容类型（contentType）**：四类 taste 分类 — `insight` 思想笔记 / `technical` 技术实录 / `member-essay` 成员随笔 / `meeting` 会议纪实；对应四色徽章 + 左边框视觉区分
+- [x] **博客 Filter Tab**：前端 JS 筛选（无跳转），URL hash 深链接（`#insight` / `#technical` 等），默认展示全部
+- [x] **Team 页成员卡片**：显示该成员最新一篇博文标题和链接（getCollection 构建映射）
 
 ---
 
@@ -326,6 +329,12 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - ⬜ Dev 规划知识图谱 Phase K+1（数据驱动，L2 沉淀自动生长节点）— 待 Sprint 规划
 - ⬜ Discussions 分类架构实际创建（需 Ray 管理员操作，参考 `brand-discussions-plan.md`）
 - ⬜ 首批 Discussions 帖子发布（等待分类架构建好后 Brand 执行）
+
+**2026-02-28 Blog 内容架构 + 信息流重构（`9a33d12`）：**
+- ✅ `contentType` 字段 + 12 篇文章 frontmatter 更新（四类：insight / technical / member-essay / meeting）
+- ✅ blog/index.astro Filter Tab（前端筛选 + URL hash 深链接 + 内容类型彩色徽章 + 左边框区分）
+- ✅ team.astro 成员卡片展示最新博文标题（getCollection 映射）
+- ✅ 设计会议纪要：`docs/meetings/2026-02-28-blog-team-page-design-session.md`
 
 **2026-02-28 Profile README 视觉修复（全部已推送，`b8ffe3f`）：**
 - ✅ Header capsule-render：fontSize 70→60，descAlignY 55→63（文字遮挡修复）

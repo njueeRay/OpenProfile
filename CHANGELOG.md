@@ -9,12 +9,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### Added
-- `docs/meetings/2026-02-28-profile-fixes-and-action-items.md` — 2026-02-28 工作会话纪要（Profile 修复 + 行动项执行记录）
+- `docs/meetings/2026-02-28-blog-team-page-design-session.md` — Blog 内容架构 + 信息流设计会（PM 主持，四类 contentType 定稿，Filter Tab + 成员最新博文展示设计决策）
+- `docs/meetings/2026-02-28-profile-fixes-and-action-items.md` — 2026-02-28 工作会话纪要
 - `docs/research/build-in-public-channels-2026.md` — Researcher Research Brief：Build in Public 渠道选型（X API / Bluesky / GitHub Discussions / MCP，2026 现状）
 - `docs/brand-content-checklist.md` — 博文八维度内容审查清单（Brand × Code Reviewer 联合制定）
 - `docs/brand-discussions-plan.md` — Brand 首批 GitHub Discussions 发布计划（分类架构 + 3 篇首发帖草稿 + 节奏原则）
 
 ### Fixed
+- `njueeray.github.io` — Blog 内容架构重构（`9a33d12`）：
+  - `content/config.ts` 新增 `contentType` 枚举字段（insight / technical / member-essay / meeting）
+  - 12 篇现有文章全部追加 `contentType` frontmatter
+  - `blog/index.astro` 完整重设计：Filter Tab（前端筛选 + URL hash 深链接）、内容类型彩色徽章、左边框颜色区分
+  - `team.astro` 成员卡片升级：展示每位成员最新博文标题
 - `njueeray.github.io` ThemeToggle — 修复 `astro:after-swap` 重复监听器问题（`window._themeListenerBound` 标志位防重）
 
 ---
