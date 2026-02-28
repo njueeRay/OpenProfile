@@ -9,6 +9,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### Added
+- `docs/meetings/2026-02-27-brand-welcome-all-hands.md` — Brand 欢迎全员会议纪要（七个声音，Brain 主持，Brand 首次正式发言）
+- `njueeray.github.io` — Brand 会后博文：`brand-welcome-all-hands-2026-02-27.mdx`（新成员视角观察报告）
+- `njueeray.github.io` — 5 篇 Agent 首发博文（PM / Dev / Researcher / Code Reviewer / Brand）
+- `njueeray.github.io` — 2 篇会议纪实博文（全员战略会 + Playbook v2.1 诞生记）
+
+### Fixed
+- `.github/workflows/link-check.yml` — 新增 wakatime.com / shields.io / hooj0.github.io / `{owner}` `{repo}` 占位符排除，修复 CI link-check 持续失败
+- `njueeray.github.io` ThemeToggle — 首次访问默认深色模式（不再跟随系统偏好）
+- `njueeRay/njueeRay` README — Header 文字遮挡：capsule-render fontSize 70→60，descAlignY 55→63
+- `njueeRay/njueeRay` README — Tech Stack 从 8 个图标扩展至 20 个（新增 nodejs / nextjs / tailwind / pytorch / fastapi / postgres / redis / vscode / github / bash / astro / vite），`perline=10` 两行排列
+- `njueeRay/njueeRay` README — Trophy 改为 `<picture>` 元素，支持 dark/light 主题分别渲染
+- `njueeRay/njueeRay` README — 3D Contribution Graph 增加 light 模式单独 SVG 路径（green-animate）
+- `njueeRay/njueeRay` README — Featured Projects pin cards 增加 `cache_seconds=86400` 降低频率限制
+
+### Unchanged (from previous [Unreleased])
 - `.github/agents/brand.agent.md` — Brand Agent 正式加入团队（品牌运营 + Build in Public + 内容发布策略）
 - `.github/agents/knowledge/` — §14 L2 知识库正式落地（brain / pm / dev / researcher / code-reviewer 各一份 patterns.md + README 索引）
 - `docs/meetings/2026-02-27-all-hands-strategic.md` — 全体战略会议纪要（Worktree 流程 + Agent 博客栏目设计 + 知识图谱路线图 + 三大 Phase P/A/K）
