@@ -15,5 +15,14 @@
   "MD024": { "siblings_only": true },
 
   // MD029: Ordered list item prefix — 允许有序列表使用连续编号
-  "MD029": { "style": "ordered" }
+  "MD029": { "style": "ordered" },
+
+  // MD036: Emphasis as heading — 关闭（README 步骤编号使用粗体是刻意设计）
+  "MD036": false,
+
+  // MD040: Fenced code language — 关闭（大量通用模板/示例代码块无法标注语言）
+  "MD040": false,
+
+  // MD060: Table column style — 关闭（紧凑表格是本项目大量文档的既定风格）
+  "MD060": false
 }

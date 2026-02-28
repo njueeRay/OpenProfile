@@ -44,6 +44,7 @@
 对于 njueeRay 团队（个人项目规模），X API 自动化**不具成本效益**。
 
 **建议策略：**
+
 - 不接入 X API 自动化
 - 重要内容（如 Playbook 开源里程碑、团队进化时间线发布）可**手动发布**
 - 关注受众：Ray 个人账号发布，Brand 提供清单和文案草稿
@@ -55,6 +56,7 @@
 ### 2.1 API 现状
 
 Bluesky 基于 AT Protocol，API 完全开放：
+
 - **免费 API**，无使用量限制（截至 2026-02）
 - 支持完整的内容创建、读取、回复操作
 - 开发者文档完善：`https://docs.bsky.app/`
@@ -70,6 +72,7 @@ Bluesky 基于 AT Protocol，API 完全开放：
 已有 `bluesky-mcp` 等第三方 MCP Server，可通过自然语言指令发布内容。
 
 **建议策略：**
+
 - 作为 X 的**备选自动化渠道**
 - 先以 GitHub Discussions 为主，等团队工作流稳定后接入
 - 技术可行，Ray 需要注册账号
@@ -102,6 +105,7 @@ Bluesky 基于 AT Protocol，API 完全开放：
 ### 3.3 可自动化的内容
 
 通过 GitHub Actions 或 Brain/Brand 手动操作，以下内容适合发布至 Discussions：
+
 - 博文发布通知（链接 + 一段摘要）
 - Sprint 完成里程碑（引用 CHANGELOG 对应区块）
 - 知识图谱/团队进化时间线更新
@@ -133,10 +137,12 @@ Bluesky 基于 AT Protocol，API 完全开放：
 ### 4.2 当前工作流接入建议
 
 **立即可用：`github-mcp`**
+
 - GitHub Discussions 发布可通过 Brain/Brand Agent 的自然语言指令完成
 - 无需额外 API 购买，已在 njueeRay 工作流中激活
 
 **6 个月内跟踪：`bluesky-mcp`**
+
 - 等 AT Protocol 生态更稳定后评估接入
 - 预计 2026-Q3 可作为轻量自动化渠道
 
@@ -178,10 +184,10 @@ Bluesky 基于 AT Protocol，API 完全开放：
 
 ## 附录：参考来源
 
-- X API Pricing: https://developer.x.com/en/products/twitter-api
-- Bluesky AT Protocol: https://docs.bsky.app/
-- GitHub Discussions API: https://docs.github.com/en/graphql/reference/objects#discussion
-- MCP Server Registry: https://modelcontextprotocol.io/servers
+- X API Pricing: <https://developer.x.com/en/products/twitter-api>
+- Bluesky AT Protocol: <https://docs.bsky.app/>
+- GitHub Discussions API: <https://docs.github.com/en/graphql/reference/objects#discussion>
+- MCP Server Registry: <https://modelcontextprotocol.io/servers>
 
 ---
 

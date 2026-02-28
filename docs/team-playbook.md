@@ -256,6 +256,7 @@ Dev 在处理任何跨越 3 个以上文件、或改动核心架构的任务时�
 ```
 
 **Subject 规范：**
+
 - 用祈使语气（"add feature"而非"added feature"）
 - 首字母小写
 - 不以句号结尾
@@ -521,6 +522,7 @@ Brain  评估影响面：PATCH / MINOR / MAJOR（见 §5.1）
 | V3.0 规划会 | `2026-02-25-v3-planning.md` |
 
 **纪要必含：**
+
 - 参与成员 + 日期 + 状态
 - 每位 Agent 发言摘要（完整记录，不删减）
 - 核心决议（编号，有标准格式）
@@ -617,7 +619,6 @@ Playbook: vX.Y.Z"
 | 工作流说明 | `docs/agent-workflow.md` | ✅ 通用 | 直接复用，可面向开源社区展示 |
 | Commit 规范 | 本手册第 4 节 | ✅ 通用 | 团队记忆，无需单独文件 |
 | Pre-flight 清单 | 本手册第 9 节 | ✅ 通用 | 团队记忆，无需单独文件 |
-
 
 ---
 
@@ -870,6 +871,7 @@ Brain 拥有以下权力，**无需用户授权**即可执行：
 ### 13.4 招募新 Agent 的规范
 
 **何时招募：**
+
 - 接手会议中识别出明确的能力缺口
 - 团队在执行中连续 3 次以上遇到「没有角色负责这件事」的卡点
 - 项目规模扩大导致现有角色负荷失衡
@@ -902,6 +904,7 @@ tools: [allowed-tool-1, allowed-tool-2]
 ```
 
 **招募完成后，Brain 必须：**
+
 1. 在 `copilot-instructions.md` 的「Agent 团队」区块新增条目
 2. 在 `CHANGELOG.md [Unreleased]` 记录：`feat(agent): add <role> agent  [一句话理由]`
 3. 在本轮会议纪要中说明招募背景
@@ -1081,6 +1084,7 @@ curl -s -H "Authorization: token $token" \
 **创建 GitHub Release：**
 
 > ⚠️ **编码安全规范（必读，曾多次踩坑）：**
+>
 > 1. Release body **必须先写成独立变量**，再传入 hashtable，不可内联多行字符串
 > 2. **使用 `[System.Text.Encoding]::UTF8.GetBytes()` 发送**，不可直接传字符串
 > 3. **body 内容使用英文**（避免 PowerShell 中文字符编码问题）
@@ -1194,11 +1198,13 @@ Invoke-RestMethod "https://api.github.com/repos/{owner}/{repo}/releases" `
 ### 16.3 Logo 设计规范
 
 **规格：**
+
 - 尺寸：宽版 `480×160px`（README 用）+ 方形 `160×160px`（头像/图标用）
 - 格式：SVG（可缩放，体积小）
 - 存储：`assets/logo.svg`，`assets/logo-square.svg`
 
 **视觉语言（由 Brain 根据项目定位决定）：**
+
 - 背景：深色（如 `#0d1117`）或浅色，视项目调性而定
 - 强调色：项目品牌色（在 copilot-instructions.md 中锁定）
 - 字体风格：与项目气质匹配（如工程项目用等宽字体，设计项目用无衬线字体）
@@ -1216,6 +1222,7 @@ Invoke-RestMethod "https://api.github.com/repos/{owner}/{repo}/releases" `
 ### 16.4 话题标签策略
 
 **选择原则：**
+
 - 技术标签（具体）：`astro`, `typescript`, `github-actions`
 - 场景标签（中等宽度）：`github-profile`, `developer-portfolio`
 - 理念标签（宽泛）：`ai-native`, `open-source`, `workflow-template`
@@ -1434,6 +1441,7 @@ PLAYBOOK-CHANGELOG.md
 | 已知局限 | 该 Agent **不做**的事 | 不做架构决策 |
 
 **维护周期：**
+
 - 团队结构变化时（招募/改造/停用）→ 立即更新
 - 每次迭代收尾 → Brain 复核一致性
 
