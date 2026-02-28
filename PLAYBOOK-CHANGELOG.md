@@ -8,6 +8,14 @@
 
 ## [Unreleased]
 
+### Added
+- `docs/brand-content-checklist.md` — 博文八维度内容审查清单（Brand × Code Reviewer 联合制定，正式生效）
+- `docs/research/build-in-public-channels-2026.md` — Build in Public 渠道选型 Research Brief（Researcher）
+- `docs/brand-discussions-plan.md` — Brand 首批 GitHub Discussions 发布计划
+
+### Changed
+- team-playbook.md §13.6（待补充）— Brand Agent 工作流集成，发布决策链写入 Playbook 职责定义
+
 ---
 
 ## [Playbook v2.1] — 2026-02-26
@@ -69,5 +77,6 @@
 ---
 
 [Unreleased]: https://github.com/njueeRay/OpenProfile/compare/v4.0.0...HEAD
-[Playbook v2.0]: https://github.com/njueeRay/OpenProfile/compare/v3.0.0...v4.0.0
-[Playbook v1.0]: https://github.com/njueeRay/OpenProfile/releases/tag/v3.0.0
+[Playbook v2.1]: https://github.com/njueeRay/OpenProfile/compare/v3.0.0...v4.0.0
+[Playbook v2.0]: https://github.com/njueeRay/OpenProfile/compare/v2.0.0...v3.0.0
+[Playbook v1.0]: https://github.com/njueeRay/OpenProfile/releases/tag/v2.0.0

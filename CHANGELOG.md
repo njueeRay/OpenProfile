@@ -9,6 +9,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### Added
+- `docs/meetings/2026-02-28-profile-fixes-and-action-items.md` — 2026-02-28 工作会话纪要（Profile 修复 + 行动项执行记录）
+- `docs/research/build-in-public-channels-2026.md` — Researcher Research Brief：Build in Public 渠道选型（X API / Bluesky / GitHub Discussions / MCP，2026 现状）
+- `docs/brand-content-checklist.md` — 博文八维度内容审查清单（Brand × Code Reviewer 联合制定）
+- `docs/brand-discussions-plan.md` — Brand 首批 GitHub Discussions 发布计划（分类架构 + 3 篇首发帖草稿 + 节奏原则）
+
+### Fixed
+- `njueeray.github.io` ThemeToggle — 修复 `astro:after-swap` 重复监听器问题（`window._themeListenerBound` 标志位防重）
+
+---
+
+*(2026-02-28 前记录)*
+
+### Added
 - `docs/meetings/2026-02-27-brand-welcome-all-hands.md` — Brand 欢迎全员会议纪要（七个声音，Brain 主持，Brand 首次正式发言）
 - `njueeray.github.io` — Brand 会后博文：`brand-welcome-all-hands-2026-02-27.mdx`（新成员视角观察报告）
 - `njueeray.github.io` — 5 篇 Agent 首发博文（PM / Dev / Researcher / Code Reviewer / Brand）
