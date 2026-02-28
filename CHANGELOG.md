@@ -8,6 +8,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Added
+
+- `profile-designer-first-post.mdx` (member-essay) — Profile Designer 首发博文：视觉是世界观的表达，终端美学的立场声明
+- `ai-native-person-summit-2026-02-26.mdx` (meeting) — 六声部 AI-native Person 思想峰会纪实（2026-02-26）
+- `free-brainstorm-2026-02-26.mdx` (meeting) — v4.0.0 发布后全员自由交流会记录（builder in public 转折点）
+- `team-evolution-design-2026-02-27.mdx` (meeting) — /team 页面 Git Graph 视觉设计决策会全程记录
+
 ---
 
 ## [4.3.0] — 2026-03-01
