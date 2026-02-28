@@ -202,14 +202,19 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 > 每次完成一次迭代后，将确认的设计决策记录在这里，避免 Agent 重复讨论
 
 - [x] **整体色调**：GitHub Dark (#0d1117 背景) + 蓝色强调 (#58a6ff) —— 已废弃 #00b4d8
-- [x] **Header 样式**：capsule-render — waving 类型，深色渐变 (0:0d1117 → 100:1a1b27)，twinkling 动画
+- [x] **Header 样式**：capsule-render — waving 类型，深色渐变 (0:0d1117 → 100:1a1b27)，twinkling 动画，fontSize=60，fontAlignY=35，descAlignY=63（已修复文字遮挡）
 - [x] **统计组件**：github-readme-stats `github_dark_dimmed` 主题 + DemoLab streak `github-dark-blue` 主题，无边框 —— 已废弃 merko / tokyonight-duo
-- [x] **技术栈展示**：skill-icons 深色版（py, cpp, ts, js, react, docker, git, linux）
+- [x] **技术栈展示**：skill-icons 深色版 20 图标（py,cpp,ts,js,react,nodejs,nextjs,docker,git,linux,tailwind,pytorch,fastapi,postgres,redis,vscode,github,bash,astro,vite），`perline=10` 两行排列
 - [x] **WakaTime**：✅ 已接入 — anmol098/waka-readme-stats Action + 用户已配置 Secrets
 - [x] **贡献蛇**：✅ Platane/snk v3，每日 UTC 12:00 更新，暗色版 SVG
 - [x] **Activity Graph**：✅ github-readme-activity-graph，github-compact 主题 + area fill
+- [x] **Trophy**：`<picture>` 元素，dark → darkhub 主题 / light → flat 主题
+- [x] **3D Contribution Graph**：dark → profile-night-rainbow.svg / light → profile-green-animate.svg（分离 SVG）
 - [x] **开源 License**：MIT（2026，njueeRay）
 - [x] **Profile README 自述格式**：JSON 代码块风格（anmol098 风格）
+- [x] **博客默认主题**：首次访问始终深色（`localStorage || 'dark'`，不跟随系统偏好）
+- [x] **Build in Public 主渠道**：GitHub Discussions（X API 不接入，Bluesky 作长期备选）
+- [x] **内容审查流程**：博文发布前经过 Code Reviewer 八维度 + Brand 发布价值判断，双层审查
 
 ---
 
@@ -312,13 +317,23 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - ✅ 5 篇 Agent 首发博文（PM/Dev/Researcher/Code Reviewer/Brand）+ 2 篇会议纪实（全员战略会 + Playbook 重读会）
 
 **会议确定的后续行动方向（下一 Sprint）：**
-- ⬜ Researcher 出「Build in Public 渠道选型 Research Brief」（X API + MCP 调研）
-- ⬜ Brand × Code Reviewer 对齐内容审查清单（博文七维度质量标准）
-- ⬜ Profile Designer 「团队动态墙」方案 → Dev 实现（Phase K+1）
-- ⬜ Brand 制定首批 GitHub Discussions 发布计划
-- ⬜ Dev 规划知识图谱 Phase K+1（数据驱动，L2 沉淀自动生长节点）
-- ⚠️ ThemeToggle 重复事件监听器修复（v4.0.1 backlog）
-- ⚠️ PLAYBOOK-CHANGELOG.md 同步 Playbook v2.1 升级记录
+- ✅ Researcher 出「Build in Public 渠道选型 Research Brief」→ `docs/research/build-in-public-channels-2026.md`
+- ✅ Brand × Code Reviewer 对齐内容审查清单（博文八维度质量标准）→ `docs/brand-content-checklist.md`
+- ✅ Brand 制定首批 GitHub Discussions 发布计划 → `docs/brand-discussions-plan.md`
+- ✅ ThemeToggle 重复事件监听器修复（`window._themeListenerBound` 标志位）
+- ✅ PLAYBOOK-CHANGELOG.md 同步 Playbook v2.1 升级记录 + `[Playbook v2.1]` 引用链接
+- ⬜ Profile Designer 「团队动态墙」方案 → Dev 实现（Phase K+1）— 待 Sprint 规划
+- ⬜ Dev 规划知识图谱 Phase K+1（数据驱动，L2 沉淀自动生长节点）— 待 Sprint 规划
+- ⬜ Discussions 分类架构实际创建（需 Ray 管理员操作，参考 `brand-discussions-plan.md`）
+- ⬜ 首批 Discussions 帖子发布（等待分类架构建好后 Brand 执行）
+
+**2026-02-28 Profile README 视觉修复（全部已推送，`b8ffe3f`）：**
+- ✅ Header capsule-render：fontSize 70→60，descAlignY 55→63（文字遮挡修复）
+- ✅ Tech Stack 扩展至 20 个图标，`perline=10` 双行布局
+- ✅ Trophy 改为 `<picture>` 元素，dark/light 分离主题
+- ✅ 3D 贡献图增加 light 模式独立 SVG（green-animate）
+- ✅ Pin cards 增加 `cache_seconds=86400`
+- ✅ 博客首次访问默认深色模式（`556e053`）
 
 ---
 
