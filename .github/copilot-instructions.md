@@ -178,7 +178,7 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 | 层级 | 当前版本 | 维护位置 |
 |------|----------|----------|
 | L1 项目 | `v4.2.0` | `CHANGELOG.md` + GitHub Tag |
-| L2 Playbook | `Playbook v2.1` | `PLAYBOOK-CHANGELOG.md` + `team-playbook.md` 头部 |
+| L2 Playbook | `Playbook v2.2` | `PLAYBOOK-CHANGELOG.md` + `team-playbook.md` 头部 |
 | L3 Agent | 各 `v1.0` | 各 Agent 文件 `agentVersion` 字段 |
 
 ### 团队能力快照
@@ -382,6 +382,16 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - ✅ `free-brainstorm-2026-02-26.mdx` (meeting) — v4.0.0 庆典自由讨论：builder in public 转折点，最坦诚的团队声音
 - ✅ `team-evolution-design-2026-02-27.mdx` (meeting) — /team 页 Git Graph 设计决策全程记录
 - ✅ 博客内容分布更新：16 篇（insight×2 / technical×1 / member-essay×7 / meeting×6）
+
+**2026-03-01 Playbook v2.2 升级（会议 `2026-03-01-01-playbook-v22-planning.md`）：**
+- ✅ §2.3 文档治理（Document Governance）表格扩列（所有权人 + 过期判断）
+- ✅ §3.0 P0-P3 优先级分类表（新章节）
+- ✅ §3.1 Sprint 约束更新：Done 标准规划时写定，P3 不进 Sprint，max 3 P1
+- ✅ §3.4 Git Worktree 工作约定（新章节）
+- ✅ §8.2 会议命名序列号化：`YYYY-MM-DD-NN-<type>.md`
+- ✅ §13.2 copilot-instructions 迁移协议：Fixed vs Replaceable 对照表
+- ✅ pm / brain / dev agent 文件升级至 v1.1
+- ✅ PLAYBOOK-CHANGELOG.md 记录 v2.2 条目
 
 ---
 

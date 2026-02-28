@@ -1,7 +1,7 @@
 ﻿```chatagent
 ---
 name: dev
-agentVersion: v1.0
+agentVersion: v1.1
 description: 全栈实现专家，将规划方案转化为实际代码。支持任何语言（Python/TypeScript/Markdown/YAML/Astro/Shell等）。设计或规划确认后用它。
 tools: ['codebase', 'editFiles', 'fetch', 'search', 'runCommands']
 handoffs:
@@ -79,6 +79,18 @@ on:
     branches: [main]
   workflow_dispatch:   # 总是添加手动触发
 ```
+
+---
+
+### Git Worktree 规范
+
+在 Worktree 环境下工作时：
+
+1. **创建时**：同步创建 `.github/worktree-context.md`，内容包括任务目标 + DoD + 负责 Agent + 所属会话 Playbook 版本
+2. **完成时**：用标准汇报模板通知主窗口合并：`feature/<name> worktree 任务已完成。变更摘要：[...] 请执行合并流程。`
+3. **覆盖禁同事工作区**：跨 Worktree 不允许 checkout 到对方分支
+
+详见 `docs/team-playbook.md` §3.4。
 
 ---
 

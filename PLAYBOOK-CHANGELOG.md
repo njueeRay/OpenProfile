@@ -8,15 +8,29 @@
 
 ## [Unreleased]
 
+---
+
+## [Playbook v2.2] — 2026-03-01
+
+> **文档治理 + Sprint/Priority 工程框架 + Git Worktree 规范 + copilot-instructions 迁移协议**
+>
+> 全体会议 `2026-03-01-01-playbook-v22-planning.md` 形成 D-01~D-06 六项决议。
+> 精简原则：只写不依赖项目类型就能直接执行的规范；净增量尽量非正值。
+
 ### Added
 
-- `docs/brand-content-checklist.md` — 博文八维度内容审查清单（Brand × Code Reviewer 联合制定，正式生效）
-- `docs/research/build-in-public-channels-2026.md` — Build in Public 渠道选型 Research Brief（Researcher）
-- `docs/brand-discussions-plan.md` — Brand 首批 GitHub Discussions 发布计划
+- §3.0 P0-P3 优先级分类表（新章节）：Sprint 内处理规则 + P3 积压机制
+- §3.4 Git Worktree 工作约定（新章节）：生命周期命令 + `worktree-context.md` 模板 + 汇报模板 + 边界禁令
+- 会议文件 `docs/meetings/2026-03-01-01-playbook-v22-planning.md`
 
 ### Changed
 
-- team-playbook.md §13.6（待补充）— Brand Agent 工作流集成，发布决策链写入 Playbook 职责定义
+- 版本头部：v2.1 → v2.2，内联精简原则声明
+- §2.3：重命名为"文档治理（Document Governance）"，表格新增「所有权人」「过期判断」两列
+- §3.1：Sprint 流水线更新 — Done 标准在规划时写定；P3 不进 Sprint；max 3 P1 约束
+- §8.2：会议命名规范 → `YYYY-MM-DD-NN-<type>.md`（NN 为当日序列号）+ head 模板
+- §13.2：新增 Fixed（直接继承）vs Replaceable（按项目重写）迁移对照表（9 行）
+- Agent 文件：pm / brain / dev 升级至 v1.1（Sprint 约束、迁移协议、Worktree 职责同步）
 
 ---
 
