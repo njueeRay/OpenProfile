@@ -177,7 +177,7 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 
 | 层级 | 当前版本 | 维护位置 |
 |------|----------|----------|
-| L1 项目 | `v4.0.0` | `CHANGELOG.md` + GitHub Tag |
+| L1 项目 | `v4.1.0` | `CHANGELOG.md` + GitHub Tag |
 | L2 Playbook | `Playbook v2.1` | `PLAYBOOK-CHANGELOG.md` + `team-playbook.md` 头部 |
 | L3 Agent | 各 `v1.0` | 各 Agent 文件 `agentVersion` 字段 |
 
@@ -218,6 +218,8 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - [x] **博客内容类型（contentType）**：四类 taste 分类 — `insight` 思想笔记 / `technical` 技术实录 / `member-essay` 成员随笔 / `meeting` 会议纪实；对应四色徽章 + 左边框视觉区分
 - [x] **博客 Filter Tab**：前端 JS 筛选（无跳转），URL hash 深链接（`#insight` / `#technical` 等），默认展示全部
 - [x] **Team 页成员卡片**：显示该成员最新一篇博文标题和链接（getCollection 构建映射）
+- [x] **版本哲学**：增量发布 — Patch（随时 bug 修复）/ Minor（1-3 天主题 Sprint）/ Major（架构级变更）；[Unreleased] 积压不超过 5 天
+- [x] **审查门禁**：Minor 及以上版本发布前，Code Reviewer 必须出审查报告（`docs/reviews/`）
 
 ---
 
@@ -240,7 +242,7 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 
 ## 当前迭代状态
 
-**阶段：** v4.0.0 已发布（Phase V ✅ + Phase W ✅ + AI-native 认知体系对齐 ✅）— Phase P ✅ + Phase A ✅ + Phase K ✅ 全部完成
+**阶段：** v4.1.0 已发布（团队品牌化 + 内容架构 ✅）— 下一目标：v4.2.0 工程质量 Sprint
 **个人信息：** ✅ 已确认
 **配置文件：** ✅ 已同步
 **语言偏好：** ✅ 中文（所有原创内容默认中文，技术符号保持英文）
@@ -337,7 +339,7 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 
 | 版本 | 主题 | 状态 |
 |------|------|------|
-| v4.1.0 | 团队品牌化 + 内容架构（回顾性切版） | 🔜 待发布 |
+| v4.1.0 | 团队品牌化 + 内容架构 | ✅ 已发布 |
 | v4.2.0 | 工程质量 — CSS 统一 / 组件拆分 / 响应式 | ⬜ 规划中 |
 | v4.3.0 | 社区首发 — Discussions / README 着陆页 / Good First Issues | ⬜ 规划中 |
 | v4.4.0 | 体验精修 — 微交互 / 首页增强 / a11y / 团队动态墙 | ⬜ 规划中 |

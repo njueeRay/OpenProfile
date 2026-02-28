@@ -8,71 +8,76 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
-### Added
-- `docs/meetings/2026-02-28-v5-roadmap-planning.md` — V5 路线图全体规划会议纪要（7 Agent 全员参会，增量版本哲学共识 + v4.1→v4.5 路线图 + v5.0 门槛定义）
-- `docs/meetings/2026-02-28-blog-team-page-design-session.md` — Blog 内容架构 + 信息流设计会（PM 主持，四类 contentType 定稿，Filter Tab + 成员最新博文展示设计决策）
-- `docs/meetings/2026-02-28-profile-fixes-and-action-items.md` — 2026-02-28 工作会话纪要
-- `docs/research/build-in-public-channels-2026.md` — Researcher Research Brief：Build in Public 渠道选型（X API / Bluesky / GitHub Discussions / MCP，2026 现状）
-- `docs/brand-content-checklist.md` — 博文八维度内容审查清单（Brand × Code Reviewer 联合制定）
-- `docs/brand-discussions-plan.md` — Brand 首批 GitHub Discussions 发布计划（分类架构 + 3 篇首发帖草稿 + 节奏原则）
-
-### Fixed
-- `njueeray.github.io` — Blog 内容架构重构（`9a33d12`）：
-  - `content/config.ts` 新增 `contentType` 枚举字段（insight / technical / member-essay / meeting）
-  - 12 篇现有文章全部追加 `contentType` frontmatter
-  - `blog/index.astro` 完整重设计：Filter Tab（前端筛选 + URL hash 深链接）、内容类型彩色徽章、左边框颜色区分
-  - `team.astro` 成员卡片升级：展示每位成员最新博文标题
-- `njueeray.github.io` ThemeToggle — 修复 `astro:after-swap` 重复监听器问题（`window._themeListenerBound` 标志位防重）
+*v4.1.0 已发布。下一目标：v4.2.0 工程质量 Sprint。*
 
 ---
 
-*(2026-02-28 前记录)*
+## [4.1.0] — 2026-02-28
+
+> **团队品牌化 + 内容架构 + AI-native 认知体系**  
+> **Playbook 版本**：Playbook v2.1（见 PLAYBOOK-CHANGELOG.md）  
+> code-reviewer: `APPROVED`（回顾性审查，见 `docs/reviews/v4.1.0-review.md`）
 
 ### Added
-- `docs/meetings/2026-02-27-brand-welcome-all-hands.md` — Brand 欢迎全员会议纪要（七个声音，Brain 主持，Brand 首次正式发言）
-- `njueeray.github.io` — Brand 会后博文：`brand-welcome-all-hands-2026-02-27.mdx`（新成员视角观察报告）
-- `njueeray.github.io` — 5 篇 Agent 首发博文（PM / Dev / Researcher / Code Reviewer / Brand）
-- `njueeray.github.io` — 2 篇会议纪实博文（全员战略会 + Playbook v2.1 诞生记）
 
-### Fixed
-- `.github/workflows/link-check.yml` — 新增 wakatime.com / shields.io / hooj0.github.io / `{owner}` `{repo}` 占位符排除，修复 CI link-check 持续失败
-- `njueeray.github.io` ThemeToggle — 首次访问默认深色模式（不再跟随系统偏好）
-- `njueeRay/njueeRay` README — Header 文字遮挡：capsule-render fontSize 70→60，descAlignY 55→63
-- `njueeRay/njueeRay` README — Tech Stack 从 8 个图标扩展至 20 个（新增 nodejs / nextjs / tailwind / pytorch / fastapi / postgres / redis / vscode / github / bash / astro / vite），`perline=10` 两行排列
-- `njueeRay/njueeRay` README — Trophy 改为 `<picture>` 元素，支持 dark/light 主题分别渲染
-- `njueeRay/njueeRay` README — 3D Contribution Graph 增加 light 模式单独 SVG 路径（green-animate）
-- `njueeRay/njueeRay` README — Featured Projects pin cards 增加 `cache_seconds=86400` 降低频率限制
-
-### Unchanged (from previous [Unreleased])
+#### 团队扩展
 - `.github/agents/brand.agent.md` — Brand Agent 正式加入团队（品牌运营 + Build in Public + 内容发布策略）
 - `.github/agents/knowledge/` — §14 L2 知识库正式落地（brain / pm / dev / researcher / code-reviewer 各一份 patterns.md + README 索引）
-- `docs/meetings/2026-02-27-all-hands-strategic.md` — 全体战略会议纪要（Worktree 流程 + Agent 博客栏目设计 + 知识图谱路线图 + 三大 Phase P/A/K）
+
+#### 博客内容生态（njueeray.github.io）
+- 多作者系统：7 个 author YAML + `/blog/authors/[agent]` 页面路由
+- 12 篇博文发布：7 篇 Agent 首发 + 2 篇会议纪实 + Brand 观察报告 + AI-native 范式双语长文 + 技术教程
+- `LangToggle.astro` — 中英文双语切换组件（localStorage 持久化，ViewTransitions 兼容）
+- `content/config.ts` — Blog schema 新增 `bilingual: boolean` + `contentType` 枚举字段
+
+#### 博客内容架构
+- `contentType` 四类分类体系：insight（思想笔记）/ technical（技术实录）/ member-essay（成员随笔）/ meeting（会议纪实）
+- `blog/index.astro` Filter Tab — 前端筛选 + URL hash 深链接 + 内容类型彩色徽章 + 左边框颜色区分
+- `team.astro` 成员卡片升级 — 展示每位成员最新博文标题（getCollection 映射）
+
+#### 团队进化可视化
+- `/team` 页面 — Git Graph 风格垂直时间线（15 个里程碑 + 5 色节点 + 滚动渐显动画）
+- `src/data/team-evolution.ts` — 数据驱动：新事件只需追加数组
+- `src/components/GitTimeline.astro` — 504 行完整组件（Playbook 档案 + 成员 Grid）
+- Nav 新增 "team" 导航链接
+
+#### 文档与规划
+- `docs/meetings/2026-02-28-v5-roadmap-planning.md` — V5 路线图全体规划会议（增量版本哲学 + v4.1→v4.5 路线图）
+- `docs/meetings/2026-02-28-blog-team-page-design-session.md` — Blog 内容架构设计会
+- `docs/meetings/2026-02-28-profile-fixes-and-action-items.md` — 工作会话纪要
+- `docs/meetings/2026-02-27-brand-welcome-all-hands.md` — Brand 欢迎全员会议纪要
+- `docs/meetings/2026-02-27-all-hands-strategic.md` — 全体战略会议纪要
+- `docs/meetings/2026-02-26-free-brainstorm.md` — 团队自由思想交流会
+- `docs/meetings/2026-02-26-ai-native-person-summit.md` — AI-native 范式深度峰会
+- `docs/meetings/2026-02-26-playbook-reread-alignment.md` — Playbook 重读对齐会
+- `docs/research/build-in-public-channels-2026.md` — Build in Public 渠道选型调研
+- `docs/brand-content-checklist.md` — 博文八维度内容审查清单
+- `docs/brand-discussions-plan.md` — GitHub Discussions 首批发布计划
+- `docs/reviews/v4.1.0-review.md` — v4.1.0 回顾性审查报告
 
 ### Changed
-- `.github/copilot-instructions.md` — 同步 brand Agent、知识库路径、三大路线图、团队进化记录、Worktree 完整规范
+- `.github/copilot-instructions.md` — 同步 Brand Agent、知识库、V5 路线图、版本规划表、团队进化记录、Worktree 规范
+- `README.md` — 全面更新至 v4.0.0+ 状态（Agent 路径修正 + 功能亮点补充 + Roadmap 同步）
+- `BaseLayout.astro` — `data-lang` 属性驱动双语 CSS 显示控制
 
-### Docs
-- `README.md` 全面更新至 v4.0.0 状态：修正 Agent 文件路径（`content-writer` → `dev`，`qa-reviewer` → `code-reviewer`）、补充 3D 贡献图/Trophy/RSS/博客标签/AI-native philosophy 功能亮点、Roadmap 全部版本标记为 Released（包含 v4.0.0 条目）、profile-designer Agent 补入 Agent 团队表
-- `docs/meetings/2026-02-26-free-brainstorm.md` — 团队自由思想交流会（阶段性成果庆典 + 无界畅想，v4.0.0 发布后）
-- `docs/meetings/2026-02-26-ai-native-person-summit.md` — AI-native person 范式深度峰会（全员参与，涵盖认知革命历史坐标、判断力独立性风险、博文策略决策）
-- `docs/meetings/2026-02-26-playbook-reread-alignment.md` — Playbook 重读 + AI-native 认知对齐全员会议
+### Fixed
+- `njueeray.github.io` ThemeToggle — 修复 `astro:after-swap` 重复监听器（`window._themeListenerBound` 防重）
+- `njueeray.github.io` ThemeToggle — 首次访问默认深色模式（不再跟随系统偏好）
+- `.github/workflows/link-check.yml` — 新增 wakatime / shields.io / hooj0.github.io / 占位符排除规则
+- `njueeRay/njueeRay` README — capsule-render fontSize 70→60，descAlignY 55→63（文字遮挡修复）
+- `njueeRay/njueeRay` README — Tech Stack 扩展至 20 图标，`perline=10` 双行布局
+- `njueeRay/njueeRay` README — Trophy 改为 `<picture>` 元素（dark/light 分离主题）
+- `njueeRay/njueeRay` README — 3D Contribution Graph 增加 light 模式 SVG（green-animate）
+- `njueeRay/njueeRay` README — Featured pin cards `cache_seconds=86400`
+- GitHub Release v4.0.0 body 修复（UTF-8 PATCH）
 
 ### Playbook 升级 (v2.0 → v2.1)
-- `team-playbook.md` §0 新增 — AI-native 哲学立场章节（团队本质 · 与工具依赖的区别 · 角色哲学定位）
-- `team-playbook.md` §3.3 — Implementation Plan 规范补充 AI-native 认知清晰度说明
-- `team-playbook.md` §6 — 七维度升级为「八维度」，新增 AI-native 健康度审查维度
-- `team-playbook.md` §15.3/15.4 — Release 编码安全规范修复（UTF-8 发送 + 验证 checklist）
-- 6 个 Agent 文件全部新增 `## AI-native 工作哲学` 声明章节
-- `copilot-instructions.md` 新增 `## 哲学锚点 — AI-native person` 区块 + 迭代状态更新
-
-### Blog (njueeray.github.io)
-- 新博文 `ai-native-person-paradigm.mdx` — 双语（ZH+EN），AI-native person 完整范式叙事
-- `LangToggle.astro` — 中英文双语切换组件（localStorage 持久化，navigator.language 默认值，ViewTransitions 兼容）
-- `BaseLayout.astro` — `data-lang` 属性驱动的 `.lang-zh` / `.lang-en` CSS 显示控制
-- `content/config.ts` — Blog schema 新增 `bilingual: boolean` 字段
-
-### Fix
-- GitHub Release v4.0.0 body 修复（UTF-8 PATCH，消除 `{"value"=>"..."}` 乱码）
+- `team-playbook.md` §0 — AI-native 哲学立场章节
+- `team-playbook.md` §3.3 — 认知清晰度原理补充
+- `team-playbook.md` §6 — 七维度→八维度（新增 AI-native 健康度）
+- `team-playbook.md` §15.3/15.4 — Release UTF-8 编码规范修复
+- 6 个 Agent 文件新增 `## AI-native 工作哲学` 声明
+- `copilot-instructions.md` 新增 `## 哲学锚点 — AI-native person`
 
 ---
 
@@ -248,7 +253,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 | **v2.0.0** | **叙事重构 + 浅色兼容 + Astro 多页 + CI + Agent 团队重构** | ✅ 完成 |
 | **v3.0.0** | **SEO 地基 + Blog 标签系统 + Profile 新组件 + Playbook 可移植化** | ✅ 完成 |
 | **v4.0.0** | **三层版本体系独立化 + Astro 站点体验深化** | ✅ 完成 |
-| **v4.1.0** | **团队品牌化 + 内容架构（回顾性切版）** | 🔜 待发布 |
+| **v4.1.0** | **团队品牌化 + 内容架构** | ✅ 完成 |
 | v4.2.0 | 工程质量 Sprint — CSS 统一 / 组件拆分 / 响应式 | ⬜ 规划中 |
 | v4.3.0 | 社区首发 Sprint — Discussions / README 着陆页 / Good First Issues | ⬜ 规划中 |
 | v4.4.0 | 体验精修 Sprint — 微交互 / 首页增强 / a11y / 团队动态墙 | ⬜ 规划中 |
@@ -257,7 +262,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
-[Unreleased]: https://github.com/njueeRay/OpenProfile/compare/v3.0.0...HEAD
+[Unreleased]: https://github.com/njueeRay/OpenProfile/compare/v4.1.0...HEAD
+[4.1.0]: https://github.com/njueeRay/OpenProfile/compare/v4.0.0...v4.1.0
+[4.0.0]: https://github.com/njueeRay/OpenProfile/compare/v3.0.0...v4.0.0
 [3.0.0]: https://github.com/njueeRay/OpenProfile/compare/v2.0.0...v3.0.0
 [2.0.0]: https://github.com/njueeRay/OpenProfile/compare/v1.0.0...v2.0.0
 [1.0.0]: https://github.com/njueeRay/OpenProfile/releases/tag/v1.0.0
