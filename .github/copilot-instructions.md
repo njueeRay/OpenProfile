@@ -177,7 +177,7 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 
 | 层级 | 当前版本 | 维护位置 |
 |------|----------|----------|
-| L1 项目 | `v4.1.0` | `CHANGELOG.md` + GitHub Tag |
+| L1 项目 | `v4.2.0` | `CHANGELOG.md` + GitHub Tag |
 | L2 Playbook | `Playbook v2.1` | `PLAYBOOK-CHANGELOG.md` + `team-playbook.md` 头部 |
 | L3 Agent | 各 `v1.0` | 各 Agent 文件 `agentVersion` 字段 |
 
@@ -223,12 +223,14 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - [x] **版本哲学**：增量发布 — Patch（随时 bug 修复）/ Minor（1-3 天主题 Sprint）/ Major（架构级变更）；[Unreleased] 积压不超过 5 天
 - [x] **审查门禁**：Minor 及以上版本发布前，Code Reviewer 必须出审查报告（`docs/reviews/`）
 
-**v4.2.0 工程质量 Sprint（进行中）：**
+**v4.2.0 工程质量 Sprint（✅ 已发布 2026-03-01）：**
 - ✅ `src/styles/global.css` — 全局 CSS 变量提取（从 BaseLayout 120 行内联样式提取为独立文件）
 - ✅ `BlogCard.astro` + `FilterTabs.astro` — blog/index.astro 从 346 行瘦身至 ~90 行
 - ✅ `Nav.astro` hamburger 菜单 — 移动端 ≤768px 折叠导航（替换原 480px 仅缩字号方案）
 - ✅ `content-types.ts` — 博客 typeConfig 共享配置 + ContentType 类型导出
 - ✅ TypeScript strict 验证通过（tsconfig 已继承 `astro/tsconfigs/strict`，`astro build` 0 errors）
+- ✅ CI 修复：markdownlint + link-check 持续失败问题解决
+- ✅ Code Reviewer 审查：`APPROVED WITH NOTES`（36/40，`docs/reviews/v4.2.0-review.md`）
 
 ---
 
@@ -251,7 +253,7 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 
 ## 当前迭代状态
 
-**阶段：** v4.2.0 工程质量 Sprint 进行中
+**阶段：** v4.2.0 已发布，v4.3.0 规划中
 **个人信息：** ✅ 已确认
 **配置文件：** ✅ 已同步
 **语言偏好：** ✅ 中文（所有原创内容默认中文，技术符号保持英文）
@@ -349,7 +351,7 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 | 版本 | 主题 | 状态 |
 |------|------|------|
 | v4.1.0 | 团队品牌化 + 内容架构 | ✅ 已发布 |
-| v4.2.0 | 工程质量 — CSS 统一 / 组件拆分 / 响应式 | 🔄 进行中 |
+| v4.2.0 | 工程质量 — CSS 统一 / 组件拆分 / 响应式 / CI 修复 | ✅ 已发布 |
 | v4.3.0 | 社区首发 — Discussions / README 着陆页 / Good First Issues | ⬜ 规划中 |
 | v4.4.0 | 体验精修 — 微交互 / 首页增强 / a11y / 团队动态墙 | ⬜ 规划中 |
 | v4.5.0 | SEO & 性能 — JSON-LD / Lighthouse CI / Astro 5 调研 | ⬜ 规划中 |

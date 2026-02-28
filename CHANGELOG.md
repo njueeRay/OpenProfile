@@ -8,9 +8,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
-*v4.2.0 工程质量 Sprint — CSS 统一 / 组件拆分 / 响应式 / TypeScript 验证*
+---
+
+## [4.2.0] — 2026-03-01
+
+> **工程质量 Sprint — CSS 统一 / 组件拆分 / 响应式 / CI 修复**
+> code-reviewer: `APPROVED WITH NOTES`（36/40，见 `docs/reviews/v4.2.0-review.md`）
 
 ### Added
+
 - `src/styles/global.css` — 全局 CSS 变量 + 设计令牌 + 基础重置（从 BaseLayout 提取）
 - `src/data/content-types.ts` — 博客内容类型共享配置（typeConfig / ContentType 类型导出）
 - `src/components/BlogCard.astro` — 博客列表卡片组件（含 type-badge、author-chip、tags）
@@ -18,12 +24,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - `tsconfig.json` 新增 `@styles/*` 路径别名
 
 ### Changed
+
 - `BaseLayout.astro`：移除 120 行内联 CSS，改为 `import '../styles/global.css'`；移除未使用的 ThemeToggle import
 - `blog/index.astro`：从 346 行重构至 ~90 行（提取 BlogCard + FilterTabs + 共享配置后）
 - `Nav.astro`：新增移动端 hamburger 菜单（≤768px 折叠导航），替换原有仅缩字号的 480px 断点
 - `FilterTabs.astro`：移动端 ≤480px 水平滚动（`overflow-x: auto` + `flex-wrap: nowrap`）
 - 全局 CSS 变量新增：`--color-purple`, `--color-orange`, `--color-pink`, `--color-red`, `--space-*` 尺度、`--max-w`, `--max-w-wide`, `--nav-h`, `--radius-*`
 - 组件中硬编码色值替换为 CSS 变量引用（如 `#bc8cff` → `var(--color-purple)`）
+
+### Fixed
+
+- `.markdownlint.jsonc`：禁用 MD036/MD040/MD060（与项目风格冲突的规则）
+- `.github/workflows/link-check.yml`：排除 modelcontextprotocol.io（404）
+- `PLAYBOOK-CHANGELOG.md`/`team-playbook.md`/`build-in-public-channels-2026.md`：修复 MD022/MD032/MD034/MD012 格式问题
 
 ---
 
