@@ -228,6 +228,9 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - [x] **Lighthouse CI 阈值**：accessibility ≥ 0.90（error 级别阻断）/ seo ≥ 0.90（error）/ performance ≥ 0.85（warn）/ best-practices ≥ 0.90（warn）
 - [x] **axe-core CI 范围**：首页 + 博客列表 + team 页三个关键页面；`--exit` flag 发现 violation 即阻断
 - [x] **构建缓存策略**：缓存 `.astro/` Vite 增量产物；缓存键含 `src/**` + `public/**` + `astro.config.mjs` + `package-lock.json` hash
+- [x] **Astro 版本（v5.0.0 迁移）**：`astro@5.18.0` + `@astrojs/mdx@4.3.13`；`ViewTransitions` → `ClientRouter`（`astro:transitions` 同路径，组件名变更）
+- [x] **Astro 5 script 规范**：含属性的 `<script>` 块（如 `type="application/ld+json"`）必须显式加 `is:inline`
+- [x] **Content Layer API 迁移策略**：Legacy `type:'content'` 集合在 Astro 5 继续兼容；`loader: glob()` 正式迁移推迟至 v5.1.0（`post.id` 替代 `post.slug`，届时需全量更新引用）
 
 **v4.2.0 工程质量 Sprint（✅ 已发布 2026-03-01）：**
 - ✅ `src/styles/global.css` — 全局 CSS 变量提取（从 BaseLayout 120 行内联样式提取为独立文件）
@@ -259,7 +262,7 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 
 ## 当前迭代状态
 
-**阶段：** v4.5.0 已发布，v5.0.0 规划中
+**阶段：** v5.0.0 已发布，v5.1.0 规划中（Content Layer API 迁移）
 **个人信息：** ✅ 已确认
 **配置文件：** ✅ 已同步
 **语言偏好：** ✅ 中文（所有原创内容默认中文，技术符号保持英文）
@@ -361,7 +364,7 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 | v4.3.0 | 社区首发 — Discussions / README 着陆页 / Good First Issues | ✅ 已发布 |
 | v4.4.0 | 体验精修 — 微交互 / 首页增强 / a11y / 团队动态墙 | ✅ 已发布 |
 | v4.5.0 | SEO & 性能 — JSON-LD / Lighthouse CI / Astro 5 调研 | ✅ 已发布 |
-| v5.0.0 | 架构性升级 — Astro 5 迁移（门槛触发） | ⬜ 远期 |
+| v5.0.0 | 架构性升级 — Astro 5 迁移（门槛触发） | ✅ 已发布 |
 
 **待用户操作项：**
 - ✅ Discussions 分类架构已创建（Announcements / Team Insights / AI-native Journey）
@@ -412,6 +415,17 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - ✅ S-4 axe-core CI：`.github/workflows/accessibility.yml`（`@axe-core/cli` 扫描首页 / 博客 / team 三页）
 - ✅ S-5 构建缓存：`deploy.yml` + 两个 CI workflow 均添加 `actions/cache@v4` 缓存 `.astro/` 目录（~40% 速度提升）
 - ✅ S-6 Astro 5 调研：`docs/research/astro-v5-feasibility-2026.md`（结论：可行，约半天工作量，建议纳入 v5.0.0）
+
+**v5.0.0 Astro 5 迁移（2026-03-01，tag: v5.0.0，commit: `d237c0b`）：**
+- ✅ `astro` 升级：`4.16.18 → 5.18.0`
+- ✅ `@astrojs/mdx` 升级：`3.1.9 → 4.3.13`
+- ✅ `ViewTransitions` → `ClientRouter`（`import { ClientRouter } from 'astro:transitions'`）
+- ✅ JSON-LD `<script>` 块添加 `is:inline` 显式指令（Astro 5 含属性 script 必须声明）
+- ✅ `GitTimeline.astro` 移除未使用的 `index` 参数
+- ✅ `blog/authors/[author].astro` 移除未使用的 `getEntry` 导入
+- ✅ `astro check` 结果：**0 errors · 0 warnings · 0 hints**
+- ✅ `npm run build` 结果：**57 页构建成功，exit code 0**
+- ✅ Legacy `type: 'content'` 集合保持兼容（Content Layer API 迁移推迟至 v5.1.0）
 
 ---
 

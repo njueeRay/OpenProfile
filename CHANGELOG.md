@@ -10,6 +10,37 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [5.0.0] — 2026-03-01
+
+> **架构升级 — Astro 5 迁移（4.16 → 5.18）**
+> 触发条件满足（S-6 可行性报告 ✅）；迁移完成：0 errors · 0 warnings · 0 hints · 57 页构建无误
+
+### Changed
+
+- **Astro 4.16.18 → 5.18.0 升级**
+  - 更新 `package.json`，`astro@^5.18.0`
+  - `ViewTransitions` 组件废弃 → 改用 `ClientRouter`（`import { ClientRouter } from 'astro:transitions'`）
+  - `BaseLayout.astro` 中 `<ViewTransitions />` → `<ClientRouter />`
+- **@astrojs/mdx 3.1.9 → 4.3.13 升级**
+  - 兼容 Astro 5，无 API 破坏性变更
+- **JSON-LD script 修复**
+  - 含属性 `type="application/ld+json"` 的 `<script>` 块在 Astro 5 须显式加 `is:inline`
+  - `BaseLayout.astro` JSON-LD 注入已更新
+
+### Fixed
+
+- `GitTimeline.astro` — 移除未使用的 `index` 参数（`events.map((event, index)` → `events.map((event)`）
+- `blog/authors/[author].astro` — 移除未使用的 `getEntry` 导入（`astro check` hint 修复）
+
+### Compatibility
+
+- Legacy `type: 'content'` 集合在 Astro 5 继续兼容（直至 Astro 6）
+- Content Layer API (`loader: glob()`) 正式迁移推迟至 v5.1.0
+- `astro check` 结果：**0 errors · 0 warnings · 0 hints**
+- `npm run build` 结果：**57 页构建成功，exit code 0**
+
+---
+
 ## [4.5.0] — 2026-03-01
 
 > **SEO & 性能 Sprint — JSON-LD / hreflang / Lighthouse CI / axe-core CI / Astro 5 调研**
