@@ -266,9 +266,9 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 ## 当前迭代状态
 
 **阶段：** v5.5.0 已发布（成熟里程碑达成），下一阶段规划中  
-**路线图：** v5.1（技术债清理）→ v5.2（读者体验）→ v5.3（对外传播）→ v5.4（E2E 测试）→ v5.5（成熟里程碑）
-**个人信息：** ✅ 已确认
-**配置文件：** ✅ 已同步
+**路线图：** v5.1（技术债清理）→ v5.2（读者体验）→ v5.3（对外传播）→ v5.4（E2E 测试）→ v5.5（成熟里程碑）✅ 全部完成  
+**个人信息：** ✅ 已确认  
+**配置文件：** ✅ 已同步（含 USER.md v1.0）  
 **语言偏好：** ✅ 中文（所有原创内容默认中文，技术符号保持英文）
 
 **V2.0 已完成（2026-02-25，tag: v2.0.0）：**
@@ -483,7 +483,20 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - ✅ `astro check`：0 errors · 0 warnings · 0 hints
 - ✅ `npm run build`：63 页构建成功
 
-**待用户操作：** Brand 外部发布 GitHub Discussions 首发帖（里程碑最后一公里）
+**里程碑后续行动（2026-03-01，commit: `2c2dfa0`）：**
+- ✅ Brand 首发 Discussion #6 上线（Announcements 分类，`https://github.com/njueeRay/njueeray.github.io/discussions/6`）
+- ✅ `USER.md` 用户个人偏好档案 v1.0（语言/Commit/工作流/技术偏好）
+- ✅ 团队成长自由脑暴会议纪要（`docs/meetings/2026-03-01-03`）：7 Agent 自由发言 + 能力自省环节（用户补充：各 Agent 需对自身局限和成长需求做真实反思）
+- ✅ `brain.agent.md` 扩展：自由脑暴/思想峰会两类会议 + Brain 主动感知触发规则
+- ✅ `docs/team-playbook.md` §8：会议类型表扩展（7种）+ §8.3 主动感知治理规则
+- ✅ `first-discussion-draft.md` 发布清单已更新（Discussion #6 打勾）
+
+**待推进（P2，下一版本前）：**
+- ⬜ Brand：首发帖 7 天后发布帖子 2（技术深度分享）
+- ⬜ Researcher：MCP 引入路线图调研报告（Memory / Browser / Social 三个切入点）
+- ⬜ Brand：内容矩阵规划初稿（教程/案例/对话类补全）
+- ⬜ Code Reviewer：审查报告模板新增「已知盲区」小节
+- ⬜ Dev + PM：建立「每次会话结束时 Dev 主动提炼新学」流程约定
 
 ---
 
