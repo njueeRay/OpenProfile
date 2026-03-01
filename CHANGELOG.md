@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Fixed
+
+- `src/content/authors/profile-designer.yaml` — 新增缺失的 Profile Designer author 参考文件（消除构建时 `Entry authors → profile-designer was not found` 警告）
+
 ---
 
 ## [5.0.0] — 2026-03-01

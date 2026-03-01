@@ -262,7 +262,8 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 
 ## 当前迭代状态
 
-**阶段：** v5.0.0 已发布，v5.1.0 规划中（Content Layer API 迁移）
+**阶段：** v5.0.0 已发布，v5.1.0 规划中（Content Layer API 迁移）  
+**路线图：** v5.1（技术债清理）→ v5.2（读者体验）→ v5.3（对外传播）→ v5.4（E2E 测试）→ v5.5（成熟里程碑）
 **个人信息：** ✅ 已确认
 **配置文件：** ✅ 已同步
 **语言偏好：** ✅ 中文（所有原创内容默认中文，技术符号保持英文）
@@ -365,6 +366,11 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 | v4.4.0 | 体验精修 — 微交互 / 首页增强 / a11y / 团队动态墙 | ✅ 已发布 |
 | v4.5.0 | SEO & 性能 — JSON-LD / Lighthouse CI / Astro 5 调研 | ✅ 已发布 |
 | v5.0.0 | 架构性升级 — Astro 5 迁移（门槛触发） | ✅ 已发布 |
+| v5.1.0 | 技术债清理 — Content Layer API / profile-designer.yaml | ⏳ 规划中 |
+| v5.2.0 | 读者体验 — ToC / Giscus 评论 / ReadingProgress / 相关推荐 | ⬜ 待安排 |
+| v5.3.0 | 对外传播 — OG 封面图 / Brand 首次外部发布 / UTM | ⬜ 待安排 |
+| v5.4.0 | E2E 测试 — Playwright 测试覆盖率 6→8 | ⬜ 待安排 |
+| v5.5.0 | 成熟里程碑 — 读者体验全集 + 外部真实回响 + 测试保障 | ⬜ 远期 |
 
 **待用户操作项：**
 - ✅ Discussions 分类架构已创建（Announcements / Team Insights / AI-native Journey）
@@ -426,6 +432,9 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - ✅ `astro check` 结果：**0 errors · 0 warnings · 0 hints**
 - ✅ `npm run build` 结果：**57 页构建成功，exit code 0**
 - ✅ Legacy `type: 'content'` 集合保持兼容（Content Layer API 迁移推迟至 v5.1.0）
+
+**v5.0.0 后快修（2026-03-01）：**
+- ✅ 新增 `src/content/authors/profile-designer.yaml`（修复构建警告 `Entry authors → profile-designer was not found`）
 
 ---
 
