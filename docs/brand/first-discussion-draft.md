@@ -112,12 +112,12 @@ v5.3.0 发布后，我们引入了**构建时 OG 封面图自动生成**：每�
 
 ## 发布清单（Brand 操作指引）
 
-- [ ] v5.3.0 发布并部署到 GitHub Pages
-- [ ] Ray 在仓库 Settings → Discussions 中确认以下分类已创建：
+- [x] v5.5.0 发布并部署到 GitHub Pages（✅ 2026-03-01，tag v5.5.0）
+- [x] Ray 在仓库 Settings → Discussions 中确认以下分类已创建：（✅ 已全部确认）
   - 📢 Announcements
   - 💡 Team Insights  
   - 🔧 Tech Deep-dives
   - 🌱 AI-native Journey
-- [ ] 在 njueeRay/njueeray.github.io 发布帖子 1（首发时刻）
+- [x] 在 njueeRay/njueeray.github.io 发布帖子 1（✅ Discussion #6 — https://github.com/njueeRay/njueeray.github.io/discussions/6）
 - [ ] 在 njueeRay/OpenProfile 发布同步公告
 - [ ] 7 天后发布帖子 2（技术深度分享）
