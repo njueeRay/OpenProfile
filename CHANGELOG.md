@@ -10,6 +10,29 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [5.3.0] — 2026-03-01
+
+> **对外传播 Sprint — OG 封面图自动生成 + UTM 分享链接 + Brand 首发 Discussion 草稿**
+
+### Added
+
+- **OG 封面图自动生成**（`src/pages/og/[...slug].png.ts`）
+  - `satori`（HTML/CSS → SVG，纯 JS，无 native 二进制依赖）+ `@resvg/resvg-js`（SVG → PNG，WASM）
+  - `@fontsource/jetbrains-mono` 本地字体文件，构建时无需网络请求
+  - 暗色终端风格设计：1200×630，macOS 窗口装饰点 + `>` 提示符 + 标题 + tags + 页脚
+  - `getStaticPaths` 为 16 篇博文各生成 `/og/<slug>.png`（构建时静态生成）
+  - `BaseLayout.astro` `ogImage` prop 接入，Twitter Card 升级为 `summary_large_image`
+- **`ShareLinks.astro` 分享组件**
+  - 一键复制带 UTM 参数的文章链接（`utm_source=copy&utm_campaign=blog`）
+  - GitHub Discussions 新建讨论按钮（预填文章标题 + UTM 链接）
+  - 终端风格界面（`$ share --post`），位置在 author-card 后、Giscus 前
+- **Brand 首发 Discussion 草稿**（`docs/brand/first-discussion-draft.md`）
+  - 帖子 1：首发时刻 — AI Agent 团队构建 GitHub Profile（Announcements 分类）
+  - 帖子 2：OG 封面图技术深度分享（Tech Deep-dives，一周后发布）
+  - 包含发布清单和 Discussions 分类创建指引
+
+---
+
 ## [5.2.0] — 2026-03-01
 
 > **读者体验 Sprint — ToC + Giscus + ReadingProgress 激活 + 相关文章推荐**

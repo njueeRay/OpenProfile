@@ -232,6 +232,8 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - [x] **Astro 5 script 规范**：含属性的 `<script>` 块（如 `type="application/ld+json"`）必须显式加 `is:inline`
 - [x] **Content Layer API 迁移策略**：✅ v5.1.0 已完成；`loader: glob()` 正式迁移，`post.id` 替代 `post.slug`（9 处全量替换），`render(post)` 替代 `post.render()`
 - [x] **相关文章推荐算法**：v5.2.0 新增；score = 共享 tag 交集数量，pubDate 降序兜底，排除当前，取前 3 篇；位置在 author-card 后、Giscus 前
+- [x] **OG 封面图方案**：v5.3.0 新增；satori（HTML/CSS → SVG）+ @resvg/resvg-js（WASM PNG）+ @fontsource/jetbrains-mono（本地字体）；构建时静态生成 1200×630 PNG；暗色终端风格
+- [x] **UTM 追踪策略**：ShareLinks.astro 集成 `utm_source=copy/github_discussions`，`utm_campaign=blog`
 
 **v4.2.0 工程质量 Sprint（✅ 已发布 2026-03-01）：**
 - ✅ `src/styles/global.css` — 全局 CSS 变量提取（从 BaseLayout 120 行内联样式提取为独立文件）
@@ -263,7 +265,7 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 
 ## 当前迭代状态
 
-**阶段：** v5.2.0 已发布，v5.3.0 规划中（对外传播 Sprint）  
+**阶段：** v5.3.0 已发布，v5.4.0 规划中（E2E 测试 Sprint）  
 **路线图：** v5.1（技术债清理）→ v5.2（读者体验）→ v5.3（对外传播）→ v5.4（E2E 测试）→ v5.5（成熟里程碑）
 **个人信息：** ✅ 已确认
 **配置文件：** ✅ 已同步
@@ -369,7 +371,7 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 | v5.0.0 | 架构性升级 — Astro 5 迁移（门槛触发） | ✅ 已发布 |
 | v5.1.0 | 技术债清理 — Content Layer API / profile-designer.yaml | ✅ 已发布 |
 | v5.2.0 | 读者体验 — ToC / Giscus 评论 / ReadingProgress / 相关推荐 | ✅ 已发布 |
-| v5.3.0 | 对外传播 — OG 封面图 / Brand 首次外部发布 / UTM | ⬜ 待安排 |
+| v5.3.0 | 对外传播 — OG 封面图 / Brand 首次外部发布 / UTM | ✅ 已发布 |
 | v5.4.0 | E2E 测试 — Playwright 测试覆盖率 6→8 | ⬜ 待安排 |
 | v5.5.0 | 成熟里程碑 — 读者体验全集 + 外部真实回响 + 测试保障 | ⬜ 远期 |
 
@@ -452,6 +454,16 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - ✅ 相关文章推荐（新增）：基于 tag 交集数评分，pubDate 降序兜底，最多 3 篇，终端风格卡片 + 共享 tag 徽章
 - ✅ `astro check`：0 errors · 0 warnings · 0 hints
 - ✅ `npm run build`：57 页构建成功，exit code 0
+
+**v5.3.0 对外传播 Sprint（2026-03-01，tag: v5.3.0，commit: `e62b6eb`）：**
+- ✅ `src/pages/og/[...slug].png.ts` — satori + @resvg/resvg-js 构建时静态生成 OG PNG
+- ✅ `@fontsource/jetbrains-mono` 本地字体，无需网络请求
+- ✅ 16 篇博文各生成 `/og/<slug>.png`，1200×630 暗色终端风格
+- ✅ `BaseLayout.astro` `ogImage` prop 接入，Twitter Card 升级为 `summary_large_image`
+- ✅ `ShareLinks.astro` — 复制 UTM 链接 + GitHub Discussions 预填按钮
+- ✅ Brand 首发 Discussion 草稿 (`docs/brand/first-discussion-draft.md`)
+- ✅ `astro check`：0 errors · 0 warnings · 0 hints
+- ✅ `npm run build`：16 OG PNG + 57 页构建成功
 
 ---
 
