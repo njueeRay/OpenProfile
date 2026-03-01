@@ -10,6 +10,38 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [5.5.0] — 2026-03-01
+
+> **成熟里程碑 🎯 — 读者体验全集 + E2E 测试保障 + 对外传播就绪**
+
+本版本是 v5.x 路线的里程碑宣告版。v5.1–v5.4 四个 Sprint 的技术承诺全部兑现，标志着项目从「快速搭建阶段」进入「可持续维护阶段」。
+
+### 里程碑条件验证
+
+| 条件 | 兑现版本 | 状态 |
+|------|---------|------|
+| 读者可完整消费一篇文章（ToC + 评论 + 阅读进度） | v5.2.0 | ✅ |
+| 文章可在社交网络产生回响（OG 图 + UTM 分享） | v5.3.0 | ✅ |
+| 测试覆盖有实质保障（Playwright 22 E2E tests） | v5.4.0 | ✅ |
+| `astro check` 持续 0 errors（v5.0→v5.4 全程） | 全程维持 | ✅ |
+
+### Added
+
+- **里程碑博文** `v5-milestone-retrospective-2026-03-01.mdx`（meeting 类型，Brain 署名）
+  - Brain 视角的 v4→v5 旅程复盘：数字盘点、四个 Sprint 层次分析、AI-native 健康度自评
+- **Code Reviewer 审查报告** `docs/reviews/v5.5.0-review.md`
+  - 综合评分 39/40（APPROVED），覆盖八维度全面审查
+- **Profile README CI badges**（`njueeRay-profile/README.md`）
+  - E2E Tests workflow badge（`e2e.yml` 状态）
+  - Deploy workflow badge（`deploy.yml` 状态）
+  - Astro 5.18 badge + Playwright badge
+
+### Notes
+
+- **待用户操作**：Brand 外部真实互动（GitHub Discussions 首发帖），v5.5 里程碑唯一未自动满足的条件
+
+---
+
 ## [5.4.0] — 2026-03-01
 
 > **E2E 测试 Sprint — Playwright 覆盖首页 / 博客 / 导航 / a11y（22 tests，零基础起步）**

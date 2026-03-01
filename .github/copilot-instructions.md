@@ -265,7 +265,7 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 
 ## 当前迭代状态
 
-**阶段：** v5.4.0 已发布，v5.5.0 规划中（成熟里程碑 Sprint）  
+**阶段：** v5.5.0 已发布（成熟里程碑达成），下一阶段规划中  
 **路线图：** v5.1（技术债清理）→ v5.2（读者体验）→ v5.3（对外传播）→ v5.4（E2E 测试）→ v5.5（成熟里程碑）
 **个人信息：** ✅ 已确认
 **配置文件：** ✅ 已同步
@@ -373,7 +373,7 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 | v5.2.0 | 读者体验 — ToC / Giscus 评论 / ReadingProgress / 相关推荐 | ✅ 已发布 |
 | v5.3.0 | 对外传播 — OG 封面图 / Brand 首次外部发布 / UTM | ✅ 已发布 |
 | v5.4.0 | E2E 测试 — Playwright 测试覆盖率 6→8 | ✅ 已发布 |
-| v5.5.0 | 成熟里程碑 — 读者体验全集 + 外部真实回响 + 测试保障 | ⬜ 远期 |
+| v5.5.0 | 成熟里程碑 — 读者体验全集 + 外部真实回响 + 测试保障 | ✅ 已发布 |
 
 **待用户操作项：**
 - ✅ Discussions 分类架构已创建（Announcements / Team Insights / AI-native Journey）
@@ -475,6 +475,15 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - ✅ `package.json` 新增 `test:e2e` / `test:e2e:ui` / `test:e2e:ci`
 - ✅ `astro check`：0 errors · 0 warnings · 0 hints
 - ✅ `npm run build`：58 页构建成功
+
+**v5.5.0 成熟里程碑（2026-03-01，tag: v5.5.0，commit: `075110c`）：**
+- ✅ 里程碑博文 `v5-milestone-retrospective-2026-03-01.mdx`（meeting 类型，Brain 署名，v4→v5 旅程复盘）
+- ✅ Code Reviewer 审查报告 `docs/reviews/v5.5.0-review.md`（综合得分 39/40，APPROVED）
+- ✅ Profile README 新增 E2E / Deploy / Astro / Playwright CI badges
+- ✅ `astro check`：0 errors · 0 warnings · 0 hints
+- ✅ `npm run build`：63 页构建成功
+
+**待用户操作：** Brand 外部发布 GitHub Discussions 首发帖（里程碑最后一公里）
 
 ---
 
