@@ -230,7 +230,7 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - [x] **构建缓存策略**：缓存 `.astro/` Vite 增量产物；缓存键含 `src/**` + `public/**` + `astro.config.mjs` + `package-lock.json` hash
 - [x] **Astro 版本（v5.0.0 迁移）**：`astro@5.18.0` + `@astrojs/mdx@4.3.13`；`ViewTransitions` → `ClientRouter`（`astro:transitions` 同路径，组件名变更）
 - [x] **Astro 5 script 规范**：含属性的 `<script>` 块（如 `type="application/ld+json"`）必须显式加 `is:inline`
-- [x] **Content Layer API 迁移策略**：Legacy `type:'content'` 集合在 Astro 5 继续兼容；`loader: glob()` 正式迁移推迟至 v5.1.0（`post.id` 替代 `post.slug`，届时需全量更新引用）
+- [x] **Content Layer API 迁移策略**：✅ v5.1.0 已完成；`loader: glob()` 正式迁移，`post.id` 替代 `post.slug`（9 处全量替换），`render(post)` 替代 `post.render()`
 
 **v4.2.0 工程质量 Sprint（✅ 已发布 2026-03-01）：**
 - ✅ `src/styles/global.css` — 全局 CSS 变量提取（从 BaseLayout 120 行内联样式提取为独立文件）
@@ -262,7 +262,7 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 
 ## 当前迭代状态
 
-**阶段：** v5.0.0 已发布，v5.1.0 规划中（Content Layer API 迁移）  
+**阶段：** v5.1.0 已发布，v5.2.0 规划中（读者体验 Sprint）  
 **路线图：** v5.1（技术债清理）→ v5.2（读者体验）→ v5.3（对外传播）→ v5.4（E2E 测试）→ v5.5（成熟里程碑）
 **个人信息：** ✅ 已确认
 **配置文件：** ✅ 已同步
@@ -366,7 +366,7 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 | v4.4.0 | 体验精修 — 微交互 / 首页增强 / a11y / 团队动态墙 | ✅ 已发布 |
 | v4.5.0 | SEO & 性能 — JSON-LD / Lighthouse CI / Astro 5 调研 | ✅ 已发布 |
 | v5.0.0 | 架构性升级 — Astro 5 迁移（门槛触发） | ✅ 已发布 |
-| v5.1.0 | 技术债清理 — Content Layer API / profile-designer.yaml | ⏳ 规划中 |
+| v5.1.0 | 技术债清理 — Content Layer API / profile-designer.yaml | ✅ 已发布 |
 | v5.2.0 | 读者体验 — ToC / Giscus 评论 / ReadingProgress / 相关推荐 | ⬜ 待安排 |
 | v5.3.0 | 对外传播 — OG 封面图 / Brand 首次外部发布 / UTM | ⬜ 待安排 |
 | v5.4.0 | E2E 测试 — Playwright 测试覆盖率 6→8 | ⬜ 待安排 |
@@ -435,6 +435,14 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 
 **v5.0.0 后快修（2026-03-01）：**
 - ✅ 新增 `src/content/authors/profile-designer.yaml`（修复构建警告 `Entry authors → profile-designer was not found`）
+
+**v5.1.0 Content Layer API 迁移（2026-03-01，tag: v5.1.0，commit: `8433e3f`）：**
+- ✅ `content/config.ts`：`type:'content'` → `loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/blog' })`
+- ✅ `[...slug].astro`：`post.render()` → `render(post)`（`render` 从 `astro:content` 导入）
+- ✅ 全站 `post.slug` → `post.id`（9 处：blog/index + [..slug] + [tag] + [author] + rss + team）
+- ✅ `authors` 集合保持 `type:'data'`，无需迁移
+- ✅ `astro check`：0 errors · 0 warnings · 0 hints
+- ✅ `npm run build`：57 页构建成功，exit code 0
 
 ---
 

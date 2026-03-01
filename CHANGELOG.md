@@ -8,9 +8,39 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+---
+
+## [5.1.0] — 2026-03-01
+
+> **技术债清理 Sprint — Content Layer API 迁移**
+> 两项任务交付：Content Layer API (`loader: glob()`) + `profile-designer.yaml` 补充
+
+### Changed
+
+- **`src/content/config.ts` — Content Layer API 迁移**
+  - `type: 'content'` → `loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/blog' })`
+  - 新增 `import { glob } from 'astro/loaders'`
+- **`src/pages/blog/[...slug].astro`**
+  - `await post.render()` → `await render(post)`（`render` 函数从 `astro:content` 导入）
+  - Content Layer API 入口 `params: { slug: post.id }`（原 `post.slug`）
+- **全站 `post.slug` → `post.id`（共 9 处）**
+  - `pages/blog/[...slug].astro`（params + postUrl）
+  - `pages/blog/index.astro`（BlogCard slug prop）
+  - `pages/blog/tags/[tag].astro`（文章链接 href）
+  - `pages/blog/authors/[author].astro`（文章链接 href）
+  - `pages/rss.xml.ts`（RSS link 字段）
+  - `pages/team.astro`（latestPost map + activityFeed）
+
 ### Fixed
 
-- `src/content/authors/profile-designer.yaml` — 新增缺失的 Profile Designer author 参考文件（消除构建时 `Entry authors → profile-designer was not found` 警告）
+- `src/content/authors/profile-designer.yaml` — 新增缺失文件（消除构建警告 `Entry authors → profile-designer was not found`）
+
+### Compatibility
+
+- `authors` 集合保持 `type: 'data'`（数据集合无需迁移）
+- `post.id` 值与原 `post.slug` 完全相同（glob loader 默认以文件名去扩展名作为 id）
+- `astro check`: **0 errors · 0 warnings · 0 hints**
+- `npm run build`: **57 页构建成功，exit code 0**
 
 ---
 
