@@ -10,6 +10,44 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [5.4.0] — 2026-03-01
+
+> **E2E 测试 Sprint — Playwright 覆盖首页 / 博客 / 导航 / a11y（22 tests，零基础起步）**
+
+### Added
+
+- **`playwright.config.ts`** — E2E 测试配置
+  - 两个 Project：`chromium-desktop`（Desktop Chrome）+ `mobile-safari`（iPhone 13）
+  - `webServer` 双模式：本地 `npm run dev` / CI `npm run preview`（build 后）
+  - `reuseExistingServer: !process.env.CI`，CI 强制重新构建
+- **`e2e/home.spec.ts`**（4 tests）
+  - 页面标题匹配 `/Ray Huang/`
+  - Nav 包含 Blog + Team 链接
+  - Hero `#main-content` 可见
+  - ThemeToggle 按钮存在（`aria-label="Toggle theme"`）
+- **`e2e/blog.spec.ts`**（8 tests）
+  - 博客列表：文章卡片渲染 / "全部" Filter Tab 默认激活 / insight tab 点击过滤 / 标题链接可跳转
+  - 文章详情（`brain-first-post`）：h1 / ReadingProgress `.reading-progress` / ShareLinks / OG image meta
+- **`e2e/navigation.spec.ts`**（4 tests）
+  - 点击 Blog / Team 链接路由跳转
+  - 主题切换：`data-theme` 属性 `dark → light → dark`
+  - 移动端 hamburger：click → `aria-expanded="true"`，再 click → `"false"`
+- **`e2e/accessibility.spec.ts`**（6 tests）
+  - `html[lang]` 非空 / `.skip-link[href="#main-content"]` 存在 / `main#main-content` 存在 / `nav[aria-label]`
+  - `/404` 路由返回 404 状态且有内容
+  - Team 页 `ol[aria-label="团队博文动态流"]` 可见，Tags 页 `ul[aria-label="标签云"]` 可见
+- **`.github/workflows/e2e.yml`**
+  - 触发：`push/pull_request` → `main`
+  - CI 仅跑 `chromium-desktop`（节省 CI 时间），失败时上传 `playwright-report` artifact（保留 7 天）
+  - 构建缓存复用 `.astro/` 目录
+- **`package.json`** 新增三条脚本：`test:e2e` / `test:e2e:ui` / `test:e2e:ci`
+
+### Build
+- `astro check`：0 errors · 0 warnings · 0 hints
+- `npm run build`：58 页构建成功
+
+---
+
 ## [5.3.0] — 2026-03-01
 
 > **对外传播 Sprint — OG 封面图自动生成 + UTM 分享链接 + Brand 首发 Discussion 草稿**

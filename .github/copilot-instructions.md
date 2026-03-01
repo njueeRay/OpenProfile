@@ -265,7 +265,7 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 
 ## 当前迭代状态
 
-**阶段：** v5.3.0 已发布，v5.4.0 规划中（E2E 测试 Sprint）  
+**阶段：** v5.4.0 已发布，v5.5.0 规划中（成熟里程碑 Sprint）  
 **路线图：** v5.1（技术债清理）→ v5.2（读者体验）→ v5.3（对外传播）→ v5.4（E2E 测试）→ v5.5（成熟里程碑）
 **个人信息：** ✅ 已确认
 **配置文件：** ✅ 已同步
@@ -372,7 +372,7 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 | v5.1.0 | 技术债清理 — Content Layer API / profile-designer.yaml | ✅ 已发布 |
 | v5.2.0 | 读者体验 — ToC / Giscus 评论 / ReadingProgress / 相关推荐 | ✅ 已发布 |
 | v5.3.0 | 对外传播 — OG 封面图 / Brand 首次外部发布 / UTM | ✅ 已发布 |
-| v5.4.0 | E2E 测试 — Playwright 测试覆盖率 6→8 | ⬜ 待安排 |
+| v5.4.0 | E2E 测试 — Playwright 测试覆盖率 6→8 | ✅ 已发布 |
 | v5.5.0 | 成熟里程碑 — 读者体验全集 + 外部真实回响 + 测试保障 | ⬜ 远期 |
 
 **待用户操作项：**
@@ -464,6 +464,17 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - ✅ Brand 首发 Discussion 草稿 (`docs/brand/first-discussion-draft.md`)
 - ✅ `astro check`：0 errors · 0 warnings · 0 hints
 - ✅ `npm run build`：16 OG PNG + 57 页构建成功
+
+**v5.4.0 E2E 测试 Sprint（2026-03-01，tag: v5.4.0，commit: `2754390`）：**
+- ✅ `@playwright/test` 安装，`playwright.config.ts` 创建（chromium-desktop + iPhone 13 双 project）
+- ✅ `e2e/home.spec.ts`（4 tests）：标题 / Nav 链接 / Hero / 主题切换按钮
+- ✅ `e2e/blog.spec.ts`（8 tests）：Filter Tab / 文章卡片 / 详情页 + ReadingProgress / ShareLinks / OG meta
+- ✅ `e2e/navigation.spec.ts`（4 tests）：路由跳转 / data-theme 切换 / hamburger aria-expanded
+- ✅ `e2e/accessibility.spec.ts`（6 tests）：skip-link / main landmark / lang / 404 / Team / Tags
+- ✅ `.github/workflows/e2e.yml`：CI chromium-desktop，失败上传 playwright-report artifact
+- ✅ `package.json` 新增 `test:e2e` / `test:e2e:ui` / `test:e2e:ci`
+- ✅ `astro check`：0 errors · 0 warnings · 0 hints
+- ✅ `npm run build`：58 页构建成功
 
 ---
 
