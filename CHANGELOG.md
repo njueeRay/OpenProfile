@@ -10,6 +10,26 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [5.2.0] — 2026-03-01
+
+> **读者体验 Sprint — ToC + Giscus + ReadingProgress 激活 + 相关文章推荐**
+
+### Added
+
+- **相关文章推荐**（`pages/blog/[...slug].astro`）
+  - 基于共享 tag 交集数量评分，pubDate 降序兜底，最多展示 3 篇
+  - 终端风格卡片：文章标题（链接）+ 发布日期 + 共享 tag 彩色徽章
+  - CSS 类：`.related-posts`、`.related-link`、`.related-tag` 等
+  - 位置：author-card 之后、Giscus 评论之前
+
+### Confirmed Integrated
+
+- **`ReadingProgress.astro`** — 顶部固定滚动进度条，`astro:after-swap` 支持 ClientRouter（已内置，v5.2.0 确认全局激活）
+- **`TableOfContents.astro`** — 右侧固定目录栏，≥1280px 自动显示，IntersectionObserver 当前标题高亮（已内置，v5.2.0 确认激活）
+- **`Giscus.astro`** — GitHub Discussions 评论系统（`dark_dimmed` 主题，repo: `njueeRay/njueeray.github.io`）（已内置，v5.2.0 确认激活）
+
+---
+
 ## [5.1.0] — 2026-03-01
 
 > **技术债清理 Sprint — Content Layer API 迁移**
