@@ -715,17 +715,25 @@ Playbook: vX.Y.Z"
 ## 11. 核心资产清单
 
 > **这是你能带走的所有东西。** 下列资产构成"OpenProfile 方法论包"，迁入任何新项目时直接带走。
+>
+> **维护约定：** 每次团队结构变化（新增角色/目录/工具层）后必须同步更新本表。
 
 | 资产 | 路径 | 项目独立性 | 迁移操作 |
 |------|------|-----------|---------|
 | 团队作战手册（本文件） | `docs/governance/team-playbook.md` | ✅ 通用 | 直接复用，无需修改 |
-| 五角色 Agent 定义 | `.github/agents/*.agent.md` | ✅ 通用 | 直接复用 |
-| 全局项目指令 | `.github/copilot-instructions.md` | ⚠️ 需替换个人信息 | 保留结构，替换个人区块 |
+| 七角色 Agent 定义 | `.github/agents/*.agent.md` | ✅ 通用 | 直接复用（brain/pm/dev/researcher/code-reviewer/profile-designer/brand）|
+| Agent L2 知识库 | `.github/agents/knowledge/*-patterns.md` | ⚠️ 部分项目相关 | 复用通用模式，清除项目特定内容 |
+| Agent Skills | `.github/skills/*/SKILL.md` | ✅ 通用 | 直接复用（7个角色 SKILL）|
+| Hook 配置 | `.github/settings.json` | ⚠️ 需更新项目上下文 | 保留结构，SessionStart 上下文需调整 |
+| Markdown Lint Hook | `.github/hooks/lint-markdown.ps1` | ✅ 通用 | 直接复用 |
+| 全局项目指令 | `.github/copilot-instructions.md` | ⚠️ 需替换个人信息和项目状态 | 保留结构，替换「个人信息」「已决定的设计选择」「当前迭代状态」三个区块 |
 | CI 模板 | `.github/workflows/link-check.yml` 等 | ⚠️ 需微调路径 | 复制后调整 paths |
 | 工程配置 | `.editorconfig`  `.gitattributes`  `.markdownlintignore` | ✅ 通用 | 直接复用 |
 | 工作流说明 | `docs/governance/agent-workflow.md` | ✅ 通用 | 直接复用，可面向开源社区展示 |
 | Commit 规范 | 本手册第 4 节 | ✅ 通用 | 团队记忆，无需单独文件 |
 | Pre-flight 清单 | 本手册第 9 节 | ✅ 通用 | 团队记忆，无需单独文件 |
+
+**注意：** `docs/governance/team-playbook.md` 是 Playbook 的**唯一真实来源**，其他路径下的同名文件均为错误残留，发现即删除。
 
 ---
 

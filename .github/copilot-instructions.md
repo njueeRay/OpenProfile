@@ -296,8 +296,8 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 **2026-03-10 体系审视全体会议（`docs/meetings/2026-03-10-04-all-hands-system-review.md`）：**
 - ✅ P0 执行：`lint-markdown.ps1` 修复（`exit 2` 替换 `exit 0`，真正输出 linting 信号）
 - ✅ P1：7 个 SKILL.md 瘦身（2026-03-10，移除与 agent.md 重复的内容，保留 triggers/examples/constraints + reference 指针）
-- ✅ P1：验证 Memory MCP (✔ 文件存在配置正确，⚠️ 自动 recall 不工作——PostToolUse hook 仅 Claude Code 有效，VS Code Copilot 会话需手动调用）
-- ⬜ P2：Brand Discussion 跟进机制（发布后 72h 回复，引用上次对话）
+- ✅ P1：验证 Memory MCP (✔ 文件存在配置正确，⚠️ 自动 recall 不工作——PostToolUse hook 仅 Claude Code 有效，VS Code Copilot 会话需手动调用)
+- ✅ P2：Brand Discussion 72h 跟进模板落地（`docs/brand/discussion-72h-followup-template.md`）
 - ✅ P3：evolution-events.jsonl 降级为人工档案（撤销自动触发承诺）
 
 **2026-03-10 全体深度审视扩展会（`docs/meetings/2026-03-10-05-all-hands-governance-refactor.md`）：**
@@ -305,6 +305,18 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - ✅ 决议：`.github/` 目录唯一化，`.claude/` 禁止承载长期治理配置
 - ✅ 决议：Brand 升级为治理变更共监督者（72h Discussion 跟进纳入硬约束）
 - ✅ 执行：Brand 72h 跟进模板落地（`docs/brand/discussion-72h-followup-template.md`）
+
+**2026-03-10 全量资产审计 + 自由发言大会（`docs/meetings/2026-03-10-06-all-hands-asset-audit-free-discussion.md`）：**
+- ✅ H-1 删除 `docs/team-playbook.md` 幽灵文件（未追踪副本，已与主 Playbook 分叉）
+- ✅ H-2 修复 settings.json SessionStart 硬编码版本号（改为「读 CHANGELOG.md 动态获取版本」）
+- ✅ Playbook §11 核心资产清单更新（五角色→七角色，新增 skills/ hooks/ settings.json 行）
+- ✅ Researcher patterns 补充 3 条（P-RS-002 浓缩结论格式 / P-RS-003 信息可信度分级 / P-RS-004 最小可信测试集）
+- ✅ Code Reviewer patterns 补充 2 条（P-CR-002 轻量 vs 深度审查触发规则 / P-CR-003 治理文档一致性检查）
+- ✅ Brand 自主发布授权正式写入 `brand.agent.md`（符合 content-checklist 的 Discussion 无需确认可直接发布）
+- ✅ Memory MCP 重定位：放弃自动化幻象，定位为「结构化手动摘要 + Brain 主动读取」
+- ✅ Code Review 覆盖策略更新：从当前版本起执行「每 Minor 轻量 + 每3个 Minor 深度」新规（不补历史）
+- ⬜ P2：Playbook 减法（下次 Session，目标砍 -200 行，聚焦 §17 / 附录C / §15 重叠）
+- ⬜ P2：docs/guides/ 扩充（agent-workflow-intro.md + contributing-intro.md）
 
 **北极星已确认 = B（AI-native 工作方式示范）**：Ray 明确表态，本项目的核心目标是展示「AI-native person 如何工作」，而非个人效率工具。
 影响：copilot-instructions.md 历史记录是「演进的见证」，保留并优化可观察性，不删除历史；
