@@ -234,6 +234,9 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - [x] **相关文章推荐算法**：v5.2.0 新增；score = 共享 tag 交集数量，pubDate 降序兜底，排除当前，取前 3 篇；位置在 author-card 后、Giscus 前
 - [x] **OG 封面图方案**：v5.3.0 新增；satori（HTML/CSS → SVG）+ @resvg/resvg-js（WASM PNG）+ @fontsource/jetbrains-mono（本地字体）；构建时静态生成 1200×630 PNG；暗色终端风格
 - [x] **UTM 追踪策略**：ShareLinks.astro 集成 `utm_source=copy/github_discussions`，`utm_campaign=blog`
+- [x] **Claude Code Hooks 配置**：`.claude/settings.json` 定义 4 个质量门禁 hooks — `TeammateIdle`（DoD 评估）/ `TaskCompleted`（DoD 验证）/ `Stop`（防止提前停止）/ `SessionStart`（注入项目上下文）；hooks 使用 `type: "prompt"` 做语义判断，避免复杂脚本维护
+- [x] **Agent Skills 架构**：`.claude/skills/` 目录下 7 个 SKILL.md（每个 Agent 一个），遵循 Anthropic Agent Skills 开放标准（`agentskills.io`）；能力从「内部配置」升级为「可发现模块」
+- [x] **MCP 扩展 — agent-skill-loader**：`.vscode/mcp.json` 新增 `agent-skill-loader` MCP，Agent 可通过 `list_skills/read_skill/install_skill` 动态发现和加载技能库
 
 **v4.2.0 工程质量 Sprint（✅ 已发布 2026-03-01）：**
 - ✅ `src/styles/global.css` — 全局 CSS 变量提取（从 BaseLayout 120 行内联样式提取为独立文件）
@@ -265,7 +268,7 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 
 ## 当前迭代状态
 
-**阶段：** v5.5.0 已发布（成熟里程碑达成），下一阶段规划中  
+**阶段：** v5.5.0 已发布（成熟里程碑达成），当前进行工具层能力升级 Sprint  
 **路线图：** v5.1（技术债清理）→ v5.2（读者体验）→ v5.3（对外传播）→ v5.4（E2E 测试）→ v5.5（成熟里程碑）✅ 全部完成  
 **个人信息：** ✅ 已确认  
 **配置文件：** ✅ 已同步（含 USER.md v1.0）  
@@ -511,6 +514,22 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - ✅ 新建 `brand-patterns.md`（2 条 L2 + 局限声明）
 - ✅ 新建 `evolution-events.jsonl`（演进事件审计链，回填 15 条历史事件，对标 GEP EvolutionEvent）
 - ✅ Playbook 新增 §19 Agent 能力演进机制（三级结构 + 局限声明规范 + 策略预设 + PM 信号感知 + DoD）
+
+**工具层能力升级 Sprint（2026-03-10，工具层专题会）：**
+- ✅ Researcher：Agent 工具层深度调研报告 → `docs/research/agent-tooling-scaffold-2026.md`（Claude Skills / Hooks / MCP 生态，P0/P1/P2 路线图）
+- ✅ Dev：`.claude/settings.json` 写入质量 Hooks（TeammateIdle + TaskCompleted + Stop + SessionStart）
+- ✅ Dev：`.claude/skills/` 目录创建 7 个 Agent 的 SKILL.md（brain/pm/dev/researcher/code-reviewer/profile-designer/brand）
+- ✅ Dev：`.vscode/mcp.json` 新增 `agent-skill-loader` MCP（动态技能发现）
+- ✅ Brand：自主决策 Discussion #8 草稿（`docs/brand/discussion-8-draft.md`），等待 Hooks 实施后发布
+- ✅ Brain：主持工具层专题会 → `docs/meetings/2026-03-10-02-tool-layer-capability-meeting.md`
+- ✅ evolution-events.jsonl 追加 6 条新事件（P-RS-002 / P-DV-005,6,7 / P-BD-001）
+
+**待推进（P1，下一版本前）：**
+- ⬜ 安装 `agent-skill-loader` npm 包（`npm install -g agent-skill-loader`，用户操作）
+- ⬜ Memory × Hooks 融合（SessionStart 自动加载，PostToolUse 自动保存）—— mengram 模式
+- ⬜ PostToolUse (Write) → async markdown lint （`.claude/hooks/lint-markdown.ps1`）
+- ⬜ Brand：Discussion #8 正式发布（等待 Hooks 在实际会话中验证有效后）
+- ⬜ Brand：Discussion 月度「读者反馈帖」机制启动（≈2026-03-20 开始）
 
 ---
 

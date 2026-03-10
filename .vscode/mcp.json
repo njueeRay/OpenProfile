@@ -29,6 +29,16 @@
       "env": {
         "MEMORY_FILE_PATH": "${workspaceFolder}/.github/agents/knowledge/memory.jsonl"
       }
+    },
+
+    // Agent Skill Loader MCP：动态技能发现与加载
+    // 用途：Agent 可以通过 list_skills/read_skill/install_skill 动态发现和加载技能
+    // Skills 目录：.claude/skills/（项目级）+ ~/.claude/skills/（全局）
+    // 安装：npm install -g agent-skill-loader
+    // 文档：https://github.com/back1ply/agent-skill-loader
+    "agent-skill-loader": {
+      "type": "stdio",
+      "command": "agent-skill-loader"
     }
   }
 }

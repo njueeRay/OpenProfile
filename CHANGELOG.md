@@ -8,6 +8,28 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Added
+
+- **工具层升级 — Agent Skills（7 个 SKILL.md）**（`.claude/skills/`）
+  - 为全体 7 个 Agent 创建 SKILL.md：brain-coordinator / pm-sprint-planner / dev-fullstack / researcher-analysis / code-reviewer-quality / profile-designer-visual / brand-publishing
+  - Agent 能力从「内部配置」升级为「可发现的模块化知识单元」，兼容 Claude Code Skills 官方开放标准（`agentskills.io`）
+- **工具层升级 — Claude Code Hooks**（`.claude/settings.json`）
+  - `TeammateIdle` hook（`type: "prompt"`）：Agent 成员完成任务前自动 DoD 质量评估
+  - `TaskCompleted` hook（`type: "prompt"`）：任务关闭前自动 DoD Checklist 验证
+  - `Stop` hook（`type: "prompt"`）：防止用户请求未完成时 Claude 提前停止
+  - `SessionStart` hook（`type: "command"`）：每次会话自动注入项目上下文
+- **MCP 扩展 — agent-skill-loader**（`.vscode/mcp.json`）
+  - 新增 `agent-skill-loader` MCP，暴露 `list_skills/read_skill/install_skill` 工具
+  - Agent 可动态发现和加载 `.claude/skills/` 中的技能，无需手动配置
+- **调研报告**（`docs/research/agent-tooling-scaffold-2026.md`）
+  - 深度调研 Claude Agent Skills / Hooks / MCP 生态（18 个 Hook 事件、4 种 Hook 处理器、关键 MCP 项目）
+  - P0/P1/P2 落地路线图
+- **Brand 内容决策**（`docs/brand/discussion-8-draft.md`）
+  - Brand 自主决策 Discussion #8 主题和发布时机
+  - 待 Dev 完成 Hooks 实施后发布（先做后说原则）
+- **会议纪要**（`docs/meetings/2026-03-10-02-tool-layer-capability-meeting.md`）
+  - Brain 主持工具层能力升级专题会，全体 7 Agent 参与，确认实施路线图
+
 ---
 
 ## [5.5.0] — 2026-03-01

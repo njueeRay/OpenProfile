@@ -13,3 +13,8 @@
 {"date":"2026-03-10","trigger":"team-evolution-research","agent":"profile-designer","type":"new-file","patternId":"profile-designer-patterns","description":"新建 profile-designer-patterns.md，包含视觉选型决策树和颜色体系约定"}
 {"date":"2026-03-10","trigger":"team-evolution-research","agent":"brand","type":"new-file","patternId":"brand-patterns","description":"新建 brand-patterns.md，包含 Discussions 发布 SOP 和内容矩阵映射"}
 {"date":"2026-03-10","trigger":"team-evolution-research","agent":"all","type":"system","patternId":"evolution-events.jsonl","description":"建立演进事件审计链（本文件），使团队演进轨迹可追溯，对标 GEP EvolutionEvent 概念"}
+{"date":"2026-03-10","trigger":"tool-layer-upgrade-research","agent":"researcher","type":"new-gene","patternId":"P-RS-002","description":"Claude Agent Skills / Hooks / MCP 生态深度调研，确立 agent-tooling-scaffold 三层能力升级路线图"}
+{"date":"2026-03-10","trigger":"tool-layer-upgrade-research","agent":"dev","type":"new-scaffold","patternId":"P-DV-005","description":"创建 .claude/settings.json（TeammateIdle/TaskCompleted/Stop/SessionStart hooks），为团队装上自动质量门禁"}
+{"date":"2026-03-10","trigger":"tool-layer-upgrade-research","agent":"dev","type":"new-scaffold","patternId":"P-DV-006","description":"创建 .claude/skills/（7 个 SKILL.md），Agent 能力升级为 Claude Skills 开放标准可发现模块"}
+{"date":"2026-03-10","trigger":"tool-layer-upgrade-research","agent":"dev","type":"new-scaffold","patternId":"P-DV-007","description":"mcp.json 新增 agent-skill-loader，实现 Agent 动态技能发现与加载能力"}
+{"date":"2026-03-10","trigger":"tool-layer-upgrade-research","agent":"brand","type":"decision","patternId":"P-BD-001","description":"Brand 自主决策 Discussion #8：先实施 Hooks 后发布，坚守「先做后说」原则"}
