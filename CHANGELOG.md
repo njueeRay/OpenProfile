@@ -8,6 +8,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+---
+
+## [5.7.0] — 2026-03-10
+
+> **工具层能力升级 🛠️ — Agent Skills × Hooks × MCP 三位一体脚手架**
+
+本版本完成 Agent 团队工具层的系统性升级：7 个 Agent 的能力包被编码为可发现的 SKILL.md 模块，
+Claude Code Hooks 实现自动质量门禁，Memory MCP 接入实现跨会话知识持久化。
+这是 AI-native 工作流从「口耳相传」走向「结构化脚手架」的里程碑。
+
 ### Added
 
 - **工具层升级 — Agent Skills（7 个 SKILL.md）**（`.github/skills/`）

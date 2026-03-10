@@ -280,7 +280,7 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 
 ## 当前迭代状态
 
-**阶段：** v5.6.0 已发布（博客视觉 & 阅读体验专项完成），当前进行工具层能力升级 Sprint  
+**阶段：** v5.7.0 已发布（工具层脚手架 Sprint — Skills × Hooks × MCP P0+P1 完成），P2 阶段规划中  
 **路线图：** v5.1→v5.5 ✅ 全部完成 · v5.6（博客视觉专项）✅ 已发布  
 **个人信息：** ✅ 已确认  
 **配置文件：** ✅ 已同步（含 USER.md v1.0）  
@@ -390,6 +390,7 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 | v5.4.0 | E2E 测试 — Playwright 测试覆盖率 6→8 | ✅ 已发布 |
 | v5.5.0 | 成熟里程碑 — 读者体验全集 + 外部真实回响 + 测试保障 | ✅ 已发布 |
 | v5.6.0 | 博客视觉专项 — FeaturedCard / prose.css / LatestPosts / 作者统计 / 标签终端风 | ✅ 已发布 |
+| v5.7.0 | 工具层脚手架 — Agent Skills × Hooks × MCP 三位一体（P0+P1 完成） | ✅ 已发布 |
 
 **待用户操作项：**
 - ✅ Discussions 分类架构已创建（Announcements / Team Insights / AI-native Journey）
