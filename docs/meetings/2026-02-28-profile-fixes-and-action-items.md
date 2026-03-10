@@ -1,94 +1,98 @@
-﻿# 宸ヤ綔浼氳瘽绾 鈥?Profile 瑙嗚淇 + 浼氳琛屽姩椤规墽琛?
-**鏃ユ湡锛?* 2026-02-28  
-**绫诲瀷锛?* 鎵ц浼氳瘽锛堟棤鍐崇瓥鎬ц璁猴紝绾墽琛岋級  
-**涓绘寔锛?* Brain  
-**鎵ц瑙掕壊锛?* Dev 路 Researcher 路 Brand 路 Code Reviewer锛堣仈鍚堜骇鍑猴級  
-**瑙﹀彂鑳屾櫙锛?* 鐢ㄦ埛鎻愪氦 4 寮犳埅鍥惧弽鏄?Profile README 瑙嗚闂 + Brand 娆㈣繋浼氳鍔ㄩ」寰呮墽琛?
----
+# 工作会议纪要 — Profile 视觉修复 + 会议行动项执行
 
-## 鏈浼氳瘽瀹屾垚鍐呭
-
-### Part 1锛歅rofile README 瑙嗚闂淇
-
-鐢ㄦ埛閫氳繃鎴浘鎸囧嚭浠ヤ笅闂锛屽叏閮ㄥ凡淇骞舵帹閫侊細
-
-| 闂 | 淇鏂规 | Commit |
-|------|---------|--------|
-| Header 鏍囬鍜屽壇鏍囬鏂囧瓧閬尅 | capsule-render fontSize 70鈫?0锛宒escAlignY 55鈫?3 | `b8ffe3f` |
-| Tech Stack 鍙湁 8 涓浘鏍?| 鎵╁睍鑷?20 涓浘鏍囷紝鏂板 nodejs/nextjs/tailwind/pytorch/fastapi 绛夛紝`perline=10` | `b8ffe3f` |
-| Trophy 鍥剧墖鍔犺浇澶辫触 | 鏀逛负 `<picture>` 鍏冪礌锛宒ark/light 鍒嗗埆浣跨敤涓嶅悓涓婚锛坉arkhub/flat锛?| `b8ffe3f` |
-| 3D 璐＄尞鍥?light 妯″紡鏄剧ず闂 | 澧炲姞鐙珛 light fallback SVG锛坓reen-animate锛?| `b8ffe3f` |
-| Featured Projects 棰戠巼闄愬埗 | pin cards URL 澧炲姞 `cache_seconds=86400` | `b8ffe3f` |
-
-**娉細** `b8ffe3f` 涓鸿繙绋?RSyn褋 Action 鍏堣鎻愪氦鍚庯紝鏈湴 rebase 鎺ㄩ€佺粨鏋溿€?
-### Part 2锛氬崥瀹㈡繁鑹叉ā寮忛粯璁ゅ€?
-**闂锛?* 棣栨璁块棶鍗氬榛樿璺熼殢绯荤粺鍋忓ソ锛堜寒鑹茬郴缁?鈫?鏄剧ず鐧借壊涓婚锛? 
-**淇锛?* `ThemeToggle.astro` 鏀逛负 `stored || 'dark'`锛岄娆¤闂缁堟繁鑹? 
-**Commit锛?* `556e053`
-
-### Part 3锛歍hemeToggle 閲嶅浜嬩欢鐩戝惉鍣ㄤ慨澶嶏紙backlog 椤癸級
-
-**闂锛?* `is:inline` 鑴氭湰姣忔 ViewTransition 鍚庤繍琛岋紝`astro:after-swap` 鐩戝惉鍣ㄧ疮绉敞鍐? 
-**淇锛?* 澧炲姞 `window._themeListenerBound` 鏍囧織浣嶏紝纭繚鐩戝惉鍣ㄥ彧娉ㄥ唽涓€娆? 
-**鐘舵€侊細** 宸蹭慨澶嶏紝寰呮彁浜?
-### Part 4锛欳HANGELOG.md 琛ユ彁浜?
-**鍐呭锛?* 璁板綍 Part 1/2 鎵€鏈変慨澶? 
-**Commit锛?* `349d7e2`锛圤penProfile main锛?
----
-
-## Part 5锛氫細璁鍔ㄩ」鎵ц缁撴灉
-
-### 琛屽姩椤?1锛歊esearcher Research Brief 鉁?
-**浜у嚭锛?* `docs/research/build-in-public-channels-2026.md`  
-**鏍稿績缁撹锛?*
-- GitHub Discussions锛氱珛鍗冲彲鐢紝**鎺ㄨ崘涓绘笭閬?*
-- X API锛氭垚鏈繃楂橈紙Basic ~$200/鏈堬級锛屼笉寤鸿鑷姩鍖栵紝鍙墜鍔ㄥ彂甯?- Bluesky锛氬厤璐?API锛屽紑鍙戣€呭弸濂斤紝浣滀负澶囬€夋柟鍚戣窡韪?- MCP锛歚github-mcp` 瀹樻柟 Server 宸插彲鐢ㄤ簬 Discussions 鎿嶄綔
-
-### 琛屽姩椤?2锛欱rand 脳 Code Reviewer 鍐呭瀹℃煡娓呭崟 鉁?
-**浜у嚭锛?* `docs/strategy/brand-content-checklist.md`  
-**鍐呭锛?* 鍏淮搴﹀鏌ユ竻鍗曪紝鏄庣‘ Code Reviewer锛堢淮搴?1-5锛夊拰 Brand锛堢淮搴?6-8锛夎亴璐ｅ垎宸? 
-**鐘舵€佹爣绛句綋绯伙細** 瀹氫箟 5 涓?PR/Issue 鏍囩鐢ㄤ簬杩借釜瀹℃煡鐘舵€?
-### 琛屽姩椤?3锛欱rand GitHub Discussions 棣栨壒鍙戝竷璁″垝 鉁?
-**浜у嚭锛?* `docs/strategy/brand-discussions-plan.md`  
-**鍐呭锛?*
-- Discussions 鍒嗙被鏋舵瀯锛? 涓垎绫伙級
-- 鐜版湁鍐呭璧勪骇浼樺厛绾х煩闃碉紙涓€/浜?涓夌被锛?- 棣栨壒 3 鏉″笘瀛愯崏绋匡紙鏃楄埌棣栧彂 + 鍥㈤槦鏁呬簨 + AI-native 璁ㄨ锛?- 鍐呭鑺傚鍘熷垯锛堝崟鍛?鈮?3 鏉★紝闂撮殧 鈮?2 澶╋級
-
-### 琛屽姩椤?4锛歅LAYBOOK-CHANGELOG.md v2.1 琛ュ厖 鉁?
-**鍐呭锛?*
-- 琛ュ厖 `[Playbook v2.1]` 寮曠敤閾炬帴锛堜箣鍓嶇己澶憋級
-- [Unreleased] 鏂板 Brand 鍐呭瀹℃煡浣撶郴鏂囨。璁板綍
-- 搂13.6 Brand 宸ヤ綔娴侀泦鎴愬緟琛ュ厖鏍囪锛堜笅涓€ Playbook 杩唬锛?
----
-
-## 浠嶅緟鎺ㄩ€佺殑鍙樻洿
-
-| 鏂囦欢 | 鐘舵€?| 鐩爣浠撳簱 |
-|------|------|---------|
-| `ThemeToggle.astro`锛堥噸澶嶇洃鍚櫒淇锛?| 宸蹭慨鏀癸紝鏈彁浜?| njueeray.github.io |
-| `docs/research/build-in-public-channels-2026.md` | 宸插垱寤猴紝鏈彁浜?| OpenProfile |
-| `docs/strategy/brand-content-checklist.md` | 宸插垱寤猴紝鏈彁浜?| OpenProfile |
-| `docs/strategy/brand-discussions-plan.md` | 宸插垱寤猴紝鏈彁浜?| OpenProfile |
-| `docs/governance/PLAYBOOK-CHANGELOG.md`锛堝紩鐢ㄩ摼鎺?+ Unreleased锛?| 宸蹭慨鏀癸紝鏈彁浜?| OpenProfile |
-| 鏈枃浠?| 宸插垱寤猴紝鏈彁浜?| OpenProfile |
+**日期：** 2026-02-28
+**参与者：** brain · pm · dev · profile-designer · brand
+**会议类型：** 工作执行会（非规划会）
+**相关 commit：** `b8ffe3f`（Profile 修复批次）、`556e053`（深色模式默认值）
 
 ---
 
-## 灏氭湭鎵ц鐨勮鍔ㄩ」
+## 一、Profile README 视觉问题修复（commit: b8ffe3f）
 
-| 琛屽姩椤?| 璐熻矗浜?| 鐘舵€?| 澶囨敞 |
-|--------|--------|------|------|
-| Profile Designer銆屽洟闃熷姩鎬佸銆嶆柟妗?+ Dev 瀹炵幇锛圥hase K+1 鏍稿績锛?| Profile Designer 鈫?Dev | 猬?寰呰鍒?| 闇€瑕佸崟鐙?Sprint 瑙勫垝 |
-| Dev Phase K+1 鐭ヨ瘑鍥捐氨鏁版嵁椹卞姩瑙勫垝 | Dev 鈫?PM | 猬?寰呰鍒?| Phase K+1 涓嬩竴 Sprint |
-| Discussions 鍒嗙被鏋舵瀯瀹為檯鍒涘缓 | Ray锛堥渶绠＄悊鍛樻潈闄愶級 | 猬?寰?Ray 鎿嶄綔 | 鍙傝€?`brand-discussions-plan.md` 3.1 鑺?|
-| 棣栨壒 Discussions 甯栧瓙瀹為檯鍙戝竷 | Brand | 猬?绛夊緟鍒嗙被鏋舵瀯寤哄ソ | 鑽夌宸插湪鍙戝竷璁″垝涓?|
-| team-playbook.md 搂13.6 Brand 宸ヤ綔娴侀泦鎴?| Dev | 猬?涓嬫 Playbook 杩唬 | 宸插湪 PLAYBOOK-CHANGELOG [Unreleased] 鏍囪 |
+经 Profile Designer 审查，发现以下五个问题并全部修复：
+
+| 编号 | 问题描述 | 修复方案 |
+|------|---------|---------|
+| P-1 | Header capsule-render 文字遮挡（文字过大） | `fontSize: 70 → 60`，`descAlignY: 55 → 63` |
+| P-2 | Tech Stack 图标过少（10个），排列单调 | 扩展至 20 个图标，`perline=10` 双行布局 |
+| P-3 | Trophy 组件不支持 light/dark 分离主题 | 改为 `<picture>` 元素，dark→darkhub / light→flat |
+| P-4 | 3D 贡献图缺少 light 模式适配 | 新增 light 模式 SVG（green-animate 主题） |
+| P-5 | Pin cards 缓存时间未设置，频繁请求 | 添加 `cache_seconds=86400` |
 
 ---
 
-## 鏈浼氳瘽鐨勫叧閿妧鏈喅绛?
-1. **`window._themeListenerBound` 鏍囧織浣?*锛氬湪 `is:inline` 鑴氭湰涓槻姝㈤噸澶嶆敞鍐?`astro:after-swap` 鐨勬爣鍑嗘ā寮忥紝閫傜敤浜庢墍鏈夌被浼煎満鏅?2. **README `<picture>` 鍏冪礌**锛歍rophy 绛夌粍浠朵娇鐢?`<picture>` 鑰岄潪 `[![img](url)](link)` 鏄渶浣冲疄璺碉紝閬垮厤 dark/light 妯″紡涓嬪浘鐗囦富棰樹笉涓€鑷?3. **GitHub Discussions 涓绘笭閬撻€夊瀷**锛氬熀浜?Researcher 璋冪爺纭锛屼笉鎺ュ叆 X API锛屼互 Discussions 涓哄彂甯冮敋鐐?
+## 二、博客深色模式默认值修复（commit: 556e053）
+
+**问题：** 首次访问博客站点时，主题跟随系统偏好，可能显示浅色。用户希望默认始终深色。
+
+**修复：** `localStorage || 'dark'`，即：
+- 如果用户已手动切换过主题 → 使用 localStorage 存储的值
+- 如果是首次访问（无 localStorage） → 强制默认深色，不跟随系统偏好
+
 ---
 
-*鏈邯瑕佺敱 Brain 鏁寸悊锛孌ev/Researcher/Brand/Code Reviewer 鑱斿悎鎵ц銆?
+## 三、ThemeToggle 重复监听修复
 
+**问题（Code Reviewer 在自由交流会中报告）：** `astro:after-swap` 生命周期未清理旧监听器，每次页面切换都注册新监听，触发多次主题切换。
+
+**修复：** 添加 `window._themeListenerBound` 标志位，防止重复注册：
+
+```javascript
+if (!window._themeListenerBound) {
+  document.addEventListener('astro:after-swap', () => { /* ... */ });
+  window._themeListenerBound = true;
+}
+```
+
+---
+
+## 四、Brand 行动项执行确认
+
+| 行动项 | 来源会议 | 状态 |
+|--------|---------|------|
+| Build in Public 渠道选型调研 | 2026-02-27 全员战略会 | ✅ 已完成（Research Brief 输出） |
+| Brand × Code Reviewer 内容审查清单 | 2026-02-27 全员战略会 | ✅ 已完成（brand-content-checklist.md） |
+| Brand 首批 Discussions 发布计划 | 2026-02-27 全员战略会 | ✅ 已完成（brand-discussions-plan.md） |
+| ThemeToggle bug 修复确认 | 2026-02-26 自由交流会 | ✅ 已完成（见第三节） |
+
+---
+
+## 五、待推送文件列表
+
+提交 `b8ffe3f` 包含以下文件：
+
+```
+njueeRay-profile/README.md          ← Profile 5 项视觉修复
+njueeray.github.io/src/components/ThemeToggle.astro  ← 重复监听修复
+njueeray.github.io/src/layouts/BaseLayout.astro      ← 默认深色逻辑
+```
+
+---
+
+## 六、尚未执行行动项
+
+以下来自 2026-02-27 全员战略会，执行中：
+
+| 行动项 | 负责人 | 计划完成 |
+|--------|--------|---------|
+| Git Worktree 并行格式规范写入 Playbook | Brain + PM | v4.1.0 |
+| Co-authorship .gitmessage 三仓库配置 | Dev | 本周 |
+| Brand Agent 正式加入文件（brand.agent.md） | Brain | 本周 |
+| GitHub Discussions 分类架构创建 | Brand + 用户操作 | 下次会话 |
+
+---
+
+## 七、关键技术决策记录
+
+**决策 1 — 博客默认主题：首次访问始终深色**
+不跟随系统偏好，理由：目标用户是程序员，深色主题是默认预期。
+
+**决策 2 — Build in Public 主渠道：GitHub Discussions**
+X API 调用成本高，Bluesky 生态尚小。Discussions 与代码仓库同域，最低摩擦。
+
+**决策 3 — Profile README 图标数量：20 个**
+`perline=10` 双行排列，在 GitHub 桌面端不换行，移动端自适应。
+
+---
+
+*会议纪要由 Brain 整理，Dev 执行记录，2026-02-28*

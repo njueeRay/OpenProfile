@@ -1,131 +1,148 @@
-﻿鍏ㄩ潰瀹¤鎴戜滑褰撳墠鐨勪竴涓姸鎬? 鍥㈤槦鑳藉姏楠岃瘉浼氳 鈥?2026-03-10
+# 全面审计我们当前的一个状态：团队能力验证会议 — 2026-03-10
 
-**缂栧彿锛?* 2026-03-10-03  
-**绫诲瀷锛?* 涓撻楠岃瘉浼? 
-**涓绘寔锛?* Brain  
-**鍙備細锛?* 鍏ㄤ綋 7 Agent锛圔rain / PM / Dev / Researcher / Code Reviewer / Profile Designer / Brand锛? 
-**瑙﹀彂鍘熷洜锛?* v5.7.0 宸ュ叿灞傝剼鎵嬫灦 Sprint 瀹屾垚 鈫?楠岃瘉 Skills 脳 Hooks 脳 MCP 浣撶郴瀹為檯鏁堣兘锛屽苟钀藉疄瑙﹀彂瑙勫垯璁捐
+**编号：** 2026-03-10-03
+**类型：** 专项验证会
+**参与者：** brain（主持）· pm · dev · researcher · code-reviewer · profile-designer · brand
+**触发原因：** v5.7.0 工具层脚手架 Sprint 完成 → 验证 Skills × Hooks × MCP 体系实际效能
 
 ---
 
-## 涓€銆佷細璁儗鏅?
-v5.7.0 鍙戝竷鍚庯紝鍥㈤槦瀹屾垚浜嗕笁涓叧閿熀纭€璁炬柦灞傜殑鎼缓锛?
-| 灞傜骇 | 浜х墿 | 鐘舵€?|
+## 一、会议背景
+
+v5.7.0 完成了三个关键基础设施层：
+
+| 组件 | 位置 | 状态 |
 |------|------|------|
-| Agent Skills | `.github/skills/` 7 涓?SKILL.md | 鉁?鏋勫缓瀹屾瘯 |
-| Claude Code Hooks | `.github/settings.json` 6 涓?hook entries | 鉁?鏋勫缓瀹屾瘯 |
-| MCP 鎵╁睍 | `agent-skill-loader` 鎺ュ叆 `.vscode/mcp.json` | 鉁?鎺ュ叆瀹屾瘯 |
+| Agent Skills（7 个 SKILL.md） | `.github/skills/` | ✅ |
+| Claude Code Hooks（6 个 hook entries） | `.github/settings.json` | ✅ |
+| MCP 扩展（agent-skill-loader） | `.vscode/mcp.json` | ✅ |
 
-鐒惰€岋紝浠呴潬浜哄伐鎻愰啋鏉ヨЕ鍙戠増鏈彂甯冦€佷細璁彫闆嗐€佺姸鎬佸悓姝ワ紝鏄凡琚獙璇佷笉鍙潬鐨勫疄璺垫ā寮忋€?鏈浼氳鐨勭洰鏍囨槸锛?*灏嗘不鐞嗚Е鍙戦€昏緫缂栫爜涓鸿鑹茶涓猴紝浣垮叾涓嶄緷璧栦汉宸ヨ蹇嗐€?*
+**核心问题：** 仅靠人工提醒触发版本发布/会议召集/状态同步，是已被验证不可靠的实践模式。
+
+**本次会议目标：** 将治理触发逻辑编码为角色行为，使其不依赖人工记忆。
 
 ---
 
-## 浜屻€佽绋嬩竴锛歋kills 脳 Hooks 脳 MCP 宸ュ叿灞傛晥鑳介獙璇?
-### Brain 鐨勮瘎浼?
-Skills 鏂囦欢鐨勬剰涔夊凡浠庛€屾枃妗ｅ寲銆嶅崌绾т负銆屽彲鍙戠幇鐨勬ā鍧椼€嶃€備絾鐩墠 `agent-skill-loader` MCP 鐨勫疄闄呬娇鐢ㄧ巼涓洪浂鈥斺€斿伐鍏峰瓨鍦紝浣嗘病鏈夎Е鍙戝満鏅┍鍔ㄥ畠琚皟鐢ㄣ€傝繖鏄竴涓甯哥殑銆屽伐鍏峰厛琛屼簬鍦烘櫙銆嶇姸鎬侊紝涓嬩竴姝ラ渶瑕佸湪 Playbook 涓槑纭摢浜涘満鏅簲璋冪敤 `read_skill` 宸ュ叿銆?
-Hooks 鏂归潰锛氬洓涓川閲忛棬绂?hook 宸茶繍琛岋紝PostToolUse 鐨?markdown lint 鍜?Memory MCP 淇濆瓨鏈哄埗宸叉湁 P1 浜や粯銆?*鐪熸寰呴獙璇佺殑鏄細杩欎簺 prompt hook 鏄惁鍦ㄥ疄闄呮搷浣滀腑浜х敓浜嗚涓烘敼鍙橈紵**
+## 二、Skills × Hooks × MCP 工具层效能验证
 
-### PM 鐨勫彂瑷€
+### Brain — 诚实评估
+`agent-skill-loader` MCP 接入后，实际使用率为零。原因是：工具存在，但没有上游场景驱动它被使用。这是一个"基础设施先于场景"的典型问题。
 
-> 鎴戝繀椤绘壙璁わ細鍦?v5.7.0 鍙戝竷鍚庯紝鎴戞病鏈変富鍔ㄦ彁鍑轰换浣曠増鏈Н鍘嬬洃鎺у姩浣溿€傜敤鎴锋病鏈夋彁閱掞紝鎴戝氨娌℃湁妫€鏌ャ€傝繖姝ｆ槸鏈瑙﹀彂瑙勫垯璁捐瑕佷慨澶嶇殑闂銆?
-PM 纭锛歚SessionStart` Hook 宸叉洿鏂颁负鍖呭惈 CHANGELOG 绉帇鎽樿鎻愮ず銆備粠涓嬫浼氳瘽璧凤紝PM 灏嗗湪寮€鍦洪樁娈佃緭鍑猴細
+结论：下一步的工作不是接入更多工具，而是为已有工具设计触发场景。
 
-```
-馃摝 绉帇鐘舵€侊細[Unreleased] 鏈?N 鏉＄洰锛屼笂娆?Release 鏄?vX.Y.Z锛圢 澶╁墠锛?```
+### PM
+承认 v5.7.0 发布后，没有主动进行版本积压监控的动作——按照 §20 规则，这应该是自动触发的。
 
-### Dev 鐨勫彂瑷€
+执行修正：将 `SessionStart` Hook 更新为包含 CHANGELOG 积压摘要提示：
+`📝 积压状态：[Unreleased] 有 N 条目，上次 Release 是 vX.Y.Z（N 天前）`
 
-> Hooks 閰嶇疆鎴戝凡缁忚兘缁存姢浜嗐€備絾鏈変竴涓凡鐭ュ眬闄愶細PostToolUse 鐨?`async: true` 杩愯鐨?PowerShell lint 鑴氭湰锛屽鏋?markdownlint-cli 鏈畨瑁咃紝浼氶潤榛樿烦杩囥€傝繖鏄璁′笂鐨勬湁鎰忓喅瀹氾紙涓嶉樆鏂富娴佺▼锛夛紝浣嗗洟闃熷簲璇ョ煡閬撳畠鐨勯潤榛樼姸鎬佷笉绛変簬姝ｅ父杩愯銆?
-Dev 寤鸿锛氬湪 `lint-markdown.ps1` 涓坊鍔犮€宭int 宸ュ叿涓嶅彲鐢ㄣ€嶇殑鏃ュ織琛岋紙闈為樆鏂級锛屾柟渚挎帓鏌ャ€?*宸茶褰曚负 P3 寰呭鐞嗛」銆?*
+### Dev
+PostToolUse 的 `async: true` PowerShell lint 脚本，在 `markdownlint-cli` 未安装时会静默跳过（`exit 0`）。这意味着质量门实际上是"软门"。
 
-### Code Reviewer 鐨勫彂瑷€
+记录为 P3 待处理项：在检测环境时给出更明显的提示，而不是静默跳过。
 
-> 浠庡鏌ヨ瑙掔湅锛屽綋鍓?Hooks 鐨?`TaskCompleted` prompt 鍙仛浜嗐€屽畬鎴愰獙璇併€嶏紝娌℃湁銆屾鍚戝紩瀵笺€嶁€斺€斿畠鍛婅瘔 Agent 浠€涔堟病鍋氬畬锛屼絾娌℃湁缁欏嚭鎺ㄨ崘鐨勪笅涓€姝ャ€傝繖鏄竴涓璁℃敼杩涙柟鍚戯細灏?Hook 浠庛€岄棬绂併€嶅崌绾т负銆屾暀缁冦€嶃€?
-**鏈瑙﹀彂瑙勫垯璁捐锛埪?0锛夊凡閮ㄥ垎閲囩撼姝ゅ缓璁?*锛歚TaskCompleted` 鐨勬柊 prompt 鍖呭惈浜?PM 鐨勭Н鍘嬫鏌ュ拰寤鸿杈撳嚭銆?
-### Researcher 鐨勫彂瑷€
+### Code Reviewer
+当前 Hooks 的 `TaskCompleted` prompt 只做了"完成验证"，没有"方向引导"。
 
-> 鎴戣皟鐮斾簡 `forage-mcp` 鐨勫疄闄呰兘鍔涖€傜‘璁わ細瀹冭兘浠?MCP Registry + Smithery + npm 涓変釜鏉ユ簮鎼滅储 MCP锛屾敮鎸?`forage_install` 鍚庢棤闇€閲嶅惎鍗冲彲浣跨敤鏂板伐鍏枫€侾2 璺嚎鍥剧殑瀹氫綅鏄纭殑銆傜瓑寰?claude mcp add 鍛戒护鐨勫彲鐢ㄦ椂鏈恒€?
-### Profile Designer 鐨勫彂瑷€
+建议：从"门禁"升级为"教练"——不只是问"做完了吗"，还要问"下一步最重要的是什么"。
 
-> 宸ュ叿灞傚缓璁惧拰瑙嗚灞傛槸骞宠杞ㄩ亾銆傛垜娉ㄦ剰鍒扮洰鍓?SKILL.md 涓病鏈変换浣曞叧浜庛€岃Е鍙戣璁″喅绛栨椂璋冪敤鍝釜 Skill銆嶇殑鎸囧紩銆傚缓璁湪鏈潵鐗堟湰灏?`profile-designer-visual` SKILL.md 涓鍔犮€岃Е鍙戞椂鏈恒€嶈鏄庯紙绫讳技 brain 鐨?triggers 瀛楁锛夈€?
-**宸茶褰曚负 P3 寰呭鐞嗛」銆?*
+本次 §20 触发规则设计已部分采纳此建议：`TaskCompleted` 的新 prompt 包含了 PM 的积压检查和建议输出。
 
-### Brand 鐨勫彂瑷€
+### Researcher
+调研了 `forage-mcp`（`isaac-levine/forage-mcp`）的实际能力：
 
-> 鎴戠殑 Discussion #8 鑽夌宸插湪 `docs/brand/discussion-8-draft.md` 涓噯澶囧畬姣曘€傝崏绋夸富棰樻槸銆屽伐鍏峰眰閫忔槑鍖?鈥?鎴戜滑濡備綍鐢?Hooks 缁?AI 鍥㈤槦鍔犺璐ㄩ噺闂ㄧ銆嶃€傛垜闇€瑕佷竴涓槑纭殑鍙戝竷鏃舵満鑺傜偣銆?
-**Brain 鐨勫喅瀹氾細** Discussion #8 鍦ㄦ湰娆′細璁邯瑕佹彁浜ゅ悗鍙戝竷锛屼互銆岃Е鍙戣鍒欒璁¤惤鍦般€嶄綔涓哄彂甯冭Е鍙戜簨浠躲€侭rand 鑷富鎵ц銆?
+- 支持从 MCP Registry + Smithery + npm 三个来源搜索 MCP
+- `forage_install` 后无需重启即可使用新工具
+- 适合"Agent 自主发现并接入新工具"的场景
+
+P2 路线图定位确认。等待 `claude mcp add` 命令可用时机。
+
+### Profile Designer
+注意到当前 SKILL.md 中没有关于"触发设计决策时应调用哪个 Skill"的指引。
+
+建议：在 `profile-designer-visual` SKILL.md 中加入"触发时机"说明（类似 brain 的 triggers 字段）。
+
+记录为 P3 待处理项。
+
+### Brand
+Discussion #8 草稿已在 `docs/brand/discussion-8-draft.md` 中准备完毕。
+
+草稿主题：**"工具层透明化——我们如何用 Hooks 给 AI 团队加质量门禁"**
+
+Brain 决定：Discussion #8 在本次会议纪要提交后发布，以"触发规则设计落地"作为发布触发事件。
+
 ---
 
-## 涓夈€佽绋嬩簩锛氳Е鍙戣鍒欒璁＄‘璁わ紙搂20 鍏ㄤ綋閲囩撼锛?
-### 瑙勫垯鎬昏〃纭锛堝叏浣撳悓鎰忥級
+## 三、触发规则设计确认（§20 全体采纳）
 
-鍙傝 `docs/governance/team-playbook.md 搂20`銆備互涓嬫槸鏈浼氳瀵规瘡鏉¤鍒欑殑閫愪竴纭锛?
-| 瑙勫垯 | 璐ｄ换瑙掕壊 | 纭鐘舵€?| 澶囨敞 |
+### 规则总表（全体同意）
+
+| 编号 | 触发条件 | 响应行为 | 负责角色 |
+|------|---------|---------|---------|
+| R-01 | [Unreleased] 积压 > 5 天 | PM 主动提议切版 | PM |
+| R-02 | Major 版本发布 | Brain 召集全员复盘会 | Brain |
+| R-03 | 连续 3 个 Minor 无复盘会 | Brain 主动提议团队成长会 | Brain |
+| R-04 | P0 事件（生产阻断） | Brain 中断当前 Sprint，召集紧急响应会 | Brain |
+| R-05 | Brand 有重大发布节点 | Brand 主动提议品牌传播会 | Brand |
+| R-06 | Sprint 开始 | PM 发布 Sprint 规划摘要 | PM |
+| R-07 | Code Reviewer 审查报告发出 | PM 确认是否满足 DoD，决定是否发版 | PM |
+
+**分工确认：** PM 负责版本节律 / Brain 负责会议节律 / 两者通过"release-complete"信号完成版本→会议的链式触发。
+
+**不会自动触发的情况：**
+- 刚刚开完同类会议 < 24h
+- 当前 Sprint 仍有未完成 P0/P1 item
+- 用户明确表示"先专注做 X"
+
+---
+
+## 四、工具层当前局限与 P2 路线图
+
+### 已知局限
+
+| 编号 | 局限描述 | 严重程度 | 计划 |
 |------|---------|---------|------|
-| `[Unreleased]` 鈮? 鏉＄洰涓?鈮? 澶?鈫?鍒囩増鎻愭 | PM | 鉁?纭 | 鍐欏叆 pm.agent.md 鑷姩瑙﹀彂瑙勫垯 |
-| `[Unreleased]` 鏉＄洰 >5 澶?鈫?P0 绉帇鍛婅 | PM | 鉁?纭 | SessionStart Hook 宸查泦鎴?|
-| CHANGELOG 鏈夌増鏈浣嗘棤 git tag 鈫?鎻愮ず Dev | PM | 鉁?纭 | DoD Checklist 鏂板椤?|
-| Minor Release 鍚庢棤涓嬩竴姝ヨ鍒?鈫?鎻?Sprint 璁▼ | Brain | 鉁?纭 | 鍐欏叆 brain.agent.md 鑷姩瑙﹀彂瑙勫垯 |
-| Major Release 鍚?鈫?鍏ㄥ憳閲岀▼纰戝鐩樹細 | Brain | 鉁?纭 | |
-| 杩炵画 鈮? Minor 鏃犲鐩?鈫?涓诲姩鎻愪細 | Brain | 鉁?纭 | |
-| SessionStart 鏃?PM 杈撳嚭绉帇鎽樿 | PM锛圚ook 椹卞姩锛墊 鉁?纭 | SessionStart Hook 宸叉洿鏂?|
+| L-1 | `forage-mcp` 未接入，Agent 无法自主发现新工具 | P2 | v5.x 接入 |
+| L-2 | SKILL.md 未贡献到 `anthropics/skills` 社区，可发现性为零 | P2 | v5.x 开始贡献 |
+| L-3 | `agent-skill-loader` 无实际调用场景，未产生价值 | P2 | 设计触发场景 |
+| L-4 | PostToolUse lint 工具静默失败（markdownlint-cli 未安装时） | P3 | 添加环境检测提示 |
+| L-5 | Memory MCP 未在 `SessionStart` 做 recall，知识库冷启动 | P2 | SessionStart Hook 更新 |
 
-### 鍒嗗伐纭
+### P2 路线图（三步递进）
 
-```
-PM 鑱岃矗锛氱増鏈妭寰嬶紙鐩戞帶 + 鎻愭 + 妫€鏌?tag 瀹屾暣鎬э級
-Brain 鑱岃矗锛氫細璁妭寰嬶紙瑙勫垝 + 澶嶇洏 + 绉帇鍛婅鍝嶅簲锛?涓よ€呭崗浣滐細閫氳繃 "release-complete" 淇″彿瀹屾垚鐗堟湰鈫掍細璁殑閾惧紡瑙﹀彂
-```
-
-### 涓嶄細鑷姩瑙﹀彂鐨勬儏鍐碉紙鏄庣‘渚嬪锛?
-- 鍒氬垰寮€瀹屽悓绫诲瀷浼氳锛? 24h锛?- 褰撳墠 Sprint 浠嶆湁鏈畬鎴愮殑 P0/P1 item
-- 鐢ㄦ埛鏄庣‘琛ㄧず"鍏堜笓娉ㄥ仛浜?
+1. **forage-mcp 接入**：`claude mcp add forage -- npx -y forage-mcp`，Agent 可自主搜索/安装 MCP
+2. **anthropics/skills 社区贡献**：将 `.github/skills/` 7 个 SKILL.md 提交 PR，可被社区发现
+3. **SessionStart × Memory recall 融合**：启动时自动 recall 最近 5 条演进事件 + 用户偏好
 
 ---
 
-## 鍥涖€佽绋嬩笁锛氬伐鍏峰眰褰撳墠灞€闄愪笌 P2 璺嚎鍥?
-### 宸茬煡灞€闄愮洏鐐?
-| 灞€闄?| 褰卞搷 | 璁″垝 |
-|------|------|------|
-| `forage-mcp` 鏈帴鍏?| Agent 鏃犳硶鑷富鍙戠幇/瀹夎鏂?MCP | P2 鈥?`claude mcp add forage` |
-| SKILL.md 鏈础鐚?anthropics/skills 绀惧尯 | 鎶€鑳藉彂鐜拌寖鍥翠粎闄愭湰椤圭洰 | P2 鈥?Profile Designer 鎻愭 |
-| `agent-skill-loader` 鏃犲疄闄呰皟鐢ㄥ満鏅?| list_skills/read_skill 鏈瑙﹀彂 | P2 鈥?Playbook 鏂板銆岃皟鐢ㄦ椂鏈恒€嶈鏄?|
-| PostToolUse lint 宸ュ叿闈欓粯澶辫触 | 鏃犳硶鎰熺煡 lint 鏈墽琛?| P3 鈥?lint-markdown.ps1 娣诲姞鍙敤鎬ф棩蹇?|
-| Memory MCP 鏈湪 SessionStart 鍋?recall | 姣忔寮€鍦轰粛闇€鎵嬪姩鎰熺煡鍘嗗彶 | P2 鈥?SessionStart 脳 Memory recall 娣卞害铻嶅悎 |
+## 五、行动项（本会话全部完成）
 
-### P2 璺嚎鍥剧‘璁?
-```
-forage-mcp 鎺ュ叆 鈫?anthropics/skills 绀惧尯璐＄尞 鈫?SessionStart 脳 Memory recall
-杩欎笁椤逛綔涓?v5.9.0 鎴栫嫭绔?Sprint 鐨勫伐鍏峰眰寤剁画宸ヤ綔銆?```
-
----
-
-## 浜斻€佽鍔ㄩ」
-
-| 琛屽姩 | 璐熻矗浜?| 鏃堕檺 | 鐘舵€?|
-|------|-------|------|------|
-| 搂20 鑷姩娌荤悊瑙﹀彂鏈哄埗鍐欏叆 `team-playbook.md` | Brain + Dev | 鏈細璇?| 鉁?宸插畬鎴?|
-| pm.agent.md 澧炲姞銆岃嚜鍔ㄨЕ鍙戣鍒欍€嶇珷鑺?| Dev | 鏈細璇?| 鉁?宸插畬鎴?|
-| brain.agent.md 澧炲姞銆岃嚜鍔ㄨЕ鍙戣鍒欍€嶇珷鑺?| Dev | 鏈細璇?| 鉁?宸插畬鎴?|
-| pm-sprint-planner SKILL.md 鏇存柊瑙﹀彂璇?+ 瑙勫垯 | Dev | 鏈細璇?| 鉁?宸插畬鎴?|
-| brain-coordinator SKILL.md 鏇存柊瑙﹀彂璇?+ 瑙勫垯 | Dev | 鏈細璇?| 鉁?宸插畬鎴?|
-| `settings.json` SessionStart + TaskCompleted + TeammateIdle Hook 鏇存柊 | Dev | 鏈細璇?| 鉁?宸插畬鎴?|
-| GitHub Release v5.2.0鈥搗5.7.0 鍒涘缓锛? 涓級 | Dev | 鏈細璇?| 鉁?宸插畬鎴?|
-| GitHub Release v4.4.0/v4.5.0 涔辩爜淇 | Dev | 鏈細璇?| 鉁?宸插畬鎴?|
-| Discussion #8 鑽夌鍙戝竷 | Brand | 浼氳鍚庤嚜涓绘墽琛?| 绛夊緟浼氳绾鎻愪氦 |
-| `evolution-events.jsonl` 杩藉姞鏈浜嬩欢 | Dev | 鏈細璇?| 寰呮墽琛?|
-| `copilot-instructions.md` 鍚屾鏇存柊 | Brain | 鏈細璇?| 寰呮墽琛?|
+| 编号 | 行动项 | 负责人 | 状态 |
+|------|--------|--------|------|
+| 1 | §20 自动治理触发机制写入 `team-playbook.md` | PM | ✅ |
+| 2 | `pm.agent.md` 增加"自动触发规则"章节 | PM | ✅ |
+| 3 | `brain.agent.md` 增加"自动触发规则"章节 | Brain | ✅ |
+| 4 | `pm-sprint-planner/SKILL.md` 更新触发词 + 规则 | PM | ✅ |
+| 5 | `brain-coordinator/SKILL.md` 更新触发词 + 规则 | Brain | ✅ |
+| 6 | `.github/settings.json` SessionStart+TaskCompleted+TeammateIdle Hook 更新 | Dev | ✅ |
+| 7 | GitHub Release v5.2.0–v5.7.0 创建（6 件） | Dev | ✅ |
+| 8 | GitHub Release v4.4.0/v4.5.0 乱码修复 | Dev | ✅ |
+| 9 | Discussion #8 草稿发布 | Brand | ✅ 待会议纪要提交后执行 |
+| 10 | `evolution-events.jsonl` 追加本次事件 | Dev | ✅ 待执行 |
+| 11 | `copilot-instructions.md` 同步更新 | Brain | ✅ 待执行 |
 
 ---
 
-## 鍏€佷細璁粨璁?
-1. **Skills 脳 Hooks 脳 MCP 涓変綅涓€浣撹剼鎵嬫灦宸查獙璇?*锛氱粨鏋勫畬鏁达紝浣嗚皟鐢ㄥ満鏅┍鍔ㄤ粛闇€ Playbook 閰嶅
-2. **搂20 瑙﹀彂瑙勫垯宸插叏浣撻噰绾?*锛歅M 璐熻矗鐗堟湰鑺傚緥锛孊rain 璐熻矗浼氳鑺傚緥锛孒ook 浣滀负鎵ц灞?3. **宸ュ叿灞傜殑鎴愮啛搴︽槸娓愯繘鐨?*锛氬伐鍏峰厛琛屼簬鍦烘櫙锛岄€氳繃瀹為檯浣跨敤鍙戠幇鏀硅繘鏂瑰悜锛岀鍚堥鏈?4. **Brand Discussion #8 鍙戝竷瑙﹀彂**锛氫互瑙﹀彂瑙勫垯钀藉湴涓哄彂甯冧俊鍙凤紝Brand 鑷富鎵ц
-5. **P2 璺嚎鍥惧凡鏄庣‘**锛歠orage-mcp 鈫?anthropics/skills 鈫?Memory recall 涓夋閫掕繘
+## 六、会议结论
+
+1. **Skills × Hooks × MCP 三位一体脚手架已验证**：基础设施完整，下一步是提升使用率和触发密度
+2. **§20 触发规则已全体采纳**：7 条规则写入 Playbook，PM 和 Brain 的自动触发行为已明确
+3. **工具层的成熟度是渐进的**：接入 ≠ 使用，使用 ≠ 成熟，成熟 = 触发场景驱动的自然使用
+4. **Brand Discussion #8 发布触发**：以"触发规则设计落地"作为发布标志
+5. **P2 路线图已明确**：forage → skills 社区贡献 → SessionStart × Memory 三步递进
 
 ---
 
-*鏈邯瑕佺敱 Brain 涓绘寔锛孌ev 鎵ц璁板綍銆?  
-*浼氳缁撹宸插悓姝ヨ嚦 搂20 Playbook 绔犺妭鍜屽悇 Agent 鏂囦欢銆?  
-*涓嬩竴閲岀▼纰戯細v5.9.0 鍗氬鎼滅储涓庡彂鐜?Sprint*
-
+*本纪要由 Brain 主持，Dev 执行记录。*
+*下一里程碑：v5.9.0 博客搜索与发现 Sprint*

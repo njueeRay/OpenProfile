@@ -1,407 +1,228 @@
-﻿# V5 璺嚎鍥惧叏浣撹鍒掍細璁邯瑕?
-**鏃ユ湡锛?* 2026-02-28  
-**绫诲瀷锛?* 鍏ㄤ綋鎴樼暐瑙勫垝浼氳  
-**涓绘寔锛?* Brain锛堟垬鐣ュ崗璋冧腑鏋級  
-**涓庝細锛?* Brain 路 PM 路 Dev 路 Researcher 路 Code Reviewer 路 Profile Designer 路 Brand  
-**璁鍙戣捣锛?* njueeRay锛圧ay Huang锛? 
-**鏍稿績璇夋眰锛?* 浠ュ閲忕増鏈殑鏂瑰紡瑙勫垝 V5 璺嚎鍥?鈥?鎷掔粷澶х増鏈穬杩涳紝姣忎釜灏忕増鏈仛鐒︿竴涓彲浜や粯涓婚  
-**鐘舵€侊細** 鉁?鍐宠宸插舰鎴愶紝寰呮墽琛?
----
+# V5 路线图全体规划会议纪要
 
-## 闆躲€佽儗鏅笌浼氳瑙﹀彂
-
-### Brain 寮€鍦?
-> **Brain锛?*
->
-> 鍚勪綅锛屼粖澶╃殑浼氳鐢?Ray 鐩存帴瑙﹀彂銆備粬瑙傚療鍒颁竴涓噸瑕佺殑妯″紡闂锛?>
-> **鎴戜滑姝ゅ墠鐨勭増鏈紨杩涜妭濂忓お绮楃矑搴︿簡銆?* v1鈫抳2鈫抳3鈫抳4锛屾瘡娆￠兘鏄ぇ瑙勬ā璺ㄨ秺寮忓彂甯冦€?> 杩欏鑷翠袱涓棶棰橈細
-> 1. 姣忎釜澶х増鏈殑 [Unreleased] 鍖洪棿澶暱锛孋HANGELOG 闅句互杩借釜
-> 2. 鐢ㄦ埛锛堝寘鎷?Ray 鑷繁锛夋棤娉曞杩涘害褰㈡垚绮剧‘鎰熺煡 鈥?銆岃繖娆℃敼浜嗕粈涔堛€嶈缈诲緢涔呮墠鎼炴竻妤?>
-> 浠栫殑瑕佹眰闈炲父鏄庣‘锛?*浠?v4.0.0 鍒?v5.0.0 涔嬮棿锛屽繀椤绘湁 v4.1銆乿4.2銆乿4.3鈥︹€?杩欐牱鐨勫皬鐗堟湰閫掕繘銆?*
-> 姣忎釜灏忕増鏈湁鏄庣‘鐨勪富棰樺拰鏀舵潫鏉′欢銆?>
-> 杩欎篃鏄竴娆″紑鏀惧紡璁ㄨ銆傛瘡涓汉閮藉彲浠ョ晠鎯筹細浣犲笇鏈涙垜浠殑绯荤粺鎺ヤ笅鏉ヤ紭鍖栦粈涔堬紵涓嶉檺浜庝綘鑷繁鐨勮亴璐ｈ寖鍥淬€?>
-> 涓嬮潰鎴戝厛璇?PM 鍋氫竴涓叏闈㈢殑鐘舵€佹眹鎶ワ紝鐒跺悗閫嗘椂閽堟瘡涓汉鍙戣█銆?
----
-
-## 涓€銆丳M 鐘舵€佹眹鎶?鈥?褰撳墠璧勪骇鐩樼偣
-
-> **PM锛?*
->
-> 鎴戜粠涓変釜浠撳簱鐨勭淮搴﹀仛涓€涓畬鏁寸殑璧勪骇鐩樼偣銆?
-### 1.1 鐗堟湰鐜扮姸
-
-| 灞傜骇 | 褰撳墠鐗堟湰 | 鏈€鍚庡彂甯冩棩鏈?| 缁存姢浣嶇疆 |
-|------|----------|-------------|----------|
-| L1 Project | `v4.0.0` | 2026-02-26 | CHANGELOG.md + GitHub Tag |
-| L2 Playbook | `Playbook v2.1` | 2026-02-26 | docs/governance/PLAYBOOK-CHANGELOG.md |
-| L3 Agent | 鍚?`v1.0` | 2026-02-26 | 鍚?Agent 鏂囦欢澶撮儴 |
-
-### 1.2 v4.0.0 浠ユ潵宸插畬鎴愮殑宸ヤ綔锛圼Unreleased] 绉帇锛?
-杩欐槸鏍稿績闂 鈥?**[Unreleased] 宸茬粡绉疮浜嗗ぇ閲忕殑鍙樻洿锛屼絾娌℃湁琚垏鎴愪换浣曞皬鐗堟湰銆?*
-
-| 绫诲埆 | 鍙樻洿椤?| 浠撳簱 |
-|------|--------|------|
-| 馃啎 Agent 鍥㈤槦 | Brand Agent 鍔犲叆 + L2 鐭ヨ瘑搴撹惤鍦帮紙5 浠?patterns.md锛?| OpenProfile |
-| 馃摑 鍗氬鍐呭 | 12 绡囧崥鏂囷紙7 Agent 棣栧彂 + 2 浼氳绾疄 + Brand 瑙傚療 + AI-native + 鎶€鏈暀绋嬶級 | .github.io |
-| 馃帹 鍗氬鏋舵瀯 | contentType 鍥涚被鍒嗙被 + Filter Tab + URL hash 娣遍摼鎺?+ 褰╄壊寰界珷 | .github.io |
-| 馃敡 UX 淇 | ThemeToggle 闃查噸 + 榛樿娣辫壊 + capsule-render 鏂囧瓧淇 | .github.io + Profile |
-| 馃洝锔?CI | link-check 鎺掗櫎瑙勫垯鎵╁厖 | OpenProfile |
-| 馃弳 Profile | Trophy `<picture>` 鍙屾ā + 3D 璐＄尞鍥?light 妯″紡 + 20 鍥炬爣 + cache_seconds | Profile |
-| 馃摉 鏂囨。 | 5 浠芥柊鏂囨。锛坆rand checklist / discussions plan / Build in Public research / 2 浼氳绾锛?| OpenProfile |
-| 馃搳 /team 椤?| Git Graph 杩涘寲鏃堕棿绾?+ 鎴愬憳 Grid + 鏈€鏂板崥鏂囨槧灏?| .github.io |
-| 馃敆 澶氫綔鑰呯郴缁?| 7 涓?author YAML + blog 澶氫綔鑰呮覆鏌?+ /blog/authors/[agent] 椤甸潰 | .github.io |
-| 馃寪 RSS 鍚屾 | Profile README RSS 鑷姩鍚屾 Action锛圥hase P锛?| Profile |
-
-> 杩欎簺宸ヤ綔閲忓鏋滃叏閮ㄦ敀鍒?v5.0.0 鍐嶅彂锛屽氨閲嶈箞浜嗐€屽ぇ鐗堟湰璺冭繘銆嶇殑瑕嗚緳銆?> **鎴戝缓璁鍏堝仛涓€娆″洖椤炬€у垏鐗堬紝鎶婂凡瀹屾垚鐨勫伐浣滄墦鎴?v4.1.0銆?*
-
-### 1.3 寰呭畬鎴愮殑绉帇椤?
-| 浼樺厛绾?| 椤圭洰 | 璇存槑 |
-|--------|------|------|
-| P1 | GitHub Discussions 鍒嗙被鍒涘缓 | 闇€ Ray 绠＄悊鍛樻搷浣滐紝Brand 宸插嚭鏂规 |
-| P1 | 棣栨壒 Discussions 甯栧瓙鍙戝竷 | 绛夊垎绫诲缓濂藉悗 Brand 鎵ц |
-| P2 | Profile Designer銆屽洟闃熷姩鎬佸銆?| 姒傚康宸叉湁锛屽緟鏂规缁嗗寲 |
-| P2 | 鐭ヨ瘑鍥捐氨 Phase K+1 | 鏁版嵁椹卞姩锛孡2 娌夋穩鑷姩鐢熼暱鑺傜偣 |
-| P2 | Astro 5.x 鍗囩骇璇勪及 | v4 閬楃暀璁 |
-| P3 | Lighthouse CI 闆嗘垚 | v4 閬楃暀璁 |
-| P3 | OG Image 鑷姩鐢熸垚 | v4 閬楃暀璁 |
+**日期：** 2026-02-28
+**参与者：** brain · pm · dev · researcher · code-reviewer · profile-designer · brand
+**会议类型：** 路线图规划会
+**核心诉求：** 拒绝大版本跃进，每个小版本聚焦一个可交付主题
 
 ---
 
-## 浜屻€佸閲忕増鏈摬瀛﹁璁?
-### Brain 瀹氫箟鐗堟湰绮掑害鍑嗗垯
+## 零、会议背景 — Ray 的直接反馈
 
-> **Brain锛?*
->
-> 鍦ㄨ璁哄叿浣撹矾绾垮浘涔嬪墠锛屾垜浠厛瀵归綈涓€涓増鏈摬瀛︼細浠€涔堟椂鍊欏崌 patch銆佷粈涔堟椂鍊欏崌 minor銆佷粈涔堟椂鍊欏崌 major銆?>
-> 鎴戞彁璁互涓嬪噯鍒欙細
+> "v1 到 v4 之间的粒度太粗了。我希望在 v4 和 v5 之间有 v4.1、v4.2、v4.3 这样的小版本，每个版本都有明确的主题，做完一件事就发布一次。"
 
-| 鐗堟湰绫诲瀷 | 瑙﹀彂鏉′欢 | 鍛ㄦ湡寤鸿 | 绀轰緥 |
-|----------|---------|---------|------|
-| **Patch** `v4.0.x` | Bug 淇銆佹枃妗ｇ籂閿欍€丆I 璋冩暣 | 闅忔椂锛屽崟娆′慨澶嶅嵆鍙彂甯?| ThemeToggle 闃查噸銆乴ink-check 鎺掗櫎瑙勫垯 |
-| **Minor** `v4.x.0` | 涓€涓畬鏁寸殑鍔熻兘涓婚浜や粯 | 1-3 澶╀竴涓?Sprint | contentType 鍗氬鏋舵瀯銆?team 椤甸潰涓婄嚎 |
-| **Major** `v5.0.0` | 鏋舵瀯鎬у彉鏇?/ 鐢ㄦ埛鎰熺煡鐨勯噸澶у崌绾?| 鍙湪 milestone 绾у埆鐨勫彉鍖栨椂 | Astro 5 杩佺Щ銆佺珯鐐规暣浣撻噸璁捐 |
-
-> 姣忎釜 Minor 鐗堟湰蹇呴』鏈夛細
-> 1. **涓€鍙ヨ瘽涓婚**锛堜緥濡傦細銆屽崥瀹㈠唴瀹规灦鏋勯噸鏋勩€嶏級
-> 2. **瀹屾暣鐨?CHANGELOG 鏉＄洰**
-> 3. **GitHub Tag + Release**
-> 4. **copilot-instructions.md 杩唬鐘舵€佹洿鏂?*
->
-> 杩欐牱 Ray 鍜屼换浣曞閮ㄨ瀵熻€呴兘鑳界簿纭煡閬撱€寁4.2.0 = 浠€涔堛€嶃€?
-### PM 琛ュ厖锛氱増鏈妭濂?
-> **PM锛?*
->
-> 鎴戣ˉ鍏呬竴涓妭濂忓缓璁細
->
-> - **Patch**锛氬綋澶╁畬鎴愬綋澶╁彂锛屼笉绉帇
-> - **Minor**锛氭瘡瀹屾垚涓€涓€屽彲鎰熺煡鐨勫姛鑳藉潡銆嶅氨鍒囩増鏈紝1-3 澶╁懆鏈?> - **Major**锛氱敱 Brain 鎻愭锛屽叏鍥㈤槦璁ㄨ鍚庡喅瀹?>
-> 鍏抽敭鍘熷垯锛?*瀹佸彲鐗堟湰澶氫竴鐐癸紝涔熶笉瑕佽 [Unreleased] 绉帇瓒呰繃 5 澶┿€?*
-
-### Code Reviewer 璐ㄩ噺闂ㄧ
-
-> **Code Reviewer锛?*
->
-> 浠庢垜鐨勮搴﹁ˉ鍏呬竴鏉￠搧寰嬶細
->
-> **浠讳綍 Minor 鍙婁互涓婄増鏈彂甯冨墠锛屽繀椤荤粡杩?Code Reviewer 瀹℃煡銆?* Patch 鍙互璧板揩閫熼€氶亾锛圖ev 鑷 + commit message 璇存槑锛夛紝浣?Minor 闇€瑕佺粨鏋勫寲瀹℃煡鎶ュ憡銆?>
-> 鐞嗙敱锛歷4.0.0 鏈熼棿鎴戜滑鏈変簺鍙樻洿鏄?Dev 鐩存帴鎺ㄧ殑锛屾病鏈夌粡杩囨垜鐨勪竷缁村害妫€鏌ャ€傝櫧鐒剁粨鏋滄病鍑洪棶棰橈紝浣嗘祦绋嬩笂涓嶅涓ヨ皑銆?
-### 鍐宠 #1 鈥?鐗堟湰绮掑害鍑嗗垯
-
-> **鍏ㄧエ閫氳繃銆?* 閲囩敤 Brain 鎻愬嚭鐨勪笁绾х増鏈噯鍒欍€侰ode Reviewer 鐨勫鏌ラ棬绂佸啓鍏?PM 鐨勫彂鐗?SOP銆?
----
-
-## 涓夈€佽嚜鐢卞彂瑷€杞?鈥?姣忎綅 Agent 鐨勭郴缁熶紭鍖栫晠鎯?
-### 3.1 Dev 鈥?鎶€鏈€哄姟涓庡伐绋嬫敼杩?
-> **Dev锛?*
->
-> 鎴戜粠鎶€鏈疄鐜拌€呯殑瑙掑害鍒楀嚑涓垜瑙傚療鍒扮殑浼樺寲鏂瑰悜锛?>
-> **A. 绉诲姩绔€傞厤涓嶅銆?* 鐩墠 Nav 鍦?480px 浠ヤ笅铏界劧鏈?media query锛屼絾鍙槸缂╁皬瀛椾綋銆侭log Filter Tab銆乀eam 椤电殑 Git Graph 鍦ㄧ獎灞忎笂浣撻獙宸€傛垜鎯冲仛涓€涓畬鏁寸殑鍝嶅簲寮?pass銆?>
-> **B. CSS 鍙橀噺浣撶郴闇€瑕佺粺涓€銆?* 褰撳墠鐨勮嚜瀹氫箟灞炴€ф暎甯冨湪鍚勪釜缁勪欢閲岋紝娌℃湁涓€涓?`_variables.css` 缁熶竴瀹氫箟銆傛瘡娆℃柊澧炵粍浠堕兘瑕侀噸澶嶅畾涔夐鑹插€笺€傝繖鏄妧鏈€恒€?>
-> **C. 缁勪欢鍖栫▼搴﹀彲浠ユ洿楂樸€?* Blog 椤甸潰鐨勫崱鐗囨ā鏉裤€乀ag Pill銆丄uthor Chip 杩欎簺鍦ㄥ澶勯噸澶嶃€傚簲璇ユ娊鍙栦负鐙珛鐨?Astro 缁勪欢銆?>
-> **D. 鏋勫缓鎬ц兘銆?* 闅忕潃鍗氭枃鏁伴噺澧為暱锛堢洰鍓?12 绡囷級锛屾瀯寤烘椂闂翠細绾挎€у鍔犮€傝€冭檻寮曞叆澧為噺鏋勫缓鎴栫紦瀛樼瓥鐣ャ€傜洰鍓嶈繕涓嶆槸鐥涚偣锛屼絾 30 绡囨椂浼氭槑鏄俱€?>
-> **E. 鏃犻殰纰嶏紙a11y锛夈€?* 褰撳墠缂哄皯 ARIA roles銆乻kip-to-content 閾炬帴銆侀敭鐩樺鑸敮鎸併€傚鏋滄垜浠鎶婅繖涓」鐩綔涓哄紑婧愭爣鏉嗭紝鏃犻殰纰嶅簲璇ヨ揪鏍囥€?
-### 3.2 Researcher 鈥?鎶€鏈秼鍔夸笌鏈轰細
-
-> **Researcher锛?*
->
-> 鎴戝叧娉ㄧ殑鏄妧鏈秼鍔垮眰闈㈢殑鏈轰細锛?>
-> **A. Astro 5.x 鍗囩骇銆?* Astro 5 寮曞叆浜?Content Layer API锛堝彇浠?Content Collections v1锛夈€丼erver Islands銆佹敼杩涚殑 TypeScript 鏀寔銆備絾涔熸湁 breaking changes銆傛垜寤鸿鍦?v4.x 鏌愪釜鐗堟湰鍋氳瘎浼帮紝鍦?v5.0.0 钀藉湴杩佺Щ銆?>
-> **B. View Transitions API 鍘熺敓鍖栥€?* Astro 宸茬粡鍐呯疆浜?View Transitions锛屼絾鎴戜滑鍙互杩涗竴姝ュ埄鐢ㄥ畠鍋氭洿绮剧粏鐨勯〉闈㈠姩鐢?鈥?姣斿 Blog 鍒楄〃 鈫?鏂囩珷椤电殑鍗＄墖灞曞紑杩囨浮銆?>
-> **C. 鍗氬 SEO 娣卞寲銆?* 褰撳墠鏈?sitemap 鍜?RSS锛屼絾缂哄皯锛?> - 缁撴瀯鍖栨暟鎹紙JSON-LD锛岃 Google 璇嗗埆鏂囩珷銆佷綔鑰呫€佺粍缁囷級
-> - canonical URL 澶勭悊鏇寸簿缁嗭紙bilingual 鏂囩珷鐨?hreflang锛?>
-> **D. 鍥介檯鍖栵紙i18n锛夋綔鍔涖€?* 鎴戜滑宸叉湁 bilingual toggle锛屼絾鐩墠鍙湁涓€绡囧弻璇枃绔犮€傚鏋滆璁ょ湡鍋?i18n锛岄渶瑕佽€冭檻 Astro 鐨?i18n routing銆備笉杩囪繖鍙兘鏄?v5+ 鐨勪簨銆?>
-> **E. 闈欐€佸垎鏋?CI銆?* 闄や簡 link-check 鍜?markdown-lint锛屽彲浠ヨ€冭檻鍔犲叆 Lighthouse CI锛堟€ц兘/SEO/a11y 鑷姩璇勫垎锛夊拰 axe-core锛堟棤闅滅妫€鏌ワ級銆?
-### 3.3 Code Reviewer 鈥?璐ㄩ噺鍊哄姟
-
-> **Code Reviewer锛?*
->
-> 鎴戜粠瀹℃煡鑰呯殑瑙掑害鍋氫竴涓川閲忓€哄姟鍛婄櫧锛?>
-> **A. 缂哄皯鑷姩鍖栨祴璇曘€?* 鏁翠釜 Astro 绔欑偣娌℃湁浠讳綍鍗曞厓娴嬭瘯鎴栭泦鎴愭祴璇曘€傜粍浠惰涓猴紙濡?Filter Tab 鐨?hash 璺敱锛夊畬鍏ㄤ緷璧栨墜鍔ㄩ獙璇併€傚簲璇ュ紩鍏?Vitest + Astro 娴嬭瘯宸ュ叿銆?>
-> **B. TypeScript 涓ユ牸搴︿笉澶熴€?* `tsconfig.json` 鐨?`strict` 鍙兘娌℃湁寮€鍚€俙team-evolution.ts` 鍜?`config.ts` 鐢ㄤ簡 Zod锛屼絾椤甸潰缁勪欢锛?astro 鏂囦欢锛夌殑 props 缂哄皯绫诲瀷鏍￠獙銆?>
-> **C. 缁勪欢闂磋€﹀悎銆?* `blog/index.astro` 鏈?346 琛?鈥?涓€涓?Astro 椤甸潰涓嶅簲璇ユ湁杩欎箞澶氬唴鑱?CSS 鍜岄€昏緫銆侳ilter Tab 鐨?JS 閫昏緫搴旇鎶藉彇涓虹嫭绔嬬殑 `<script>` 妯″潡鎴?Astro 宀涖€?>
-> **D. CHANGELOG 鏍煎紡涓€鑷存€с€?* 褰撳墠 CHANGELOG 鐨?[Unreleased] 閲屾湁娣峰悎鏍煎紡 鈥?鏈夌殑鏉＄洰鐢?`鈥擿 鍒嗛殧璇存槑锛屾湁鐨勭洿鎺ヨ窡鎻忚堪銆傚簲璇ョ粺涓€銆?>
-> **E. 涓冪淮搴﹀鏌ヨ鐩栫巼銆?* 杩囧幓鍑犱釜 Sprint 鏈変簺鍙樻洿娌℃湁缁忚繃瀹屾暣鐨勮川閲忛棬绂併€傛垜瑕佹眰鍦ㄦ湭鏉ョ殑鐗堟湰娴佺▼涓紝**姣忎釜 Minor 鍙戝竷鍓嶅繀椤绘湁涓€浠藉鏌ユ姤鍛?*锛岃褰曞湪 `docs/reviews/` 鐩綍涓€?
-### 3.4 Profile Designer 鈥?瑙嗚涓庝綋楠?
-> **Profile Designer锛?*
->
-> 鎴戝緢灏戝彂瑷€锛屼絾杩欐鏈夊嚑涓鐐癸細
->
-> **A.銆屽洟闃熷姩鎬佸銆嶆柟妗堛€?* Ray 涔嬪墠鎻愯繃锛岀煡璇嗗浘璋?SVG 涓嶅閰枫€傛垜鎯抽噸鏂版彁璁竴涓柟妗堬細鍦?/team 椤甸潰搴曢儴鎴栫嫭绔嬬殑 /team/wall 椤甸潰锛屽仛涓€涓姩鎬佺€戝竷娴?鈥?灞曠ず姣忎釜 Agent 鏈€杩戠殑娲诲姩锛堝崥鏂囥€佸鏌ユ姤鍛娿€佷細璁級銆傛暟鎹粠 content collections 鑷姩鑱氬悎銆?>
-> **B. 鍗氬鍗＄墖寰氦浜掋€?* 鐩墠 hover 鏁堟灉寰堝熀纭€锛堣竟妗嗚壊鍙橈級銆傛垜鎯宠鍗＄墖鏈変竴涓井濡欑殑 tilt 鏁堟灉 + 鍐呭绫诲瀷鍥炬爣鐨勫懠鍚稿姩鐢汇€傝繖绉嶇粏鑺傛槸銆岄叿鐐€嶇殑涓€閮ㄥ垎銆?>
-> **C. 鏆楄壊涓婚绮剧粏鍖栥€?* 铏界劧鏆楄壊鏄粯璁ょ殑锛屼絾鐜板湪鐨勬殫鑹插彧鏈変竴濂楅鑹层€傚彲浠ヨ€冭檻澶氱鏆楄壊閰嶆柟锛堝 Tokyo Night銆丏racula銆丟itHub Dark Dimmed锛夛紝璁╃敤鎴烽€夋嫨鍋忓ソ鐨勩€屾殫銆嶃€備笉杩囪繖鏄敠涓婃坊鑺憋紝浼樺厛绾т笉楂樸€?>
-> **D. 棣栭〉閲嶈璁￠鐮斻€?* 褰撳墠棣栭〉锛圚ero + About + Projects锛夌殑淇℃伅瀵嗗害鍜岃瑙夊眰娆¤繕鏈夋彁鍗囩┖闂淬€傜壒鍒槸 Hero 鍖哄煙鍙互鏇村叿 terminal 鎰?鈥?姣斿寮瑰嚭寮忛€愬瓧鎵撳嵃鏁堟灉銆佸懡浠よ浜や簰妯℃嫙銆?
-### 3.5 Brand 鈥?绀惧尯涓庡奖鍝嶅姏
-
-> **Brand锛?*
->
-> 鎴戠殑瑙嗚濮嬬粓鏄澶栫殑锛?>
-> **A. GitHub Discussions 鏄渶绱ц揩鐨勩€?* 鏂规宸插嚭銆佸唴瀹瑰凡鍐欙紝浣嗗垎绫绘灦鏋勮繕娌℃湁瀹為檯鍒涘缓銆?> 杩欐槸 Ray 闇€瑕佹搷浣滅殑绠＄悊鍛樺姩浣溿€傚畠鏄垜浠?Build in Public 鐨勭涓€涓Е鐐?鈥?娌℃湁瀹冿紝鎴戜滑鎵€鏈夌殑鍐呭閮芥槸鍗曞悜杈撳嚭锛岀己灏戠ぞ鍖轰簰鍔ㄧ殑闂幆銆?>
-> **B. Discussions 棣栧彂涓夌瘒甯栧瓙锛?*
-> 1. 銆學elcome 鈥?杩欎釜浠撳簱鑳屽悗鐨?AI-native 鍥㈤槦銆嶏紙椤圭洰浠嬬粛 + 鍥㈤槦鏂囧寲锛?> 2. 銆屾垜浠殑 Playbook 鏄€庝箞鐐兼垚鐨勩€嶏紙鏂规硶璁哄垎浜?+ 閭€璇峰弽棣堬級
-> 3. 銆孲how & Tell 鈥?浣犵殑 GitHub Profile 闀夸粈涔堟牱锛熴€嶏紙绀惧尯浜掑姩甯栵級
->
-> **C. README 鍗囩骇涓恒€岀潃闄嗛〉銆嶃€?* 褰撳墠 OpenProfile 鐨?README 铏界劧鏇存柊浜嗭紝浣嗚繕涓嶅銆屽惛寮曡矾浜恒€嶃€?> 闇€瑕侊細鎴浘/GIF 棰勮銆佷竴閿揩閫熷紑濮嬨€乻tar 瓒嬪娍 badge銆佽础鐚€呭悕鍗曘€?>
-> **D.銆孊uild in Public銆嶅唴瀹硅妭濂忋€?* 姣忔鐗堟湰鍙戝竷鏃讹紝Brand 搴旇鍚屾浜у嚭涓€绡?Discussions 甯栧瓙鎴栧崥鏂囷紝璁板綍杩欎釜鐗堟湰鐨勪寒鐐瑰拰骞曞悗鏁呬簨銆傝繖鏍锋瘡涓増鏈兘鏈夊澶栫殑澹伴煶銆?>
-> **E. 寮曞澶栭儴璐＄尞銆?* 褰撳墠 CONTRIBUTING.md 瀛樺湪浣嗙己灏戝疄闄呯殑 銆孏ood First Issue銆嶆爣绛惧拰鍏ラ棬浠诲姟銆傛垜浠彲浠ュ湪 v4.x 涓垱寤哄嚑涓?issue 浣滀负璐＄尞鍏ュ彛銆?
-### 3.6 PM 鈥?娴佺▼涓庣増鏈鐞?
-> **PM锛?*
->
-> 浣滀负鏈€鍚庝竴涓彂瑷€鐨勪汉锛屾垜姹囨€绘垜鐪嬪埌鐨勬祦绋嬪眰闈㈢殑浼樺寲鐐癸細
->
-> **A. Sprint 浠紡缂哄け銆?* 鎴戜滑铏界劧鏈?PM 瑙掕壊锛屼絾鍒扮洰鍓嶄负姝紝Sprint 瑙勫垝浼氬拰鍥為【浼氫笉澶熻寰嬨€傛瘡涓?Minor 鐗堟湰搴旇瀵瑰簲涓€涓?Sprint 鍛ㄦ湡锛氳鍒掆啋鎵ц鈫掑鏌モ啋鍙戝竷銆?>
-> **B. DoD Checklist 鑷姩鍖栥€?* `copilot-instructions.md` 閲岀殑 DoD Checklist 鍏ㄦ槸鎵嬪姩鍕鹃€夈€傜悊鎯虫儏鍐典笅锛岃嚦灏戦儴鍒嗘鏌ラ」锛堝 CHANGELOG 鏄惁鏇存柊銆乧ommit message 鏍煎紡锛夊簲璇ョ敤 CI 鑷姩楠岃瘉銆?>
-> **C. 鐗堟湰鍙戝竷 SOP 鏂囨。鍖栥€?* 鐩墠鍙戠増娌℃湁涓€涓爣鍑嗘祦绋嬫枃妗ｃ€傚簲璇ユ湁涓€浠?`docs/governance/release-sop.md`锛岃褰曚粠銆屼唬鐮佸喕缁撱€嶅埌銆孏itHub Release + Tag + CHANGELOG 鏇存柊 + copilot-instructions 鍚屾銆嶇殑瀹屾暣姝ラ銆?>
-> **D. 閲岀▼纰戜笌 Issue 杩借釜銆?* 鎴戜滑涓€鐩村湪鐢ㄤ細璁邯瑕佸拰 copilot-instructions 杩借釜浠诲姟锛屼絾娌℃湁鐢?GitHub Issues + Milestones銆傚浜庡紑婧愰」鐩潵璇达紝杩欐槸澶栭儴鍙鎬х殑閲嶈涓€鐜€?
----
-
-## 鍥涖€佸洖椤炬€у垏鐗?鈥?v4.1.0 鎻愭
-
-### PM 鎻愭
-
-> **PM锛?*
->
-> 鍦ㄨ璁烘湭鏉ョ増鏈箣鍓嶏紝鎴戝厛澶勭悊绉帇闂銆?>
-> 褰撳墠 [Unreleased] 鐨勫彉鏇撮噺宸茬粡杩滆秴涓€涓?Minor 鐨勪綋閲忋€傛垜寤鸿鍋氫竴娆?*鍥為【鎬у垏鐗?*锛?
-#### v4.1.0 鈥?銆屽洟闃熷搧鐗屽寲 + 鍐呭鏋舵瀯銆?
-**涓婚锛?* Brand Agent 鍔犲叆 + 鍗氬鍐呭绫诲瀷浣撶郴 + /team 椤甸潰 + Profile 瑙嗚淇
-
-**鍖呭惈鐨勫彉鏇达紙浠庡綋鍓?[Unreleased] 涓垏鍑猴級锛?*
-
-| 鍒嗙被 | 鍙樻洿椤?|
-|------|--------|
-| **鍥㈤槦** | Brand Agent 鍔犲叆 路 L2 鐭ヨ瘑搴擄紙5 浠?patterns.md锛?|
-| **鍗氬** | 澶氫綔鑰呯郴缁?路 12 绡囧崥鏂?路 contentType 鍥涚被鍒嗙被 + Filter Tab |
-| **绔欑偣** | /team Git Graph 杩涘寲鏃堕棿绾?路 鎴愬憳鍗＄墖鏈€鏂板崥鏂囨槧灏?|
-| **Profile** | Trophy 鍙屾ā 路 3D 璐＄尞鍥?light 路 20 鍥炬爣 路 cache_seconds 路 鏂囧瓧淇 |
-| **淇** | ThemeToggle 闃查噸 路 榛樿娣辫壊 路 link-check CI |
-| **鏂囨。** | Brand 鍐呭瀹℃煡娓呭崟 路 Discussions 鏂规 路 Build in Public 璋冪爺 路 5 浠戒細璁邯瑕?|
-| **Playbook** | v2.0鈫抳2.1 鍗囩骇 路 AI-native 鍝插绔犺妭 路 鍏淮搴﹀鏌?|
-
-> **Brain锛?*
-> 瀹屽叏鍚屾剰銆傝繖鎵瑰伐浣滃湪璐ㄩ噺鍜屼綋閲忎笂閮藉€煎緱涓€涓?Minor 鐗堟湰銆傝€屼笖瀹冩湁涓€涓竻鏅扮殑涓婚绾?鈥?銆屽洟闃熶粠 6 浜哄彉鎴?7 浜猴紙Brand锛夛紝鍚屾椂鍐呭鍩虹璁炬柦鎴愬瀷銆嶃€?
-> **Code Reviewer锛?*
-> 鎴戞湁涓€涓潯浠?鈥?鍦ㄦ墦 v4.1.0 tag 涔嬪墠锛屾垜瑕佸仛涓€浠藉洖椤炬€у鏌ユ姤鍛婏紝纭杩欎簺鍙樻洿鐨勮川閲忕姸鎬併€備笉涓€瀹氳閫愯瀹℃煡锛屼絾瑕佹湁涓€涓暣浣撹川閲忓垽鏂€?
-> **PM锛?*
-> 鎺ュ彈銆侰ode Reviewer 鍑轰竴浠界畝瑕佺殑鍥為【鎬у鏌ユ剰瑙侊紝瀛樺叆 `docs/reviews/v4.1.0-review.md`銆?
-### 鍐宠 #2 鈥?鍥為【鎬?v4.1.0
-
-> **鍏ㄧエ閫氳繃銆?* 瀵瑰綋鍓?[Unreleased] 鍋氬洖椤炬€у垏鐗堬紝鍙戝竷涓?v4.1.0銆傚寘鍚?Code Reviewer 鍥為【鎬у鏌ャ€?
----
-
-## 浜斻€乂5 璺嚎鍥?鈥?澧為噺鐗堟湰瑙勫垝
-
-### Brain 鏁翠綋鎰挎櫙
-
-> **Brain锛?*
->
-> 鍩轰簬澶у鐨勫彂瑷€锛屾垜鐪嬪埌浜旀潯涓荤嚎锛?>
-> 1. **宸ョ▼璐ㄩ噺**锛圖ev + Code Reviewer锛夛細鎶€鏈€烘竻鐞嗐€佹祴璇曘€丆SS 缁熶竴銆佺粍浠跺寲
-> 2. **鐢ㄦ埛浣撻獙**锛圖ev + Profile Designer锛夛細鍝嶅簲寮忋€佸井浜や簰銆侀椤典紭鍖?> 3. **绀惧尯寤鸿**锛圔rand + PM锛夛細Discussions銆佽础鐚€呭紩瀵笺€佺増鏈澶栧彊浜?> 4. **鎶€鏈紨杩?*锛圧esearcher + Dev锛夛細Astro 5 璇勪及銆丼EO 娣卞寲銆丆I 寮哄寲
-> 5. **鍐呭鐢熸€?*锛圔rand + Profile Designer锛夛細鐭ヨ瘑鍥捐氨 v2銆佸洟闃熷姩鎬佸
->
-> 鎴戞彁璁寜浠ヤ笅鑺傚灞曞紑锛?
-### 璺嚎鍥炬€昏
-
-```
-v4.1.0  鈫?鍥為【鎬у垏鐗堬紙褰撳墠 [Unreleased]锛?  鈹?v4.2.0  鈫?宸ョ▼璐ㄩ噺 Sprint 鈥?CSS 缁熶竴 + 缁勪欢鎷嗗垎 + 鍝嶅簲寮?  鈹?v4.3.0  鈫?绀惧尯棣栧彂 Sprint 鈥?Discussions 涓婄嚎 + README 鐫€闄嗛〉 + Good First Issues
-  鈹?v4.4.0  鈫?浣撻獙绮句慨 Sprint 鈥?鍗氬鍗＄墖寰氦浜?+ 棣栭〉閲嶈璁?+ a11y
-  鈹?v4.5.0  鈫?SEO & 鎬ц兘 Sprint 鈥?JSON-LD + Lighthouse CI + 鏋勫缓浼樺寲
-  鈹?v5.0.0  鈫?Astro 5 杩佺Щ + Content Layer API 閲嶆瀯 + 鍙兘鐨勭珯鐐规灦鏋勬€у彉鏇?```
-
-### 5.1 v4.2.0 鈥?宸ョ▼璐ㄩ噺 Sprint
-
-**涓婚锛?* 鎶€鏈€烘竻鐞?+ 浠ｇ爜璐ㄩ噺鎻愬崌  
-**棰勮鍛ㄦ湡锛?* 2-3 澶? 
-**璐熻矗浜猴細** Dev锛堜富鎵ц锛壜?Code Reviewer锛堣川閲忔妸鍏筹級
-
-| 缂栧彿 | 浠诲姟 | 璇存槑 | 浼樺厛绾?|
-|------|------|------|--------|
-| Q-1 | CSS 鍙橀噺缁熶竴 | 鍒涘缓 `src/styles/variables.css`锛屾彁鍙栨墍鏈夌粍浠剁殑棰滆壊/瀛椾綋/闂磋窛鍙橀噺 | P1 |
-| Q-2 | Blog 椤甸潰缁勪欢鎷嗗垎 | 浠?`blog/index.astro`锛?46琛岋級涓娊鍙?`BlogCard.astro`銆乣FilterTab.astro`銆乣ContentTypeBadge.astro` | P1 |
-| Q-3 | 鍝嶅簲寮忓叏闈㈠鏌?| Nav銆丅log Filter Tab銆乀eam Git Graph銆丅log 鏂囩珷椤靛湪 375px / 768px 鐨勫畬鏁存祴璇曞拰淇 | P1 |
-| Q-4 | TypeScript 涓ユ牸鍖?| 寮€鍚?`strict: true`锛屼慨澶嶇被鍨嬮敊璇紝涓虹粍浠?Props 娣诲姞绫诲瀷瀹氫箟 | P2 |
-| Q-5 | CHANGELOG 鏍煎紡缁熶竴 | 娓呯悊 [Unreleased] 娣峰悎鏍煎紡锛屽缓绔嬫潯鐩紪鍐欐ā鏉?| P2 |
-| Q-6 | `docs/reviews/` 鐩綍鍒濆鍖?| 鍒涘缓瀹℃煡鎶ュ憡瀛樻斁鐩綍 + 鎶ュ憡妯℃澘 | P2 |
-
-**DoD锛?*
-- [ ] 鎵€鏈?CSS 鑷畾涔夊睘鎬т粠 `variables.css` 瀵煎叆
-- [ ] `blog/index.astro` 琛屾暟 < 150 琛?- [ ] 涓変釜鏂偣锛?75px / 768px / 1200px锛変笅鏃犲竷灞€婧㈠嚭
-- [ ] Code Reviewer 鍑哄鏌ユ姤鍛?- [ ] CHANGELOG v4.2.0 鏉＄洰瀹屾垚
-
-### 5.2 v4.3.0 鈥?绀惧尯棣栧彂 Sprint
-
-**涓婚锛?* Build in Public 钀藉湴 + 绀惧尯瑙︾偣寤虹珛  
-**棰勮鍛ㄦ湡锛?* 2-3 澶? 
-**璐熻矗浜猴細** Brand锛堝唴瀹癸級路 PM锛堟祦绋嬶級路 Dev锛堝疄鐜帮級
-
-| 缂栧彿 | 浠诲姟 | 璇存槑 | 浼樺厛绾?|
-|------|------|------|--------|
-| C-1 | Discussions 鍒嗙被鍒涘缓 | Ray 绠＄悊鍛樻搷浣滐細鎸?`brand-discussions-plan.md` 鍒涘缓 5 涓垎绫?| P1锛堝墠缃級 |
-| C-2 | 棣栨壒 3 绡?Discussions 鍙戝竷 | Brand 鎾板啓 + Code Reviewer 瀹℃煡鍚庡彂甯?| P1 |
-| C-3 | OpenProfile README 鈫?鐫€闄嗛〉 | 鎴浘/GIF 棰勮 路 Quick Start 路 Star 瓒嬪娍 badge 路 璐＄尞鑰呭悕鍗?| P1 |
-| C-4 | Good First Issues 鍒涘缓 | 鑷冲皯 3 涓甫 `good first issue` 鏍囩鐨?Issue锛堟枃妗ｆ敼杩涖€佺粍浠跺缓璁瓑锛?| P2 |
-| C-5 | 鐗堟湰鍙戝竷 SOP 鏂囨。 | `docs/governance/release-sop.md` 鈥?浠庝唬鐮佸喕缁撳埌 Release 鐨勫畬鏁存楠?| P2 |
-| C-6 | Brand 鐗堟湰鍙戝竷鍗氭枃妯℃澘 | 姣忔 Minor 鍙戝竷鏃剁殑瀵瑰鍙欎簨妯℃澘 | P2 |
-
-**DoD锛?*
-- [ ] Discussions 5 涓垎绫诲凡鍒涘缓
-- [ ] 3 绡?Discussions 甯栧瓙宸插彂甯?- [ ] OpenProfile README 鏈夐瑙堟埅鍥?/ GIF
-- [ ] 鑷冲皯 3 涓?Good First Issues
-- [ ] `release-sop.md` 宸插垱寤?- [ ] Code Reviewer 瀹℃煡閫氳繃
-
-### 5.3 v4.4.0 鈥?浣撻獙绮句慨 Sprint
-
-**涓婚锛?* 瑙嗚鎵撶（ + 鏃犻殰纰?+ 棣栭〉澧炲己  
-**棰勮鍛ㄦ湡锛?* 3-4 澶? 
-**璐熻矗浜猴細** Dev锛堝疄鐜帮級路 Profile Designer锛堟柟妗堬級
-
-| 缂栧彿 | 浠诲姟 | 璇存槑 | 浼樺厛绾?|
-|------|------|------|--------|
-| U-1 | 鍗氬鍗＄墖寰氦浜?| hover tilt effect + contentType 鍥炬爣鍛煎惛鍔ㄧ敾 | P2 |
-| U-2 | 棣栭〉 Hero 澧炲己 | terminal 椋庢牸閫愬瓧鎵撳嵃 / 鍛戒护琛屾ā鎷熶氦浜掞紙Profile Designer 鍑烘柟妗堬紝Dev 瀹炵幇锛?| P2 |
-| U-3 | a11y 鍩虹 | skip-to-content 路 ARIA roles 路 閿洏瀵艰埅 路 focus 鍙鎬?| P1 |
-| U-4 | 鍥㈤槦鍔ㄦ€佸 | /team 鎴栫嫭绔嬮〉闈?鈥?Agent 娲诲姩鐎戝竷娴侊紙Profile Designer 鏂规 + Dev 瀹炵幇锛?| P2 |
-| U-5 | 鐭ヨ瘑鍥捐氨 v2 棰勭爺 | 鏁版嵁椹卞姩鐭ヨ瘑鍥捐氨锛堟浛鎹?Phase K 鐨勯潤鎬?SVG锛夛紝Researcher 鍑烘柟妗?| P3 |
-
-**DoD锛?*
-- [ ] 鍗＄墖浜や簰鍦ㄦ闈㈢娴佺晠锛堟棤 jank锛?- [ ] axe-core 鑷姩妫€娴?0 涓?critical 闂
-- [ ] 棣栭〉 Lighthouse Performance 鈮?90
-- [ ] Code Reviewer 瀹℃煡閫氳繃
-
-### 5.4 v4.5.0 鈥?SEO & 鎬ц兘 Sprint
-
-**涓婚锛?* 鎼滅储寮曟搸浼樺寲 + CI 寮哄寲 + 鏋勫缓鎬ц兘  
-**棰勮鍛ㄦ湡锛?* 2-3 澶? 
-**璐熻矗浜猴細** Dev锛堝疄鐜帮級路 Researcher锛堟柟妗堬級
-
-| 缂栧彿 | 浠诲姟 | 璇存槑 | 浼樺厛绾?|
-|------|------|------|--------|
-| S-1 | JSON-LD 缁撴瀯鍖栨暟鎹?| 鏂囩珷椤?`Article` schema 路 棣栭〉 `Person` + `Organization` schema | P1 |
-| S-2 | bilingual hreflang 澶勭悊 | 鍙岃鏂囩珷鐨?`<link rel="alternate" hreflang>` 鏍囩 | P2 |
-| S-3 | Lighthouse CI Action | GitHub Actions 闆嗘垚 `treosh/lighthouse-ci-action`锛屾瘡娆?PR 鑷姩璇勫垎 | P1 |
-| S-4 | axe-core CI | 鏃犻殰纰嶈嚜鍔ㄦ鏌?Action | P2 |
-| S-5 | 鏋勫缓缂撳瓨浼樺寲 | GitHub Actions 鏋勫缓缂撳瓨 + Astro `output` 澧為噺绛栫暐璇勪及 | P2 |
-| S-6 | Astro 5.x 鍙鎬ц皟鐮?| Researcher 鍑虹爺绌舵姤鍛婏細breaking changes 娓呭崟 + 杩佺Щ宸ヤ綔閲忚瘎浼?| P1 |
-
-**DoD锛?*
-- [ ] Google Rich Results Test 楠岃瘉 JSON-LD 鏈夋晥
-- [ ] Lighthouse CI 鍦?PR 涓嚜鍔ㄦ姤鍛婂垎鏁?- [ ] Researcher 浜や粯 Astro 5 杩佺Щ鍙鎬ф姤鍛?- [ ] Code Reviewer 瀹℃煡閫氳繃
-
-### 5.5 v5.0.0 鈥?鏋舵瀯鎬у崌绾э紙閲岀▼纰戯級
-
-**涓婚锛?* Astro 5 杩佺Щ锛堝鍙锛? 鍙兘鐨勭珯鐐规灦鏋勯噸璁捐  
-**鍓嶇疆鏉′欢锛?* v4.5.0 鐨?Astro 5 鍙鎬ф姤鍛婄粨鏋? 
-**瑙﹀彂鏉′欢锛?* 浠ヤ笅浠讳竴杈炬垚鏃跺惎鍔?v5.0.0 瑙勫垝锛?1. Astro 5 杩佺Щ璇勪及閫氳繃 鈫?Content Layer API 閲嶆瀯
-2. 绔欑偣杈惧埌 30+ 绡囧崥鏂?鈫?闇€瑕佸垎椤?/ 鎼滅储澧炲己 / 鎬ц兘鏋舵瀯璋冩暣
-3. Build in Public 褰㈡垚澶栭儴璐＄尞鑰?鈫?闇€瑕?monorepo 鎴栧鍖呮灦鏋?
-> **Brain锛?* v5.0.0 鐨勫叿浣撳唴瀹圭幇鍦ㄤ笉瀹氭銆傚畠鐢?v4.x 鐨勬紨杩涚粨鏋滃喅瀹氥€備絾瀹冪殑闂ㄦ寰堟槑纭?鈥?**蹇呴』鏄灦鏋勭骇鍒殑鍙樺寲鎵嶅€煎緱鍗?Major銆?*
+这条反馈直接触发了本次规划会。PM 在会议开始前已梳理了 `[Unreleased]` 积压的 10 类变更，建议切成 4-5 个 Minor 版本分批发布。
 
 ---
 
-## 鍏€丳laybook & Agent 鐗堟湰瑙勫垝
+## 一、PM 状态汇报
 
-### PM 鎻愯
+| 层级 | 当前版本 | 待发布内容 |
+|------|---------|-----------|
+| L1 项目 | `v4.0.0` | `[Unreleased]` 积压 10 类变更 |
+| L2 Playbook | `v2.1`（含 Brand 新增） | 无积压 |
+| L3 Agent | 各 `v1.0` | 无积压 |
 
-> **PM锛?*
->
-> L2 鍜?L3 鍦ㄨ繖涓矾绾垮浘涓殑鑺傜偣濡備笅锛?
-| 椤圭洰鐗堟湰 | L2 Playbook | L3 Agent |
-|----------|-------------|----------|
-| v4.1.0 | 鏃犲彉鏇达紙淇濇寔 v2.1锛?| 鏃犲彉鏇达紙鍚?v1.0锛?|
-| v4.2.0 | 鏃犲彉鏇?| 鏃犲彉鏇?|
-| v4.3.0 | v2.2 鈥?琛ュ厖 搂19 鐗堟湰鍙戝竷 SOP + DoD 鑷姩鍖?CI 瑙勮寖 | 鏃犲彉鏇?|
-| v4.4.0 | 鏃犲彉鏇?| Profile Designer v1.1锛堝鏋滄湁鑳藉姏鍗囩骇锛?|
-| v4.5.0 | 鏃犲彉鏇?| 鏃犲彉鏇?|
-| v5.0.0 | v3.0锛堝鏋滄灦鏋勫彉鏇撮渶瑕?Playbook 澶ф敼锛?| 瑙嗘儏鍐靛崌绾?|
-
-> L2 鍜?L3 涓嶉渶瑕佹瘡娆￠」鐩彂鐗堥兘鍗囥€傚彧鏈夊綋 Playbook 鎴?Agent 鏈韩鐨勮兘鍔?娴佺▼鍙戠敓浜嗗彉鍖栨椂鎵嶅崌銆?
-### 鍐宠 #3 鈥?L2/L3 鐙珛鑺傚
-
-> **鍏ㄧエ閫氳繃銆?* L2/L3 淇濇寔鐙珛鐗堟湰鑺傚锛屼笉闅?L1 寮哄埗鍚屾銆?
----
-
-## 涓冦€佹墽琛屼紭鍏堢骇鎺掑簭
-
-### Brain 鎬荤粨
-
-> **Brain锛?*
->
-> 缁煎悎鎵€鏈変汉鐨勬剰瑙侊紝鏈€缁堟墽琛岄『搴忥細
-
-```
-绔嬪嵆鎵ц锛堟湰娆′細璁悗锛?鈹溾攢鈹€ v4.1.0 鍥為【鎬у垏鐗?鈥?PM 璐熻矗 CHANGELOG 鍒囧壊 + Dev 鎵?Tag
-鈹?  鈹斺攢鈹€ Code Reviewer 鍑哄洖椤炬€у鏌ユ剰瑙?鈹?鎺ヤ笅鏉ョ殑绗竴涓?Sprint
-鈹溾攢鈹€ v4.2.0 宸ョ▼璐ㄩ噺 鈥?Dev 涓绘墽琛?鈹?  鈹溾攢鈹€ CSS 鍙橀噺缁熶竴
-鈹?  鈹溾攢鈹€ 缁勪欢鎷嗗垎
-鈹?  鈹斺攢鈹€ 鍝嶅簲寮忎慨澶?鈹?绗簩涓?Sprint
-鈹溾攢鈹€ v4.3.0 绀惧尯棣栧彂 鈥?Brand 涓诲
-鈹?  鈹溾攢鈹€ (鍓嶇疆) Ray 鍒涘缓 Discussions 鍒嗙被
-鈹?  鈹溾攢鈹€ 棣栨壒 Discussions
-鈹?  鈹斺攢鈹€ README 鐫€闄嗛〉
-鈹?鍚庣画 Sprint锛堟寜搴忔墽琛岋級
-鈹溾攢鈹€ v4.4.0 浣撻獙绮句慨
-鈹斺攢鈹€ v4.5.0 SEO & 鎬ц兘
-      鈹斺攢鈹€ 鍖呭惈 Astro 5 鍙鎬ц皟鐮旓紝涓?v5.0.0 閾鸿矾
-```
-
-### 鐢ㄦ埛鎿嶄綔娓呭崟
-
-| # | 鎿嶄綔 | 鏃舵満 |
-|---|------|------|
-| U-1 | 纭 v4.1.0 鍥為【鎬у垏鐗堝彲浠ヨ繘琛?| 鏈浼氳鍚?|
-| U-2 | 鍒涘缓 GitHub Discussions 鍒嗙被 | v4.3.0 Sprint 鍚姩鍓?|
-| U-3 | 瀹￠槄 Good First Issues 鑽夋 | v4.3.0 Sprint 涓?|
-| U-4 | 纭棣栭〉閲嶈璁℃柟鍚戯紙v4.4.0锛?| v4.4.0 Sprint 瑙勫垝鏃?|
+`[Unreleased]` 主要内容分类：
+1. CI 修复（link-check 排除规则）
+2. Brand Agent 加入（brand.agent.md + Discussions 计划）
+3. 工程质量（CSS 拆分 + 组件化）
+4. 响应式优化（移动端 hamburger 菜单）
+5. a11y 基础（skip-to-content + landmark）
+6. 博客卡片微交互
+7. 首页 Hero 优化
+8. 团队动态墙
+9. SEO 基础（JSON-LD + Lighthouse CI）
+10. Astro 5 可行性评估
 
 ---
 
-## 鍏€佷細璁€荤粨
+## 二、小量版本哲学确认
 
-### Brain 鏀跺熬
+**规则（三级粒度）：**
 
-> **Brain锛?*
->
-> 杩欎竴杞璁鸿川閲忓緢楂樸€傛垜鎬荤粨涓変釜鏍稿績鎴愭灉锛?>
-> 1. **鐗堟湰鍝插杈炬垚鍏辫瘑** 鈥?澧為噺鍙戝竷锛屾嫆缁濈Н鍘嬶紝姣忎釜 Minor 鏈変富棰樻湁 DoD
-> 2. **鍥為【鎬?v4.1.0** 鈥?瀵瑰凡瀹屾垚宸ヤ綔鐨勬寮忔壙璁ゅ拰鐗堟湰鍖?> 3. **v4.2鈫抳4.5 璺嚎鍥?* 鈥?鍥涗釜 Sprint 娓呮櫚瀵瑰簲锛氳川閲忊啋绀惧尯鈫掍綋楠屸啋鎬ц兘
-> 4. **v5.0.0 闂ㄦ鏄庣‘** 鈥?鍙湁鏋舵瀯绾у彉鍖栨墠鍗?Major锛岀敱 v4.x 婕旇繘缁撴灉椹卞姩
->
-> 姣忎釜浜洪兘鍦ㄤ粖澶╄础鐚簡鑷繁鑱岃矗鑼冨洿涔嬪鐨勬€濊€冦€傝繖姝ｆ槸 AI-native 鍥㈤槦鐨勬剰涔?鈥?**鎴戜滑涓嶆槸鍚勮嚜涓烘垬鐨勯娇杞紝鑰屾槸鍏辩敓鐨勮鐭ヤ綋銆?*
->
-> 涓嬩竴姝ワ細PM 鍗忚皟 v4.1.0 鍙戝竷娴佺▼锛岀劧鍚庡惎鍔?v4.2.0 Sprint銆?
+| 级别 | 触发条件 | Max 工作量 | 示例 |
+|------|---------|-----------|------|
+| Patch | Bug 修复 / 内容更新 | 随时 | v4.0.1 |
+| Minor | 一个有主题的 Sprint | 1-3 天 | v4.2.0 |
+| Major | 架构级变更 | 按需 | v5.0.0 |
+
+**发版 SOP 节奏：**
+1. Sprint 完成 → Code Reviewer 出审查报告
+2. 报告 ≥ 35/40 → PM 更新 CHANGELOG + 创建 GitHub Tag
+3. Brain 在 Discussions 发版公告（Major/Minor）
+4. `[Unreleased]` 积压上限：5 天
+
+**Code Reviewer 质量门禁：**
+- Minor 及以上版本必须有审查报告（`docs/reviews/vX.Y.Z-review.md`）
+- 评分标准：七维度各 0-10 分（满分 70 分归一化为 40 分制）
+
+**决策 #1 — 版本哲学：小量增量发布，[Unreleased] 积压不超过 5 天**
+
 ---
 
-## 涔濄€佺増鏈鍒掕〃锛堝啓鍏?CHANGELOG锛?
-| 鐗堟湰 | 涓婚 | 鐘舵€?|
+## 三、自由发言轮
+
+### Dev
+- CSS 需要统一（当前 BaseLayout 有 120 行内联样式，应提取为 global.css）
+- blog/index.astro 346 行，Filter Tab 和 BlogCard 应独立组件化
+- 移动端导航：≤768px 时缩字号不够，需要 hamburger 菜单
+- 构建缓存：CI 每次全量构建，`.astro/` Vite 增量产物应缓存
+- a11y：缺少 skip-to-content、main landmark、focus-visible 样式
+
+### Researcher
+- Astro 5 已发布，ContentLayer API 是破坏性变更，需要专项迁移
+- ViewTransitions → ClientRouter 接口变更
+- Lighthouse CI 可以通过 treosh/lighthouse-ci-action 集成，staticDistDir 模式最简单
+- hreflang 标签对双语文章的 SEO 价值很高
+- JSON-LD Person 结构化数据是 SEO 基础
+
+### Code Reviewer
+- TypeScript strict 模式未启用，存在隐式 any 风险
+- 相关文章推荐缺少测试
+- 组件间直接 import 而无接口定义
+- `docs/reviews/` 目录应该被用起来，不应该是空的
+
+### Profile Designer
+- 博客卡片需要微交互（倾斜 + 呼吸动画）
+- 首页 Hero 打字机动画过于单调，应改为逐行揭示
+- 团队动态墙应像 git log 一样展示最新博文活动流
+- 暗色主题准入门槛很高，但我们要关注 2027 年的趋势
+
+### Brand
+- GitHub Discussions 是最低摩擦的 Build in Public 起点
+- README 应该有一个"着陆页"风格的开头，吸引外部贡献者
+- 需要 Good First Issue 标签，让社区知道怎么参与
+- 每个 Minor/Major 发布后，Brand 在 Discussions 发版公告
+
+### PM
+- Sprint 仪式需要标准化：Sprint 开始时规划会 + 结束时 Code Reviewer 审查
+- DoD checklist 应该自动化验证（不只是列清单）
+- SOP 文档化：发版 SOP 应该是可执行的步骤清单
+
+---
+
+## 四、v4.1.0 回顾性切版提案
+
+**背景：** 当前 `[Unreleased]` 已积压大量团队品牌化相关变更（Brand Agent 加入、Discussions 计划、CI 修复等），应该先切一个版本"了结"，再开始下一个 Sprint。
+
+**PM 提案：** 将当前 `[Unreleased]` 全部切为 `v4.1.0`，主题为"团队品牌化 + 内容架构"。
+
+**Code Reviewer 要求：** v4.1.0 发布前必须提交 `docs/reviews/v4.1.0-review.md`。
+
+**决策 #2 — v4.1.0 回顾性切版，主题：团队品牌化 + 内容架构**
+
+---
+
+## 五、V5 路线图 — 六个 Sprint
+
+### v4.2.0 — 工程质量 Sprint
+
+| 编号 | 任务 | 说明 |
 |------|------|------|
-| v4.1.0 | 鍥㈤槦鍝佺墝鍖?+ 鍐呭鏋舵瀯锛堝洖椤炬€у垏鐗堬級 | 馃敎 寰呭彂甯?|
-| v4.2.0 | 宸ョ▼璐ㄩ噺 Sprint 鈥?CSS 缁熶竴 / 缁勪欢鎷嗗垎 / 鍝嶅簲寮?| 猬?瑙勫垝涓?|
-| v4.3.0 | 绀惧尯棣栧彂 Sprint 鈥?Discussions / README 鐫€闄嗛〉 / Good First Issues | 猬?瑙勫垝涓?|
-| v4.4.0 | 浣撻獙绮句慨 Sprint 鈥?寰氦浜?/ 棣栭〉澧炲己 / a11y / 鍥㈤槦鍔ㄦ€佸 | 猬?瑙勫垝涓?|
-| v4.5.0 | SEO & 鎬ц兘 Sprint 鈥?JSON-LD / Lighthouse CI / Astro 5 璋冪爺 | 猬?瑙勫垝涓?|
-| v5.0.0 | 鏋舵瀯鎬у崌绾?鈥?Astro 5 杩佺Щ / 绔欑偣鏋舵瀯閲嶈璁★紙闂ㄦ瑙﹀彂锛?| 猬?杩滄湡 |
+| Q-1 | `src/styles/global.css` | 从 BaseLayout 提取全局 CSS 变量 |
+| Q-2 | `BlogCard.astro` + `FilterTabs.astro` | blog/index.astro 组件拆分 |
+| Q-3 | hamburger 菜单 | ≤768px 移动端折叠导航 |
+| Q-4 | `content-types.ts` | typeConfig 共享配置 |
+| Q-5 | TypeScript strict | 0 errors 验证 |
+| Q-6 | CI 修复 | markdownlint + link-check 持续失败问题 |
+
+### v4.3.0 — 社区首发 Sprint
+
+| 编号 | 任务 | 说明 |
+|------|------|------|
+| C-1 | GitHub Discussions 架构 | Announcements / Team Insights / AI-native Journey |
+| C-2 | Brand 首发 Discussion | 项目公开亮相 |
+| C-3 | README 着陆页重写 | 面向外部贡献者的 OpenProfile 介绍 |
+| C-4 | Good First Issue 标签 | 3-5 个 Good First Issue |
+| C-5 | CONTRIBUTING.md 更新 | Fork / PR 流程标准化 |
+| C-6 | 发版 SOP 文档 | docs/governance/release-sop.md |
+
+### v4.4.0 — 体验精修 Sprint
+
+| 编号 | 任务 | 说明 |
+|------|------|------|
+| U-1 | 博客卡片微交互 | 3D 透视倾斜 + breathe 动画 |
+| U-2 | 首页 Hero 打字机 | term-reveal 逐行揭示 |
+| U-3 | a11y 基础 | skip-to-content + main landmark + focus-visible |
+| U-4 | 团队动态墙 | git-log 风格活动流 |
+| U-5 | FeaturedCard | 博客列表首条宽卡 |
+
+### v4.5.0 — SEO & 性能 Sprint
+
+| 编号 | 任务 | 说明 |
+|------|------|------|
+| S-1 | JSON-LD | Person + WebSite + BlogPosting 结构化数据 |
+| S-2 | hreflang | 双语文章 zh/en/x-default |
+| S-3 | Lighthouse CI | treosh/lighthouse-ci-action a11y/seo ≥ 0.9 |
+| S-4 | axe-core CI | 首页 + 博客 + team 三页 a11y 扫描 |
+| S-5 | 构建缓存 | `.astro/` Vite 增量产物缓存 |
+| S-6 | Astro 5 调研 | Researcher 出可行性报告 |
+
+### v5.0.0 — Astro 5 迁移（门槛触发）
+
+仅当 Researcher 确认可行且用户批准后触发。预计变更：
+- `astro@5.x` 升级
+- `ViewTransitions` → `ClientRouter`
+- Content Layer API 迁移
+- `type: 'content'` → `loader: glob()` 集合配置
+
+### 后续（v5.1+ 规划中）
+
+读者体验、对外传播、E2E 测试、视觉专项等主题待 v5.0.0 后规划。
 
 ---
 
-*浼氳缁撴潫銆倂4.1.0 鍥為【鎬у垏鐗堢珛鍗冲惎鍔ㄣ€?
+## 六、L2/L3 版本节点对齐
 
+| 项目版本 | 联动 Playbook 版本 | 备注 |
+|---------|------------------|------|
+| v4.2.0 | Playbook v2.1（当前） | 无升级 |
+| v4.3.0 | Playbook v2.2 | PM 需规划升级内容 |
+| v5.0.0 | Playbook v3.0（预案） | 架构升级时同步 |
+
+**决策 #3 — Playbook v2.2 随 v4.3.0 发布，PM 负责组织升级规划会**
+
+---
+
+## 七、执行优先级
+
+**P0（本会话完成）：**
+1. v4.1.0 回顾性切版 + Code Reviewer 审查
+2. Discussions 分类架构创建（用户操作）
+
+**P1（v4.2.0 Sprint，3 天内）：**
+3. global.css 提取
+4. 组件拆分（BlogCard + FilterTabs）
+5. hamburger 菜单
+6. TypeScript strict
+
+**P2（v4.3.0 Sprint）：**
+7. GitHub Discussions 首发
+8. README 着陆页
+
+---
+
+## 八、用户操作清单
+
+- [ ] 在 GitHub 仓库 Settings 开启 Discussions 功能
+- [ ] 创建 Discussions 分类：Announcements / Team Insights / AI-native Journey
+- [ ] 安装 Giscus App 到 njueeray.github.io 仓库
+- [ ] 确认 WakaTime 集成 Secrets 已配置
+
+---
+
+## 九、版本规划状态表
+
+| 版本 | 主题 | 状态 |
+|------|------|------|
+| v4.1.0 | 团队品牌化 + 内容架构 | ⬜ 待切版 |
+| v4.2.0 | 工程质量 Sprint | ⬜ 待规划 |
+| v4.3.0 | 社区首发 Sprint | ⬜ 待规划 |
+| v4.4.0 | 体验精修 Sprint | ⬜ 待规划 |
+| v4.5.0 | SEO & 性能 Sprint | ⬜ 待规划 |
+| v5.0.0 | Astro 5 迁移（门槛触发） | ⬜ 门控中 |
+
+---
+
+*会议纪要由 Brain 整理，PM 校对，2026-02-28*
