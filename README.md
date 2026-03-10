@@ -232,12 +232,12 @@ See the [Releases page](https://github.com/njueeRay/OpenProfile/releases) and [C
 
 | Document | Description |
 |----------|-------------|
-| [docs/agent-workflow.md](docs/agent-workflow.md) | How Agents collaborate end-to-end |
-| [docs/component-guide.md](docs/component-guide.md) | Every dynamic widget explained |
-| [docs/design-decisions.md](docs/design-decisions.md) | Rationale behind visual choices |
-| [docs/team-playbook.md](docs/team-playbook.md) | Shared vocabulary and quality gates |
-| [docs/open-source-strategy.md](docs/open-source-strategy.md) | Growth strategy, audience, and V3.x roadmap |
-| [docs/release-sop.md](docs/release-sop.md) | Version release standard operating procedure |
+| [docs/governance/agent-workflow.md](docs/governance/agent-workflow.md) | How Agents collaborate end-to-end |
+| [docs/guides/component-guide.md](docs/guides/component-guide.md) | Every dynamic widget explained |
+| [docs/governance/design-decisions.md](docs/governance/design-decisions.md) | Rationale behind visual choices |
+| [docs/governance/team-playbook.md](docs/governance/team-playbook.md) | Shared vocabulary and quality gates |
+| [docs/strategy/open-source-strategy.md](docs/strategy/open-source-strategy.md) | Growth strategy, audience, and V3.x roadmap |
+| [docs/governance/release-sop.md](docs/governance/release-sop.md) | Version release standard operating procedure |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | How to contribute |
 | [CHANGELOG.md](CHANGELOG.md) | Full version history |
 
@@ -309,3 +309,4 @@ Fork it, adapt it, ship it. This template is designed to be replaced by your own
 *Built AI-Natively with [GitHub Copilot](https://github.com/features/copilot)  Maintained by [@njueeRay](https://github.com/njueeRay)*
 
 </div>
+

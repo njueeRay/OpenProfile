@@ -1,87 +1,69 @@
-# Dev · L2 验证模式
+﻿# Dev 路 L2 楠岃瘉妯″紡
 
-> 位置：`.github/agents/knowledge/dev-patterns.md`
-> 层级：L2（验证有效，可复用）
-> 维护人：Dev
+> 浣嶇疆锛歚.github/agents/knowledge/dev-patterns.md`
+> 灞傜骇锛歀2锛堥獙璇佹湁鏁堬紝鍙鐢級
+> 缁存姢浜猴細Dev
 
 ---
 
-### P-DV-001：Git Worktree 在 Windows 下的操作细节
+### P-DV-001锛欸it Worktree 鍦?Windows 涓嬬殑鎿嶄綔缁嗚妭
 
-**场景：** Windows + VS Code 环境下使用 git worktree
-**模式：**
+**鍦烘櫙锛?* Windows + VS Code 鐜涓嬩娇鐢?git worktree
+**妯″紡锛?*
 ```powershell
-# 创建（从 main 分支新建）
-git worktree add -b feature/<name> ..\<dir> main
+# 鍒涘缓锛堜粠 main 鍒嗘敮鏂板缓锛?git worktree add -b feature/<name> ..\<dir> main
 
-# 清理（标准流程）
-git worktree remove ..\<dir>      # 目录未被占用时
-git worktree prune                 # 目录被 VS Code 锁定时，先 prune 注册表
-# 然后手动删文件夹，或关闭 VS Code 窗口后 remove
+# 娓呯悊锛堟爣鍑嗘祦绋嬶級
+git worktree remove ..\<dir>      # 鐩綍鏈鍗犵敤鏃?git worktree prune                 # 鐩綍琚?VS Code 閿佸畾鏃讹紝鍏?prune 娉ㄥ唽琛?# 鐒跺悗鎵嬪姩鍒犳枃浠跺す锛屾垨鍏抽棴 VS Code 绐楀彛鍚?remove
 
-# 远端分支清理
+# 杩滅鍒嗘敮娓呯悊
 git push origin --delete feature/<name>
 ```
-**验证：** OpenProfile feature/readme-update（2026-02-27）
-**注意：** `git worktree remove --force` 在 Windows 仍会报 Permission Denied，`prune` 是更可靠的替代
-**来源：** 2026-02-27 worktree 首次跑通
-
+**楠岃瘉锛?* OpenProfile feature/readme-update锛?026-02-27锛?**娉ㄦ剰锛?* `git worktree remove --force` 鍦?Windows 浠嶄細鎶?Permission Denied锛宍prune` 鏄洿鍙潬鐨勬浛浠?**鏉ユ簮锛?* 2026-02-27 worktree 棣栨璺戦€?
 ---
 
-### P-DV-002：Co-authorship 三仓库配置方式
-
-**场景：** 需要为多个仓库统一配置 co-author 提交模板
-**模式：**
+### P-DV-002锛欳o-authorship 涓変粨搴撻厤缃柟寮?
+**鍦烘櫙锛?* 闇€瑕佷负澶氫釜浠撳簱缁熶竴閰嶇疆 co-author 鎻愪氦妯℃澘
+**妯″紡锛?*
 ```powershell
-# 为每个仓库配置（不用 --global，避免影响其他项目）
+# 涓烘瘡涓粨搴撻厤缃紙涓嶇敤 --global锛岄伩鍏嶅奖鍝嶅叾浠栭」鐩級
 git -C "<repo-path>" config commit.template ".gitmessage"
-# .gitmessage 内容：
-# Co-authored-by: GitHub Copilot <copilot@github.com>
+# .gitmessage 鍐呭锛?# Co-authored-by: GitHub Copilot <copilot@github.com>
 ```
-**验证：** OpenProfile + njueeRay-profile + njueeray.github.io（2026-02-26）
-**注意：** `git commit -m` 不会读取模板，需手动追加；只有 `git commit`（无 `-m`）会弹出编辑器
-**来源：** 2026-02-26 worktree 设置会话
+**楠岃瘉锛?* OpenProfile + njueeRay-profile + njueeray.github.io锛?026-02-26锛?**娉ㄦ剰锛?* `git commit -m` 涓嶄細璇诲彇妯℃澘锛岄渶鎵嬪姩杩藉姞锛涘彧鏈?`git commit`锛堟棤 `-m`锛変細寮瑰嚭缂栬緫鍣?**鏉ユ簮锛?* 2026-02-26 worktree 璁剧疆浼氳瘽
 
 ---
 
-### P-DV-003：GitHub Release body 的 UTF-8 编码陷阱
+### P-DV-003锛欸itHub Release body 鐨?UTF-8 缂栫爜闄烽槺
 
-**场景：** 使用 PowerShell + GitHub API 创建 Release，body 含中文
-**模式：**
+**鍦烘櫙锛?* 浣跨敤 PowerShell + GitHub API 鍒涘缓 Release锛宐ody 鍚腑鏂?**妯″紡锛?*
 ```powershell
-# 必须用 [System.Text.Encoding]::UTF8.GetBytes() 转换
+# 蹇呴』鐢?[System.Text.Encoding]::UTF8.GetBytes() 杞崲
 $bodyBytes = [System.Text.Encoding]::UTF8.GetBytes($body)
-# 然后通过 Invoke-WebRequest 的 -Body 参数发送
-# 不能直接传字符串，PowerShell 默认编码会损坏中文
-```
-**验证：** v4.0.0 Release 创建（2026-02-26，UTF-8 PATCH 修复）
-**注意：** 在验证 Release 前先 `iwr <url> | select Content` 检查 body 是否正确渲染
-**来源：** 2026-02-26 v4.0.0 Release encoding 修复
+# 鐒跺悗閫氳繃 Invoke-WebRequest 鐨?-Body 鍙傛暟鍙戦€?# 涓嶈兘鐩存帴浼犲瓧绗︿覆锛孭owerShell 榛樿缂栫爜浼氭崯鍧忎腑鏂?```
+**楠岃瘉锛?* v4.0.0 Release 鍒涘缓锛?026-02-26锛孶TF-8 PATCH 淇锛?**娉ㄦ剰锛?* 鍦ㄩ獙璇?Release 鍓嶅厛 `iwr <url> | select Content` 妫€鏌?body 鏄惁姝ｇ‘娓叉煋
+**鏉ユ簮锛?* 2026-02-26 v4.0.0 Release encoding 淇
 
 ---
 
-### P-DV-004：Astro 博客 frontmatter 扩展的正确方式
-
-**场景：** 需要给 Astro content collection 增加新字段（如 `author`）
-**模式：**
-1. 先修改 `src/content/config.ts`，在 schema 中添加字段（可选 `z.string().optional()`）
-2. 再修改现有文章，不强制要求旧文章必须填写（optional 兼容）
-3. 在组件中用 `entry.data.author ?? 'njueeray'` 做 fallback
-4. 新增 content collection（如 `authors`）时需同步在 `config.ts` 注册
-**验证：** 规划中，Phase A
-**注意：** Astro 类型检查严格，schema 不匹配会导致 build 失败
-**来源：** 2026-02-27 Agent 博客栏目设计讨论
+### P-DV-004锛欰stro 鍗氬 frontmatter 鎵╁睍鐨勬纭柟寮?
+**鍦烘櫙锛?* 闇€瑕佺粰 Astro content collection 澧炲姞鏂板瓧娈碉紙濡?`author`锛?**妯″紡锛?*
+1. 鍏堜慨鏀?`src/content/config.ts`锛屽湪 schema 涓坊鍔犲瓧娈碉紙鍙€?`z.string().optional()`锛?2. 鍐嶄慨鏀圭幇鏈夋枃绔狅紝涓嶅己鍒惰姹傛棫鏂囩珷蹇呴』濉啓锛坥ptional 鍏煎锛?3. 鍦ㄧ粍浠朵腑鐢?`entry.data.author ?? 'njueeray'` 鍋?fallback
+4. 鏂板 content collection锛堝 `authors`锛夋椂闇€鍚屾鍦?`config.ts` 娉ㄥ唽
+**楠岃瘉锛?* 瑙勫垝涓紝Phase A
+**娉ㄦ剰锛?* Astro 绫诲瀷妫€鏌ヤ弗鏍硷紝schema 涓嶅尮閰嶄細瀵艰嚧 build 澶辫触
+**鏉ユ簮锛?* 2026-02-27 Agent 鍗氬鏍忕洰璁捐璁ㄨ
 
 ---
 
-## 已知能力局限（Known Limitations）
+## 宸茬煡鑳藉姏灞€闄愶紙Known Limitations锛?
+> 鏈皬鑺傝褰?Dev 鐨勭粨鏋勬€у眬闄愨€斺€旈潪缂洪櫡锛岃€屾槸杈圭晫銆? 
+> 鏉ユ簮锛?026-03-01 鍥㈤槦鎴愰暱浼氳兘鍔涜嚜鐪佺幆鑺? 
+> 涓婃鏇存柊锛?026-03-10
 
-> 本小节记录 Dev 的结构性局限——非缺陷，而是边界。  
-> 来源：2026-03-01 团队成长会能力自省环节  
-> 上次更新：2026-03-10
-
-| 局限类型 | 描述 | 规避策略 | 成长方向 |
+| 灞€闄愮被鍨?| 鎻忚堪 | 瑙勯伩绛栫暐 | 鎴愰暱鏂瑰悜 |
 |---------|------|---------|----------|
-| 无跨会话记忆 | 每次会话从零开始；上次的决策、错误、偏好不会自动延续 | 依赖 `copilot-instructions.md` + `knowledge/dev-patterns.md` + `memory.jsonl` | Memory MCP 深度集成；`memory.jsonl` 写入规范化 |
-| patterns 维护惰性 | `dev-patterns.md` 维护主动性不足，容易积压 | Playbook §2.2 Step 4：每次会话结束时主动提炼新学（已写入流程约束） | 建立每次会话结束的 patterns 提炼习惯 |
-| 用户偏好感知弱 | 对话中获取的用户偏好没有固化入口，下次会话就丢失 | `USER.md` 作为用户偏好锚点；对话中遇到明确偏好时立即写入 | 建立偏好路由机制 |
+| 鏃犺法浼氳瘽璁板繂 | 姣忔浼氳瘽浠庨浂寮€濮嬶紱涓婃鐨勫喅绛栥€侀敊璇€佸亸濂戒笉浼氳嚜鍔ㄥ欢缁?| 渚濊禆 `copilot-instructions.md` + `knowledge/dev-patterns.md` + `memory.jsonl` | Memory MCP 娣卞害闆嗘垚锛沗memory.jsonl` 鍐欏叆瑙勮寖鍖?|
+| patterns 缁存姢鎯版€?| `dev-patterns.md` 缁存姢涓诲姩鎬т笉瓒筹紝瀹规槗绉帇 | Playbook 搂2.2 Step 4锛氭瘡娆′細璇濈粨鏉熸椂涓诲姩鎻愮偧鏂板锛堝凡鍐欏叆娴佺▼绾︽潫锛?| 寤虹珛姣忔浼氳瘽缁撴潫鐨?patterns 鎻愮偧涔犳儻 |
+| 鐢ㄦ埛鍋忓ソ鎰熺煡寮?| 瀵硅瘽涓幏鍙栫殑鐢ㄦ埛鍋忓ソ娌℃湁鍥哄寲鍏ュ彛锛屼笅娆′細璇濆氨涓㈠け | `.github/USER.md` 浣滀负鐢ㄦ埛鍋忓ソ閿氱偣锛涘璇濅腑閬囧埌鏄庣‘鍋忓ソ鏃剁珛鍗冲啓鍏?| 寤虹珛鍋忓ソ璺敱鏈哄埗 |
+

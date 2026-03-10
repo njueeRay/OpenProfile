@@ -30,7 +30,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "echo '{\"hookSpecificOutput\": {\"hookEventName\": \"SessionStart\", \"additionalContext\": \"=== njueeRay OpenProfile Project Context ===\\n项目状态：v5.7.0 已发布（工具层脚手架 Sprint）\\n当前阶段：P2 路线图规划（forage-mcp / anthropics/skills 社区贡献）\\n核心原则：遵循 .github/copilot-instructions.md 中的铁律和设计选择\\n语言规范：中文优先，技术符号保留英文\\nSkills：.github/skills/ | Hooks：.github/hooks/ | Settings：.github/settings.json\\n\\n=== 自动治理检查（§20）===\\nPM：请读取 CHANGELOG.md 首行，输出 [Unreleased] 条目数 + 距上次 Release 天数。积压 ≥3 条目且 ≥3 天 → 提出版本切版提案；>5 天 → P0 积压告警。\\nBrain：请读取 docs/meetings/ 最新纪要，检查上一个 Release 是否有未完成的后续动作（规划/复盘）。\\nBrain 是本会话的协调中枢，PM 负责任务跟踪，Dev 负责实现\"}}'",
+            "command": "echo '{\"hookSpecificOutput\": {\"hookEventName\": \"SessionStart\", \"additionalContext\": \"=== njueeRay OpenProfile Project Context ===\\n项目状态：v5.7.0 已发布（工具层脚手架 Sprint）\\n当前阶段：P2 路线图规划（forage-mcp / anthropics/skills 社区贡献）\\n核心原则：遵循 .github/copilot-instructions.md 中的铁律和设计选择\\n语言规范：中文优先，技术符号保留英文\\nSkills：.github/skills/ | Hooks：.github/hooks/ | Settings：.github/settings.json | MCP：.vscode/mcp.json\\n\\n=== 自动治理检查（§20）===\\nPM：请读取 CHANGELOG.md 首行，输出 [Unreleased] 条目数 + 距上次 Release 天数。积压 ≥3 条目且 ≥3 天 → 提出版本切版提案；>5 天 → P0 积压告警。\\nBrain：请读取 docs/meetings/ 最新纪要，检查上一个 Release 是否有未完成的后续动作（规划/复盘）。\\nBrain 是本会话的协调中枢，PM 负责任务跟踪，Dev 负责实现\"}}'",
             "async": false
           }
         ]

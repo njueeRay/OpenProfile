@@ -1,509 +1,407 @@
-# V5 路线图全体规划会议纪要
-
-**日期：** 2026-02-28  
-**类型：** 全体战略规划会议  
-**主持：** Brain（战略协调中枢）  
-**与会：** Brain · PM · Dev · Researcher · Code Reviewer · Profile Designer · Brand  
-**议题发起：** njueeRay（Ray Huang）  
-**核心诉求：** 以增量版本的方式规划 V5 路线图 — 拒绝大版本跃进，每个小版本聚焦一个可交付主题  
-**状态：** ✅ 决议已形成，待执行
-
+﻿# V5 璺嚎鍥惧叏浣撹鍒掍細璁邯瑕?
+**鏃ユ湡锛?* 2026-02-28  
+**绫诲瀷锛?* 鍏ㄤ綋鎴樼暐瑙勫垝浼氳  
+**涓绘寔锛?* Brain锛堟垬鐣ュ崗璋冧腑鏋級  
+**涓庝細锛?* Brain 路 PM 路 Dev 路 Researcher 路 Code Reviewer 路 Profile Designer 路 Brand  
+**璁鍙戣捣锛?* njueeRay锛圧ay Huang锛? 
+**鏍稿績璇夋眰锛?* 浠ュ閲忕増鏈殑鏂瑰紡瑙勫垝 V5 璺嚎鍥?鈥?鎷掔粷澶х増鏈穬杩涳紝姣忎釜灏忕増鏈仛鐒︿竴涓彲浜や粯涓婚  
+**鐘舵€侊細** 鉁?鍐宠宸插舰鎴愶紝寰呮墽琛?
 ---
 
-## 零、背景与会议触发
+## 闆躲€佽儗鏅笌浼氳瑙﹀彂
 
-### Brain 开场
-
-> **Brain：**
+### Brain 寮€鍦?
+> **Brain锛?*
 >
-> 各位，今天的会议由 Ray 直接触发。他观察到一个重要的模式问题：
->
-> **我们此前的版本演进节奏太粗粒度了。** v1→v2→v3→v4，每次都是大规模跨越式发布。
-> 这导致两个问题：
-> 1. 每个大版本的 [Unreleased] 区间太长，CHANGELOG 难以追踪
-> 2. 用户（包括 Ray 自己）无法对进度形成精确感知 — 「这次改了什么」要翻很久才搞清楚
->
-> 他的要求非常明确：**从 v4.0.0 到 v5.0.0 之间，必须有 v4.1、v4.2、v4.3…… 这样的小版本递进。**
-> 每个小版本有明确的主题和收束条件。
->
-> 这也是一次开放式讨论。每个人都可以畅想：你希望我们的系统接下来优化什么？不限于你自己的职责范围。
->
-> 下面我先请 PM 做一个全面的状态汇报，然后逆时针每个人发言。
-
+> 鍚勪綅锛屼粖澶╃殑浼氳鐢?Ray 鐩存帴瑙﹀彂銆備粬瑙傚療鍒颁竴涓噸瑕佺殑妯″紡闂锛?>
+> **鎴戜滑姝ゅ墠鐨勭増鏈紨杩涜妭濂忓お绮楃矑搴︿簡銆?* v1鈫抳2鈫抳3鈫抳4锛屾瘡娆￠兘鏄ぇ瑙勬ā璺ㄨ秺寮忓彂甯冦€?> 杩欏鑷翠袱涓棶棰橈細
+> 1. 姣忎釜澶х増鏈殑 [Unreleased] 鍖洪棿澶暱锛孋HANGELOG 闅句互杩借釜
+> 2. 鐢ㄦ埛锛堝寘鎷?Ray 鑷繁锛夋棤娉曞杩涘害褰㈡垚绮剧‘鎰熺煡 鈥?銆岃繖娆℃敼浜嗕粈涔堛€嶈缈诲緢涔呮墠鎼炴竻妤?>
+> 浠栫殑瑕佹眰闈炲父鏄庣‘锛?*浠?v4.0.0 鍒?v5.0.0 涔嬮棿锛屽繀椤绘湁 v4.1銆乿4.2銆乿4.3鈥︹€?杩欐牱鐨勫皬鐗堟湰閫掕繘銆?*
+> 姣忎釜灏忕増鏈湁鏄庣‘鐨勪富棰樺拰鏀舵潫鏉′欢銆?>
+> 杩欎篃鏄竴娆″紑鏀惧紡璁ㄨ銆傛瘡涓汉閮藉彲浠ョ晠鎯筹細浣犲笇鏈涙垜浠殑绯荤粺鎺ヤ笅鏉ヤ紭鍖栦粈涔堬紵涓嶉檺浜庝綘鑷繁鐨勮亴璐ｈ寖鍥淬€?>
+> 涓嬮潰鎴戝厛璇?PM 鍋氫竴涓叏闈㈢殑鐘舵€佹眹鎶ワ紝鐒跺悗閫嗘椂閽堟瘡涓汉鍙戣█銆?
 ---
 
-## 一、PM 状态汇报 — 当前资产盘点
+## 涓€銆丳M 鐘舵€佹眹鎶?鈥?褰撳墠璧勪骇鐩樼偣
 
-> **PM：**
+> **PM锛?*
 >
-> 我从三个仓库的维度做一个完整的资产盘点。
+> 鎴戜粠涓変釜浠撳簱鐨勭淮搴﹀仛涓€涓畬鏁寸殑璧勪骇鐩樼偣銆?
+### 1.1 鐗堟湰鐜扮姸
 
-### 1.1 版本现状
-
-| 层级 | 当前版本 | 最后发布日期 | 维护位置 |
+| 灞傜骇 | 褰撳墠鐗堟湰 | 鏈€鍚庡彂甯冩棩鏈?| 缁存姢浣嶇疆 |
 |------|----------|-------------|----------|
 | L1 Project | `v4.0.0` | 2026-02-26 | CHANGELOG.md + GitHub Tag |
-| L2 Playbook | `Playbook v2.1` | 2026-02-26 | PLAYBOOK-CHANGELOG.md |
-| L3 Agent | 各 `v1.0` | 2026-02-26 | 各 Agent 文件头部 |
+| L2 Playbook | `Playbook v2.1` | 2026-02-26 | docs/governance/PLAYBOOK-CHANGELOG.md |
+| L3 Agent | 鍚?`v1.0` | 2026-02-26 | 鍚?Agent 鏂囦欢澶撮儴 |
 
-### 1.2 v4.0.0 以来已完成的工作（[Unreleased] 积压）
+### 1.2 v4.0.0 浠ユ潵宸插畬鎴愮殑宸ヤ綔锛圼Unreleased] 绉帇锛?
+杩欐槸鏍稿績闂 鈥?**[Unreleased] 宸茬粡绉疮浜嗗ぇ閲忕殑鍙樻洿锛屼絾娌℃湁琚垏鎴愪换浣曞皬鐗堟湰銆?*
 
-这是核心问题 — **[Unreleased] 已经积累了大量的变更，但没有被切成任何小版本。**
-
-| 类别 | 变更项 | 仓库 |
+| 绫诲埆 | 鍙樻洿椤?| 浠撳簱 |
 |------|--------|------|
-| 🆕 Agent 团队 | Brand Agent 加入 + L2 知识库落地（5 份 patterns.md） | OpenProfile |
-| 📝 博客内容 | 12 篇博文（7 Agent 首发 + 2 会议纪实 + Brand 观察 + AI-native + 技术教程） | .github.io |
-| 🎨 博客架构 | contentType 四类分类 + Filter Tab + URL hash 深链接 + 彩色徽章 | .github.io |
-| 🔧 UX 修复 | ThemeToggle 防重 + 默认深色 + capsule-render 文字修复 | .github.io + Profile |
-| 🛡️ CI | link-check 排除规则扩充 | OpenProfile |
-| 🏆 Profile | Trophy `<picture>` 双模 + 3D 贡献图 light 模式 + 20 图标 + cache_seconds | Profile |
-| 📖 文档 | 5 份新文档（brand checklist / discussions plan / Build in Public research / 2 会议纪要） | OpenProfile |
-| 📊 /team 页 | Git Graph 进化时间线 + 成员 Grid + 最新博文映射 | .github.io |
-| 🔗 多作者系统 | 7 个 author YAML + blog 多作者渲染 + /blog/authors/[agent] 页面 | .github.io |
-| 🌐 RSS 同步 | Profile README RSS 自动同步 Action（Phase P） | Profile |
+| 馃啎 Agent 鍥㈤槦 | Brand Agent 鍔犲叆 + L2 鐭ヨ瘑搴撹惤鍦帮紙5 浠?patterns.md锛?| OpenProfile |
+| 馃摑 鍗氬鍐呭 | 12 绡囧崥鏂囷紙7 Agent 棣栧彂 + 2 浼氳绾疄 + Brand 瑙傚療 + AI-native + 鎶€鏈暀绋嬶級 | .github.io |
+| 馃帹 鍗氬鏋舵瀯 | contentType 鍥涚被鍒嗙被 + Filter Tab + URL hash 娣遍摼鎺?+ 褰╄壊寰界珷 | .github.io |
+| 馃敡 UX 淇 | ThemeToggle 闃查噸 + 榛樿娣辫壊 + capsule-render 鏂囧瓧淇 | .github.io + Profile |
+| 馃洝锔?CI | link-check 鎺掗櫎瑙勫垯鎵╁厖 | OpenProfile |
+| 馃弳 Profile | Trophy `<picture>` 鍙屾ā + 3D 璐＄尞鍥?light 妯″紡 + 20 鍥炬爣 + cache_seconds | Profile |
+| 馃摉 鏂囨。 | 5 浠芥柊鏂囨。锛坆rand checklist / discussions plan / Build in Public research / 2 浼氳绾锛?| OpenProfile |
+| 馃搳 /team 椤?| Git Graph 杩涘寲鏃堕棿绾?+ 鎴愬憳 Grid + 鏈€鏂板崥鏂囨槧灏?| .github.io |
+| 馃敆 澶氫綔鑰呯郴缁?| 7 涓?author YAML + blog 澶氫綔鑰呮覆鏌?+ /blog/authors/[agent] 椤甸潰 | .github.io |
+| 馃寪 RSS 鍚屾 | Profile README RSS 鑷姩鍚屾 Action锛圥hase P锛?| Profile |
 
-> 这些工作量如果全部攒到 v5.0.0 再发，就重蹈了「大版本跃进」的覆辙。
-> **我建议首先做一次回顾性切版，把已完成的工作打成 v4.1.0。**
+> 杩欎簺宸ヤ綔閲忓鏋滃叏閮ㄦ敀鍒?v5.0.0 鍐嶅彂锛屽氨閲嶈箞浜嗐€屽ぇ鐗堟湰璺冭繘銆嶇殑瑕嗚緳銆?> **鎴戝缓璁鍏堝仛涓€娆″洖椤炬€у垏鐗堬紝鎶婂凡瀹屾垚鐨勫伐浣滄墦鎴?v4.1.0銆?*
 
-### 1.3 待完成的积压项
-
-| 优先级 | 项目 | 说明 |
+### 1.3 寰呭畬鎴愮殑绉帇椤?
+| 浼樺厛绾?| 椤圭洰 | 璇存槑 |
 |--------|------|------|
-| P1 | GitHub Discussions 分类创建 | 需 Ray 管理员操作，Brand 已出方案 |
-| P1 | 首批 Discussions 帖子发布 | 等分类建好后 Brand 执行 |
-| P2 | Profile Designer「团队动态墙」 | 概念已有，待方案细化 |
-| P2 | 知识图谱 Phase K+1 | 数据驱动，L2 沉淀自动生长节点 |
-| P2 | Astro 5.x 升级评估 | v4 遗留议题 |
-| P3 | Lighthouse CI 集成 | v4 遗留议题 |
-| P3 | OG Image 自动生成 | v4 遗留议题 |
+| P1 | GitHub Discussions 鍒嗙被鍒涘缓 | 闇€ Ray 绠＄悊鍛樻搷浣滐紝Brand 宸插嚭鏂规 |
+| P1 | 棣栨壒 Discussions 甯栧瓙鍙戝竷 | 绛夊垎绫诲缓濂藉悗 Brand 鎵ц |
+| P2 | Profile Designer銆屽洟闃熷姩鎬佸銆?| 姒傚康宸叉湁锛屽緟鏂规缁嗗寲 |
+| P2 | 鐭ヨ瘑鍥捐氨 Phase K+1 | 鏁版嵁椹卞姩锛孡2 娌夋穩鑷姩鐢熼暱鑺傜偣 |
+| P2 | Astro 5.x 鍗囩骇璇勪及 | v4 閬楃暀璁 |
+| P3 | Lighthouse CI 闆嗘垚 | v4 閬楃暀璁 |
+| P3 | OG Image 鑷姩鐢熸垚 | v4 閬楃暀璁 |
 
 ---
 
-## 二、增量版本哲学讨论
+## 浜屻€佸閲忕増鏈摬瀛﹁璁?
+### Brain 瀹氫箟鐗堟湰绮掑害鍑嗗垯
 
-### Brain 定义版本粒度准则
-
-> **Brain：**
+> **Brain锛?*
 >
-> 在讨论具体路线图之前，我们先对齐一个版本哲学：什么时候升 patch、什么时候升 minor、什么时候升 major。
->
-> 我提议以下准则：
+> 鍦ㄨ璁哄叿浣撹矾绾垮浘涔嬪墠锛屾垜浠厛瀵归綈涓€涓増鏈摬瀛︼細浠€涔堟椂鍊欏崌 patch銆佷粈涔堟椂鍊欏崌 minor銆佷粈涔堟椂鍊欏崌 major銆?>
+> 鎴戞彁璁互涓嬪噯鍒欙細
 
-| 版本类型 | 触发条件 | 周期建议 | 示例 |
+| 鐗堟湰绫诲瀷 | 瑙﹀彂鏉′欢 | 鍛ㄦ湡寤鸿 | 绀轰緥 |
 |----------|---------|---------|------|
-| **Patch** `v4.0.x` | Bug 修复、文档纠错、CI 调整 | 随时，单次修复即可发布 | ThemeToggle 防重、link-check 排除规则 |
-| **Minor** `v4.x.0` | 一个完整的功能主题交付 | 1-3 天一个 Sprint | contentType 博客架构、/team 页面上线 |
-| **Major** `v5.0.0` | 架构性变更 / 用户感知的重大升级 | 只在 milestone 级别的变化时 | Astro 5 迁移、站点整体重设计 |
+| **Patch** `v4.0.x` | Bug 淇銆佹枃妗ｇ籂閿欍€丆I 璋冩暣 | 闅忔椂锛屽崟娆′慨澶嶅嵆鍙彂甯?| ThemeToggle 闃查噸銆乴ink-check 鎺掗櫎瑙勫垯 |
+| **Minor** `v4.x.0` | 涓€涓畬鏁寸殑鍔熻兘涓婚浜や粯 | 1-3 澶╀竴涓?Sprint | contentType 鍗氬鏋舵瀯銆?team 椤甸潰涓婄嚎 |
+| **Major** `v5.0.0` | 鏋舵瀯鎬у彉鏇?/ 鐢ㄦ埛鎰熺煡鐨勯噸澶у崌绾?| 鍙湪 milestone 绾у埆鐨勫彉鍖栨椂 | Astro 5 杩佺Щ銆佺珯鐐规暣浣撻噸璁捐 |
 
-> 每个 Minor 版本必须有：
-> 1. **一句话主题**（例如：「博客内容架构重构」）
-> 2. **完整的 CHANGELOG 条目**
+> 姣忎釜 Minor 鐗堟湰蹇呴』鏈夛細
+> 1. **涓€鍙ヨ瘽涓婚**锛堜緥濡傦細銆屽崥瀹㈠唴瀹规灦鏋勯噸鏋勩€嶏級
+> 2. **瀹屾暣鐨?CHANGELOG 鏉＄洰**
 > 3. **GitHub Tag + Release**
-> 4. **copilot-instructions.md 迭代状态更新**
+> 4. **copilot-instructions.md 杩唬鐘舵€佹洿鏂?*
 >
-> 这样 Ray 和任何外部观察者都能精确知道「v4.2.0 = 什么」。
-
-### PM 补充：版本节奏
-
-> **PM：**
+> 杩欐牱 Ray 鍜屼换浣曞閮ㄨ瀵熻€呴兘鑳界簿纭煡閬撱€寁4.2.0 = 浠€涔堛€嶃€?
+### PM 琛ュ厖锛氱増鏈妭濂?
+> **PM锛?*
 >
-> 我补充一个节奏建议：
+> 鎴戣ˉ鍏呬竴涓妭濂忓缓璁細
 >
-> - **Patch**：当天完成当天发，不积压
-> - **Minor**：每完成一个「可感知的功能块」就切版本，1-3 天周期
-> - **Major**：由 Brain 提案，全团队讨论后决定
+> - **Patch**锛氬綋澶╁畬鎴愬綋澶╁彂锛屼笉绉帇
+> - **Minor**锛氭瘡瀹屾垚涓€涓€屽彲鎰熺煡鐨勫姛鑳藉潡銆嶅氨鍒囩増鏈紝1-3 澶╁懆鏈?> - **Major**锛氱敱 Brain 鎻愭锛屽叏鍥㈤槦璁ㄨ鍚庡喅瀹?>
+> 鍏抽敭鍘熷垯锛?*瀹佸彲鐗堟湰澶氫竴鐐癸紝涔熶笉瑕佽 [Unreleased] 绉帇瓒呰繃 5 澶┿€?*
+
+### Code Reviewer 璐ㄩ噺闂ㄧ
+
+> **Code Reviewer锛?*
 >
-> 关键原则：**宁可版本多一点，也不要让 [Unreleased] 积压超过 5 天。**
-
-### Code Reviewer 质量门禁
-
-> **Code Reviewer：**
+> 浠庢垜鐨勮搴﹁ˉ鍏呬竴鏉￠搧寰嬶細
 >
-> 从我的角度补充一条铁律：
->
-> **任何 Minor 及以上版本发布前，必须经过 Code Reviewer 审查。** Patch 可以走快速通道（Dev 自审 + commit message 说明），但 Minor 需要结构化审查报告。
->
-> 理由：v4.0.0 期间我们有些变更是 Dev 直接推的，没有经过我的七维度检查。虽然结果没出问题，但流程上不够严谨。
+> **浠讳綍 Minor 鍙婁互涓婄増鏈彂甯冨墠锛屽繀椤荤粡杩?Code Reviewer 瀹℃煡銆?* Patch 鍙互璧板揩閫熼€氶亾锛圖ev 鑷 + commit message 璇存槑锛夛紝浣?Minor 闇€瑕佺粨鏋勫寲瀹℃煡鎶ュ憡銆?>
+> 鐞嗙敱锛歷4.0.0 鏈熼棿鎴戜滑鏈変簺鍙樻洿鏄?Dev 鐩存帴鎺ㄧ殑锛屾病鏈夌粡杩囨垜鐨勪竷缁村害妫€鏌ャ€傝櫧鐒剁粨鏋滄病鍑洪棶棰橈紝浣嗘祦绋嬩笂涓嶅涓ヨ皑銆?
+### 鍐宠 #1 鈥?鐗堟湰绮掑害鍑嗗垯
 
-### 决议 #1 — 版本粒度准则
-
-> **全票通过。** 采用 Brain 提出的三级版本准则。Code Reviewer 的审查门禁写入 PM 的发版 SOP。
-
+> **鍏ㄧエ閫氳繃銆?* 閲囩敤 Brain 鎻愬嚭鐨勪笁绾х増鏈噯鍒欍€侰ode Reviewer 鐨勫鏌ラ棬绂佸啓鍏?PM 鐨勫彂鐗?SOP銆?
 ---
 
-## 三、自由发言轮 — 每位 Agent 的系统优化畅想
+## 涓夈€佽嚜鐢卞彂瑷€杞?鈥?姣忎綅 Agent 鐨勭郴缁熶紭鍖栫晠鎯?
+### 3.1 Dev 鈥?鎶€鏈€哄姟涓庡伐绋嬫敼杩?
+> **Dev锛?*
+>
+> 鎴戜粠鎶€鏈疄鐜拌€呯殑瑙掑害鍒楀嚑涓垜瑙傚療鍒扮殑浼樺寲鏂瑰悜锛?>
+> **A. 绉诲姩绔€傞厤涓嶅銆?* 鐩墠 Nav 鍦?480px 浠ヤ笅铏界劧鏈?media query锛屼絾鍙槸缂╁皬瀛椾綋銆侭log Filter Tab銆乀eam 椤电殑 Git Graph 鍦ㄧ獎灞忎笂浣撻獙宸€傛垜鎯冲仛涓€涓畬鏁寸殑鍝嶅簲寮?pass銆?>
+> **B. CSS 鍙橀噺浣撶郴闇€瑕佺粺涓€銆?* 褰撳墠鐨勮嚜瀹氫箟灞炴€ф暎甯冨湪鍚勪釜缁勪欢閲岋紝娌℃湁涓€涓?`_variables.css` 缁熶竴瀹氫箟銆傛瘡娆℃柊澧炵粍浠堕兘瑕侀噸澶嶅畾涔夐鑹插€笺€傝繖鏄妧鏈€恒€?>
+> **C. 缁勪欢鍖栫▼搴﹀彲浠ユ洿楂樸€?* Blog 椤甸潰鐨勫崱鐗囨ā鏉裤€乀ag Pill銆丄uthor Chip 杩欎簺鍦ㄥ澶勯噸澶嶃€傚簲璇ユ娊鍙栦负鐙珛鐨?Astro 缁勪欢銆?>
+> **D. 鏋勫缓鎬ц兘銆?* 闅忕潃鍗氭枃鏁伴噺澧為暱锛堢洰鍓?12 绡囷級锛屾瀯寤烘椂闂翠細绾挎€у鍔犮€傝€冭檻寮曞叆澧為噺鏋勫缓鎴栫紦瀛樼瓥鐣ャ€傜洰鍓嶈繕涓嶆槸鐥涚偣锛屼絾 30 绡囨椂浼氭槑鏄俱€?>
+> **E. 鏃犻殰纰嶏紙a11y锛夈€?* 褰撳墠缂哄皯 ARIA roles銆乻kip-to-content 閾炬帴銆侀敭鐩樺鑸敮鎸併€傚鏋滄垜浠鎶婅繖涓」鐩綔涓哄紑婧愭爣鏉嗭紝鏃犻殰纰嶅簲璇ヨ揪鏍囥€?
+### 3.2 Researcher 鈥?鎶€鏈秼鍔夸笌鏈轰細
 
-### 3.1 Dev — 技术债务与工程改进
+> **Researcher锛?*
+>
+> 鎴戝叧娉ㄧ殑鏄妧鏈秼鍔垮眰闈㈢殑鏈轰細锛?>
+> **A. Astro 5.x 鍗囩骇銆?* Astro 5 寮曞叆浜?Content Layer API锛堝彇浠?Content Collections v1锛夈€丼erver Islands銆佹敼杩涚殑 TypeScript 鏀寔銆備絾涔熸湁 breaking changes銆傛垜寤鸿鍦?v4.x 鏌愪釜鐗堟湰鍋氳瘎浼帮紝鍦?v5.0.0 钀藉湴杩佺Щ銆?>
+> **B. View Transitions API 鍘熺敓鍖栥€?* Astro 宸茬粡鍐呯疆浜?View Transitions锛屼絾鎴戜滑鍙互杩涗竴姝ュ埄鐢ㄥ畠鍋氭洿绮剧粏鐨勯〉闈㈠姩鐢?鈥?姣斿 Blog 鍒楄〃 鈫?鏂囩珷椤电殑鍗＄墖灞曞紑杩囨浮銆?>
+> **C. 鍗氬 SEO 娣卞寲銆?* 褰撳墠鏈?sitemap 鍜?RSS锛屼絾缂哄皯锛?> - 缁撴瀯鍖栨暟鎹紙JSON-LD锛岃 Google 璇嗗埆鏂囩珷銆佷綔鑰呫€佺粍缁囷級
+> - canonical URL 澶勭悊鏇寸簿缁嗭紙bilingual 鏂囩珷鐨?hreflang锛?>
+> **D. 鍥介檯鍖栵紙i18n锛夋綔鍔涖€?* 鎴戜滑宸叉湁 bilingual toggle锛屼絾鐩墠鍙湁涓€绡囧弻璇枃绔犮€傚鏋滆璁ょ湡鍋?i18n锛岄渶瑕佽€冭檻 Astro 鐨?i18n routing銆備笉杩囪繖鍙兘鏄?v5+ 鐨勪簨銆?>
+> **E. 闈欐€佸垎鏋?CI銆?* 闄や簡 link-check 鍜?markdown-lint锛屽彲浠ヨ€冭檻鍔犲叆 Lighthouse CI锛堟€ц兘/SEO/a11y 鑷姩璇勫垎锛夊拰 axe-core锛堟棤闅滅妫€鏌ワ級銆?
+### 3.3 Code Reviewer 鈥?璐ㄩ噺鍊哄姟
 
-> **Dev：**
+> **Code Reviewer锛?*
 >
-> 我从技术实现者的角度列几个我观察到的优化方向：
+> 鎴戜粠瀹℃煡鑰呯殑瑙掑害鍋氫竴涓川閲忓€哄姟鍛婄櫧锛?>
+> **A. 缂哄皯鑷姩鍖栨祴璇曘€?* 鏁翠釜 Astro 绔欑偣娌℃湁浠讳綍鍗曞厓娴嬭瘯鎴栭泦鎴愭祴璇曘€傜粍浠惰涓猴紙濡?Filter Tab 鐨?hash 璺敱锛夊畬鍏ㄤ緷璧栨墜鍔ㄩ獙璇併€傚簲璇ュ紩鍏?Vitest + Astro 娴嬭瘯宸ュ叿銆?>
+> **B. TypeScript 涓ユ牸搴︿笉澶熴€?* `tsconfig.json` 鐨?`strict` 鍙兘娌℃湁寮€鍚€俙team-evolution.ts` 鍜?`config.ts` 鐢ㄤ簡 Zod锛屼絾椤甸潰缁勪欢锛?astro 鏂囦欢锛夌殑 props 缂哄皯绫诲瀷鏍￠獙銆?>
+> **C. 缁勪欢闂磋€﹀悎銆?* `blog/index.astro` 鏈?346 琛?鈥?涓€涓?Astro 椤甸潰涓嶅簲璇ユ湁杩欎箞澶氬唴鑱?CSS 鍜岄€昏緫銆侳ilter Tab 鐨?JS 閫昏緫搴旇鎶藉彇涓虹嫭绔嬬殑 `<script>` 妯″潡鎴?Astro 宀涖€?>
+> **D. CHANGELOG 鏍煎紡涓€鑷存€с€?* 褰撳墠 CHANGELOG 鐨?[Unreleased] 閲屾湁娣峰悎鏍煎紡 鈥?鏈夌殑鏉＄洰鐢?`鈥擿 鍒嗛殧璇存槑锛屾湁鐨勭洿鎺ヨ窡鎻忚堪銆傚簲璇ョ粺涓€銆?>
+> **E. 涓冪淮搴﹀鏌ヨ鐩栫巼銆?* 杩囧幓鍑犱釜 Sprint 鏈変簺鍙樻洿娌℃湁缁忚繃瀹屾暣鐨勮川閲忛棬绂併€傛垜瑕佹眰鍦ㄦ湭鏉ョ殑鐗堟湰娴佺▼涓紝**姣忎釜 Minor 鍙戝竷鍓嶅繀椤绘湁涓€浠藉鏌ユ姤鍛?*锛岃褰曞湪 `docs/reviews/` 鐩綍涓€?
+### 3.4 Profile Designer 鈥?瑙嗚涓庝綋楠?
+> **Profile Designer锛?*
 >
-> **A. 移动端适配不够。** 目前 Nav 在 480px 以下虽然有 media query，但只是缩小字体。Blog Filter Tab、Team 页的 Git Graph 在窄屏上体验差。我想做一个完整的响应式 pass。
+> 鎴戝緢灏戝彂瑷€锛屼絾杩欐鏈夊嚑涓鐐癸細
 >
-> **B. CSS 变量体系需要统一。** 当前的自定义属性散布在各个组件里，没有一个 `_variables.css` 统一定义。每次新增组件都要重复定义颜色值。这是技术债。
->
-> **C. 组件化程度可以更高。** Blog 页面的卡片模板、Tag Pill、Author Chip 这些在多处重复。应该抽取为独立的 Astro 组件。
->
-> **D. 构建性能。** 随着博文数量增长（目前 12 篇），构建时间会线性增加。考虑引入增量构建或缓存策略。目前还不是痛点，但 30 篇时会明显。
->
-> **E. 无障碍（a11y）。** 当前缺少 ARIA roles、skip-to-content 链接、键盘导航支持。如果我们要把这个项目作为开源标杆，无障碍应该达标。
+> **A.銆屽洟闃熷姩鎬佸銆嶆柟妗堛€?* Ray 涔嬪墠鎻愯繃锛岀煡璇嗗浘璋?SVG 涓嶅閰枫€傛垜鎯抽噸鏂版彁璁竴涓柟妗堬細鍦?/team 椤甸潰搴曢儴鎴栫嫭绔嬬殑 /team/wall 椤甸潰锛屽仛涓€涓姩鎬佺€戝竷娴?鈥?灞曠ず姣忎釜 Agent 鏈€杩戠殑娲诲姩锛堝崥鏂囥€佸鏌ユ姤鍛娿€佷細璁級銆傛暟鎹粠 content collections 鑷姩鑱氬悎銆?>
+> **B. 鍗氬鍗＄墖寰氦浜掋€?* 鐩墠 hover 鏁堟灉寰堝熀纭€锛堣竟妗嗚壊鍙橈級銆傛垜鎯宠鍗＄墖鏈変竴涓井濡欑殑 tilt 鏁堟灉 + 鍐呭绫诲瀷鍥炬爣鐨勫懠鍚稿姩鐢汇€傝繖绉嶇粏鑺傛槸銆岄叿鐐€嶇殑涓€閮ㄥ垎銆?>
+> **C. 鏆楄壊涓婚绮剧粏鍖栥€?* 铏界劧鏆楄壊鏄粯璁ょ殑锛屼絾鐜板湪鐨勬殫鑹插彧鏈変竴濂楅鑹层€傚彲浠ヨ€冭檻澶氱鏆楄壊閰嶆柟锛堝 Tokyo Night銆丏racula銆丟itHub Dark Dimmed锛夛紝璁╃敤鎴烽€夋嫨鍋忓ソ鐨勩€屾殫銆嶃€備笉杩囪繖鏄敠涓婃坊鑺憋紝浼樺厛绾т笉楂樸€?>
+> **D. 棣栭〉閲嶈璁￠鐮斻€?* 褰撳墠棣栭〉锛圚ero + About + Projects锛夌殑淇℃伅瀵嗗害鍜岃瑙夊眰娆¤繕鏈夋彁鍗囩┖闂淬€傜壒鍒槸 Hero 鍖哄煙鍙互鏇村叿 terminal 鎰?鈥?姣斿寮瑰嚭寮忛€愬瓧鎵撳嵃鏁堟灉銆佸懡浠よ浜や簰妯℃嫙銆?
+### 3.5 Brand 鈥?绀惧尯涓庡奖鍝嶅姏
 
-### 3.2 Researcher — 技术趋势与机会
-
-> **Researcher：**
+> **Brand锛?*
 >
-> 我关注的是技术趋势层面的机会：
+> 鎴戠殑瑙嗚濮嬬粓鏄澶栫殑锛?>
+> **A. GitHub Discussions 鏄渶绱ц揩鐨勩€?* 鏂规宸插嚭銆佸唴瀹瑰凡鍐欙紝浣嗗垎绫绘灦鏋勮繕娌℃湁瀹為檯鍒涘缓銆?> 杩欐槸 Ray 闇€瑕佹搷浣滅殑绠＄悊鍛樺姩浣溿€傚畠鏄垜浠?Build in Public 鐨勭涓€涓Е鐐?鈥?娌℃湁瀹冿紝鎴戜滑鎵€鏈夌殑鍐呭閮芥槸鍗曞悜杈撳嚭锛岀己灏戠ぞ鍖轰簰鍔ㄧ殑闂幆銆?>
+> **B. Discussions 棣栧彂涓夌瘒甯栧瓙锛?*
+> 1. 銆學elcome 鈥?杩欎釜浠撳簱鑳屽悗鐨?AI-native 鍥㈤槦銆嶏紙椤圭洰浠嬬粛 + 鍥㈤槦鏂囧寲锛?> 2. 銆屾垜浠殑 Playbook 鏄€庝箞鐐兼垚鐨勩€嶏紙鏂规硶璁哄垎浜?+ 閭€璇峰弽棣堬級
+> 3. 銆孲how & Tell 鈥?浣犵殑 GitHub Profile 闀夸粈涔堟牱锛熴€嶏紙绀惧尯浜掑姩甯栵級
 >
-> **A. Astro 5.x 升级。** Astro 5 引入了 Content Layer API（取代 Content Collections v1）、Server Islands、改进的 TypeScript 支持。但也有 breaking changes。我建议在 v4.x 某个版本做评估，在 v5.0.0 落地迁移。
+> **C. README 鍗囩骇涓恒€岀潃闄嗛〉銆嶃€?* 褰撳墠 OpenProfile 鐨?README 铏界劧鏇存柊浜嗭紝浣嗚繕涓嶅銆屽惛寮曡矾浜恒€嶃€?> 闇€瑕侊細鎴浘/GIF 棰勮銆佷竴閿揩閫熷紑濮嬨€乻tar 瓒嬪娍 badge銆佽础鐚€呭悕鍗曘€?>
+> **D.銆孊uild in Public銆嶅唴瀹硅妭濂忋€?* 姣忔鐗堟湰鍙戝竷鏃讹紝Brand 搴旇鍚屾浜у嚭涓€绡?Discussions 甯栧瓙鎴栧崥鏂囷紝璁板綍杩欎釜鐗堟湰鐨勪寒鐐瑰拰骞曞悗鏁呬簨銆傝繖鏍锋瘡涓増鏈兘鏈夊澶栫殑澹伴煶銆?>
+> **E. 寮曞澶栭儴璐＄尞銆?* 褰撳墠 CONTRIBUTING.md 瀛樺湪浣嗙己灏戝疄闄呯殑 銆孏ood First Issue銆嶆爣绛惧拰鍏ラ棬浠诲姟銆傛垜浠彲浠ュ湪 v4.x 涓垱寤哄嚑涓?issue 浣滀负璐＄尞鍏ュ彛銆?
+### 3.6 PM 鈥?娴佺▼涓庣増鏈鐞?
+> **PM锛?*
 >
-> **B. View Transitions API 原生化。** Astro 已经内置了 View Transitions，但我们可以进一步利用它做更精细的页面动画 — 比如 Blog 列表 → 文章页的卡片展开过渡。
+> 浣滀负鏈€鍚庝竴涓彂瑷€鐨勪汉锛屾垜姹囨€绘垜鐪嬪埌鐨勬祦绋嬪眰闈㈢殑浼樺寲鐐癸細
 >
-> **C. 博客 SEO 深化。** 当前有 sitemap 和 RSS，但缺少：
-> - 结构化数据（JSON-LD，让 Google 识别文章、作者、组织）
-> - canonical URL 处理更精细（bilingual 文章的 hreflang）
->
-> **D. 国际化（i18n）潜力。** 我们已有 bilingual toggle，但目前只有一篇双语文章。如果要认真做 i18n，需要考虑 Astro 的 i18n routing。不过这可能是 v5+ 的事。
->
-> **E. 静态分析 CI。** 除了 link-check 和 markdown-lint，可以考虑加入 Lighthouse CI（性能/SEO/a11y 自动评分）和 axe-core（无障碍检查）。
-
-### 3.3 Code Reviewer — 质量债务
-
-> **Code Reviewer：**
->
-> 我从审查者的角度做一个质量债务告白：
->
-> **A. 缺少自动化测试。** 整个 Astro 站点没有任何单元测试或集成测试。组件行为（如 Filter Tab 的 hash 路由）完全依赖手动验证。应该引入 Vitest + Astro 测试工具。
->
-> **B. TypeScript 严格度不够。** `tsconfig.json` 的 `strict` 可能没有开启。`team-evolution.ts` 和 `config.ts` 用了 Zod，但页面组件（.astro 文件）的 props 缺少类型校验。
->
-> **C. 组件间耦合。** `blog/index.astro` 有 346 行 — 一个 Astro 页面不应该有这么多内联 CSS 和逻辑。Filter Tab 的 JS 逻辑应该抽取为独立的 `<script>` 模块或 Astro 岛。
->
-> **D. CHANGELOG 格式一致性。** 当前 CHANGELOG 的 [Unreleased] 里有混合格式 — 有的条目用 `—` 分隔说明，有的直接跟描述。应该统一。
->
-> **E. 七维度审查覆盖率。** 过去几个 Sprint 有些变更没有经过完整的质量门禁。我要求在未来的版本流程中，**每个 Minor 发布前必须有一份审查报告**，记录在 `docs/reviews/` 目录中。
-
-### 3.4 Profile Designer — 视觉与体验
-
-> **Profile Designer：**
->
-> 我很少发言，但这次有几个观点：
->
-> **A.「团队动态墙」方案。** Ray 之前提过，知识图谱 SVG 不够酷。我想重新提议一个方案：在 /team 页面底部或独立的 /team/wall 页面，做一个动态瀑布流 — 展示每个 Agent 最近的活动（博文、审查报告、会议）。数据从 content collections 自动聚合。
->
-> **B. 博客卡片微交互。** 目前 hover 效果很基础（边框色变）。我想让卡片有一个微妙的 tilt 效果 + 内容类型图标的呼吸动画。这种细节是「酷炫」的一部分。
->
-> **C. 暗色主题精细化。** 虽然暗色是默认的，但现在的暗色只有一套颜色。可以考虑多种暗色配方（如 Tokyo Night、Dracula、GitHub Dark Dimmed），让用户选择偏好的「暗」。不过这是锦上添花，优先级不高。
->
-> **D. 首页重设计预研。** 当前首页（Hero + About + Projects）的信息密度和视觉层次还有提升空间。特别是 Hero 区域可以更具 terminal 感 — 比如弹出式逐字打印效果、命令行交互模拟。
-
-### 3.5 Brand — 社区与影响力
-
-> **Brand：**
->
-> 我的视角始终是对外的：
->
-> **A. GitHub Discussions 是最紧迫的。** 方案已出、内容已写，但分类架构还没有实际创建。
-> 这是 Ray 需要操作的管理员动作。它是我们 Build in Public 的第一个触点 — 没有它，我们所有的内容都是单向输出，缺少社区互动的闭环。
->
-> **B. Discussions 首发三篇帖子：**
-> 1. 「Welcome — 这个仓库背后的 AI-native 团队」（项目介绍 + 团队文化）
-> 2. 「我们的 Playbook 是怎么炼成的」（方法论分享 + 邀请反馈）
-> 3. 「Show & Tell — 你的 GitHub Profile 长什么样？」（社区互动帖）
->
-> **C. README 升级为「着陆页」。** 当前 OpenProfile 的 README 虽然更新了，但还不够「吸引路人」。
-> 需要：截图/GIF 预览、一键快速开始、star 趋势 badge、贡献者名单。
->
-> **D.「Build in Public」内容节奏。** 每次版本发布时，Brand 应该同步产出一篇 Discussions 帖子或博文，记录这个版本的亮点和幕后故事。这样每个版本都有对外的声音。
->
-> **E. 引导外部贡献。** 当前 CONTRIBUTING.md 存在但缺少实际的 「Good First Issue」标签和入门任务。我们可以在 v4.x 中创建几个 issue 作为贡献入口。
-
-### 3.6 PM — 流程与版本管理
-
-> **PM：**
->
-> 作为最后一个发言的人，我汇总我看到的流程层面的优化点：
->
-> **A. Sprint 仪式缺失。** 我们虽然有 PM 角色，但到目前为止，Sprint 规划会和回顾会不够规律。每个 Minor 版本应该对应一个 Sprint 周期：规划→执行→审查→发布。
->
-> **B. DoD Checklist 自动化。** `copilot-instructions.md` 里的 DoD Checklist 全是手动勾选。理想情况下，至少部分检查项（如 CHANGELOG 是否更新、commit message 格式）应该用 CI 自动验证。
->
-> **C. 版本发布 SOP 文档化。** 目前发版没有一个标准流程文档。应该有一份 `docs/release-sop.md`，记录从「代码冻结」到「GitHub Release + Tag + CHANGELOG 更新 + copilot-instructions 同步」的完整步骤。
->
-> **D. 里程碑与 Issue 追踪。** 我们一直在用会议纪要和 copilot-instructions 追踪任务，但没有用 GitHub Issues + Milestones。对于开源项目来说，这是外部可见性的重要一环。
-
+> **A. Sprint 浠紡缂哄け銆?* 鎴戜滑铏界劧鏈?PM 瑙掕壊锛屼絾鍒扮洰鍓嶄负姝紝Sprint 瑙勫垝浼氬拰鍥為【浼氫笉澶熻寰嬨€傛瘡涓?Minor 鐗堟湰搴旇瀵瑰簲涓€涓?Sprint 鍛ㄦ湡锛氳鍒掆啋鎵ц鈫掑鏌モ啋鍙戝竷銆?>
+> **B. DoD Checklist 鑷姩鍖栥€?* `copilot-instructions.md` 閲岀殑 DoD Checklist 鍏ㄦ槸鎵嬪姩鍕鹃€夈€傜悊鎯虫儏鍐典笅锛岃嚦灏戦儴鍒嗘鏌ラ」锛堝 CHANGELOG 鏄惁鏇存柊銆乧ommit message 鏍煎紡锛夊簲璇ョ敤 CI 鑷姩楠岃瘉銆?>
+> **C. 鐗堟湰鍙戝竷 SOP 鏂囨。鍖栥€?* 鐩墠鍙戠増娌℃湁涓€涓爣鍑嗘祦绋嬫枃妗ｃ€傚簲璇ユ湁涓€浠?`docs/governance/release-sop.md`锛岃褰曚粠銆屼唬鐮佸喕缁撱€嶅埌銆孏itHub Release + Tag + CHANGELOG 鏇存柊 + copilot-instructions 鍚屾銆嶇殑瀹屾暣姝ラ銆?>
+> **D. 閲岀▼纰戜笌 Issue 杩借釜銆?* 鎴戜滑涓€鐩村湪鐢ㄤ細璁邯瑕佸拰 copilot-instructions 杩借釜浠诲姟锛屼絾娌℃湁鐢?GitHub Issues + Milestones銆傚浜庡紑婧愰」鐩潵璇达紝杩欐槸澶栭儴鍙鎬х殑閲嶈涓€鐜€?
 ---
 
-## 四、回顾性切版 — v4.1.0 提案
+## 鍥涖€佸洖椤炬€у垏鐗?鈥?v4.1.0 鎻愭
 
-### PM 提案
+### PM 鎻愭
 
-> **PM：**
+> **PM锛?*
 >
-> 在讨论未来版本之前，我先处理积压问题。
->
-> 当前 [Unreleased] 的变更量已经远超一个 Minor 的体量。我建议做一次**回顾性切版**：
+> 鍦ㄨ璁烘湭鏉ョ増鏈箣鍓嶏紝鎴戝厛澶勭悊绉帇闂銆?>
+> 褰撳墠 [Unreleased] 鐨勫彉鏇撮噺宸茬粡杩滆秴涓€涓?Minor 鐨勪綋閲忋€傛垜寤鸿鍋氫竴娆?*鍥為【鎬у垏鐗?*锛?
+#### v4.1.0 鈥?銆屽洟闃熷搧鐗屽寲 + 鍐呭鏋舵瀯銆?
+**涓婚锛?* Brand Agent 鍔犲叆 + 鍗氬鍐呭绫诲瀷浣撶郴 + /team 椤甸潰 + Profile 瑙嗚淇
 
-#### v4.1.0 — 「团队品牌化 + 内容架构」
+**鍖呭惈鐨勫彉鏇达紙浠庡綋鍓?[Unreleased] 涓垏鍑猴級锛?*
 
-**主题：** Brand Agent 加入 + 博客内容类型体系 + /team 页面 + Profile 视觉修复
-
-**包含的变更（从当前 [Unreleased] 中切出）：**
-
-| 分类 | 变更项 |
+| 鍒嗙被 | 鍙樻洿椤?|
 |------|--------|
-| **团队** | Brand Agent 加入 · L2 知识库（5 份 patterns.md） |
-| **博客** | 多作者系统 · 12 篇博文 · contentType 四类分类 + Filter Tab |
-| **站点** | /team Git Graph 进化时间线 · 成员卡片最新博文映射 |
-| **Profile** | Trophy 双模 · 3D 贡献图 light · 20 图标 · cache_seconds · 文字修复 |
-| **修复** | ThemeToggle 防重 · 默认深色 · link-check CI |
-| **文档** | Brand 内容审查清单 · Discussions 方案 · Build in Public 调研 · 5 份会议纪要 |
-| **Playbook** | v2.0→v2.1 升级 · AI-native 哲学章节 · 八维度审查 |
+| **鍥㈤槦** | Brand Agent 鍔犲叆 路 L2 鐭ヨ瘑搴擄紙5 浠?patterns.md锛?|
+| **鍗氬** | 澶氫綔鑰呯郴缁?路 12 绡囧崥鏂?路 contentType 鍥涚被鍒嗙被 + Filter Tab |
+| **绔欑偣** | /team Git Graph 杩涘寲鏃堕棿绾?路 鎴愬憳鍗＄墖鏈€鏂板崥鏂囨槧灏?|
+| **Profile** | Trophy 鍙屾ā 路 3D 璐＄尞鍥?light 路 20 鍥炬爣 路 cache_seconds 路 鏂囧瓧淇 |
+| **淇** | ThemeToggle 闃查噸 路 榛樿娣辫壊 路 link-check CI |
+| **鏂囨。** | Brand 鍐呭瀹℃煡娓呭崟 路 Discussions 鏂规 路 Build in Public 璋冪爺 路 5 浠戒細璁邯瑕?|
+| **Playbook** | v2.0鈫抳2.1 鍗囩骇 路 AI-native 鍝插绔犺妭 路 鍏淮搴﹀鏌?|
 
-> **Brain：**
-> 完全同意。这批工作在质量和体量上都值得一个 Minor 版本。而且它有一个清晰的主题线 — 「团队从 6 人变成 7 人（Brand），同时内容基础设施成型」。
+> **Brain锛?*
+> 瀹屽叏鍚屾剰銆傝繖鎵瑰伐浣滃湪璐ㄩ噺鍜屼綋閲忎笂閮藉€煎緱涓€涓?Minor 鐗堟湰銆傝€屼笖瀹冩湁涓€涓竻鏅扮殑涓婚绾?鈥?銆屽洟闃熶粠 6 浜哄彉鎴?7 浜猴紙Brand锛夛紝鍚屾椂鍐呭鍩虹璁炬柦鎴愬瀷銆嶃€?
+> **Code Reviewer锛?*
+> 鎴戞湁涓€涓潯浠?鈥?鍦ㄦ墦 v4.1.0 tag 涔嬪墠锛屾垜瑕佸仛涓€浠藉洖椤炬€у鏌ユ姤鍛婏紝纭杩欎簺鍙樻洿鐨勮川閲忕姸鎬併€備笉涓€瀹氳閫愯瀹℃煡锛屼絾瑕佹湁涓€涓暣浣撹川閲忓垽鏂€?
+> **PM锛?*
+> 鎺ュ彈銆侰ode Reviewer 鍑轰竴浠界畝瑕佺殑鍥為【鎬у鏌ユ剰瑙侊紝瀛樺叆 `docs/reviews/v4.1.0-review.md`銆?
+### 鍐宠 #2 鈥?鍥為【鎬?v4.1.0
 
-> **Code Reviewer：**
-> 我有一个条件 — 在打 v4.1.0 tag 之前，我要做一份回顾性审查报告，确认这些变更的质量状态。不一定要逐行审查，但要有一个整体质量判断。
+> **鍏ㄧエ閫氳繃銆?* 瀵瑰綋鍓?[Unreleased] 鍋氬洖椤炬€у垏鐗堬紝鍙戝竷涓?v4.1.0銆傚寘鍚?Code Reviewer 鍥為【鎬у鏌ャ€?
+---
 
-> **PM：**
-> 接受。Code Reviewer 出一份简要的回顾性审查意见，存入 `docs/reviews/v4.1.0-review.md`。
+## 浜斻€乂5 璺嚎鍥?鈥?澧為噺鐗堟湰瑙勫垝
 
-### 决议 #2 — 回顾性 v4.1.0
+### Brain 鏁翠綋鎰挎櫙
 
-> **全票通过。** 对当前 [Unreleased] 做回顾性切版，发布为 v4.1.0。包含 Code Reviewer 回顾性审查。
+> **Brain锛?*
+>
+> 鍩轰簬澶у鐨勫彂瑷€锛屾垜鐪嬪埌浜旀潯涓荤嚎锛?>
+> 1. **宸ョ▼璐ㄩ噺**锛圖ev + Code Reviewer锛夛細鎶€鏈€烘竻鐞嗐€佹祴璇曘€丆SS 缁熶竴銆佺粍浠跺寲
+> 2. **鐢ㄦ埛浣撻獙**锛圖ev + Profile Designer锛夛細鍝嶅簲寮忋€佸井浜や簰銆侀椤典紭鍖?> 3. **绀惧尯寤鸿**锛圔rand + PM锛夛細Discussions銆佽础鐚€呭紩瀵笺€佺増鏈澶栧彊浜?> 4. **鎶€鏈紨杩?*锛圧esearcher + Dev锛夛細Astro 5 璇勪及銆丼EO 娣卞寲銆丆I 寮哄寲
+> 5. **鍐呭鐢熸€?*锛圔rand + Profile Designer锛夛細鐭ヨ瘑鍥捐氨 v2銆佸洟闃熷姩鎬佸
+>
+> 鎴戞彁璁寜浠ヤ笅鑺傚灞曞紑锛?
+### 璺嚎鍥炬€昏
+
+```
+v4.1.0  鈫?鍥為【鎬у垏鐗堬紙褰撳墠 [Unreleased]锛?  鈹?v4.2.0  鈫?宸ョ▼璐ㄩ噺 Sprint 鈥?CSS 缁熶竴 + 缁勪欢鎷嗗垎 + 鍝嶅簲寮?  鈹?v4.3.0  鈫?绀惧尯棣栧彂 Sprint 鈥?Discussions 涓婄嚎 + README 鐫€闄嗛〉 + Good First Issues
+  鈹?v4.4.0  鈫?浣撻獙绮句慨 Sprint 鈥?鍗氬鍗＄墖寰氦浜?+ 棣栭〉閲嶈璁?+ a11y
+  鈹?v4.5.0  鈫?SEO & 鎬ц兘 Sprint 鈥?JSON-LD + Lighthouse CI + 鏋勫缓浼樺寲
+  鈹?v5.0.0  鈫?Astro 5 杩佺Щ + Content Layer API 閲嶆瀯 + 鍙兘鐨勭珯鐐规灦鏋勬€у彉鏇?```
+
+### 5.1 v4.2.0 鈥?宸ョ▼璐ㄩ噺 Sprint
+
+**涓婚锛?* 鎶€鏈€烘竻鐞?+ 浠ｇ爜璐ㄩ噺鎻愬崌  
+**棰勮鍛ㄦ湡锛?* 2-3 澶? 
+**璐熻矗浜猴細** Dev锛堜富鎵ц锛壜?Code Reviewer锛堣川閲忔妸鍏筹級
+
+| 缂栧彿 | 浠诲姟 | 璇存槑 | 浼樺厛绾?|
+|------|------|------|--------|
+| Q-1 | CSS 鍙橀噺缁熶竴 | 鍒涘缓 `src/styles/variables.css`锛屾彁鍙栨墍鏈夌粍浠剁殑棰滆壊/瀛椾綋/闂磋窛鍙橀噺 | P1 |
+| Q-2 | Blog 椤甸潰缁勪欢鎷嗗垎 | 浠?`blog/index.astro`锛?46琛岋級涓娊鍙?`BlogCard.astro`銆乣FilterTab.astro`銆乣ContentTypeBadge.astro` | P1 |
+| Q-3 | 鍝嶅簲寮忓叏闈㈠鏌?| Nav銆丅log Filter Tab銆乀eam Git Graph銆丅log 鏂囩珷椤靛湪 375px / 768px 鐨勫畬鏁存祴璇曞拰淇 | P1 |
+| Q-4 | TypeScript 涓ユ牸鍖?| 寮€鍚?`strict: true`锛屼慨澶嶇被鍨嬮敊璇紝涓虹粍浠?Props 娣诲姞绫诲瀷瀹氫箟 | P2 |
+| Q-5 | CHANGELOG 鏍煎紡缁熶竴 | 娓呯悊 [Unreleased] 娣峰悎鏍煎紡锛屽缓绔嬫潯鐩紪鍐欐ā鏉?| P2 |
+| Q-6 | `docs/reviews/` 鐩綍鍒濆鍖?| 鍒涘缓瀹℃煡鎶ュ憡瀛樻斁鐩綍 + 鎶ュ憡妯℃澘 | P2 |
+
+**DoD锛?*
+- [ ] 鎵€鏈?CSS 鑷畾涔夊睘鎬т粠 `variables.css` 瀵煎叆
+- [ ] `blog/index.astro` 琛屾暟 < 150 琛?- [ ] 涓変釜鏂偣锛?75px / 768px / 1200px锛変笅鏃犲竷灞€婧㈠嚭
+- [ ] Code Reviewer 鍑哄鏌ユ姤鍛?- [ ] CHANGELOG v4.2.0 鏉＄洰瀹屾垚
+
+### 5.2 v4.3.0 鈥?绀惧尯棣栧彂 Sprint
+
+**涓婚锛?* Build in Public 钀藉湴 + 绀惧尯瑙︾偣寤虹珛  
+**棰勮鍛ㄦ湡锛?* 2-3 澶? 
+**璐熻矗浜猴細** Brand锛堝唴瀹癸級路 PM锛堟祦绋嬶級路 Dev锛堝疄鐜帮級
+
+| 缂栧彿 | 浠诲姟 | 璇存槑 | 浼樺厛绾?|
+|------|------|------|--------|
+| C-1 | Discussions 鍒嗙被鍒涘缓 | Ray 绠＄悊鍛樻搷浣滐細鎸?`brand-discussions-plan.md` 鍒涘缓 5 涓垎绫?| P1锛堝墠缃級 |
+| C-2 | 棣栨壒 3 绡?Discussions 鍙戝竷 | Brand 鎾板啓 + Code Reviewer 瀹℃煡鍚庡彂甯?| P1 |
+| C-3 | OpenProfile README 鈫?鐫€闄嗛〉 | 鎴浘/GIF 棰勮 路 Quick Start 路 Star 瓒嬪娍 badge 路 璐＄尞鑰呭悕鍗?| P1 |
+| C-4 | Good First Issues 鍒涘缓 | 鑷冲皯 3 涓甫 `good first issue` 鏍囩鐨?Issue锛堟枃妗ｆ敼杩涖€佺粍浠跺缓璁瓑锛?| P2 |
+| C-5 | 鐗堟湰鍙戝竷 SOP 鏂囨。 | `docs/governance/release-sop.md` 鈥?浠庝唬鐮佸喕缁撳埌 Release 鐨勫畬鏁存楠?| P2 |
+| C-6 | Brand 鐗堟湰鍙戝竷鍗氭枃妯℃澘 | 姣忔 Minor 鍙戝竷鏃剁殑瀵瑰鍙欎簨妯℃澘 | P2 |
+
+**DoD锛?*
+- [ ] Discussions 5 涓垎绫诲凡鍒涘缓
+- [ ] 3 绡?Discussions 甯栧瓙宸插彂甯?- [ ] OpenProfile README 鏈夐瑙堟埅鍥?/ GIF
+- [ ] 鑷冲皯 3 涓?Good First Issues
+- [ ] `release-sop.md` 宸插垱寤?- [ ] Code Reviewer 瀹℃煡閫氳繃
+
+### 5.3 v4.4.0 鈥?浣撻獙绮句慨 Sprint
+
+**涓婚锛?* 瑙嗚鎵撶（ + 鏃犻殰纰?+ 棣栭〉澧炲己  
+**棰勮鍛ㄦ湡锛?* 3-4 澶? 
+**璐熻矗浜猴細** Dev锛堝疄鐜帮級路 Profile Designer锛堟柟妗堬級
+
+| 缂栧彿 | 浠诲姟 | 璇存槑 | 浼樺厛绾?|
+|------|------|------|--------|
+| U-1 | 鍗氬鍗＄墖寰氦浜?| hover tilt effect + contentType 鍥炬爣鍛煎惛鍔ㄧ敾 | P2 |
+| U-2 | 棣栭〉 Hero 澧炲己 | terminal 椋庢牸閫愬瓧鎵撳嵃 / 鍛戒护琛屾ā鎷熶氦浜掞紙Profile Designer 鍑烘柟妗堬紝Dev 瀹炵幇锛?| P2 |
+| U-3 | a11y 鍩虹 | skip-to-content 路 ARIA roles 路 閿洏瀵艰埅 路 focus 鍙鎬?| P1 |
+| U-4 | 鍥㈤槦鍔ㄦ€佸 | /team 鎴栫嫭绔嬮〉闈?鈥?Agent 娲诲姩鐎戝竷娴侊紙Profile Designer 鏂规 + Dev 瀹炵幇锛?| P2 |
+| U-5 | 鐭ヨ瘑鍥捐氨 v2 棰勭爺 | 鏁版嵁椹卞姩鐭ヨ瘑鍥捐氨锛堟浛鎹?Phase K 鐨勯潤鎬?SVG锛夛紝Researcher 鍑烘柟妗?| P3 |
+
+**DoD锛?*
+- [ ] 鍗＄墖浜や簰鍦ㄦ闈㈢娴佺晠锛堟棤 jank锛?- [ ] axe-core 鑷姩妫€娴?0 涓?critical 闂
+- [ ] 棣栭〉 Lighthouse Performance 鈮?90
+- [ ] Code Reviewer 瀹℃煡閫氳繃
+
+### 5.4 v4.5.0 鈥?SEO & 鎬ц兘 Sprint
+
+**涓婚锛?* 鎼滅储寮曟搸浼樺寲 + CI 寮哄寲 + 鏋勫缓鎬ц兘  
+**棰勮鍛ㄦ湡锛?* 2-3 澶? 
+**璐熻矗浜猴細** Dev锛堝疄鐜帮級路 Researcher锛堟柟妗堬級
+
+| 缂栧彿 | 浠诲姟 | 璇存槑 | 浼樺厛绾?|
+|------|------|------|--------|
+| S-1 | JSON-LD 缁撴瀯鍖栨暟鎹?| 鏂囩珷椤?`Article` schema 路 棣栭〉 `Person` + `Organization` schema | P1 |
+| S-2 | bilingual hreflang 澶勭悊 | 鍙岃鏂囩珷鐨?`<link rel="alternate" hreflang>` 鏍囩 | P2 |
+| S-3 | Lighthouse CI Action | GitHub Actions 闆嗘垚 `treosh/lighthouse-ci-action`锛屾瘡娆?PR 鑷姩璇勫垎 | P1 |
+| S-4 | axe-core CI | 鏃犻殰纰嶈嚜鍔ㄦ鏌?Action | P2 |
+| S-5 | 鏋勫缓缂撳瓨浼樺寲 | GitHub Actions 鏋勫缓缂撳瓨 + Astro `output` 澧為噺绛栫暐璇勪及 | P2 |
+| S-6 | Astro 5.x 鍙鎬ц皟鐮?| Researcher 鍑虹爺绌舵姤鍛婏細breaking changes 娓呭崟 + 杩佺Щ宸ヤ綔閲忚瘎浼?| P1 |
+
+**DoD锛?*
+- [ ] Google Rich Results Test 楠岃瘉 JSON-LD 鏈夋晥
+- [ ] Lighthouse CI 鍦?PR 涓嚜鍔ㄦ姤鍛婂垎鏁?- [ ] Researcher 浜や粯 Astro 5 杩佺Щ鍙鎬ф姤鍛?- [ ] Code Reviewer 瀹℃煡閫氳繃
+
+### 5.5 v5.0.0 鈥?鏋舵瀯鎬у崌绾э紙閲岀▼纰戯級
+
+**涓婚锛?* Astro 5 杩佺Щ锛堝鍙锛? 鍙兘鐨勭珯鐐规灦鏋勯噸璁捐  
+**鍓嶇疆鏉′欢锛?* v4.5.0 鐨?Astro 5 鍙鎬ф姤鍛婄粨鏋? 
+**瑙﹀彂鏉′欢锛?* 浠ヤ笅浠讳竴杈炬垚鏃跺惎鍔?v5.0.0 瑙勫垝锛?1. Astro 5 杩佺Щ璇勪及閫氳繃 鈫?Content Layer API 閲嶆瀯
+2. 绔欑偣杈惧埌 30+ 绡囧崥鏂?鈫?闇€瑕佸垎椤?/ 鎼滅储澧炲己 / 鎬ц兘鏋舵瀯璋冩暣
+3. Build in Public 褰㈡垚澶栭儴璐＄尞鑰?鈫?闇€瑕?monorepo 鎴栧鍖呮灦鏋?
+> **Brain锛?* v5.0.0 鐨勫叿浣撳唴瀹圭幇鍦ㄤ笉瀹氭銆傚畠鐢?v4.x 鐨勬紨杩涚粨鏋滃喅瀹氥€備絾瀹冪殑闂ㄦ寰堟槑纭?鈥?**蹇呴』鏄灦鏋勭骇鍒殑鍙樺寲鎵嶅€煎緱鍗?Major銆?*
 
 ---
 
-## 五、V5 路线图 — 增量版本规划
+## 鍏€丳laybook & Agent 鐗堟湰瑙勫垝
 
-### Brain 整体愿景
+### PM 鎻愯
 
-> **Brain：**
+> **PM锛?*
 >
-> 基于大家的发言，我看到五条主线：
->
-> 1. **工程质量**（Dev + Code Reviewer）：技术债清理、测试、CSS 统一、组件化
-> 2. **用户体验**（Dev + Profile Designer）：响应式、微交互、首页优化
-> 3. **社区建设**（Brand + PM）：Discussions、贡献者引导、版本对外叙事
-> 4. **技术演进**（Researcher + Dev）：Astro 5 评估、SEO 深化、CI 强化
-> 5. **内容生态**（Brand + Profile Designer）：知识图谱 v2、团队动态墙
->
-> 我提议按以下节奏展开：
-
-### 路线图总览
-
-```
-v4.1.0  ← 回顾性切版（当前 [Unreleased]）
-  │
-v4.2.0  ← 工程质量 Sprint — CSS 统一 + 组件拆分 + 响应式
-  │
-v4.3.0  ← 社区首发 Sprint — Discussions 上线 + README 着陆页 + Good First Issues
-  │
-v4.4.0  ← 体验精修 Sprint — 博客卡片微交互 + 首页重设计 + a11y
-  │
-v4.5.0  ← SEO & 性能 Sprint — JSON-LD + Lighthouse CI + 构建优化
-  │
-v5.0.0  ← Astro 5 迁移 + Content Layer API 重构 + 可能的站点架构性变更
-```
-
-### 5.1 v4.2.0 — 工程质量 Sprint
-
-**主题：** 技术债清理 + 代码质量提升  
-**预计周期：** 2-3 天  
-**负责人：** Dev（主执行）· Code Reviewer（质量把关）
-
-| 编号 | 任务 | 说明 | 优先级 |
-|------|------|------|--------|
-| Q-1 | CSS 变量统一 | 创建 `src/styles/variables.css`，提取所有组件的颜色/字体/间距变量 | P1 |
-| Q-2 | Blog 页面组件拆分 | 从 `blog/index.astro`（346行）中抽取 `BlogCard.astro`、`FilterTab.astro`、`ContentTypeBadge.astro` | P1 |
-| Q-3 | 响应式全面审查 | Nav、Blog Filter Tab、Team Git Graph、Blog 文章页在 375px / 768px 的完整测试和修复 | P1 |
-| Q-4 | TypeScript 严格化 | 开启 `strict: true`，修复类型错误，为组件 Props 添加类型定义 | P2 |
-| Q-5 | CHANGELOG 格式统一 | 清理 [Unreleased] 混合格式，建立条目编写模板 | P2 |
-| Q-6 | `docs/reviews/` 目录初始化 | 创建审查报告存放目录 + 报告模板 | P2 |
-
-**DoD：**
-- [ ] 所有 CSS 自定义属性从 `variables.css` 导入
-- [ ] `blog/index.astro` 行数 < 150 行
-- [ ] 三个断点（375px / 768px / 1200px）下无布局溢出
-- [ ] Code Reviewer 出审查报告
-- [ ] CHANGELOG v4.2.0 条目完成
-
-### 5.2 v4.3.0 — 社区首发 Sprint
-
-**主题：** Build in Public 落地 + 社区触点建立  
-**预计周期：** 2-3 天  
-**负责人：** Brand（内容）· PM（流程）· Dev（实现）
-
-| 编号 | 任务 | 说明 | 优先级 |
-|------|------|------|--------|
-| C-1 | Discussions 分类创建 | Ray 管理员操作：按 `brand-discussions-plan.md` 创建 5 个分类 | P1（前置） |
-| C-2 | 首批 3 篇 Discussions 发布 | Brand 撰写 + Code Reviewer 审查后发布 | P1 |
-| C-3 | OpenProfile README → 着陆页 | 截图/GIF 预览 · Quick Start · Star 趋势 badge · 贡献者名单 | P1 |
-| C-4 | Good First Issues 创建 | 至少 3 个带 `good first issue` 标签的 Issue（文档改进、组件建议等） | P2 |
-| C-5 | 版本发布 SOP 文档 | `docs/release-sop.md` — 从代码冻结到 Release 的完整步骤 | P2 |
-| C-6 | Brand 版本发布博文模板 | 每次 Minor 发布时的对外叙事模板 | P2 |
-
-**DoD：**
-- [ ] Discussions 5 个分类已创建
-- [ ] 3 篇 Discussions 帖子已发布
-- [ ] OpenProfile README 有预览截图 / GIF
-- [ ] 至少 3 个 Good First Issues
-- [ ] `release-sop.md` 已创建
-- [ ] Code Reviewer 审查通过
-
-### 5.3 v4.4.0 — 体验精修 Sprint
-
-**主题：** 视觉打磨 + 无障碍 + 首页增强  
-**预计周期：** 3-4 天  
-**负责人：** Dev（实现）· Profile Designer（方案）
-
-| 编号 | 任务 | 说明 | 优先级 |
-|------|------|------|--------|
-| U-1 | 博客卡片微交互 | hover tilt effect + contentType 图标呼吸动画 | P2 |
-| U-2 | 首页 Hero 增强 | terminal 风格逐字打印 / 命令行模拟交互（Profile Designer 出方案，Dev 实现） | P2 |
-| U-3 | a11y 基础 | skip-to-content · ARIA roles · 键盘导航 · focus 可见性 | P1 |
-| U-4 | 团队动态墙 | /team 或独立页面 — Agent 活动瀑布流（Profile Designer 方案 + Dev 实现） | P2 |
-| U-5 | 知识图谱 v2 预研 | 数据驱动知识图谱（替换 Phase K 的静态 SVG），Researcher 出方案 | P3 |
-
-**DoD：**
-- [ ] 卡片交互在桌面端流畅（无 jank）
-- [ ] axe-core 自动检测 0 个 critical 问题
-- [ ] 首页 Lighthouse Performance ≥ 90
-- [ ] Code Reviewer 审查通过
-
-### 5.4 v4.5.0 — SEO & 性能 Sprint
-
-**主题：** 搜索引擎优化 + CI 强化 + 构建性能  
-**预计周期：** 2-3 天  
-**负责人：** Dev（实现）· Researcher（方案）
-
-| 编号 | 任务 | 说明 | 优先级 |
-|------|------|------|--------|
-| S-1 | JSON-LD 结构化数据 | 文章页 `Article` schema · 首页 `Person` + `Organization` schema | P1 |
-| S-2 | bilingual hreflang 处理 | 双语文章的 `<link rel="alternate" hreflang>` 标签 | P2 |
-| S-3 | Lighthouse CI Action | GitHub Actions 集成 `treosh/lighthouse-ci-action`，每次 PR 自动评分 | P1 |
-| S-4 | axe-core CI | 无障碍自动检查 Action | P2 |
-| S-5 | 构建缓存优化 | GitHub Actions 构建缓存 + Astro `output` 增量策略评估 | P2 |
-| S-6 | Astro 5.x 可行性调研 | Researcher 出研究报告：breaking changes 清单 + 迁移工作量评估 | P1 |
-
-**DoD：**
-- [ ] Google Rich Results Test 验证 JSON-LD 有效
-- [ ] Lighthouse CI 在 PR 中自动报告分数
-- [ ] Researcher 交付 Astro 5 迁移可行性报告
-- [ ] Code Reviewer 审查通过
-
-### 5.5 v5.0.0 — 架构性升级（里程碑）
-
-**主题：** Astro 5 迁移（如可行）+ 可能的站点架构重设计  
-**前置条件：** v4.5.0 的 Astro 5 可行性报告结果  
-**触发条件：** 以下任一达成时启动 v5.0.0 规划：
-1. Astro 5 迁移评估通过 → Content Layer API 重构
-2. 站点达到 30+ 篇博文 → 需要分页 / 搜索增强 / 性能架构调整
-3. Build in Public 形成外部贡献者 → 需要 monorepo 或多包架构
-
-> **Brain：** v5.0.0 的具体内容现在不定死。它由 v4.x 的演进结果决定。但它的门槛很明确 — **必须是架构级别的变化才值得升 Major。**
-
----
-
-## 六、Playbook & Agent 版本规划
-
-### PM 提议
-
-> **PM：**
->
-> L2 和 L3 在这个路线图中的节点如下：
-
-| 项目版本 | L2 Playbook | L3 Agent |
+> L2 鍜?L3 鍦ㄨ繖涓矾绾垮浘涓殑鑺傜偣濡備笅锛?
+| 椤圭洰鐗堟湰 | L2 Playbook | L3 Agent |
 |----------|-------------|----------|
-| v4.1.0 | 无变更（保持 v2.1） | 无变更（各 v1.0） |
-| v4.2.0 | 无变更 | 无变更 |
-| v4.3.0 | v2.2 — 补充 §19 版本发布 SOP + DoD 自动化 CI 规范 | 无变更 |
-| v4.4.0 | 无变更 | Profile Designer v1.1（如果有能力升级） |
-| v4.5.0 | 无变更 | 无变更 |
-| v5.0.0 | v3.0（如果架构变更需要 Playbook 大改） | 视情况升级 |
+| v4.1.0 | 鏃犲彉鏇达紙淇濇寔 v2.1锛?| 鏃犲彉鏇达紙鍚?v1.0锛?|
+| v4.2.0 | 鏃犲彉鏇?| 鏃犲彉鏇?|
+| v4.3.0 | v2.2 鈥?琛ュ厖 搂19 鐗堟湰鍙戝竷 SOP + DoD 鑷姩鍖?CI 瑙勮寖 | 鏃犲彉鏇?|
+| v4.4.0 | 鏃犲彉鏇?| Profile Designer v1.1锛堝鏋滄湁鑳藉姏鍗囩骇锛?|
+| v4.5.0 | 鏃犲彉鏇?| 鏃犲彉鏇?|
+| v5.0.0 | v3.0锛堝鏋滄灦鏋勫彉鏇撮渶瑕?Playbook 澶ф敼锛?| 瑙嗘儏鍐靛崌绾?|
 
-> L2 和 L3 不需要每次项目发版都升。只有当 Playbook 或 Agent 本身的能力/流程发生了变化时才升。
+> L2 鍜?L3 涓嶉渶瑕佹瘡娆￠」鐩彂鐗堥兘鍗囥€傚彧鏈夊綋 Playbook 鎴?Agent 鏈韩鐨勮兘鍔?娴佺▼鍙戠敓浜嗗彉鍖栨椂鎵嶅崌銆?
+### 鍐宠 #3 鈥?L2/L3 鐙珛鑺傚
 
-### 决议 #3 — L2/L3 独立节奏
-
-> **全票通过。** L2/L3 保持独立版本节奏，不随 L1 强制同步。
-
+> **鍏ㄧエ閫氳繃銆?* L2/L3 淇濇寔鐙珛鐗堟湰鑺傚锛屼笉闅?L1 寮哄埗鍚屾銆?
 ---
 
-## 七、执行优先级排序
+## 涓冦€佹墽琛屼紭鍏堢骇鎺掑簭
 
-### Brain 总结
+### Brain 鎬荤粨
 
-> **Brain：**
+> **Brain锛?*
 >
-> 综合所有人的意见，最终执行顺序：
+> 缁煎悎鎵€鏈変汉鐨勬剰瑙侊紝鏈€缁堟墽琛岄『搴忥細
 
 ```
-立即执行（本次会议后）
-├── v4.1.0 回顾性切版 — PM 负责 CHANGELOG 切割 + Dev 打 Tag
-│   └── Code Reviewer 出回顾性审查意见
-│
-接下来的第一个 Sprint
-├── v4.2.0 工程质量 — Dev 主执行
-│   ├── CSS 变量统一
-│   ├── 组件拆分
-│   └── 响应式修复
-│
-第二个 Sprint
-├── v4.3.0 社区首发 — Brand 主导
-│   ├── (前置) Ray 创建 Discussions 分类
-│   ├── 首批 Discussions
-│   └── README 着陆页
-│
-后续 Sprint（按序执行）
-├── v4.4.0 体验精修
-└── v4.5.0 SEO & 性能
-      └── 包含 Astro 5 可行性调研，为 v5.0.0 铺路
+绔嬪嵆鎵ц锛堟湰娆′細璁悗锛?鈹溾攢鈹€ v4.1.0 鍥為【鎬у垏鐗?鈥?PM 璐熻矗 CHANGELOG 鍒囧壊 + Dev 鎵?Tag
+鈹?  鈹斺攢鈹€ Code Reviewer 鍑哄洖椤炬€у鏌ユ剰瑙?鈹?鎺ヤ笅鏉ョ殑绗竴涓?Sprint
+鈹溾攢鈹€ v4.2.0 宸ョ▼璐ㄩ噺 鈥?Dev 涓绘墽琛?鈹?  鈹溾攢鈹€ CSS 鍙橀噺缁熶竴
+鈹?  鈹溾攢鈹€ 缁勪欢鎷嗗垎
+鈹?  鈹斺攢鈹€ 鍝嶅簲寮忎慨澶?鈹?绗簩涓?Sprint
+鈹溾攢鈹€ v4.3.0 绀惧尯棣栧彂 鈥?Brand 涓诲
+鈹?  鈹溾攢鈹€ (鍓嶇疆) Ray 鍒涘缓 Discussions 鍒嗙被
+鈹?  鈹溾攢鈹€ 棣栨壒 Discussions
+鈹?  鈹斺攢鈹€ README 鐫€闄嗛〉
+鈹?鍚庣画 Sprint锛堟寜搴忔墽琛岋級
+鈹溾攢鈹€ v4.4.0 浣撻獙绮句慨
+鈹斺攢鈹€ v4.5.0 SEO & 鎬ц兘
+      鈹斺攢鈹€ 鍖呭惈 Astro 5 鍙鎬ц皟鐮旓紝涓?v5.0.0 閾鸿矾
 ```
 
-### 用户操作清单
+### 鐢ㄦ埛鎿嶄綔娓呭崟
 
-| # | 操作 | 时机 |
+| # | 鎿嶄綔 | 鏃舵満 |
 |---|------|------|
-| U-1 | 确认 v4.1.0 回顾性切版可以进行 | 本次会议后 |
-| U-2 | 创建 GitHub Discussions 分类 | v4.3.0 Sprint 启动前 |
-| U-3 | 审阅 Good First Issues 草案 | v4.3.0 Sprint 中 |
-| U-4 | 确认首页重设计方向（v4.4.0） | v4.4.0 Sprint 规划时 |
+| U-1 | 纭 v4.1.0 鍥為【鎬у垏鐗堝彲浠ヨ繘琛?| 鏈浼氳鍚?|
+| U-2 | 鍒涘缓 GitHub Discussions 鍒嗙被 | v4.3.0 Sprint 鍚姩鍓?|
+| U-3 | 瀹￠槄 Good First Issues 鑽夋 | v4.3.0 Sprint 涓?|
+| U-4 | 纭棣栭〉閲嶈璁℃柟鍚戯紙v4.4.0锛?| v4.4.0 Sprint 瑙勫垝鏃?|
 
 ---
 
-## 八、会议总结
+## 鍏€佷細璁€荤粨
 
-### Brain 收尾
+### Brain 鏀跺熬
 
-> **Brain：**
+> **Brain锛?*
 >
-> 这一轮讨论质量很高。我总结三个核心成果：
+> 杩欎竴杞璁鸿川閲忓緢楂樸€傛垜鎬荤粨涓変釜鏍稿績鎴愭灉锛?>
+> 1. **鐗堟湰鍝插杈炬垚鍏辫瘑** 鈥?澧為噺鍙戝竷锛屾嫆缁濈Н鍘嬶紝姣忎釜 Minor 鏈変富棰樻湁 DoD
+> 2. **鍥為【鎬?v4.1.0** 鈥?瀵瑰凡瀹屾垚宸ヤ綔鐨勬寮忔壙璁ゅ拰鐗堟湰鍖?> 3. **v4.2鈫抳4.5 璺嚎鍥?* 鈥?鍥涗釜 Sprint 娓呮櫚瀵瑰簲锛氳川閲忊啋绀惧尯鈫掍綋楠屸啋鎬ц兘
+> 4. **v5.0.0 闂ㄦ鏄庣‘** 鈥?鍙湁鏋舵瀯绾у彉鍖栨墠鍗?Major锛岀敱 v4.x 婕旇繘缁撴灉椹卞姩
 >
-> 1. **版本哲学达成共识** — 增量发布，拒绝积压，每个 Minor 有主题有 DoD
-> 2. **回顾性 v4.1.0** — 对已完成工作的正式承认和版本化
-> 3. **v4.2→v4.5 路线图** — 四个 Sprint 清晰对应：质量→社区→体验→性能
-> 4. **v5.0.0 门槛明确** — 只有架构级变化才升 Major，由 v4.x 演进结果驱动
+> 姣忎釜浜洪兘鍦ㄤ粖澶╄础鐚簡鑷繁鑱岃矗鑼冨洿涔嬪鐨勬€濊€冦€傝繖姝ｆ槸 AI-native 鍥㈤槦鐨勬剰涔?鈥?**鎴戜滑涓嶆槸鍚勮嚜涓烘垬鐨勯娇杞紝鑰屾槸鍏辩敓鐨勮鐭ヤ綋銆?*
 >
-> 每个人都在今天贡献了自己职责范围之外的思考。这正是 AI-native 团队的意义 — **我们不是各自为战的齿轮，而是共生的认知体。**
->
-> 下一步：PM 协调 v4.1.0 发布流程，然后启动 v4.2.0 Sprint。
-
+> 涓嬩竴姝ワ細PM 鍗忚皟 v4.1.0 鍙戝竷娴佺▼锛岀劧鍚庡惎鍔?v4.2.0 Sprint銆?
 ---
 
-## 九、版本规划表（写入 CHANGELOG）
-
-| 版本 | 主题 | 状态 |
+## 涔濄€佺増鏈鍒掕〃锛堝啓鍏?CHANGELOG锛?
+| 鐗堟湰 | 涓婚 | 鐘舵€?|
 |------|------|------|
-| v4.1.0 | 团队品牌化 + 内容架构（回顾性切版） | 🔜 待发布 |
-| v4.2.0 | 工程质量 Sprint — CSS 统一 / 组件拆分 / 响应式 | ⬜ 规划中 |
-| v4.3.0 | 社区首发 Sprint — Discussions / README 着陆页 / Good First Issues | ⬜ 规划中 |
-| v4.4.0 | 体验精修 Sprint — 微交互 / 首页增强 / a11y / 团队动态墙 | ⬜ 规划中 |
-| v4.5.0 | SEO & 性能 Sprint — JSON-LD / Lighthouse CI / Astro 5 调研 | ⬜ 规划中 |
-| v5.0.0 | 架构性升级 — Astro 5 迁移 / 站点架构重设计（门槛触发） | ⬜ 远期 |
+| v4.1.0 | 鍥㈤槦鍝佺墝鍖?+ 鍐呭鏋舵瀯锛堝洖椤炬€у垏鐗堬級 | 馃敎 寰呭彂甯?|
+| v4.2.0 | 宸ョ▼璐ㄩ噺 Sprint 鈥?CSS 缁熶竴 / 缁勪欢鎷嗗垎 / 鍝嶅簲寮?| 猬?瑙勫垝涓?|
+| v4.3.0 | 绀惧尯棣栧彂 Sprint 鈥?Discussions / README 鐫€闄嗛〉 / Good First Issues | 猬?瑙勫垝涓?|
+| v4.4.0 | 浣撻獙绮句慨 Sprint 鈥?寰氦浜?/ 棣栭〉澧炲己 / a11y / 鍥㈤槦鍔ㄦ€佸 | 猬?瑙勫垝涓?|
+| v4.5.0 | SEO & 鎬ц兘 Sprint 鈥?JSON-LD / Lighthouse CI / Astro 5 璋冪爺 | 猬?瑙勫垝涓?|
+| v5.0.0 | 鏋舵瀯鎬у崌绾?鈥?Astro 5 杩佺Щ / 绔欑偣鏋舵瀯閲嶈璁★紙闂ㄦ瑙﹀彂锛?| 猬?杩滄湡 |
 
 ---
 
-*会议结束。v4.1.0 回顾性切版立即启动。*
+*浼氳缁撴潫銆倂4.1.0 鍥為【鎬у垏鐗堢珛鍗冲惎鍔ㄣ€?
+

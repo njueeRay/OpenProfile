@@ -184,8 +184,8 @@ Brain 在每次会话结束前：
 | `CHANGELOG.md` | 本次新增/变更/修复 |
 | `.github/copilot-instructions.md`  已决定的设计选择 | 新决策 |
 | `.github/copilot-instructions.md`  当前迭代状态 | 进度 |
-| `docs/design-decisions.md` | 每个决策的 what/why/when |
-| `docs/component-guide.md` | 新增组件的参数和用法 |
+| `docs/governance/design-decisions.md` | 每个决策的 what/why/when |
+| `docs/guides/component-guide.md` | 新增组件的参数和用法 |
 | `docs/meetings/` | 会议纪要（如有） |
 
 **这不是可选步骤，而是迭代的收尾条件。**
@@ -198,7 +198,7 @@ Brain 在每次会话结束前：
 |------|------|
 | `.github/copilot-instructions.md` | 全局项目指令，每次会话自动生效（项目大脑） |
 | `.github/agents/*.agent.md` | 各 Agent 的角色定义、工具权限、handoff 规则 |
-| `docs/team-playbook.md` | 团队方法论手册（commit 规范、发布规则、DoD 清单） |
+| `docs/governance/team-playbook.md` | 团队方法论手册（commit 规范、发布规则、DoD 清单） |
 | `.vscode/toolsets.jsonc` | 工具集分组（readonly/writer/runner） |
 | `.vscode/mcp.json` | MCP 服务器连接（GitHub API、fetch）|
 | `.vscode/settings.json` | 终端自动批准规则 |
@@ -210,8 +210,9 @@ Brain 在每次会话结束前：
 1. Fork 本仓库
 2. 修改 `.github/copilot-instructions.md` 中的个人信息
 3. 按需调整 `.github/agents/` 中的 Agent 配置
-4. 阅读 `docs/team-playbook.md` 了解完整协作规范
+4. 阅读 `docs/governance/team-playbook.md` 了解完整协作规范
 5. 在 VS Code 中使用 GitHub Copilot Chat（Agent 模式），即可使用同一套工作流
 
-> 详细组件说明见 [docs/component-guide.md](component-guide.md)
-> 团队协作规范见 [docs/team-playbook.md](team-playbook.md)
+> 详细组件说明见 [docs/guides/component-guide.md](component-guide.md)
+> 团队协作规范见 [docs/governance/team-playbook.md](team-playbook.md)
+

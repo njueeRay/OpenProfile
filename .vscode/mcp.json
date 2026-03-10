@@ -1,6 +1,8 @@
 {
-  // MCP 服务器配置
+  // MCP 服务器运行时配置（VS Code 自动识别入口）
   // 参考：https://code.visualstudio.com/docs/copilot/agents/mcp-servers
+  // 说明：为跨项目复用，模板文件位于 .github/mcp.json
+  // 若修改本文件，请同步更新 .github/mcp.json
 
   "servers": {
     // GitHub MCP：用于查询仓库信息、README 结构、工作流状态等

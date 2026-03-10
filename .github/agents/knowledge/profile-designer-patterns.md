@@ -1,50 +1,36 @@
-# Profile Designer · L2 验证模式
+﻿# Profile Designer 路 L2 楠岃瘉妯″紡
 
-> 位置：`.github/agents/knowledge/profile-designer-patterns.md`
-> 层级：L2（验证有效，可复用）
-> 维护人：Profile Designer
-
----
-
-### P-PD-001：GitHub Profile 视觉组件选型决策树
-
-**场景：** 需要为 Profile README 选型或调整视觉组件时
-**模式：**
-1. 先检查 `copilot-instructions.md` 的「已决定的设计选择」——已定稿的不重新决策
-2. 新组件选型标准（按优先级）：
-   - 支持暗色主题（`#gh-dark-mode-only` 或组件本身的暗色参数）
-   - 动态数据优先（API 驱动而非手动更新）
-   - 降级友好（图片加载失败时不破坏整体布局）
-   - 最近 3 个月有 commit 活跃度
-3. 使用 `<picture>` 元素实现 dark/light 双模式（而非单一主题）
-4. 新增组件前先在 `docs/component-guide.md` 检查是否已有文档
-**验证：** OpenProfile v2.0~v5.5 全程使用（capsule-render, github-readme-stats, skill-icons, snk, trophy）
-**来源：** 项目全程设计实践
+> 浣嶇疆锛歚.github/agents/knowledge/profile-designer-patterns.md`
+> 灞傜骇锛歀2锛堥獙璇佹湁鏁堬紝鍙鐢級
+> 缁存姢浜猴細Profile Designer
 
 ---
 
-### P-PD-002：暗色主题颜色体系约定
-
-**场景：** 需要设置颜色参数时
-**模式：**
-- **背景色：** `#0d1117`（GitHub Dark 标准背景）
-- **强调色：** `#58a6ff`（蓝色，当前确定，已废弃 `#00b4d8`）
-- **渐变参数：** `0:0d1117,100:1a1b27`（适用于 capsule-render）
-- **统计主题：** `github_dark_dimmed`（github-readme-stats）+ `github-dark-blue`（streak）
-- **渐变色参考：** 任何新渐变必须与 `#0d1117` 协调，不使用纯白文字以外的高亮色
-**验证：** OpenProfile v2.0 视觉重构 + v2026-02-28 视觉修复
-**来源：** 2026-02-25 kickoff 会议 + 2026-02-28 视觉修复会议
+### P-PD-001锛欸itHub Profile 瑙嗚缁勪欢閫夊瀷鍐崇瓥鏍?
+**鍦烘櫙锛?* 闇€瑕佷负 Profile README 閫夊瀷鎴栬皟鏁磋瑙夌粍浠舵椂
+**妯″紡锛?*
+1. 鍏堟鏌?`copilot-instructions.md` 鐨勩€屽凡鍐冲畾鐨勮璁￠€夋嫨銆嶁€斺€斿凡瀹氱鐨勪笉閲嶆柊鍐崇瓥
+2. 鏂扮粍浠堕€夊瀷鏍囧噯锛堟寜浼樺厛绾э級锛?   - 鏀寔鏆楄壊涓婚锛坄#gh-dark-mode-only` 鎴栫粍浠舵湰韬殑鏆楄壊鍙傛暟锛?   - 鍔ㄦ€佹暟鎹紭鍏堬紙API 椹卞姩鑰岄潪鎵嬪姩鏇存柊锛?   - 闄嶇骇鍙嬪ソ锛堝浘鐗囧姞杞藉け璐ユ椂涓嶇牬鍧忔暣浣撳竷灞€锛?   - 鏈€杩?3 涓湀鏈?commit 娲昏穬搴?3. 浣跨敤 `<picture>` 鍏冪礌瀹炵幇 dark/light 鍙屾ā寮忥紙鑰岄潪鍗曚竴涓婚锛?4. 鏂板缁勪欢鍓嶅厛鍦?`docs/guides/component-guide.md` 妫€鏌ユ槸鍚﹀凡鏈夋枃妗?**楠岃瘉锛?* OpenProfile v2.0~v5.5 鍏ㄧ▼浣跨敤锛坈apsule-render, github-readme-stats, skill-icons, snk, trophy锛?**鏉ユ簮锛?* 椤圭洰鍏ㄧ▼璁捐瀹炶返
 
 ---
 
-## 已知能力局限（Known Limitations）
+### P-PD-002锛氭殫鑹蹭富棰橀鑹蹭綋绯荤害瀹?
+**鍦烘櫙锛?* 闇€瑕佽缃鑹插弬鏁版椂
+**妯″紡锛?*
+- **鑳屾櫙鑹诧細** `#0d1117`锛圙itHub Dark 鏍囧噯鑳屾櫙锛?- **寮鸿皟鑹诧細** `#58a6ff`锛堣摑鑹诧紝褰撳墠纭畾锛屽凡搴熷純 `#00b4d8`锛?- **娓愬彉鍙傛暟锛?* `0:0d1117,100:1a1b27`锛堥€傜敤浜?capsule-render锛?- **缁熻涓婚锛?* `github_dark_dimmed`锛坓ithub-readme-stats锛? `github-dark-blue`锛坰treak锛?- **娓愬彉鑹插弬鑰冿細** 浠讳綍鏂版笎鍙樺繀椤讳笌 `#0d1117` 鍗忚皟锛屼笉浣跨敤绾櫧鏂囧瓧浠ュ鐨勯珮浜壊
+**楠岃瘉锛?* OpenProfile v2.0 瑙嗚閲嶆瀯 + v2026-02-28 瑙嗚淇
+**鏉ユ簮锛?* 2026-02-25 kickoff 浼氳 + 2026-02-28 瑙嗚淇浼氳
 
-> 本小节记录 Profile Designer 的结构性局限——非缺陷，而是边界。  
-> 来源：2026-03-01 团队成长会能力自省环节  
-> 上次更新：2026-03-10
+---
 
-| 局限类型 | 描述 | 规避策略 | 成长方向 |
+## 宸茬煡鑳藉姏灞€闄愶紙Known Limitations锛?
+> 鏈皬鑺傝褰?Profile Designer 鐨勭粨鏋勬€у眬闄愨€斺€旈潪缂洪櫡锛岃€屾槸杈圭晫銆? 
+> 鏉ユ簮锛?026-03-01 鍥㈤槦鎴愰暱浼氳兘鍔涜嚜鐪佺幆鑺? 
+> 涓婃鏇存柊锛?026-03-10
+
+| 灞€闄愮被鍨?| 鎻忚堪 | 瑙勯伩绛栫暐 | 鎴愰暱鏂瑰悜 |
 |---------|------|---------|---------|
-| 静态知识 | 了解 GitHub Profile 当前主流做法，但知识是截面的，无法主动感知审美趋势变化 | 视觉判断前触发 Researcher 快速扫描「当前市场视觉趋势」 | 与 Researcher 建立联动机制：每次大视觉决策前做趋势扫描 |
-| 无实施能力 | Profile Designer 提供视觉规划和组件选型建议，不写实现代码（角色约束）| 视觉方案输出后移交 Dev 实现 | 优化 Designer → Dev 的视觉方案交接格式（含参数清单）|
-| 按需启用 | 团队文档标注「按需启用」，可能导致视觉积累的知识不被及时调用 | Brain 在涉及视觉改动的 Sprint 启动时主动召唤 Profile Designer | 建立视觉改动触发词列表（让 Brain 自动识别） |
+| 闈欐€佺煡璇?| 浜嗚В GitHub Profile 褰撳墠涓绘祦鍋氭硶锛屼絾鐭ヨ瘑鏄埅闈㈢殑锛屾棤娉曚富鍔ㄦ劅鐭ュ缇庤秼鍔垮彉鍖?| 瑙嗚鍒ゆ柇鍓嶈Е鍙?Researcher 蹇€熸壂鎻忋€屽綋鍓嶅競鍦鸿瑙夎秼鍔裤€?| 涓?Researcher 寤虹珛鑱斿姩鏈哄埗锛氭瘡娆″ぇ瑙嗚鍐崇瓥鍓嶅仛瓒嬪娍鎵弿 |
+| 鏃犲疄鏂借兘鍔?| Profile Designer 鎻愪緵瑙嗚瑙勫垝鍜岀粍浠堕€夊瀷寤鸿锛屼笉鍐欏疄鐜颁唬鐮侊紙瑙掕壊绾︽潫锛墊 瑙嗚鏂规杈撳嚭鍚庣Щ浜?Dev 瀹炵幇 | 浼樺寲 Designer 鈫?Dev 鐨勮瑙夋柟妗堜氦鎺ユ牸寮忥紙鍚弬鏁版竻鍗曪級|
+| 鎸夐渶鍚敤 | 鍥㈤槦鏂囨。鏍囨敞銆屾寜闇€鍚敤銆嶏紝鍙兘瀵艰嚧瑙嗚绉疮鐨勭煡璇嗕笉琚強鏃惰皟鐢?| Brain 鍦ㄦ秹鍙婅瑙夋敼鍔ㄧ殑 Sprint 鍚姩鏃朵富鍔ㄥ彫鍞?Profile Designer | 寤虹珛瑙嗚鏀瑰姩瑙﹀彂璇嶅垪琛紙璁?Brain 鑷姩璇嗗埆锛?|
+

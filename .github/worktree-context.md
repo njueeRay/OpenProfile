@@ -1,92 +1,75 @@
-# Worktree 任务上下文：feature/readme-update
+﻿# Worktree 浠诲姟涓婁笅鏂囷細feature/readme-update
 
-> **Branch:** `feature/readme-update` → 合并目标：`main`
-> **创建日期：** 2026-02-26
-> **负责人：** Dev Agent（本窗口专属）
-> **Owner：** njueeRay（Ray Huang）
+> **Branch:** `feature/readme-update` 鈫?鍚堝苟鐩爣锛歚main`
+> **鍒涘缓鏃ユ湡锛?* 2026-02-26
+> **璐熻矗浜猴細** Dev Agent锛堟湰绐楀彛涓撳睘锛?> **Owner锛?* njueeRay锛圧ay Huang锛?
+---
+
+## 蹇€熷畾浣嶏細浣犲湪鍝噷锛?
+杩欐槸 `OpenProfile` 浠撳簱鐨勪竴涓?*骞惰宸ヤ綔鐩綍锛圙it Worktree锛?*銆?涓荤嚎寮€鍙戝湪 `OpenProfile/`锛坢ain 鍒嗘敮锛夛紝鏈獥鍙ｄ笓娉ㄤ簬 README 鏂囨。鏇存柊锛屼簰涓嶅共鎵般€?
+**鍏ㄥ眬瑙勮寖** 鈫?瑙?`.github/copilot-instructions.md`锛堟湰绐楀彛宸茶嚜鍔ㄥ姞杞斤級
 
 ---
 
-## 快速定位：你在哪里？
+## 鏈浠诲姟锛歊EADME 鍏ㄩ潰鏇存柊
 
-这是 `OpenProfile` 仓库的一个**并行工作目录（Git Worktree）**。
-主线开发在 `OpenProfile/`（main 分支），本窗口专注于 README 文档更新，互不干扰。
+### 鏍稿績鐩爣
 
-**全局规范** → 见 `.github/copilot-instructions.md`（本窗口已自动加载）
+灏?`README.md` 鍗囩骇涓轰竴浠?*闈㈠悜寮€婧愮ぞ鍖?*鐨勯珮璐ㄩ噺鍏ュ彛鏂囨。锛屽弽鏄犻」鐩凡婕旇繘鍒?v4.0 鐨勫疄闄呯姸鎬併€?
+### 鍏蜂綋宸ヤ綔椤?
+- [ ] **椤圭洰绠€浠嬪尯**锛氭洿鏂伴」鐩弿杩帮紝浣撶幇"AI-native 宸ヤ綔娴佽寖渚?瀹氫綅
+- [ ] **鍔熻兘浜偣**锛氳ˉ鍏?v3.0/v4.0 鏂板鑳藉姏锛圓stro 绔欑偣銆丷SS銆佹爣绛剧郴缁熴€?D 璐＄尞鍥俱€乀rophy锛?- [ ] **蹇€熷紑濮?*锛氭鏌ユ楠ゆ槸鍚︿粛鐒舵湁鏁堬紝鏇存柊杩囨椂鍐呭
+- [ ] **缁勪欢娓呭崟**锛氫笌 `docs/guides/component-guide.md` 淇濇寔涓€鑷?- [ ] **AI 鍗忎綔宸ヤ綔娴?*锛氬紩瀵艰鑰呰 `docs/governance/agent-workflow.md`
+- [ ] **Badge 鍖?*锛氱‘璁ゆ墍鏈?badge URL 鍙揪锛屾棤 404
+- [ ] **CHANGELOG 寮曠敤**锛氱‘璁ゆ渶鏂扮増鏈彿鎸囧悜 v4.0.0
 
----
-
-## 本次任务：README 全面更新
-
-### 核心目标
-
-将 `README.md` 升级为一份**面向开源社区**的高质量入口文档，反映项目已演进到 v4.0 的实际状态。
-
-### 具体工作项
-
-- [ ] **项目简介区**：更新项目描述，体现"AI-native 工作流范例"定位
-- [ ] **功能亮点**：补充 v3.0/v4.0 新增能力（Astro 站点、RSS、标签系统、3D 贡献图、Trophy）
-- [ ] **快速开始**：检查步骤是否仍然有效，更新过时内容
-- [ ] **组件清单**：与 `docs/component-guide.md` 保持一致
-- [ ] **AI 协作工作流**：引导读者读 `docs/agent-workflow.md`
-- [ ] **Badge 区**：确认所有 badge URL 可达，无 404
-- [ ] **CHANGELOG 引用**：确认最新版本号指向 v4.0.0
-
-### 关键参考文件
-
-| 文件 | 用途 |
+### 鍏抽敭鍙傝€冩枃浠?
+| 鏂囦欢 | 鐢ㄩ€?|
 |------|------|
-| `README.md` | 主要修改目标 |
-| `CHANGELOG.md` | 版本历史，获取最新功能列表 |
-| `docs/component-guide.md` | 组件说明，同步到 README 功能区 |
-| `docs/agent-workflow.md` | AI 协作说明，README 要引用 |
-| `.github/copilot-instructions.md` | 全局规范（已决定的设计选择） |
+| `README.md` | 涓昏淇敼鐩爣 |
+| `CHANGELOG.md` | 鐗堟湰鍘嗗彶锛岃幏鍙栨渶鏂板姛鑳藉垪琛?|
+| `docs/guides/component-guide.md` | 缁勪欢璇存槑锛屽悓姝ュ埌 README 鍔熻兘鍖?|
+| `docs/governance/agent-workflow.md` | AI 鍗忎綔璇存槑锛孯EADME 瑕佸紩鐢?|
+| `.github/copilot-instructions.md` | 鍏ㄥ眬瑙勮寖锛堝凡鍐冲畾鐨勮璁￠€夋嫨锛?|
 
 ---
 
-## 提交规范
+## 鎻愪氦瑙勮寖
 
-**模板已自动配置**，`git commit`（不带 `-m`）会弹出编辑器，末尾已预填：
+**妯℃澘宸茶嚜鍔ㄩ厤缃?*锛宍git commit`锛堜笉甯?`-m`锛変細寮瑰嚭缂栬緫鍣紝鏈熬宸查濉細
 
 ```
 Co-authored-by: GitHub Copilot <copilot@github.com>
 ```
 
-推荐 commit 格式：
-```
-docs(readme): <描述>
+鎺ㄨ崘 commit 鏍煎紡锛?```
+docs(readme): <鎻忚堪>
 
 Co-authored-by: GitHub Copilot <copilot@github.com>
 ```
 
 ---
 
-## DoD（完成标准）
+## DoD锛堝畬鎴愭爣鍑嗭級
 
-全部满足才算本任务完成：
+鍏ㄩ儴婊¤冻鎵嶇畻鏈换鍔″畬鎴愶細
 
-- [ ] README.md 内容与当前 v4.0.0 状态一致
-- [ ] 所有外部链接可达
-- [ ] Badge 引用的数据是动态的（无硬编码数字）
-- [ ] 排版在 GitHub 暗色模式下正常渲染
-- [ ] `CHANGELOG.md` 已在 `[Unreleased]` 区记录变更
-
+- [ ] README.md 鍐呭涓庡綋鍓?v4.0.0 鐘舵€佷竴鑷?- [ ] 鎵€鏈夊閮ㄩ摼鎺ュ彲杈?- [ ] Badge 寮曠敤鐨勬暟鎹槸鍔ㄦ€佺殑锛堟棤纭紪鐮佹暟瀛楋級
+- [ ] 鎺掔増鍦?GitHub 鏆楄壊妯″紡涓嬫甯告覆鏌?- [ ] `CHANGELOG.md` 宸插湪 `[Unreleased]` 鍖鸿褰曞彉鏇?
 ---
 
-## 完成后：向主窗口汇报
+## 瀹屾垚鍚庯細鍚戜富绐楀彛姹囨姤
 
-任务完成后，在**主窗口**（`OpenProfile/` main 分支）向 Copilot 发送以下提示即可触发合并：
+浠诲姟瀹屾垚鍚庯紝鍦?*涓荤獥鍙?*锛坄OpenProfile/` main 鍒嗘敮锛夊悜 Copilot 鍙戦€佷互涓嬫彁绀哄嵆鍙Е鍙戝悎骞讹細
 
 ```
-feature/readme-update worktree 任务已完成。
-变更摘要：[粘贴本次主要改动]
-请执行合并流程：merge → push → 清理 worktree 和分支。
-```
+feature/readme-update worktree 浠诲姟宸插畬鎴愩€?鍙樻洿鎽樿锛歔绮樿创鏈涓昏鏀瑰姩]
+璇锋墽琛屽悎骞舵祦绋嬶細merge 鈫?push 鈫?娓呯悊 worktree 鍜屽垎鏀€?```
 
-主窗口会执行：
-```bash
+涓荤獥鍙ｄ細鎵ц锛?```bash
 git merge feature/readme-update
 git push origin main
 git worktree remove ..\OpenProfile-readme
 git branch -d feature/readme-update
 ```
+

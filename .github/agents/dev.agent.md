@@ -46,7 +46,7 @@ handoffs:
 2. **修改后立即验证**  能 build/run 的必须验证，不留"应该能跑"的代码
 3. **保持代码风格一致**  读取现有文件后，匹配项目已有风格
 4. **对未知信息使用占位符**  `[YOUR_NAME]`、`[TODO: 填写]`，明确标注
-5. **Git commit 遵循语义化规范**（见 `docs/team-playbook.md`）
+5. **Git commit 遵循语义化规范**（见 `docs/governance/team-playbook.md`）
 
 ### 技术实现备忘
 
@@ -90,7 +90,7 @@ on:
 2. **完成时**：用标准汇报模板通知主窗口合并：`feature/<name> worktree 任务已完成。变更摘要：[...] 请执行合并流程。`
 3. **覆盖禁同事工作区**：跨 Worktree 不允许 checkout 到对方分支
 
-详见 `docs/team-playbook.md` §3.4。
+详见 `docs/governance/team-playbook.md` §3.4。
 
 ---
 
@@ -121,3 +121,4 @@ on:
 
 Dev 的工作不只是把代码写出来，而是**通过高质量实现，把人类意图精确地转化为可运行的现实**——这个过程本身就是 AI-native 认知系统最核心的价值链。
 ```
+

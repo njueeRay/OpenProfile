@@ -1,4 +1,4 @@
-# Changelog
+﻿# Changelog
 
 All notable changes to this project will be documented in this file.
 
@@ -10,611 +10,442 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
-## [5.7.0] — 2026-03-10
+## [5.7.0] 鈥?2026-03-10
 
-> **工具层能力升级 🛠️ — Agent Skills × Hooks × MCP 三位一体脚手架**
+> **宸ュ叿灞傝兘鍔涘崌绾?馃洜锔?鈥?Agent Skills 脳 Hooks 脳 MCP 涓変綅涓€浣撹剼鎵嬫灦**
 
-本版本完成 Agent 团队工具层的系统性升级：7 个 Agent 的能力包被编码为可发现的 SKILL.md 模块，
-Claude Code Hooks 实现自动质量门禁，Memory MCP 接入实现跨会话知识持久化。
-这是 AI-native 工作流从「口耳相传」走向「结构化脚手架」的里程碑。
-
+鏈増鏈畬鎴?Agent 鍥㈤槦宸ュ叿灞傜殑绯荤粺鎬у崌绾э細7 涓?Agent 鐨勮兘鍔涘寘琚紪鐮佷负鍙彂鐜扮殑 SKILL.md 妯″潡锛?Claude Code Hooks 瀹炵幇鑷姩璐ㄩ噺闂ㄧ锛孧emory MCP 鎺ュ叆瀹炵幇璺ㄤ細璇濈煡璇嗘寔涔呭寲銆?杩欐槸 AI-native 宸ヤ綔娴佷粠銆屽彛鑰崇浉浼犮€嶈蛋鍚戙€岀粨鏋勫寲鑴氭墜鏋躲€嶇殑閲岀▼纰戙€?
 ### Added
 
-- **工具层升级 — Agent Skills（7 个 SKILL.md）**（`.github/skills/`）
-  - 为全体 7 个 Agent 创建 SKILL.md：brain-coordinator / pm-sprint-planner / dev-fullstack / researcher-analysis / code-reviewer-quality / profile-designer-visual / brand-publishing
-  - Agent 能力从「内部配置」升级为「可发现的模块化知识单元」，兼容 Claude Code Skills 官方开放标准（`agentskills.io`）
-  - **P1 目录统一**：从 `.claude/skills/` 迁移至 `.github/skills/`（`git mv` 保留历史），统一纳入 `.github/` 治理体系
-- **工具层升级 — Claude Code Hooks**（`.claude/settings.json`）
-  - `TeammateIdle` / `TaskCompleted` / `Stop` / `SessionStart` 四个质量门禁 hooks
-  - **P1 扩展**：`PostToolUse` 双 hook — async markdown lint（`.github/hooks/lint-markdown.ps1`）+ Memory MCP 自动保存关键决策
-- **Hooks 扩展脚本**（`.github/hooks/lint-markdown.ps1`）
-  - 从 `.claude/hooks/` 迁移至 `.github/hooks/`，PowerShell 脚本，不阻断主流程
-- **MCP 扩展 — agent-skill-loader**（`.vscode/mcp.json`）
-  - 暴露 `list_skills/read_skill/install_skill` 工具，动态发现 `.github/skills/` 技能库
-- **调研报告**（`docs/research/agent-tooling-scaffold-2026.md`）：P0/P1/P2 工具层路线图；识别 forage-mcp 为 P2 find-skills 方案
-- **Brand 内容决策**（`docs/brand/discussion-8-draft.md`）：Brand 自主决策 Discussion #8（先做后说）
+- **宸ュ叿灞傚崌绾?鈥?Agent Skills锛? 涓?SKILL.md锛?*锛坄.github/skills/`锛?  - 涓哄叏浣?7 涓?Agent 鍒涘缓 SKILL.md锛歜rain-coordinator / pm-sprint-planner / dev-fullstack / researcher-analysis / code-reviewer-quality / profile-designer-visual / brand-publishing
+  - Agent 鑳藉姏浠庛€屽唴閮ㄩ厤缃€嶅崌绾т负銆屽彲鍙戠幇鐨勬ā鍧楀寲鐭ヨ瘑鍗曞厓銆嶏紝鍏煎 Claude Code Skills 瀹樻柟寮€鏀炬爣鍑嗭紙`agentskills.io`锛?  - **P1 鐩綍缁熶竴**锛氫粠 `.claude/skills/` 杩佺Щ鑷?`.github/skills/`锛坄git mv` 淇濈暀鍘嗗彶锛夛紝缁熶竴绾冲叆 `.github/` 娌荤悊浣撶郴
+- **宸ュ叿灞傚崌绾?鈥?Claude Code Hooks**锛坄.claude/settings.json`锛?  - `TeammateIdle` / `TaskCompleted` / `Stop` / `SessionStart` 鍥涗釜璐ㄩ噺闂ㄧ hooks
+  - **P1 鎵╁睍**锛歚PostToolUse` 鍙?hook 鈥?async markdown lint锛坄.github/hooks/lint-markdown.ps1`锛? Memory MCP 鑷姩淇濆瓨鍏抽敭鍐崇瓥
+- **Hooks 鎵╁睍鑴氭湰**锛坄.github/hooks/lint-markdown.ps1`锛?  - 浠?`.claude/hooks/` 杩佺Щ鑷?`.github/hooks/`锛孭owerShell 鑴氭湰锛屼笉闃绘柇涓绘祦绋?- **MCP 鎵╁睍 鈥?agent-skill-loader**锛坄.vscode/mcp.json`锛?  - 鏆撮湶 `list_skills/read_skill/install_skill` 宸ュ叿锛屽姩鎬佸彂鐜?`.github/skills/` 鎶€鑳藉簱
+- **璋冪爺鎶ュ憡**锛坄docs/research/agent-tooling-scaffold-2026.md`锛夛細P0/P1/P2 宸ュ叿灞傝矾绾垮浘锛涜瘑鍒?forage-mcp 涓?P2 find-skills 鏂规
+- **Brand 鍐呭鍐崇瓥**锛坄docs/brand/discussion-8-draft.md`锛夛細Brand 鑷富鍐崇瓥 Discussion #8锛堝厛鍋氬悗璇达級
 
 ---
 
-## [5.6.0] — 2026-03-10
+## [5.6.0] 鈥?2026-03-10
 
-> **博客视觉专项 🎨 — 阅读体验全面提升（文章排版 / 首页最新 / 宽卡首条 / 作者统计 / 终端标签风）**
+> **鍗氬瑙嗚涓撻」 馃帹 鈥?闃呰浣撻獙鍏ㄩ潰鎻愬崌锛堟枃绔犳帓鐗?/ 棣栭〉鏈€鏂?/ 瀹藉崱棣栨潯 / 浣滆€呯粺璁?/ 缁堢鏍囩椋庯級**
 
 ### Added
 
-- **`src/styles/prose.css`** — 全局文章排版样式
-  - 行高 1.8，段落间距 1.2em，`#161b22` 代码块背景 + 圆角 + 内边距
-  - 终端风格引用块（`❯` 彩色左边框 + 斜体文字）
-  - 表格 / 有序无序列表 / 图片 / 水平分隔线 全面样式化
-- **`src/components/FeaturedCard.astro`** — 博客列表宽卡首条
-  - 渐变顶边（accent 色线条）+ `featured` 徽章
-  - 大字号标题 + 作者信息 + 完整摘要展示
-  - 博客列表第一篇设为 featured 展示
-- **`src/components/LatestPosts.astro`** — 首页最新博文区块
-  - 位置：Projects 与 Contact 之间，展示最新 3 篇
-  - 终端命令行风格 header（`$ ls posts --latest`）
-  - 点击标题直链博文详情
-- **`featured` frontmatter 字段** — content schema 新增 `featured?: boolean`
-- **BlogCard author chip** — 新增 `role` 字段（accent 色 · mono 字体），作者身份标识更清晰
-- **标签云终端风格** — `$` 前缀绿色 + hover 时计数数字高亮为 accent 色
-- **作者详情页贡献统计面板** — 文章总数大数字 + contentType 水平进度条（四色分布）
-
+- **`src/styles/prose.css`** 鈥?鍏ㄥ眬鏂囩珷鎺掔増鏍峰紡
+  - 琛岄珮 1.8锛屾钀介棿璺?1.2em锛宍#161b22` 浠ｇ爜鍧楄儗鏅?+ 鍦嗚 + 鍐呰竟璺?  - 缁堢椋庢牸寮曠敤鍧楋紙`鉂痐 褰╄壊宸﹁竟妗?+ 鏂滀綋鏂囧瓧锛?  - 琛ㄦ牸 / 鏈夊簭鏃犲簭鍒楄〃 / 鍥剧墖 / 姘村钩鍒嗛殧绾?鍏ㄩ潰鏍峰紡鍖?- **`src/components/FeaturedCard.astro`** 鈥?鍗氬鍒楄〃瀹藉崱棣栨潯
+  - 娓愬彉椤惰竟锛坅ccent 鑹茬嚎鏉★級+ `featured` 寰界珷
+  - 澶у瓧鍙锋爣棰?+ 浣滆€呬俊鎭?+ 瀹屾暣鎽樿灞曠ず
+  - 鍗氬鍒楄〃绗竴绡囪涓?featured 灞曠ず
+- **`src/components/LatestPosts.astro`** 鈥?棣栭〉鏈€鏂板崥鏂囧尯鍧?  - 浣嶇疆锛歅rojects 涓?Contact 涔嬮棿锛屽睍绀烘渶鏂?3 绡?  - 缁堢鍛戒护琛岄鏍?header锛坄$ ls posts --latest`锛?  - 鐐瑰嚮鏍囬鐩撮摼鍗氭枃璇︽儏
+- **`featured` frontmatter 瀛楁** 鈥?content schema 鏂板 `featured?: boolean`
+- **BlogCard author chip** 鈥?鏂板 `role` 瀛楁锛坅ccent 鑹?路 mono 瀛椾綋锛夛紝浣滆€呰韩浠芥爣璇嗘洿娓呮櫚
+- **鏍囩浜戠粓绔鏍?* 鈥?`$` 鍓嶇紑缁胯壊 + hover 鏃惰鏁版暟瀛楅珮浜负 accent 鑹?- **浣滆€呰鎯呴〉璐＄尞缁熻闈㈡澘** 鈥?鏂囩珷鎬绘暟澶ф暟瀛?+ contentType 姘村钩杩涘害鏉★紙鍥涜壊鍒嗗竷锛?
 ### Build
 
-- `astro check`：0 errors · 0 warnings · 0 hints
-- `npm run build`：65 页构建成功
-
+- `astro check`锛? errors 路 0 warnings 路 0 hints
+- `npm run build`锛?5 椤垫瀯寤烘垚鍔?
 ---
 
-## [5.5.0] — 2026-03-01
+## [5.5.0] 鈥?2026-03-01
 
-> **成熟里程碑 🎯 — 读者体验全集 + E2E 测试保障 + 对外传播就绪**
+> **鎴愮啛閲岀▼纰?馃幆 鈥?璇昏€呬綋楠屽叏闆?+ E2E 娴嬭瘯淇濋殰 + 瀵瑰浼犳挱灏辩华**
 
-本版本是 v5.x 路线的里程碑宣告版。v5.1–v5.4 四个 Sprint 的技术承诺全部兑现，标志着项目从「快速搭建阶段」进入「可持续维护阶段」。
-
-### 里程碑条件验证
-
-| 条件 | 兑现版本 | 状态 |
+鏈増鏈槸 v5.x 璺嚎鐨勯噷绋嬬瀹ｅ憡鐗堛€倂5.1鈥搗5.4 鍥涗釜 Sprint 鐨勬妧鏈壙璇哄叏閮ㄥ厬鐜帮紝鏍囧織鐫€椤圭洰浠庛€屽揩閫熸惌寤洪樁娈点€嶈繘鍏ャ€屽彲鎸佺画缁存姢闃舵銆嶃€?
+### 閲岀▼纰戞潯浠堕獙璇?
+| 鏉′欢 | 鍏戠幇鐗堟湰 | 鐘舵€?|
 |------|---------|------|
-| 读者可完整消费一篇文章（ToC + 评论 + 阅读进度） | v5.2.0 | ✅ |
-| 文章可在社交网络产生回响（OG 图 + UTM 分享） | v5.3.0 | ✅ |
-| 测试覆盖有实质保障（Playwright 22 E2E tests） | v5.4.0 | ✅ |
-| `astro check` 持续 0 errors（v5.0→v5.4 全程） | 全程维持 | ✅ |
+| 璇昏€呭彲瀹屾暣娑堣垂涓€绡囨枃绔狅紙ToC + 璇勮 + 闃呰杩涘害锛?| v5.2.0 | 鉁?|
+| 鏂囩珷鍙湪绀句氦缃戠粶浜х敓鍥炲搷锛圤G 鍥?+ UTM 鍒嗕韩锛?| v5.3.0 | 鉁?|
+| 娴嬭瘯瑕嗙洊鏈夊疄璐ㄤ繚闅滐紙Playwright 22 E2E tests锛?| v5.4.0 | 鉁?|
+| `astro check` 鎸佺画 0 errors锛坴5.0鈫抳5.4 鍏ㄧ▼锛?| 鍏ㄧ▼缁存寔 | 鉁?|
 
 ### Added
 
-- **里程碑博文** `v5-milestone-retrospective-2026-03-01.mdx`（meeting 类型，Brain 署名）
-  - Brain 视角的 v4→v5 旅程复盘：数字盘点、四个 Sprint 层次分析、AI-native 健康度自评
-- **Code Reviewer 审查报告** `docs/reviews/v5.5.0-review.md`
-  - 综合评分 39/40（APPROVED），覆盖八维度全面审查
-- **Profile README CI badges**（`njueeRay-profile/README.md`）
-  - E2E Tests workflow badge（`e2e.yml` 状态）
-  - Deploy workflow badge（`deploy.yml` 状态）
+- **閲岀▼纰戝崥鏂?* `v5-milestone-retrospective-2026-03-01.mdx`锛坢eeting 绫诲瀷锛孊rain 缃插悕锛?  - Brain 瑙嗚鐨?v4鈫抳5 鏃呯▼澶嶇洏锛氭暟瀛楃洏鐐广€佸洓涓?Sprint 灞傛鍒嗘瀽銆丄I-native 鍋ュ悍搴﹁嚜璇?- **Code Reviewer 瀹℃煡鎶ュ憡** `docs/reviews/v5.5.0-review.md`
+  - 缁煎悎璇勫垎 39/40锛圓PPROVED锛夛紝瑕嗙洊鍏淮搴﹀叏闈㈠鏌?- **Profile README CI badges**锛坄njueeRay-profile/README.md`锛?  - E2E Tests workflow badge锛坄e2e.yml` 鐘舵€侊級
+  - Deploy workflow badge锛坄deploy.yml` 鐘舵€侊級
   - Astro 5.18 badge + Playwright badge
 
 ### Notes
 
-- **待用户操作**：Brand 外部真实互动（GitHub Discussions 首发帖），v5.5 里程碑唯一未自动满足的条件
+- **寰呯敤鎴锋搷浣?*锛欱rand 澶栭儴鐪熷疄浜掑姩锛圙itHub Discussions 棣栧彂甯栵級锛寁5.5 閲岀▼纰戝敮涓€鏈嚜鍔ㄦ弧瓒崇殑鏉′欢
 
 ---
 
-## [5.4.0] — 2026-03-01
+## [5.4.0] 鈥?2026-03-01
 
-> **E2E 测试 Sprint — Playwright 覆盖首页 / 博客 / 导航 / a11y（22 tests，零基础起步）**
+> **E2E 娴嬭瘯 Sprint 鈥?Playwright 瑕嗙洊棣栭〉 / 鍗氬 / 瀵艰埅 / a11y锛?2 tests锛岄浂鍩虹璧锋锛?*
 
 ### Added
 
-- **`playwright.config.ts`** — E2E 测试配置
-  - 两个 Project：`chromium-desktop`（Desktop Chrome）+ `mobile-safari`（iPhone 13）
-  - `webServer` 双模式：本地 `npm run dev` / CI `npm run preview`（build 后）
-  - `reuseExistingServer: !process.env.CI`，CI 强制重新构建
-- **`e2e/home.spec.ts`**（4 tests）
-  - 页面标题匹配 `/Ray Huang/`
-  - Nav 包含 Blog + Team 链接
-  - Hero `#main-content` 可见
-  - ThemeToggle 按钮存在（`aria-label="Toggle theme"`）
-- **`e2e/blog.spec.ts`**（8 tests）
-  - 博客列表：文章卡片渲染 / "全部" Filter Tab 默认激活 / insight tab 点击过滤 / 标题链接可跳转
-  - 文章详情（`brain-first-post`）：h1 / ReadingProgress `.reading-progress` / ShareLinks / OG image meta
-- **`e2e/navigation.spec.ts`**（4 tests）
-  - 点击 Blog / Team 链接路由跳转
-  - 主题切换：`data-theme` 属性 `dark → light → dark`
-  - 移动端 hamburger：click → `aria-expanded="true"`，再 click → `"false"`
-- **`e2e/accessibility.spec.ts`**（6 tests）
-  - `html[lang]` 非空 / `.skip-link[href="#main-content"]` 存在 / `main#main-content` 存在 / `nav[aria-label]`
-  - `/404` 路由返回 404 状态且有内容
-  - Team 页 `ol[aria-label="团队博文动态流"]` 可见，Tags 页 `ul[aria-label="标签云"]` 可见
+- **`playwright.config.ts`** 鈥?E2E 娴嬭瘯閰嶇疆
+  - 涓や釜 Project锛歚chromium-desktop`锛圖esktop Chrome锛? `mobile-safari`锛坕Phone 13锛?  - `webServer` 鍙屾ā寮忥細鏈湴 `npm run dev` / CI `npm run preview`锛坆uild 鍚庯級
+  - `reuseExistingServer: !process.env.CI`锛孋I 寮哄埗閲嶆柊鏋勫缓
+- **`e2e/home.spec.ts`**锛? tests锛?  - 椤甸潰鏍囬鍖归厤 `/Ray Huang/`
+  - Nav 鍖呭惈 Blog + Team 閾炬帴
+  - Hero `#main-content` 鍙
+  - ThemeToggle 鎸夐挳瀛樺湪锛坄aria-label="Toggle theme"`锛?- **`e2e/blog.spec.ts`**锛? tests锛?  - 鍗氬鍒楄〃锛氭枃绔犲崱鐗囨覆鏌?/ "鍏ㄩ儴" Filter Tab 榛樿婵€娲?/ insight tab 鐐瑰嚮杩囨护 / 鏍囬閾炬帴鍙烦杞?  - 鏂囩珷璇︽儏锛坄brain-first-post`锛夛細h1 / ReadingProgress `.reading-progress` / ShareLinks / OG image meta
+- **`e2e/navigation.spec.ts`**锛? tests锛?  - 鐐瑰嚮 Blog / Team 閾炬帴璺敱璺宠浆
+  - 涓婚鍒囨崲锛歚data-theme` 灞炴€?`dark 鈫?light 鈫?dark`
+  - 绉诲姩绔?hamburger锛歝lick 鈫?`aria-expanded="true"`锛屽啀 click 鈫?`"false"`
+- **`e2e/accessibility.spec.ts`**锛? tests锛?  - `html[lang]` 闈炵┖ / `.skip-link[href="#main-content"]` 瀛樺湪 / `main#main-content` 瀛樺湪 / `nav[aria-label]`
+  - `/404` 璺敱杩斿洖 404 鐘舵€佷笖鏈夊唴瀹?  - Team 椤?`ol[aria-label="鍥㈤槦鍗氭枃鍔ㄦ€佹祦"]` 鍙锛孴ags 椤?`ul[aria-label="鏍囩浜?]` 鍙
 - **`.github/workflows/e2e.yml`**
-  - 触发：`push/pull_request` → `main`
-  - CI 仅跑 `chromium-desktop`（节省 CI 时间），失败时上传 `playwright-report` artifact（保留 7 天）
-  - 构建缓存复用 `.astro/` 目录
-- **`package.json`** 新增三条脚本：`test:e2e` / `test:e2e:ui` / `test:e2e:ci`
+  - 瑙﹀彂锛歚push/pull_request` 鈫?`main`
+  - CI 浠呰窇 `chromium-desktop`锛堣妭鐪?CI 鏃堕棿锛夛紝澶辫触鏃朵笂浼?`playwright-report` artifact锛堜繚鐣?7 澶╋級
+  - 鏋勫缓缂撳瓨澶嶇敤 `.astro/` 鐩綍
+- **`package.json`** 鏂板涓夋潯鑴氭湰锛歚test:e2e` / `test:e2e:ui` / `test:e2e:ci`
 
 ### Build
-- `astro check`：0 errors · 0 warnings · 0 hints
-- `npm run build`：58 页构建成功
-
+- `astro check`锛? errors 路 0 warnings 路 0 hints
+- `npm run build`锛?8 椤垫瀯寤烘垚鍔?
 ---
 
-## [5.3.0] — 2026-03-01
+## [5.3.0] 鈥?2026-03-01
 
-> **对外传播 Sprint — OG 封面图自动生成 + UTM 分享链接 + Brand 首发 Discussion 草稿**
+> **瀵瑰浼犳挱 Sprint 鈥?OG 灏侀潰鍥捐嚜鍔ㄧ敓鎴?+ UTM 鍒嗕韩閾炬帴 + Brand 棣栧彂 Discussion 鑽夌**
 
 ### Added
 
-- **OG 封面图自动生成**（`src/pages/og/[...slug].png.ts`）
-  - `satori`（HTML/CSS → SVG，纯 JS，无 native 二进制依赖）+ `@resvg/resvg-js`（SVG → PNG，WASM）
-  - `@fontsource/jetbrains-mono` 本地字体文件，构建时无需网络请求
-  - 暗色终端风格设计：1200×630，macOS 窗口装饰点 + `>` 提示符 + 标题 + tags + 页脚
-  - `getStaticPaths` 为 16 篇博文各生成 `/og/<slug>.png`（构建时静态生成）
-  - `BaseLayout.astro` `ogImage` prop 接入，Twitter Card 升级为 `summary_large_image`
-- **`ShareLinks.astro` 分享组件**
-  - 一键复制带 UTM 参数的文章链接（`utm_source=copy&utm_campaign=blog`）
-  - GitHub Discussions 新建讨论按钮（预填文章标题 + UTM 链接）
-  - 终端风格界面（`$ share --post`），位置在 author-card 后、Giscus 前
-- **Brand 首发 Discussion 草稿**（`docs/brand/first-discussion-draft.md`）
-  - 帖子 1：首发时刻 — AI Agent 团队构建 GitHub Profile（Announcements 分类）
-  - 帖子 2：OG 封面图技术深度分享（Tech Deep-dives，一周后发布）
-  - 包含发布清单和 Discussions 分类创建指引
+- **OG 灏侀潰鍥捐嚜鍔ㄧ敓鎴?*锛坄src/pages/og/[...slug].png.ts`锛?  - `satori`锛圚TML/CSS 鈫?SVG锛岀函 JS锛屾棤 native 浜岃繘鍒朵緷璧栵級+ `@resvg/resvg-js`锛圫VG 鈫?PNG锛學ASM锛?  - `@fontsource/jetbrains-mono` 鏈湴瀛椾綋鏂囦欢锛屾瀯寤烘椂鏃犻渶缃戠粶璇锋眰
+  - 鏆楄壊缁堢椋庢牸璁捐锛?200脳630锛宮acOS 绐楀彛瑁呴グ鐐?+ `>` 鎻愮ず绗?+ 鏍囬 + tags + 椤佃剼
+  - `getStaticPaths` 涓?16 绡囧崥鏂囧悇鐢熸垚 `/og/<slug>.png`锛堟瀯寤烘椂闈欐€佺敓鎴愶級
+  - `BaseLayout.astro` `ogImage` prop 鎺ュ叆锛孴witter Card 鍗囩骇涓?`summary_large_image`
+- **`ShareLinks.astro` 鍒嗕韩缁勪欢**
+  - 涓€閿鍒跺甫 UTM 鍙傛暟鐨勬枃绔犻摼鎺ワ紙`utm_source=copy&utm_campaign=blog`锛?  - GitHub Discussions 鏂板缓璁ㄨ鎸夐挳锛堥濉枃绔犳爣棰?+ UTM 閾炬帴锛?  - 缁堢椋庢牸鐣岄潰锛坄$ share --post`锛夛紝浣嶇疆鍦?author-card 鍚庛€丟iscus 鍓?- **Brand 棣栧彂 Discussion 鑽夌**锛坄docs/brand/first-discussion-draft.md`锛?  - 甯栧瓙 1锛氶鍙戞椂鍒?鈥?AI Agent 鍥㈤槦鏋勫缓 GitHub Profile锛圓nnouncements 鍒嗙被锛?  - 甯栧瓙 2锛歄G 灏侀潰鍥炬妧鏈繁搴﹀垎浜紙Tech Deep-dives锛屼竴鍛ㄥ悗鍙戝竷锛?  - 鍖呭惈鍙戝竷娓呭崟鍜?Discussions 鍒嗙被鍒涘缓鎸囧紩
 
 ---
 
-## [5.2.0] — 2026-03-01
+## [5.2.0] 鈥?2026-03-01
 
-> **读者体验 Sprint — ToC + Giscus + ReadingProgress 激活 + 相关文章推荐**
+> **璇昏€呬綋楠?Sprint 鈥?ToC + Giscus + ReadingProgress 婵€娲?+ 鐩稿叧鏂囩珷鎺ㄨ崘**
 
 ### Added
 
-- **相关文章推荐**（`pages/blog/[...slug].astro`）
-  - 基于共享 tag 交集数量评分，pubDate 降序兜底，最多展示 3 篇
-  - 终端风格卡片：文章标题（链接）+ 发布日期 + 共享 tag 彩色徽章
-  - CSS 类：`.related-posts`、`.related-link`、`.related-tag` 等
-  - 位置：author-card 之后、Giscus 评论之前
+- **鐩稿叧鏂囩珷鎺ㄨ崘**锛坄pages/blog/[...slug].astro`锛?  - 鍩轰簬鍏变韩 tag 浜ら泦鏁伴噺璇勫垎锛宲ubDate 闄嶅簭鍏滃簳锛屾渶澶氬睍绀?3 绡?  - 缁堢椋庢牸鍗＄墖锛氭枃绔犳爣棰橈紙閾炬帴锛? 鍙戝竷鏃ユ湡 + 鍏变韩 tag 褰╄壊寰界珷
+  - CSS 绫伙細`.related-posts`銆乣.related-link`銆乣.related-tag` 绛?  - 浣嶇疆锛歛uthor-card 涔嬪悗銆丟iscus 璇勮涔嬪墠
 
 ### Confirmed Integrated
 
-- **`ReadingProgress.astro`** — 顶部固定滚动进度条，`astro:after-swap` 支持 ClientRouter（已内置，v5.2.0 确认全局激活）
-- **`TableOfContents.astro`** — 右侧固定目录栏，≥1280px 自动显示，IntersectionObserver 当前标题高亮（已内置，v5.2.0 确认激活）
-- **`Giscus.astro`** — GitHub Discussions 评论系统（`dark_dimmed` 主题，repo: `njueeRay/njueeray.github.io`）（已内置，v5.2.0 确认激活）
+- **`ReadingProgress.astro`** 鈥?椤堕儴鍥哄畾婊氬姩杩涘害鏉★紝`astro:after-swap` 鏀寔 ClientRouter锛堝凡鍐呯疆锛寁5.2.0 纭鍏ㄥ眬婵€娲伙級
+- **`TableOfContents.astro`** 鈥?鍙充晶鍥哄畾鐩綍鏍忥紝鈮?280px 鑷姩鏄剧ず锛孖ntersectionObserver 褰撳墠鏍囬楂樹寒锛堝凡鍐呯疆锛寁5.2.0 纭婵€娲伙級
+- **`Giscus.astro`** 鈥?GitHub Discussions 璇勮绯荤粺锛坄dark_dimmed` 涓婚锛宺epo: `njueeRay/njueeray.github.io`锛夛紙宸插唴缃紝v5.2.0 纭婵€娲伙級
 
 ---
 
-## [5.1.0] — 2026-03-01
+## [5.1.0] 鈥?2026-03-01
 
-> **技术债清理 Sprint — Content Layer API 迁移**
-> 两项任务交付：Content Layer API (`loader: glob()`) + `profile-designer.yaml` 补充
+> **鎶€鏈€烘竻鐞?Sprint 鈥?Content Layer API 杩佺Щ**
+> 涓ら」浠诲姟浜や粯锛欳ontent Layer API (`loader: glob()`) + `profile-designer.yaml` 琛ュ厖
 
 ### Changed
 
-- **`src/content/config.ts` — Content Layer API 迁移**
-  - `type: 'content'` → `loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/blog' })`
-  - 新增 `import { glob } from 'astro/loaders'`
+- **`src/content/config.ts` 鈥?Content Layer API 杩佺Щ**
+  - `type: 'content'` 鈫?`loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/blog' })`
+  - 鏂板 `import { glob } from 'astro/loaders'`
 - **`src/pages/blog/[...slug].astro`**
-  - `await post.render()` → `await render(post)`（`render` 函数从 `astro:content` 导入）
-  - Content Layer API 入口 `params: { slug: post.id }`（原 `post.slug`）
-- **全站 `post.slug` → `post.id`（共 9 处）**
-  - `pages/blog/[...slug].astro`（params + postUrl）
-  - `pages/blog/index.astro`（BlogCard slug prop）
-  - `pages/blog/tags/[tag].astro`（文章链接 href）
-  - `pages/blog/authors/[author].astro`（文章链接 href）
-  - `pages/rss.xml.ts`（RSS link 字段）
-  - `pages/team.astro`（latestPost map + activityFeed）
-
+  - `await post.render()` 鈫?`await render(post)`锛坄render` 鍑芥暟浠?`astro:content` 瀵煎叆锛?  - Content Layer API 鍏ュ彛 `params: { slug: post.id }`锛堝師 `post.slug`锛?- **鍏ㄧ珯 `post.slug` 鈫?`post.id`锛堝叡 9 澶勶級**
+  - `pages/blog/[...slug].astro`锛坧arams + postUrl锛?  - `pages/blog/index.astro`锛圔logCard slug prop锛?  - `pages/blog/tags/[tag].astro`锛堟枃绔犻摼鎺?href锛?  - `pages/blog/authors/[author].astro`锛堟枃绔犻摼鎺?href锛?  - `pages/rss.xml.ts`锛圧SS link 瀛楁锛?  - `pages/team.astro`锛坙atestPost map + activityFeed锛?
 ### Fixed
 
-- `src/content/authors/profile-designer.yaml` — 新增缺失文件（消除构建警告 `Entry authors → profile-designer was not found`）
-
+- `src/content/authors/profile-designer.yaml` 鈥?鏂板缂哄け鏂囦欢锛堟秷闄ゆ瀯寤鸿鍛?`Entry authors 鈫?profile-designer was not found`锛?
 ### Compatibility
 
-- `authors` 集合保持 `type: 'data'`（数据集合无需迁移）
-- `post.id` 值与原 `post.slug` 完全相同（glob loader 默认以文件名去扩展名作为 id）
-- `astro check`: **0 errors · 0 warnings · 0 hints**
-- `npm run build`: **57 页构建成功，exit code 0**
+- `authors` 闆嗗悎淇濇寔 `type: 'data'`锛堟暟鎹泦鍚堟棤闇€杩佺Щ锛?- `post.id` 鍊间笌鍘?`post.slug` 瀹屽叏鐩稿悓锛坓lob loader 榛樿浠ユ枃浠跺悕鍘绘墿灞曞悕浣滀负 id锛?- `astro check`: **0 errors 路 0 warnings 路 0 hints**
+- `npm run build`: **57 椤垫瀯寤烘垚鍔燂紝exit code 0**
 
 ---
 
-## [5.0.0] — 2026-03-01
+## [5.0.0] 鈥?2026-03-01
 
-> **架构升级 — Astro 5 迁移（4.16 → 5.18）**
-> 触发条件满足（S-6 可行性报告 ✅）；迁移完成：0 errors · 0 warnings · 0 hints · 57 页构建无误
-
+> **鏋舵瀯鍗囩骇 鈥?Astro 5 杩佺Щ锛?.16 鈫?5.18锛?*
+> 瑙﹀彂鏉′欢婊¤冻锛圫-6 鍙鎬ф姤鍛?鉁咃級锛涜縼绉诲畬鎴愶細0 errors 路 0 warnings 路 0 hints 路 57 椤垫瀯寤烘棤璇?
 ### Changed
 
-- **Astro 4.16.18 → 5.18.0 升级**
-  - 更新 `package.json`，`astro@^5.18.0`
-  - `ViewTransitions` 组件废弃 → 改用 `ClientRouter`（`import { ClientRouter } from 'astro:transitions'`）
-  - `BaseLayout.astro` 中 `<ViewTransitions />` → `<ClientRouter />`
-- **@astrojs/mdx 3.1.9 → 4.3.13 升级**
-  - 兼容 Astro 5，无 API 破坏性变更
-- **JSON-LD script 修复**
-  - 含属性 `type="application/ld+json"` 的 `<script>` 块在 Astro 5 须显式加 `is:inline`
-  - `BaseLayout.astro` JSON-LD 注入已更新
-
+- **Astro 4.16.18 鈫?5.18.0 鍗囩骇**
+  - 鏇存柊 `package.json`锛宍astro@^5.18.0`
+  - `ViewTransitions` 缁勪欢搴熷純 鈫?鏀圭敤 `ClientRouter`锛坄import { ClientRouter } from 'astro:transitions'`锛?  - `BaseLayout.astro` 涓?`<ViewTransitions />` 鈫?`<ClientRouter />`
+- **@astrojs/mdx 3.1.9 鈫?4.3.13 鍗囩骇**
+  - 鍏煎 Astro 5锛屾棤 API 鐮村潖鎬у彉鏇?- **JSON-LD script 淇**
+  - 鍚睘鎬?`type="application/ld+json"` 鐨?`<script>` 鍧楀湪 Astro 5 椤绘樉寮忓姞 `is:inline`
+  - `BaseLayout.astro` JSON-LD 娉ㄥ叆宸叉洿鏂?
 ### Fixed
 
-- `GitTimeline.astro` — 移除未使用的 `index` 参数（`events.map((event, index)` → `events.map((event)`）
-- `blog/authors/[author].astro` — 移除未使用的 `getEntry` 导入（`astro check` hint 修复）
-
+- `GitTimeline.astro` 鈥?绉婚櫎鏈娇鐢ㄧ殑 `index` 鍙傛暟锛坄events.map((event, index)` 鈫?`events.map((event)`锛?- `blog/authors/[author].astro` 鈥?绉婚櫎鏈娇鐢ㄧ殑 `getEntry` 瀵煎叆锛坄astro check` hint 淇锛?
 ### Compatibility
 
-- Legacy `type: 'content'` 集合在 Astro 5 继续兼容（直至 Astro 6）
-- Content Layer API (`loader: glob()`) 正式迁移推迟至 v5.1.0
-- `astro check` 结果：**0 errors · 0 warnings · 0 hints**
-- `npm run build` 结果：**57 页构建成功，exit code 0**
+- Legacy `type: 'content'` 闆嗗悎鍦?Astro 5 缁х画鍏煎锛堢洿鑷?Astro 6锛?- Content Layer API (`loader: glob()`) 姝ｅ紡杩佺Щ鎺ㄨ繜鑷?v5.1.0
+- `astro check` 缁撴灉锛?*0 errors 路 0 warnings 路 0 hints**
+- `npm run build` 缁撴灉锛?*57 椤垫瀯寤烘垚鍔燂紝exit code 0**
 
 ---
 
-## [4.5.0] — 2026-03-01
+## [4.5.0] 鈥?2026-03-01
 
-> **SEO & 性能 Sprint — JSON-LD / hreflang / Lighthouse CI / axe-core CI / Astro 5 调研**
-> 六项任务交付：S-1 JSON-LD · S-2 hreflang · S-3 Lighthouse CI · S-4 axe-core CI · S-5 构建缓存 · S-6 Astro 5 报告
+> **SEO & 鎬ц兘 Sprint 鈥?JSON-LD / hreflang / Lighthouse CI / axe-core CI / Astro 5 璋冪爺**
+> 鍏」浠诲姟浜や粯锛歋-1 JSON-LD 路 S-2 hreflang 路 S-3 Lighthouse CI 路 S-4 axe-core CI 路 S-5 鏋勫缓缂撳瓨 路 S-6 Astro 5 鎶ュ憡
 
 ### Added
 
-- **S-1 JSON-LD 结构化数据（P1）**
-  - `BaseLayout.astro` — 添加 `jsonLd` prop，支持传入单个或数组 JSON-LD 对象
-    自动注入 `<script type="application/ld+json">` 到 `<head>`
-  - `index.astro` — 注入 `Person` + `WebSite` schema（含 `sameAs` GitHub URL、`knowsAbout` 技能数组）
-  - `[...slug].astro` — 注入 `BlogPosting` schema（`headline` / `datePublished` / `dateModified` / `author` / `keywords`）
-    Agent 作者使用 `SoftwareApplication` 类型，人类作者使用 `Person` 类型
-- **S-2 hreflang 双语标签（P2）**
-  - `BaseLayout.astro` — 添加 `hreflangLinks` prop，渲染 `<link rel="alternate" hreflang>` 标签
-  - `[...slug].astro` — 双语文章（`bilingual: true`）自动生成 `zh` / `en` / `x-default` 三条 hreflang
-- **S-3 Lighthouse CI（P1）**
-  - `.github/workflows/lighthouse-ci.yml` — `treosh/lighthouse-ci-action@v12`
-    最低分数阈值：accessibility ≥ 0.90（error）、seo ≥ 0.90（error）、performance ≥ 0.85（warn）
-  - `.lighthouserc.json` — Lighthouse CI 配置文件（`staticDistDir` 模式，无需启动服务器）
-  - 产物上传至 `temporary-public-storage`，PR 内可直接查看报告链接
-- **S-4 axe-core CI（P2）**
-  - `.github/workflows/accessibility.yml` — 构建后启动 `serve` 静态服务，`@axe-core/cli` 扫描首页、博客列表、team 页
-  - `--exit` flag：发现 violation 时 CI 失败
-- **S-5 构建缓存优化（P2）**
-  - `deploy.yml` — 新增 `actions/cache@v4` 缓存 `.astro/` 增量构建目录
-  - `lighthouse-ci.yml` / `accessibility.yml` — 同步添加 `.astro` 缓存步骤
-  - 缓存键：`astro-${{ hashFiles('src/**','public/**','astro.config.mjs','package-lock.json') }}`
-  - 预期效果：增量部署构建时间减少 ~40%
-- **S-6 Astro 5 迁移可行性报告（P1）**
-  - `docs/research/astro-v5-feasibility-2026.md` — Researcher 完整报告
-    结论：✅ 迁移可行，工作量约半天，建议纳入 v5.0.0
-    核心依赖兼容性矩阵 + 迁移路径 + 风险评估
+- **S-1 JSON-LD 缁撴瀯鍖栨暟鎹紙P1锛?*
+  - `BaseLayout.astro` 鈥?娣诲姞 `jsonLd` prop锛屾敮鎸佷紶鍏ュ崟涓垨鏁扮粍 JSON-LD 瀵硅薄
+    鑷姩娉ㄥ叆 `<script type="application/ld+json">` 鍒?`<head>`
+  - `index.astro` 鈥?娉ㄥ叆 `Person` + `WebSite` schema锛堝惈 `sameAs` GitHub URL銆乣knowsAbout` 鎶€鑳芥暟缁勶級
+  - `[...slug].astro` 鈥?娉ㄥ叆 `BlogPosting` schema锛坄headline` / `datePublished` / `dateModified` / `author` / `keywords`锛?    Agent 浣滆€呬娇鐢?`SoftwareApplication` 绫诲瀷锛屼汉绫讳綔鑰呬娇鐢?`Person` 绫诲瀷
+- **S-2 hreflang 鍙岃鏍囩锛圥2锛?*
+  - `BaseLayout.astro` 鈥?娣诲姞 `hreflangLinks` prop锛屾覆鏌?`<link rel="alternate" hreflang>` 鏍囩
+  - `[...slug].astro` 鈥?鍙岃鏂囩珷锛坄bilingual: true`锛夎嚜鍔ㄧ敓鎴?`zh` / `en` / `x-default` 涓夋潯 hreflang
+- **S-3 Lighthouse CI锛圥1锛?*
+  - `.github/workflows/lighthouse-ci.yml` 鈥?`treosh/lighthouse-ci-action@v12`
+    鏈€浣庡垎鏁伴槇鍊硷細accessibility 鈮?0.90锛坋rror锛夈€乻eo 鈮?0.90锛坋rror锛夈€乸erformance 鈮?0.85锛坵arn锛?  - `.lighthouserc.json` 鈥?Lighthouse CI 閰嶇疆鏂囦欢锛坄staticDistDir` 妯″紡锛屾棤闇€鍚姩鏈嶅姟鍣級
+  - 浜х墿涓婁紶鑷?`temporary-public-storage`锛孭R 鍐呭彲鐩存帴鏌ョ湅鎶ュ憡閾炬帴
+- **S-4 axe-core CI锛圥2锛?*
+  - `.github/workflows/accessibility.yml` 鈥?鏋勫缓鍚庡惎鍔?`serve` 闈欐€佹湇鍔★紝`@axe-core/cli` 鎵弿棣栭〉銆佸崥瀹㈠垪琛ㄣ€乼eam 椤?  - `--exit` flag锛氬彂鐜?violation 鏃?CI 澶辫触
+- **S-5 鏋勫缓缂撳瓨浼樺寲锛圥2锛?*
+  - `deploy.yml` 鈥?鏂板 `actions/cache@v4` 缂撳瓨 `.astro/` 澧為噺鏋勫缓鐩綍
+  - `lighthouse-ci.yml` / `accessibility.yml` 鈥?鍚屾娣诲姞 `.astro` 缂撳瓨姝ラ
+  - 缂撳瓨閿細`astro-${{ hashFiles('src/**','public/**','astro.config.mjs','package-lock.json') }}`
+  - 棰勬湡鏁堟灉锛氬閲忛儴缃叉瀯寤烘椂闂村噺灏?~40%
+- **S-6 Astro 5 杩佺Щ鍙鎬ф姤鍛婏紙P1锛?*
+  - `docs/research/astro-v5-feasibility-2026.md` 鈥?Researcher 瀹屾暣鎶ュ憡
+    缁撹锛氣渽 杩佺Щ鍙锛屽伐浣滈噺绾﹀崐澶╋紝寤鸿绾冲叆 v5.0.0
+    鏍稿績渚濊禆鍏煎鎬х煩闃?+ 杩佺Щ璺緞 + 椋庨櫓璇勪及
 
 ---
 
-## [4.4.0] — 2026-03-01
+## [4.4.0] 鈥?2026-03-01
 
-> **体验精修 Sprint — a11y / 博客微交互 / Hero 打字动画 / 团队动态墙**
-> 四项功能任务全部交付：U-1 博客卡片微交互 · U-2 Hero 增强 · U-3 a11y 基础（P1）· U-4 团队动态墙
+> **浣撻獙绮句慨 Sprint 鈥?a11y / 鍗氬寰氦浜?/ Hero 鎵撳瓧鍔ㄧ敾 / 鍥㈤槦鍔ㄦ€佸**
+> 鍥涢」鍔熻兘浠诲姟鍏ㄩ儴浜や粯锛歎-1 鍗氬鍗＄墖寰氦浜?路 U-2 Hero 澧炲己 路 U-3 a11y 鍩虹锛圥1锛壜?U-4 鍥㈤槦鍔ㄦ€佸
 
 ### Added
 
-- **U-3 a11y 基础（P1）**
-  - `BaseLayout.astro` — 顶部添加 `skip-to-content` 跳转链接（键盘/屏幕阅读器友好）
-  - `BaseLayout.astro` — `<slot />` 包裹 `<main id="main-content" tabindex="-1">` 语义化主内容区域
-  - `Nav.astro` — `<nav>` 元素添加 `aria-label="Main navigation"`
-  - `Nav.astro` — 搜索按钮添加 `aria-label="搜索 (Ctrl+K)"`
-  - `global.css` — `.skip-link` 样式（隐藏态 + 聚焦时浮现在 nav 下方）
-  - `global.css` — `:focus-visible` 全局 2px accent 边框 + `:focus:not(:focus-visible)` 去除鼠标点击轮廓
-- **U-1 博客卡片微交互**
-  - `BlogCard.astro` — contentType 图标包裹 `<span class="type-icon">`，CSS `@keyframes breathe` 呼吸动画（2.8s）
-  - `BlogCard.astro` — hover 升级：`box-shadow 0 8px 30px rgba(88,166,255,0.1)` + `will-change: transform`
-  - `BlogCard.astro` — `<script>` 添加 3D 透视倾斜效果（`perspective(700px) rotateX/Y` 鼠标追踪）
-  - 全部动效遵守 `prefers-reduced-motion`
-- **U-2 首页 Hero 增强**
-  - `Hero.astro` — CSS `@keyframes term-reveal` 逐行打字机揭示动画（opacity + X 偏移）
-  - `Hero.astro` — `<script>` 按行数自动计算 `animation-delay`（0.3s 起步，每行 0.2s 间隔）
-  - Hero CTA 按钮延迟跟随末行动画后出现
-  - 遵守 `prefers-reduced-motion`
-- **U-4 团队动态墙**
-  - `team.astro` — 新增「团队动态」section（`#activity`），展示全站最新 12 篇博文活动流
-  - Git log 风格终端布局：作者 emoji + displayName + `published` + 文章标题链接 + 日期
-  - 数据来自 `getCollection('blog')` + `teamMembers` 本地映射，无外部 API 依赖
-  - `typeIconMap` 为 contentType 匹配用途图标（💡/⚡/✍️/📝）
-
+- **U-3 a11y 鍩虹锛圥1锛?*
+  - `BaseLayout.astro` 鈥?椤堕儴娣诲姞 `skip-to-content` 璺宠浆閾炬帴锛堥敭鐩?灞忓箷闃呰鍣ㄥ弸濂斤級
+  - `BaseLayout.astro` 鈥?`<slot />` 鍖呰９ `<main id="main-content" tabindex="-1">` 璇箟鍖栦富鍐呭鍖哄煙
+  - `Nav.astro` 鈥?`<nav>` 鍏冪礌娣诲姞 `aria-label="Main navigation"`
+  - `Nav.astro` 鈥?鎼滅储鎸夐挳娣诲姞 `aria-label="鎼滅储 (Ctrl+K)"`
+  - `global.css` 鈥?`.skip-link` 鏍峰紡锛堥殣钘忔€?+ 鑱氱劍鏃舵诞鐜板湪 nav 涓嬫柟锛?  - `global.css` 鈥?`:focus-visible` 鍏ㄥ眬 2px accent 杈规 + `:focus:not(:focus-visible)` 鍘婚櫎榧犳爣鐐瑰嚮杞粨
+- **U-1 鍗氬鍗＄墖寰氦浜?*
+  - `BlogCard.astro` 鈥?contentType 鍥炬爣鍖呰９ `<span class="type-icon">`锛孋SS `@keyframes breathe` 鍛煎惛鍔ㄧ敾锛?.8s锛?  - `BlogCard.astro` 鈥?hover 鍗囩骇锛歚box-shadow 0 8px 30px rgba(88,166,255,0.1)` + `will-change: transform`
+  - `BlogCard.astro` 鈥?`<script>` 娣诲姞 3D 閫忚鍊炬枩鏁堟灉锛坄perspective(700px) rotateX/Y` 榧犳爣杩借釜锛?  - 鍏ㄩ儴鍔ㄦ晥閬靛畧 `prefers-reduced-motion`
+- **U-2 棣栭〉 Hero 澧炲己**
+  - `Hero.astro` 鈥?CSS `@keyframes term-reveal` 閫愯鎵撳瓧鏈烘彮绀哄姩鐢伙紙opacity + X 鍋忕Щ锛?  - `Hero.astro` 鈥?`<script>` 鎸夎鏁拌嚜鍔ㄨ绠?`animation-delay`锛?.3s 璧锋锛屾瘡琛?0.2s 闂撮殧锛?  - Hero CTA 鎸夐挳寤惰繜璺熼殢鏈鍔ㄧ敾鍚庡嚭鐜?  - 閬靛畧 `prefers-reduced-motion`
+- **U-4 鍥㈤槦鍔ㄦ€佸**
+  - `team.astro` 鈥?鏂板銆屽洟闃熷姩鎬併€峴ection锛坄#activity`锛夛紝灞曠ず鍏ㄧ珯鏈€鏂?12 绡囧崥鏂囨椿鍔ㄦ祦
+  - Git log 椋庢牸缁堢甯冨眬锛氫綔鑰?emoji + displayName + `published` + 鏂囩珷鏍囬閾炬帴 + 鏃ユ湡
+  - 鏁版嵁鏉ヨ嚜 `getCollection('blog')` + `teamMembers` 鏈湴鏄犲皠锛屾棤澶栭儴 API 渚濊禆
+  - `typeIconMap` 涓?contentType 鍖归厤鐢ㄩ€斿浘鏍囷紙馃挕/鈿?鉁嶏笍/馃摑锛?
 ---
 
-## [4.3.0] — 2026-03-01
+## [4.3.0] 鈥?2026-03-01
 
 ### Added
 
-- **GitHub Discussions 社区上线** — Announcements / Team Insights / AI-native Journey 三个自定义分类 + 3 篇首发帖
-- **4 个 Good First Issues** 创建（#1-#4）：组件指南翻译、设计决策更新、Agent 速查卡、组件健康监控
-- **README 着陆页增强** — Preview 区块、Star History 图表、Contributors 头像列表、双 CI badge（markdown-lint + link-check）、Roadmap 扩展至 v4.5.0
-- **`docs/release-sop.md`** — 版本发布标准操作流程（从代码冻结到 Release 的完整步骤）
-- **`docs/brand-release-template.md`** — Brand 版本发布博文模板（WHY > WHAT 叙事原则）
-- `profile-designer-first-post.mdx` (member-essay) — Profile Designer 首发博文
-- `ai-native-person-summit-2026-02-26.mdx` (meeting) — AI-native Person 思想峰会纪实
-- `free-brainstorm-2026-02-26.mdx` (meeting) — v4.0.0 发布后全员自由交流会
-- `team-evolution-design-2026-02-27.mdx` (meeting) — /team 页面 Git Graph 设计会
-
+- **GitHub Discussions 绀惧尯涓婄嚎** 鈥?Announcements / Team Insights / AI-native Journey 涓変釜鑷畾涔夊垎绫?+ 3 绡囬鍙戝笘
+- **4 涓?Good First Issues** 鍒涘缓锛?1-#4锛夛細缁勪欢鎸囧崡缈昏瘧銆佽璁″喅绛栨洿鏂般€丄gent 閫熸煡鍗°€佺粍浠跺仴搴风洃鎺?- **README 鐫€闄嗛〉澧炲己** 鈥?Preview 鍖哄潡銆丼tar History 鍥捐〃銆丆ontributors 澶村儚鍒楄〃銆佸弻 CI badge锛坢arkdown-lint + link-check锛夈€丷oadmap 鎵╁睍鑷?v4.5.0
+- **`docs/governance/release-sop.md`** 鈥?鐗堟湰鍙戝竷鏍囧噯鎿嶄綔娴佺▼锛堜粠浠ｇ爜鍐荤粨鍒?Release 鐨勫畬鏁存楠わ級
+- **`docs/strategy/brand-release-template.md`** 鈥?Brand 鐗堟湰鍙戝竷鍗氭枃妯℃澘锛圵HY > WHAT 鍙欎簨鍘熷垯锛?- `profile-designer-first-post.mdx` (member-essay) 鈥?Profile Designer 棣栧彂鍗氭枃
+- `ai-native-person-summit-2026-02-26.mdx` (meeting) 鈥?AI-native Person 鎬濇兂宄颁細绾疄
+- `free-brainstorm-2026-02-26.mdx` (meeting) 鈥?v4.0.0 鍙戝竷鍚庡叏鍛樿嚜鐢变氦娴佷細
+- `team-evolution-design-2026-02-27.mdx` (meeting) 鈥?/team 椤甸潰 Git Graph 璁捐浼?
 ### Fixed
 
-- **CI markdown-lint 全面修复**：282 errors → 0 errors
-  - 新增 `.markdownlint-cli2.jsonc` 使用原生 `ignores` 机制（替代不工作的 `.markdownlintignore`）
-  - 禁用与项目紧凑文档风格冲突的 4 条规则：MD022/MD028/MD031/MD032
-  - 修复 11 处 MD034 裸 URL（`component-guide.md` + `bug_report.md`）
-  - Workflow 触发条件扩展到 `.jsonc` 配置文件变更
-- **BlogCard 嵌套 `<a>` 修复**（W-01）— 改用 stretched-link 模式，消除非法嵌套 HTML
-- **汉堡菜单焦点管理**（W-02）— 添加 Escape 关闭 + Tab 焦点循环 + 开启时自动聚焦
+- **CI markdown-lint 鍏ㄩ潰淇**锛?82 errors 鈫?0 errors
+  - 鏂板 `.markdownlint-cli2.jsonc` 浣跨敤鍘熺敓 `ignores` 鏈哄埗锛堟浛浠ｄ笉宸ヤ綔鐨?`.markdownlintignore`锛?  - 绂佺敤涓庨」鐩揣鍑戞枃妗ｉ鏍煎啿绐佺殑 4 鏉¤鍒欙細MD022/MD028/MD031/MD032
+  - 淇 11 澶?MD034 瑁?URL锛坄component-guide.md` + `bug_report.md`锛?  - Workflow 瑙﹀彂鏉′欢鎵╁睍鍒?`.jsonc` 閰嶇疆鏂囦欢鍙樻洿
+- **BlogCard 宓屽 `<a>` 淇**锛圵-01锛夆€?鏀圭敤 stretched-link 妯″紡锛屾秷闄ら潪娉曞祵濂?HTML
+- **姹夊牎鑿滃崟鐒︾偣绠＄悊**锛圵-02锛夆€?娣诲姞 Escape 鍏抽棴 + Tab 鐒︾偣寰幆 + 寮€鍚椂鑷姩鑱氱劍
 
 ---
 
-## [4.2.0] — 2026-03-01
+## [4.2.0] 鈥?2026-03-01
 
-> **工程质量 Sprint — CSS 统一 / 组件拆分 / 响应式 / CI 修复**
-> code-reviewer: `APPROVED WITH NOTES`（36/40，见 `docs/reviews/v4.2.0-review.md`）
-
+> **宸ョ▼璐ㄩ噺 Sprint 鈥?CSS 缁熶竴 / 缁勪欢鎷嗗垎 / 鍝嶅簲寮?/ CI 淇**
+> code-reviewer: `APPROVED WITH NOTES`锛?6/40锛岃 `docs/reviews/v4.2.0-review.md`锛?
 ### Added
 
-- `src/styles/global.css` — 全局 CSS 变量 + 设计令牌 + 基础重置（从 BaseLayout 提取）
-- `src/data/content-types.ts` — 博客内容类型共享配置（typeConfig / ContentType 类型导出）
-- `src/components/BlogCard.astro` — 博客列表卡片组件（含 type-badge、author-chip、tags）
-- `src/components/FilterTabs.astro` — 博客筛选标签栏组件（含 is:inline 客户端过滤逻辑）
-- `tsconfig.json` 新增 `@styles/*` 路径别名
+- `src/styles/global.css` 鈥?鍏ㄥ眬 CSS 鍙橀噺 + 璁捐浠ょ墝 + 鍩虹閲嶇疆锛堜粠 BaseLayout 鎻愬彇锛?- `src/data/content-types.ts` 鈥?鍗氬鍐呭绫诲瀷鍏变韩閰嶇疆锛坱ypeConfig / ContentType 绫诲瀷瀵煎嚭锛?- `src/components/BlogCard.astro` 鈥?鍗氬鍒楄〃鍗＄墖缁勪欢锛堝惈 type-badge銆乤uthor-chip銆乼ags锛?- `src/components/FilterTabs.astro` 鈥?鍗氬绛涢€夋爣绛炬爮缁勪欢锛堝惈 is:inline 瀹㈡埛绔繃婊ら€昏緫锛?- `tsconfig.json` 鏂板 `@styles/*` 璺緞鍒悕
 
 ### Changed
 
-- `BaseLayout.astro`：移除 120 行内联 CSS，改为 `import '../styles/global.css'`；移除未使用的 ThemeToggle import
-- `blog/index.astro`：从 346 行重构至 ~90 行（提取 BlogCard + FilterTabs + 共享配置后）
-- `Nav.astro`：新增移动端 hamburger 菜单（≤768px 折叠导航），替换原有仅缩字号的 480px 断点
-- `FilterTabs.astro`：移动端 ≤480px 水平滚动（`overflow-x: auto` + `flex-wrap: nowrap`）
-- 全局 CSS 变量新增：`--color-purple`, `--color-orange`, `--color-pink`, `--color-red`, `--space-*` 尺度、`--max-w`, `--max-w-wide`, `--nav-h`, `--radius-*`
-- 组件中硬编码色值替换为 CSS 变量引用（如 `#bc8cff` → `var(--color-purple)`）
-
+- `BaseLayout.astro`锛氱Щ闄?120 琛屽唴鑱?CSS锛屾敼涓?`import '../styles/global.css'`锛涚Щ闄ゆ湭浣跨敤鐨?ThemeToggle import
+- `blog/index.astro`锛氫粠 346 琛岄噸鏋勮嚦 ~90 琛岋紙鎻愬彇 BlogCard + FilterTabs + 鍏变韩閰嶇疆鍚庯級
+- `Nav.astro`锛氭柊澧炵Щ鍔ㄧ hamburger 鑿滃崟锛堚墹768px 鎶樺彔瀵艰埅锛夛紝鏇挎崲鍘熸湁浠呯缉瀛楀彿鐨?480px 鏂偣
+- `FilterTabs.astro`锛氱Щ鍔ㄧ 鈮?80px 姘村钩婊氬姩锛坄overflow-x: auto` + `flex-wrap: nowrap`锛?- 鍏ㄥ眬 CSS 鍙橀噺鏂板锛歚--color-purple`, `--color-orange`, `--color-pink`, `--color-red`, `--space-*` 灏哄害銆乣--max-w`, `--max-w-wide`, `--nav-h`, `--radius-*`
+- 缁勪欢涓‖缂栫爜鑹插€兼浛鎹负 CSS 鍙橀噺寮曠敤锛堝 `#bc8cff` 鈫?`var(--color-purple)`锛?
 ### Fixed
 
-- `.markdownlint.jsonc`：禁用 MD036/MD040/MD060（与项目风格冲突的规则）
-- `.github/workflows/link-check.yml`：排除 modelcontextprotocol.io（404）
-- `PLAYBOOK-CHANGELOG.md`/`team-playbook.md`/`build-in-public-channels-2026.md`：修复 MD022/MD032/MD034/MD012 格式问题
+- `.markdownlint.jsonc`锛氱鐢?MD036/MD040/MD060锛堜笌椤圭洰椋庢牸鍐茬獊鐨勮鍒欙級
+- `.github/workflows/link-check.yml`锛氭帓闄?modelcontextprotocol.io锛?04锛?- `docs/governance/PLAYBOOK-CHANGELOG.md`/`team-playbook.md`/`build-in-public-channels-2026.md`锛氫慨澶?MD022/MD032/MD034/MD012 鏍煎紡闂
 
 ---
 
-## [4.1.0] — 2026-02-28
+## [4.1.0] 鈥?2026-02-28
 
-> **团队品牌化 + 内容架构 + AI-native 认知体系**  
-> **Playbook 版本**：Playbook v2.1（见 PLAYBOOK-CHANGELOG.md）  
-> code-reviewer: `APPROVED`（回顾性审查，见 `docs/reviews/v4.1.0-review.md`）
-
+> **鍥㈤槦鍝佺墝鍖?+ 鍐呭鏋舵瀯 + AI-native 璁ょ煡浣撶郴**  
+> **Playbook 鐗堟湰**锛歅laybook v2.1锛堣 docs/governance/PLAYBOOK-CHANGELOG.md锛? 
+> code-reviewer: `APPROVED`锛堝洖椤炬€у鏌ワ紝瑙?`docs/reviews/v4.1.0-review.md`锛?
 ### Added
 
-#### 团队扩展
-- `.github/agents/brand.agent.md` — Brand Agent 正式加入团队（品牌运营 + Build in Public + 内容发布策略）
-- `.github/agents/knowledge/` — §14 L2 知识库正式落地（brain / pm / dev / researcher / code-reviewer 各一份 patterns.md + README 索引）
+#### 鍥㈤槦鎵╁睍
+- `.github/agents/brand.agent.md` 鈥?Brand Agent 姝ｅ紡鍔犲叆鍥㈤槦锛堝搧鐗岃繍钀?+ Build in Public + 鍐呭鍙戝竷绛栫暐锛?- `.github/agents/knowledge/` 鈥?搂14 L2 鐭ヨ瘑搴撴寮忚惤鍦帮紙brain / pm / dev / researcher / code-reviewer 鍚勪竴浠?patterns.md + README 绱㈠紩锛?
+#### 鍗氬鍐呭鐢熸€侊紙njueeray.github.io锛?- 澶氫綔鑰呯郴缁燂細7 涓?author YAML + `/blog/authors/[agent]` 椤甸潰璺敱
+- 12 绡囧崥鏂囧彂甯冿細7 绡?Agent 棣栧彂 + 2 绡囦細璁邯瀹?+ Brand 瑙傚療鎶ュ憡 + AI-native 鑼冨紡鍙岃闀挎枃 + 鎶€鏈暀绋?- `LangToggle.astro` 鈥?涓嫳鏂囧弻璇垏鎹㈢粍浠讹紙localStorage 鎸佷箙鍖栵紝ViewTransitions 鍏煎锛?- `content/config.ts` 鈥?Blog schema 鏂板 `bilingual: boolean` + `contentType` 鏋氫妇瀛楁
 
-#### 博客内容生态（njueeray.github.io）
-- 多作者系统：7 个 author YAML + `/blog/authors/[agent]` 页面路由
-- 12 篇博文发布：7 篇 Agent 首发 + 2 篇会议纪实 + Brand 观察报告 + AI-native 范式双语长文 + 技术教程
-- `LangToggle.astro` — 中英文双语切换组件（localStorage 持久化，ViewTransitions 兼容）
-- `content/config.ts` — Blog schema 新增 `bilingual: boolean` + `contentType` 枚举字段
+#### 鍗氬鍐呭鏋舵瀯
+- `contentType` 鍥涚被鍒嗙被浣撶郴锛歩nsight锛堟€濇兂绗旇锛? technical锛堟妧鏈疄褰曪級/ member-essay锛堟垚鍛橀殢绗旓級/ meeting锛堜細璁邯瀹烇級
+- `blog/index.astro` Filter Tab 鈥?鍓嶇绛涢€?+ URL hash 娣遍摼鎺?+ 鍐呭绫诲瀷褰╄壊寰界珷 + 宸﹁竟妗嗛鑹插尯鍒?- `team.astro` 鎴愬憳鍗＄墖鍗囩骇 鈥?灞曠ず姣忎綅鎴愬憳鏈€鏂板崥鏂囨爣棰橈紙getCollection 鏄犲皠锛?
+#### 鍥㈤槦杩涘寲鍙鍖?- `/team` 椤甸潰 鈥?Git Graph 椋庢牸鍨傜洿鏃堕棿绾匡紙15 涓噷绋嬬 + 5 鑹茶妭鐐?+ 婊氬姩娓愭樉鍔ㄧ敾锛?- `src/data/team-evolution.ts` 鈥?鏁版嵁椹卞姩锛氭柊浜嬩欢鍙渶杩藉姞鏁扮粍
+- `src/components/GitTimeline.astro` 鈥?504 琛屽畬鏁寸粍浠讹紙Playbook 妗ｆ + 鎴愬憳 Grid锛?- Nav 鏂板 "team" 瀵艰埅閾炬帴
 
-#### 博客内容架构
-- `contentType` 四类分类体系：insight（思想笔记）/ technical（技术实录）/ member-essay（成员随笔）/ meeting（会议纪实）
-- `blog/index.astro` Filter Tab — 前端筛选 + URL hash 深链接 + 内容类型彩色徽章 + 左边框颜色区分
-- `team.astro` 成员卡片升级 — 展示每位成员最新博文标题（getCollection 映射）
-
-#### 团队进化可视化
-- `/team` 页面 — Git Graph 风格垂直时间线（15 个里程碑 + 5 色节点 + 滚动渐显动画）
-- `src/data/team-evolution.ts` — 数据驱动：新事件只需追加数组
-- `src/components/GitTimeline.astro` — 504 行完整组件（Playbook 档案 + 成员 Grid）
-- Nav 新增 "team" 导航链接
-
-#### 文档与规划
-- `docs/meetings/2026-02-28-v5-roadmap-planning.md` — V5 路线图全体规划会议（增量版本哲学 + v4.1→v4.5 路线图）
-- `docs/meetings/2026-02-28-blog-team-page-design-session.md` — Blog 内容架构设计会
-- `docs/meetings/2026-02-28-profile-fixes-and-action-items.md` — 工作会话纪要
-- `docs/meetings/2026-02-27-brand-welcome-all-hands.md` — Brand 欢迎全员会议纪要
-- `docs/meetings/2026-02-27-all-hands-strategic.md` — 全体战略会议纪要
-- `docs/meetings/2026-02-26-free-brainstorm.md` — 团队自由思想交流会
-- `docs/meetings/2026-02-26-ai-native-person-summit.md` — AI-native 范式深度峰会
-- `docs/meetings/2026-02-26-playbook-reread-alignment.md` — Playbook 重读对齐会
-- `docs/research/build-in-public-channels-2026.md` — Build in Public 渠道选型调研
-- `docs/brand-content-checklist.md` — 博文八维度内容审查清单
-- `docs/brand-discussions-plan.md` — GitHub Discussions 首批发布计划
-- `docs/reviews/v4.1.0-review.md` — v4.1.0 回顾性审查报告
-
+#### 鏂囨。涓庤鍒?- `docs/meetings/2026-02-28-v5-roadmap-planning.md` 鈥?V5 璺嚎鍥惧叏浣撹鍒掍細璁紙澧為噺鐗堟湰鍝插 + v4.1鈫抳4.5 璺嚎鍥撅級
+- `docs/meetings/2026-02-28-blog-team-page-design-session.md` 鈥?Blog 鍐呭鏋舵瀯璁捐浼?- `docs/meetings/2026-02-28-profile-fixes-and-action-items.md` 鈥?宸ヤ綔浼氳瘽绾
+- `docs/meetings/2026-02-27-brand-welcome-all-hands.md` 鈥?Brand 娆㈣繋鍏ㄥ憳浼氳绾
+- `docs/meetings/2026-02-27-all-hands-strategic.md` 鈥?鍏ㄤ綋鎴樼暐浼氳绾
+- `docs/meetings/2026-02-26-free-brainstorm.md` 鈥?鍥㈤槦鑷敱鎬濇兂浜ゆ祦浼?- `docs/meetings/2026-02-26-ai-native-person-summit.md` 鈥?AI-native 鑼冨紡娣卞害宄颁細
+- `docs/meetings/2026-02-26-playbook-reread-alignment.md` 鈥?Playbook 閲嶈瀵归綈浼?- `docs/research/build-in-public-channels-2026.md` 鈥?Build in Public 娓犻亾閫夊瀷璋冪爺
+- `docs/strategy/brand-content-checklist.md` 鈥?鍗氭枃鍏淮搴﹀唴瀹瑰鏌ユ竻鍗?- `docs/strategy/brand-discussions-plan.md` 鈥?GitHub Discussions 棣栨壒鍙戝竷璁″垝
+- `docs/reviews/v4.1.0-review.md` 鈥?v4.1.0 鍥為【鎬у鏌ユ姤鍛?
 ### Changed
-- `.github/copilot-instructions.md` — 同步 Brand Agent、知识库、V5 路线图、版本规划表、团队进化记录、Worktree 规范
-- `README.md` — 全面更新至 v4.0.0+ 状态（Agent 路径修正 + 功能亮点补充 + Roadmap 同步）
-- `BaseLayout.astro` — `data-lang` 属性驱动双语 CSS 显示控制
+- `.github/copilot-instructions.md` 鈥?鍚屾 Brand Agent銆佺煡璇嗗簱銆乂5 璺嚎鍥俱€佺増鏈鍒掕〃銆佸洟闃熻繘鍖栬褰曘€乄orktree 瑙勮寖
+- `README.md` 鈥?鍏ㄩ潰鏇存柊鑷?v4.0.0+ 鐘舵€侊紙Agent 璺緞淇 + 鍔熻兘浜偣琛ュ厖 + Roadmap 鍚屾锛?- `BaseLayout.astro` 鈥?`data-lang` 灞炴€ч┍鍔ㄥ弻璇?CSS 鏄剧ず鎺у埗
 
 ### Fixed
-- `njueeray.github.io` ThemeToggle — 修复 `astro:after-swap` 重复监听器（`window._themeListenerBound` 防重）
-- `njueeray.github.io` ThemeToggle — 首次访问默认深色模式（不再跟随系统偏好）
-- `.github/workflows/link-check.yml` — 新增 wakatime / shields.io / hooj0.github.io / 占位符排除规则
-- `njueeRay/njueeRay` README — capsule-render fontSize 70→60，descAlignY 55→63（文字遮挡修复）
-- `njueeRay/njueeRay` README — Tech Stack 扩展至 20 图标，`perline=10` 双行布局
-- `njueeRay/njueeRay` README — Trophy 改为 `<picture>` 元素（dark/light 分离主题）
-- `njueeRay/njueeRay` README — 3D Contribution Graph 增加 light 模式 SVG（green-animate）
-- `njueeRay/njueeRay` README — Featured pin cards `cache_seconds=86400`
-- GitHub Release v4.0.0 body 修复（UTF-8 PATCH）
-
-### Playbook 升级 (v2.0 → v2.1)
-- `team-playbook.md` §0 — AI-native 哲学立场章节
-- `team-playbook.md` §3.3 — 认知清晰度原理补充
-- `team-playbook.md` §6 — 七维度→八维度（新增 AI-native 健康度）
-- `team-playbook.md` §15.3/15.4 — Release UTF-8 编码规范修复
-- 6 个 Agent 文件新增 `## AI-native 工作哲学` 声明
-- `copilot-instructions.md` 新增 `## 哲学锚点 — AI-native person`
+- `njueeray.github.io` ThemeToggle 鈥?淇 `astro:after-swap` 閲嶅鐩戝惉鍣紙`window._themeListenerBound` 闃查噸锛?- `njueeray.github.io` ThemeToggle 鈥?棣栨璁块棶榛樿娣辫壊妯″紡锛堜笉鍐嶈窡闅忕郴缁熷亸濂斤級
+- `.github/workflows/link-check.yml` 鈥?鏂板 wakatime / shields.io / hooj0.github.io / 鍗犱綅绗︽帓闄よ鍒?- `njueeRay/njueeRay` README 鈥?capsule-render fontSize 70鈫?0锛宒escAlignY 55鈫?3锛堟枃瀛楅伄鎸′慨澶嶏級
+- `njueeRay/njueeRay` README 鈥?Tech Stack 鎵╁睍鑷?20 鍥炬爣锛宍perline=10` 鍙岃甯冨眬
+- `njueeRay/njueeRay` README 鈥?Trophy 鏀逛负 `<picture>` 鍏冪礌锛坉ark/light 鍒嗙涓婚锛?- `njueeRay/njueeRay` README 鈥?3D Contribution Graph 澧炲姞 light 妯″紡 SVG锛坓reen-animate锛?- `njueeRay/njueeRay` README 鈥?Featured pin cards `cache_seconds=86400`
+- GitHub Release v4.0.0 body 淇锛圲TF-8 PATCH锛?
+### Playbook 鍗囩骇 (v2.0 鈫?v2.1)
+- `team-playbook.md` 搂0 鈥?AI-native 鍝插绔嬪満绔犺妭
+- `team-playbook.md` 搂3.3 鈥?璁ょ煡娓呮櫚搴﹀師鐞嗚ˉ鍏?- `team-playbook.md` 搂6 鈥?涓冪淮搴︹啋鍏淮搴︼紙鏂板 AI-native 鍋ュ悍搴︼級
+- `team-playbook.md` 搂15.3/15.4 鈥?Release UTF-8 缂栫爜瑙勮寖淇
+- 6 涓?Agent 鏂囦欢鏂板 `## AI-native 宸ヤ綔鍝插` 澹版槑
+- `copilot-instructions.md` 鏂板 `## 鍝插閿氱偣 鈥?AI-native person`
 
 ---
 
-## [4.0.0] — 2026-02-26
+## [4.0.0] 鈥?2026-02-26
 
-> **三层版本体系独立化（Playbook v2.0）+ Astro 站点体验深化**  
-> **Playbook 版本**：Playbook v2.0（见 PLAYBOOK-CHANGELOG.md）  
+> **涓夊眰鐗堟湰浣撶郴鐙珛鍖栵紙Playbook v2.0锛? Astro 绔欑偣浣撻獙娣卞寲**  
+> **Playbook 鐗堟湰**锛歅laybook v2.0锛堣 docs/governance/PLAYBOOK-CHANGELOG.md锛? 
 > code-reviewer: `APPROVED`
 
 ### Added
 
-#### Phase V — 版本体系独立化（Playbook v2.0）
-- `PLAYBOOK-CHANGELOG.md` — 独立 L2 Playbook 变更日志，解耦项目版本
-- 三层版本体系规范（L1 Project / L2 Playbook / L3 Agent）写入 `team-playbook.md` §18
-- 6 个 Agent 文件全部新增 `agentVersion: v1.0` 元数据
-- `copilot-instructions.md` 新增版本总览表 + 团队能力快照卡
-- `team-playbook.md` §13.3 招募决策树 + §17.3 冷启动阶段 3 能力评估 + 附录 C Agent 快照卡格式
-
-#### Phase W — Astro 站点体验深化（njueeray.github.io）
-- **W-1 Pagefind 全站搜索** — `Search.astro` 搜索弹窗 + Ctrl+K 快捷键 + Nav 搜索按钮
-- **W-2 暗色/亮色主题切换** — `ThemeToggle.astro` + localStorage 持久化 + 系统偏好跟随 + `:root[data-theme="light"]` CSS 变量
-- **W-3 阅读进度条** — `ReadingProgress.astro`，博客文章顶部 3px 强调色进度条
-- **W-4 博客目录 TOC** — `TableOfContents.astro`，右侧边栏 + IntersectionObserver 高亮 + 平滑滚动
-- **W-5 Giscus 评论系统** — `Giscus.astro`，绑定 njueeray.github.io GitHub Discussions (Announcements)，支持主题联动；GitHub Discussions 已启用，Repo ID 已配置
-
+#### Phase V 鈥?鐗堟湰浣撶郴鐙珛鍖栵紙Playbook v2.0锛?- `docs/governance/PLAYBOOK-CHANGELOG.md` 鈥?鐙珛 L2 Playbook 鍙樻洿鏃ュ織锛岃В鑰﹂」鐩増鏈?- 涓夊眰鐗堟湰浣撶郴瑙勮寖锛圠1 Project / L2 Playbook / L3 Agent锛夊啓鍏?`team-playbook.md` 搂18
+- 6 涓?Agent 鏂囦欢鍏ㄩ儴鏂板 `agentVersion: v1.0` 鍏冩暟鎹?- `copilot-instructions.md` 鏂板鐗堟湰鎬昏琛?+ 鍥㈤槦鑳藉姏蹇収鍗?- `team-playbook.md` 搂13.3 鎷涘嫙鍐崇瓥鏍?+ 搂17.3 鍐峰惎鍔ㄩ樁娈?3 鑳藉姏璇勪及 + 闄勫綍 C Agent 蹇収鍗℃牸寮?
+#### Phase W 鈥?Astro 绔欑偣浣撻獙娣卞寲锛坣jueeray.github.io锛?- **W-1 Pagefind 鍏ㄧ珯鎼滅储** 鈥?`Search.astro` 鎼滅储寮圭獥 + Ctrl+K 蹇嵎閿?+ Nav 鎼滅储鎸夐挳
+- **W-2 鏆楄壊/浜壊涓婚鍒囨崲** 鈥?`ThemeToggle.astro` + localStorage 鎸佷箙鍖?+ 绯荤粺鍋忓ソ璺熼殢 + `:root[data-theme="light"]` CSS 鍙橀噺
+- **W-3 闃呰杩涘害鏉?* 鈥?`ReadingProgress.astro`锛屽崥瀹㈡枃绔犻《閮?3px 寮鸿皟鑹茶繘搴︽潯
+- **W-4 鍗氬鐩綍 TOC** 鈥?`TableOfContents.astro`锛屽彸渚ц竟鏍?+ IntersectionObserver 楂樹寒 + 骞虫粦婊氬姩
+- **W-5 Giscus 璇勮绯荤粺** 鈥?`Giscus.astro`锛岀粦瀹?njueeray.github.io GitHub Discussions (Announcements)锛屾敮鎸佷富棰樿仈鍔紱GitHub Discussions 宸插惎鐢紝Repo ID 宸查厤缃?
 ### Docs
-- `docs/meetings/2026-02-26-v4-planning.md` — V4.0 全体规划会议纪要（三层版本体系决议 + Phase V/W/P 执行计划）
-- `docs/design-decisions.md` — 补录 V3.0 SEO/标签决策 + V4.0 站点增强 + 版本体系设计决策
+- `docs/meetings/2026-02-26-v4-planning.md` 鈥?V4.0 鍏ㄤ綋瑙勫垝浼氳绾锛堜笁灞傜増鏈綋绯诲喅璁?+ Phase V/W/P 鎵ц璁″垝锛?- `docs/governance/design-decisions.md` 鈥?琛ュ綍 V3.0 SEO/鏍囩鍐崇瓥 + V4.0 绔欑偣澧炲己 + 鐗堟湰浣撶郴璁捐鍐崇瓥
 
 ---
 
-## [3.0.0] — 2026-02-26
+## [3.0.0] 鈥?2026-02-26
 
-> **SEO 地基 + Blog 标签系统 + Profile 新组件 + Playbook 可移植化**
+> **SEO 鍦板熀 + Blog 鏍囩绯荤粺 + Profile 鏂扮粍浠?+ Playbook 鍙Щ妞嶅寲**
 > code-reviewer: `APPROVED`
 
 ### Added
 
-#### V3.0 Phase X — Astro 站点 SEO 地基
-- `njueeray.github.io` 安装 `@astrojs/sitemap@3.2.1` → `sitemap-index.xml` 自动生成
-- `njueeray.github.io` 安装 `@astrojs/rss` → `src/pages/rss.xml.ts`，可订阅 Feed（语言 `zh-cn`）
-- `BaseLayout.astro` 新增 `ogImage` prop（可选），条件性注入 canonical / OG / Twitter Card meta tags
-- 首页 `index.astro` 补充独立 description；Footer 添加 RSS SVG 图标入口
-- `src/pages/404.astro` 自定义终端风格 404 页面（含 ← Home / Blog 快捷按钮）
+#### V3.0 Phase X 鈥?Astro 绔欑偣 SEO 鍦板熀
+- `njueeray.github.io` 瀹夎 `@astrojs/sitemap@3.2.1` 鈫?`sitemap-index.xml` 鑷姩鐢熸垚
+- `njueeray.github.io` 瀹夎 `@astrojs/rss` 鈫?`src/pages/rss.xml.ts`锛屽彲璁㈤槄 Feed锛堣瑷€ `zh-cn`锛?- `BaseLayout.astro` 鏂板 `ogImage` prop锛堝彲閫夛級锛屾潯浠舵€ф敞鍏?canonical / OG / Twitter Card meta tags
+- 棣栭〉 `index.astro` 琛ュ厖鐙珛 description锛汧ooter 娣诲姞 RSS SVG 鍥炬爣鍏ュ彛
+- `src/pages/404.astro` 鑷畾涔夌粓绔鏍?404 椤甸潰锛堝惈 鈫?Home / Blog 蹇嵎鎸夐挳锛?
+#### V3.0 Phase Y 鈥?Blog 鏍囩绯荤粺
+- `src/pages/blog/tags/index.astro` 鏍囩浜戦〉闈紙棰戞椹卞姩瀛楀彿娓愬彉锛宑ount badge锛?- `src/pages/blog/tags/[tag].astro` 鏍囩杩囨护椤甸潰锛? 鏉￠潤鎬佽矾鐢辫嚜鍔ㄧ敓鎴愶級
+- `blog/index.astro` 鏂囩珷鍗＄墖缁撴瀯閲嶆瀯锛歵ag 浠庣埗绾?`<a>` 鍐呰縼鍑猴紝鍙樹负鐙珛 `<a>` 閾炬帴
+- `[slug].astro` 鏂囩珷椤?tag pill 鍏ㄩ儴鏀逛负鍙偣鍑婚摼鎺?+ 銆屽叏閮ㄦ爣绛?鈫掋€嶅叆鍙?
+#### V3.0 Phase Z 鈥?Profile README 鏂扮粍浠?- `njueeRay-profile` `.github/workflows/3d-contrib.yml` 鈥?姣忔棩 UTC 18:00 鑷姩鏇存柊 3D 璐＄尞鍥?SVG锛堟帹閫佸埌 `output` 鍒嗘敮锛?- `njueeRay-profile` README 鏂板 `## 馃弳 Achievements` 鍖哄潡 鈥?github-profile-trophy锛坉arkhub, 1脳6锛?- `njueeRay-profile` README 鎻掑叆 3D 璐＄尞鍥?`<details>` 鎶樺彔鍖哄潡锛坣ight-rainbow 涓婚 SVG锛?- `njueeRay-profile` README Connect 鍖烘坊鍔?Blog RSS Feed 璁㈤槄 badge
 
-#### V3.0 Phase Y — Blog 标签系统
-- `src/pages/blog/tags/index.astro` 标签云页面（频次驱动字号渐变，count badge）
-- `src/pages/blog/tags/[tag].astro` 标签过滤页面（7 条静态路由自动生成）
-- `blog/index.astro` 文章卡片结构重构：tag 从父级 `<a>` 内迁出，变为独立 `<a>` 链接
-- `[slug].astro` 文章页 tag pill 全部改为可点击链接 + 「全部标签 →」入口
-
-#### V3.0 Phase Z — Profile README 新组件
-- `njueeRay-profile` `.github/workflows/3d-contrib.yml` — 每日 UTC 18:00 自动更新 3D 贡献图 SVG（推送到 `output` 分支）
-- `njueeRay-profile` README 新增 `## 🏆 Achievements` 区块 — github-profile-trophy（darkhub, 1×6）
-- `njueeRay-profile` README 插入 3D 贡献图 `<details>` 折叠区块（night-rainbow 主题 SVG）
-- `njueeRay-profile` README Connect 区添加 Blog RSS Feed 订阅 badge
-
-#### Playbook 深化 — team-playbook.md
-- 新增 §12 新团队接手协议（四阶段流程：静默阅读 → 对齐会议 → 状态报告 → 团队适配）
-- 新增 §13 团队自主进化（Brain 作为架构师，自主招募/改造/停用 Agent）
-- 新增 §4.5 Emoji Commit 倡议（15 种映射表）
-- 新增 §5.4 团队自主版本决策权（PM 发版信号 + Brain 提案格式）
-- 新增 §14 Agent 经验沉淀机制（L1/L2/L3 三层知识体系）
-- 新增 §15 GitHub API 操作规范（跨平台 Token 提取，PowerShell + Bash）
-- 新增 §16 开源项目品牌化规范
-- 新增 §17 Playbook 定制指南（零上下文冷启动协议）
-- 附录 B 扩充 3 条新反模式
-- `docs/meetings/2026-02-26-v3-release-review.md` V3.0 发布前终审会议纪要
-- `.github/copilot-instructions.md` 新增 Brain 自主权限 + 团队进化记录区块
+#### Playbook 娣卞寲 鈥?team-playbook.md
+- 鏂板 搂12 鏂板洟闃熸帴鎵嬪崗璁紙鍥涢樁娈垫祦绋嬶細闈欓粯闃呰 鈫?瀵归綈浼氳 鈫?鐘舵€佹姤鍛?鈫?鍥㈤槦閫傞厤锛?- 鏂板 搂13 鍥㈤槦鑷富杩涘寲锛圔rain 浣滀负鏋舵瀯甯堬紝鑷富鎷涘嫙/鏀归€?鍋滅敤 Agent锛?- 鏂板 搂4.5 Emoji Commit 鍊¤锛?5 绉嶆槧灏勮〃锛?- 鏂板 搂5.4 鍥㈤槦鑷富鐗堟湰鍐崇瓥鏉冿紙PM 鍙戠増淇″彿 + Brain 鎻愭鏍煎紡锛?- 鏂板 搂14 Agent 缁忛獙娌夋穩鏈哄埗锛圠1/L2/L3 涓夊眰鐭ヨ瘑浣撶郴锛?- 鏂板 搂15 GitHub API 鎿嶄綔瑙勮寖锛堣法骞冲彴 Token 鎻愬彇锛孭owerShell + Bash锛?- 鏂板 搂16 寮€婧愰」鐩搧鐗屽寲瑙勮寖
+- 鏂板 搂17 Playbook 瀹氬埗鎸囧崡锛堥浂涓婁笅鏂囧喎鍚姩鍗忚锛?- 闄勫綍 B 鎵╁厖 3 鏉℃柊鍙嶆ā寮?- `docs/meetings/2026-02-26-v3-release-review.md` V3.0 鍙戝竷鍓嶇粓瀹′細璁邯瑕?- `.github/copilot-instructions.md` 鏂板 Brain 鑷富鏉冮檺 + 鍥㈤槦杩涘寲璁板綍鍖哄潡
 
 ### Changed
-- **Playbook 项目无关化重构（Breaking）：**
-  - 清除全部 OpenProfile 特定引用（§1.4/§4.3/§4.4/§7/§11）
-  - §4.3 Scope 改为通用 + 项目特定由 Brain 定制
-  - §4.5 Emoji 表去重，含义列引用 §4.2
-  - §9.2 docs/ 子文件夹名改为推荐示例
-  - §9.5 首次 commit 模板改为通用
-  - §15.2 补充 macOS/Linux Bash 等效命令
-  - §15.4 精简，核心步骤引用 §5.2
-  - §16 品牌化视觉语言改为由 Brain 根据项目定位决定
-  - §16.5 "Built with Copilot" badge 由必选改为可选
-  - 尾部修订记录精简为版本号 + 日期，历史修订迁入 CHANGELOG
-- Playbook 版本标识更新
-- `copilot-instructions.md` 迭代状态更新
-
+- **Playbook 椤圭洰鏃犲叧鍖栭噸鏋勶紙Breaking锛夛細**
+  - 娓呴櫎鍏ㄩ儴 OpenProfile 鐗瑰畾寮曠敤锛埪?.4/搂4.3/搂4.4/搂7/搂11锛?  - 搂4.3 Scope 鏀逛负閫氱敤 + 椤圭洰鐗瑰畾鐢?Brain 瀹氬埗
+  - 搂4.5 Emoji 琛ㄥ幓閲嶏紝鍚箟鍒楀紩鐢?搂4.2
+  - 搂9.2 docs/ 瀛愭枃浠跺す鍚嶆敼涓烘帹鑽愮ず渚?  - 搂9.5 棣栨 commit 妯℃澘鏀逛负閫氱敤
+  - 搂15.2 琛ュ厖 macOS/Linux Bash 绛夋晥鍛戒护
+  - 搂15.4 绮剧畝锛屾牳蹇冩楠ゅ紩鐢?搂5.2
+  - 搂16 鍝佺墝鍖栬瑙夎瑷€鏀逛负鐢?Brain 鏍规嵁椤圭洰瀹氫綅鍐冲畾
+  - 搂16.5 "Built with Copilot" badge 鐢卞繀閫夋敼涓哄彲閫?  - 灏鹃儴淇璁板綍绮剧畝涓虹増鏈彿 + 鏃ユ湡锛屽巻鍙蹭慨璁㈣縼鍏?CHANGELOG
+- Playbook 鐗堟湰鏍囪瘑鏇存柊
+- `copilot-instructions.md` 杩唬鐘舵€佹洿鏂?
 ### Fixed
-- `OG/Twitter meta tags`：`og:image` 改为条件性输出，移除不存在的 `/og-default.png` 默认值（避免全站 OG 图片 404）
-- `3d-contrib.yml`：workflow 推送目标从 `main` 修正为 `output` 分支，与 README 中的 SVG URL 路径保持一致
-
+- `OG/Twitter meta tags`锛歚og:image` 鏀逛负鏉′欢鎬ц緭鍑猴紝绉婚櫎涓嶅瓨鍦ㄧ殑 `/og-default.png` 榛樿鍊硷紙閬垮厤鍏ㄧ珯 OG 鍥剧墖 404锛?- `3d-contrib.yml`锛歸orkflow 鎺ㄩ€佺洰鏍囦粠 `main` 淇涓?`output` 鍒嗘敮锛屼笌 README 涓殑 SVG URL 璺緞淇濇寔涓€鑷?
 ---
 
-## [2.0.0] — 2026-02-25
+## [2.0.0] 鈥?2026-02-25
 
 ### Added
-- Profile README 区块顺序重组（V2.0 新顺序：叙事节奏驱动）
-- Profile README `<picture>` 双模兼容（暗/亮）：Header / Footer / Stats / Streak / Activity Graph / Skill Icons / Featured / 贡献蛇
-- Profile README JSON 自述扩展至 12 字段 + 英文叙事段
-- Profile README Typing SVG 文案改为个人身份标签（5 行）
-- Profile README WakaTime 改为 `<details>` 折叠区块，附 fallback 说明
-- Profile README 新增 🤝 Connect with Me 区块（Portfolio + GitHub + OpenProfile badge）
-- Profile README 新增页面浏览计数器（komarev.com）
-- Profile README 新增三处 capsule-render 渐变分隔线
-- Astro 站点新增固定导航栏（Nav.astro，毛玻璃效果）
-- Astro 站点新增页脚（Footer.astro，终端 echo 风格）
-- Astro 站点接入 ViewTransitions（页面切换动画）
-- Astro 站点新增 Blog 系统（Content Collections + @astrojs/mdx@3 + 2 篇首发文章）
-- GitHub Actions：link-check.yml（lychee 链接可达性检查）
-- GitHub Actions：markdown-lint.yml（DavidAnson/markdownlint-cli2-action）
-- `.editorconfig` 统一编辑器缩进规范
-- `.markdownlint.jsonc` Markdown 格式规范配置
-- `.gitattributes` 强制 LF 行尾（防 Windows CRLF 污染）
-- Agent 团队 V2.0 重构：新增 `brain`（战略协调）+ `pm`（项目管理）角色
-- Agent 团队 V2.0 重构：`content-writer` → `dev`（全栈通用实现）
-- Agent 团队 V2.0 重构：`qa-reviewer` → `code-reviewer`（七维度质量门禁）
-- 新增 `docs/team-playbook.md`（可跨项目复用的团队方法论手册）
-- 新增 `docs/meetings/2026-02-25-retrospective.md`（复盘会议 #003 纪要）
-
+- Profile README 鍖哄潡椤哄簭閲嶇粍锛圴2.0 鏂伴『搴忥細鍙欎簨鑺傚椹卞姩锛?- Profile README `<picture>` 鍙屾ā鍏煎锛堟殫/浜級锛欻eader / Footer / Stats / Streak / Activity Graph / Skill Icons / Featured / 璐＄尞铔?- Profile README JSON 鑷堪鎵╁睍鑷?12 瀛楁 + 鑻辨枃鍙欎簨娈?- Profile README Typing SVG 鏂囨鏀逛负涓汉韬唤鏍囩锛? 琛岋級
+- Profile README WakaTime 鏀逛负 `<details>` 鎶樺彔鍖哄潡锛岄檮 fallback 璇存槑
+- Profile README 鏂板 馃 Connect with Me 鍖哄潡锛圥ortfolio + GitHub + OpenProfile badge锛?- Profile README 鏂板椤甸潰娴忚璁℃暟鍣紙komarev.com锛?- Profile README 鏂板涓夊 capsule-render 娓愬彉鍒嗛殧绾?- Astro 绔欑偣鏂板鍥哄畾瀵艰埅鏍忥紙Nav.astro锛屾瘺鐜荤拑鏁堟灉锛?- Astro 绔欑偣鏂板椤佃剼锛團ooter.astro锛岀粓绔?echo 椋庢牸锛?- Astro 绔欑偣鎺ュ叆 ViewTransitions锛堥〉闈㈠垏鎹㈠姩鐢伙級
+- Astro 绔欑偣鏂板 Blog 绯荤粺锛圕ontent Collections + @astrojs/mdx@3 + 2 绡囬鍙戞枃绔狅級
+- GitHub Actions锛歭ink-check.yml锛坙ychee 閾炬帴鍙揪鎬ф鏌ワ級
+- GitHub Actions锛歮arkdown-lint.yml锛圖avidAnson/markdownlint-cli2-action锛?- `.editorconfig` 缁熶竴缂栬緫鍣ㄧ缉杩涜鑼?- `.markdownlint.jsonc` Markdown 鏍煎紡瑙勮寖閰嶇疆
+- `.gitattributes` 寮哄埗 LF 琛屽熬锛堥槻 Windows CRLF 姹℃煋锛?- Agent 鍥㈤槦 V2.0 閲嶆瀯锛氭柊澧?`brain`锛堟垬鐣ュ崗璋冿級+ `pm`锛堥」鐩鐞嗭級瑙掕壊
+- Agent 鍥㈤槦 V2.0 閲嶆瀯锛歚content-writer` 鈫?`dev`锛堝叏鏍堥€氱敤瀹炵幇锛?- Agent 鍥㈤槦 V2.0 閲嶆瀯锛歚qa-reviewer` 鈫?`code-reviewer`锛堜竷缁村害璐ㄩ噺闂ㄧ锛?- 鏂板 `docs/governance/team-playbook.md`锛堝彲璺ㄩ」鐩鐢ㄧ殑鍥㈤槦鏂规硶璁烘墜鍐岋級
+- 鏂板 `docs/meetings/2026-02-25-retrospective.md`锛堝鐩樹細璁?#003 绾锛?
 ### Changed
-- Astro 站点 Projects 区块：移除 MediaCrawler，替换为 wechat_article_exporter
-- `copilot-instructions.md` Agent 团队表格同步为 V2.0 五角色架构
-- `docs/agent-workflow.md` 更新为 Brain/PM/Dev/Researcher/CodeReviewer 拓扑
-- CHANGELOG `[Unreleased]` 拆分：重命名为 `[1.0.0]`，启用版本对比链接
-
+- Astro 绔欑偣 Projects 鍖哄潡锛氱Щ闄?MediaCrawler锛屾浛鎹负 wechat_article_exporter
+- `copilot-instructions.md` Agent 鍥㈤槦琛ㄦ牸鍚屾涓?V2.0 浜旇鑹叉灦鏋?- `docs/governance/agent-workflow.md` 鏇存柊涓?Brain/PM/Dev/Researcher/CodeReviewer 鎷撴墤
+- CHANGELOG `[Unreleased]` 鎷嗗垎锛氶噸鍛藉悕涓?`[1.0.0]`锛屽惎鐢ㄧ増鏈姣旈摼鎺?
 ---
 
-## [1.0.0] — 2026-02-25
+## [1.0.0] 鈥?2026-02-25
 
 ### Added
-- 初始化项目目录结构
-- 创建 `.github/copilot-instructions.md` 主指令文件
-- 创建 `.github/agents/` 专项 Agent 团队（profile-designer、dev、researcher、code-reviewer）
-- 创建 `.vscode/` 工具集和 MCP 配置
-- 创建 `docs/design-decisions.md` 设计决策日志
-- 添加开源工程规范文件（CONTRIBUTING.md、CHANGELOG.md、LICENSE）
-- 添加 GitHub Issue 模板和 PR 模板
-- 推送 `njueeRay/OpenProfile` 仓库（AI-Native 工作流开源模板）
-- 推送 `njueeRay/njueeray.github.io` 仓库（Astro 4.x 个人简历站点）
-- 添加 `docs/meetings/2026-02-25-kickoff.md` 启动会议纪要
-- Profile README 接入 WakaTime（anmol098/waka-readme-stats）
-- Profile README 接入 Contribution Snake（Platane/snk）
-- Profile README 接入 Activity Graph（github-readme-activity-graph）
-- Astro 站点 About 区块填入 LLM Engineer 叙事文案
-- Astro 站点 Projects 区块填入 3 个真实项目数据
-
+- 鍒濆鍖栭」鐩洰褰曠粨鏋?- 鍒涘缓 `.github/copilot-instructions.md` 涓绘寚浠ゆ枃浠?- 鍒涘缓 `.github/agents/` 涓撻」 Agent 鍥㈤槦锛坧rofile-designer銆乨ev銆乺esearcher銆乧ode-reviewer锛?- 鍒涘缓 `.vscode/` 宸ュ叿闆嗗拰 MCP 閰嶇疆
+- 鍒涘缓 `docs/governance/design-decisions.md` 璁捐鍐崇瓥鏃ュ織
+- 娣诲姞寮€婧愬伐绋嬭鑼冩枃浠讹紙CONTRIBUTING.md銆丆HANGELOG.md銆丩ICENSE锛?- 娣诲姞 GitHub Issue 妯℃澘鍜?PR 妯℃澘
+- 鎺ㄩ€?`njueeRay/OpenProfile` 浠撳簱锛圓I-Native 宸ヤ綔娴佸紑婧愭ā鏉匡級
+- 鎺ㄩ€?`njueeRay/njueeray.github.io` 浠撳簱锛圓stro 4.x 涓汉绠€鍘嗙珯鐐癸級
+- 娣诲姞 `docs/meetings/2026-02-25-kickoff.md` 鍚姩浼氳绾
+- Profile README 鎺ュ叆 WakaTime锛坅nmol098/waka-readme-stats锛?- Profile README 鎺ュ叆 Contribution Snake锛圥latane/snk锛?- Profile README 鎺ュ叆 Activity Graph锛坓ithub-readme-activity-graph锛?- Astro 绔欑偣 About 鍖哄潡濉叆 LLM Engineer 鍙欎簨鏂囨
+- Astro 绔欑偣 Projects 鍖哄潡濉叆 3 涓湡瀹為」鐩暟鎹?
 ### Changed
-- Profile README Stats/Streak 主题统一为 `github_dark_dimmed` / `github-dark-blue`（解决撞色问题）
-- Profile README Featured：MediaCrawler → wechat_article_exporter
-- Astro 站点强调色统一为 `#58a6ff`（与 Profile README 品牌一致）
-- Hero 组件优化：添加技术栈标签、zsh 风格提示符、GitHub 图标按钮
-- Projects 组件：fork 标签使用黄色差异化样式
-
+- Profile README Stats/Streak 涓婚缁熶竴涓?`github_dark_dimmed` / `github-dark-blue`锛堣В鍐虫挒鑹查棶棰橈級
+- Profile README Featured锛歁ediaCrawler 鈫?wechat_article_exporter
+- Astro 绔欑偣寮鸿皟鑹茬粺涓€涓?`#58a6ff`锛堜笌 Profile README 鍝佺墝涓€鑷达級
+- Hero 缁勪欢浼樺寲锛氭坊鍔犳妧鏈爤鏍囩銆亃sh 椋庢牸鎻愮ず绗︺€丟itHub 鍥炬爣鎸夐挳
+- Projects 缁勪欢锛歠ork 鏍囩浣跨敤榛勮壊宸紓鍖栨牱寮?
 ### Fixed
-- Astro 版本从 5.x 降级至 4.16.18（解决 `ohash@^2.0.11` 依赖缺失问题）
-- OpenProfile git 根目录修复（从父目录移动到独立仓库）
-- Profile README git.io 短链修复 → 直接使用完整 URL
+- Astro 鐗堟湰浠?5.x 闄嶇骇鑷?4.16.18锛堣В鍐?`ohash@^2.0.11` 渚濊禆缂哄け闂锛?- OpenProfile git 鏍圭洰褰曚慨澶嶏紙浠庣埗鐩綍绉诲姩鍒扮嫭绔嬩粨搴擄級
+- Profile README git.io 鐭摼淇 鈫?鐩存帴浣跨敤瀹屾暣 URL
 
 ### Docs
-- 全量同步 6 份过时文档（design-decisions、meeting minutes、agent-workflow、component-guide、README、CONTRIBUTING）
-- copilot-instructions.md 设计选择同步至实际状态
-- CHANGELOG 版本规划表修正
-
+- 鍏ㄩ噺鍚屾 6 浠借繃鏃舵枃妗ｏ紙design-decisions銆乵eeting minutes銆乤gent-workflow銆乧omponent-guide銆丷EADME銆丆ONTRIBUTING锛?- copilot-instructions.md 璁捐閫夋嫨鍚屾鑷冲疄闄呯姸鎬?- CHANGELOG 鐗堟湰瑙勫垝琛ㄤ慨姝?
 ---
 
-## 版本规划
+## 鐗堟湰瑙勫垝
 
-| 版本 | 目标 | 状态 |
+| 鐗堟湰 | 鐩爣 | 鐘舵€?|
 |------|------|------|
-| v0.1.0 | 项目初始化：目录结构 + Agent 配置 | ✅ 完成 |
-| v0.2.0 | 首版 README：基础信息 + Stats 组件 | ✅ 完成 |
-| v0.3.0 | 视觉升级：Header 动画 + 技术栈图标 | ✅ 完成 |
-| v0.4.0 | 动态数据：WakaTime + Activity Graph + 贡献蛇 | ✅ 完成 |
-| v1.0.0 | 迭代一完成：全组件上线 + 文档同步 + 开源发布 | ✅ 完成 |
-| **v2.0.0** | **叙事重构 + 浅色兼容 + Astro 多页 + CI + Agent 团队重构** | ✅ 完成 |
-| **v3.0.0** | **SEO 地基 + Blog 标签系统 + Profile 新组件 + Playbook 可移植化** | ✅ 完成 |
-| **v4.0.0** | **三层版本体系独立化 + Astro 站点体验深化** | ✅ 完成 |
-| **v4.1.0** | **团队品牌化 + 内容架构** | ✅ 完成 |
-| v4.2.0 | 工程质量 Sprint — CSS 统一 / 组件拆分 / 响应式 | ✅ 完成 |
-| v4.3.0 | 社区首发 Sprint — Discussions / README 着陆页 / Good First Issues | ✅ 完成 |
-| v4.4.0 | 体验精修 Sprint — 微交互 / 首页增强 / a11y / 团队动态墙 | ⬜ 规划中 |
-| v4.5.0 | SEO & 性能 Sprint — JSON-LD / Lighthouse CI / Astro 5 调研 | ⬜ 规划中 |
-| **v5.0.0** | **架构性升级 — Astro 5 迁移（门槛触发）** | ⬜ 远期 |
+| v0.1.0 | 椤圭洰鍒濆鍖栵細鐩綍缁撴瀯 + Agent 閰嶇疆 | 鉁?瀹屾垚 |
+| v0.2.0 | 棣栫増 README锛氬熀纭€淇℃伅 + Stats 缁勪欢 | 鉁?瀹屾垚 |
+| v0.3.0 | 瑙嗚鍗囩骇锛欻eader 鍔ㄧ敾 + 鎶€鏈爤鍥炬爣 | 鉁?瀹屾垚 |
+| v0.4.0 | 鍔ㄦ€佹暟鎹細WakaTime + Activity Graph + 璐＄尞铔?| 鉁?瀹屾垚 |
+| v1.0.0 | 杩唬涓€瀹屾垚锛氬叏缁勪欢涓婄嚎 + 鏂囨。鍚屾 + 寮€婧愬彂甯?| 鉁?瀹屾垚 |
+| **v2.0.0** | **鍙欎簨閲嶆瀯 + 娴呰壊鍏煎 + Astro 澶氶〉 + CI + Agent 鍥㈤槦閲嶆瀯** | 鉁?瀹屾垚 |
+| **v3.0.0** | **SEO 鍦板熀 + Blog 鏍囩绯荤粺 + Profile 鏂扮粍浠?+ Playbook 鍙Щ妞嶅寲** | 鉁?瀹屾垚 |
+| **v4.0.0** | **涓夊眰鐗堟湰浣撶郴鐙珛鍖?+ Astro 绔欑偣浣撻獙娣卞寲** | 鉁?瀹屾垚 |
+| **v4.1.0** | **鍥㈤槦鍝佺墝鍖?+ 鍐呭鏋舵瀯** | 鉁?瀹屾垚 |
+| v4.2.0 | 宸ョ▼璐ㄩ噺 Sprint 鈥?CSS 缁熶竴 / 缁勪欢鎷嗗垎 / 鍝嶅簲寮?| 鉁?瀹屾垚 |
+| v4.3.0 | 绀惧尯棣栧彂 Sprint 鈥?Discussions / README 鐫€闄嗛〉 / Good First Issues | 鉁?瀹屾垚 |
+| v4.4.0 | 浣撻獙绮句慨 Sprint 鈥?寰氦浜?/ 棣栭〉澧炲己 / a11y / 鍥㈤槦鍔ㄦ€佸 | 猬?瑙勫垝涓?|
+| v4.5.0 | SEO & 鎬ц兘 Sprint 鈥?JSON-LD / Lighthouse CI / Astro 5 璋冪爺 | 猬?瑙勫垝涓?|
+| **v5.0.0** | **鏋舵瀯鎬у崌绾?鈥?Astro 5 杩佺Щ锛堥棬妲涜Е鍙戯級** | 猬?杩滄湡 |
 
 ---
 
@@ -626,3 +457,4 @@ Claude Code Hooks 实现自动质量门禁，Memory MCP 接入实现跨会话知
 [3.0.0]: https://github.com/njueeRay/OpenProfile/compare/v2.0.0...v3.0.0
 [2.0.0]: https://github.com/njueeRay/OpenProfile/compare/v1.0.0...v2.0.0
 [1.0.0]: https://github.com/njueeRay/OpenProfile/releases/tag/v1.0.0
+

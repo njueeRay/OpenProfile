@@ -3,7 +3,7 @@
 > **本手册是团队最高优先级的核心资产。**
 > 它不绑定任何特定项目——记录的是方法论、协同规范与共识，可随团队带入任意新项目。
 >
-> **Playbook 版本：** `Playbook v2.2`（独立于项目版本，变更记录见 `PLAYBOOK-CHANGELOG.md`）
+> **Playbook 版本：** `Playbook v2.2`（独立于项目版本，变更记录见 `docs/governance/PLAYBOOK-CHANGELOG.md`）
 > **适用团队：** Brain · PM · Dev · Researcher · Code-Reviewer
 > **核心原则：** 角色边界清晰 · 会话连续 · CI 先行 · 有据可查 · 团队可自主进化 · **AI-native 哲学立场**
 >
@@ -160,7 +160,7 @@
 | 已决定的设计决策 | `copilot-instructions.md`  已决定的设计选择 | 做出决策后立即记录 |
 | 变更历史 | `CHANGELOG.md` | 每次有实质变更时 |
 | 会议决议 | `docs/meetings/YYYY-MM-DD-<类型>.md` | 会议当时 |
-| 方法论 & 规范 | `docs/team-playbook.md`（本文件）| 复盘会议后 |
+| 方法论 & 规范 | `docs/governance/team-playbook.md`（本文件）| 复盘会议后 |
 
 ---
 
@@ -621,7 +621,7 @@ Brain  评估影响面：PATCH / MINOR / MAJOR（见 §5.1）
 | Sprint 完成 + 用户在 24h 内有感想/想法输入 | 主动提议自由脑暴会 |
 | 检测到技术重大变化（框架迁移、新工具引入）| 主动提议 Sprint 规划会 |
 | 用户输入话题明显偏离当前 Sprint 方向 | 主动提议快速站会澄清意图 |
-| 会话中识别到用户新偏好（"我希望以后…" 类表达）| 静默更新 USER.md，不打扰用户 |
+| 会话中识别到用户新偏好（"我希望以后…" 类表达）| 静默更新 .github/USER.md，不打扰用户 |
 
 **不应触发的情况：**
 
@@ -683,8 +683,8 @@ Playbook: vX.Y.Z"
 ### 内容完整性
 
 - [ ] `CHANGELOG.md [Unreleased]` 已记录本轮所有 Added / Changed / Fixed
-- [ ] `docs/design-decisions.md` 中新做出的设计决策已归档（含日期和理由）
-- [ ] `docs/component-guide.md` 中新引入的组件已补充说明
+- [ ] `docs/governance/design-decisions.md` 中新做出的设计决策已归档（含日期和理由）
+- [ ] `docs/guides/component-guide.md` 中新引入的组件已补充说明
 
 ### 配置同步
 
@@ -712,12 +712,12 @@ Playbook: vX.Y.Z"
 
 | 资产 | 路径 | 项目独立性 | 迁移操作 |
 |------|------|-----------|---------|
-| 团队作战手册（本文件） | `docs/team-playbook.md` | ✅ 通用 | 直接复用，无需修改 |
+| 团队作战手册（本文件） | `docs/governance/team-playbook.md` | ✅ 通用 | 直接复用，无需修改 |
 | 五角色 Agent 定义 | `.github/agents/*.agent.md` | ✅ 通用 | 直接复用 |
 | 全局项目指令 | `.github/copilot-instructions.md` | ⚠️ 需替换个人信息 | 保留结构，替换个人区块 |
 | CI 模板 | `.github/workflows/link-check.yml` 等 | ⚠️ 需微调路径 | 复制后调整 paths |
 | 工程配置 | `.editorconfig`  `.gitattributes`  `.markdownlintignore` | ✅ 通用 | 直接复用 |
-| 工作流说明 | `docs/agent-workflow.md` | ✅ 通用 | 直接复用，可面向开源社区展示 |
+| 工作流说明 | `docs/governance/agent-workflow.md` | ✅ 通用 | 直接复用，可面向开源社区展示 |
 | Commit 规范 | 本手册第 4 节 | ✅ 通用 | 团队记忆，无需单独文件 |
 | Pre-flight 清单 | 本手册第 9 节 | ✅ 通用 | 团队记忆，无需单独文件 |
 
@@ -756,9 +756,9 @@ Playbook: vX.Y.Z"
 |-------|------------|--------|
 | `brain` | `copilot-instructions.md` + 所有会议纪要 + `CHANGELOG.md` | 战略连贯性、未完成承诺、方向对齐 |
 | `pm` | `CHANGELOG.md` + 最新会议纪要 + `copilot-instructions.md` 迭代状态 | 任务完成率、版本节奏、遗留积压 |
-| `dev` | `docs/design-decisions.md` + `docs/component-guide.md` + 主要源文件 | 技术债、可维护性、实现质量 |
-| `researcher` | `docs/agent-workflow.md` + `docs/component-guide.md` | 技术选型合理性、依赖风险 |
-| `code-reviewer` | CI 配置 + 近期 commit 记录 + `docs/design-decisions.md` | 质量门现状、已知风险点 |
+| `dev` | `docs/governance/design-decisions.md` + `docs/guides/component-guide.md` + 主要源文件 | 技术债、可维护性、实现质量 |
+| `researcher` | `docs/governance/agent-workflow.md` + `docs/guides/component-guide.md` | 技术选型合理性、依赖风险 |
+| `code-reviewer` | CI 配置 + 近期 commit 记录 + `docs/governance/design-decisions.md` | 质量门现状、已知风险点 |
 
 **每位 Agent 阅读完成后输出私有笔记（不超过 10 行）：**
 
@@ -1457,9 +1457,9 @@ PM      → CHANGELOG 记录品牌化变更，触发相应版本号（通常 MIN
 > 详细的三层版本规范见 §18。
 
 ```
-本手册存放路径：docs/team-playbook.md
+本手册存放路径：docs/governance/team-playbook.md
 更新周期：每次里程碑复盘会议后
-更新流程：Brain 起草修改方案 → 全体会议讨论 → PM 更新 PLAYBOOK-CHANGELOG.md → 发版
+更新流程：Brain 起草修改方案 → 全体会议讨论 → PM 更新 docs/governance/PLAYBOOK-CHANGELOG.md → 发版
 
 每个项目可以 fork 自己的 Playbook 副本。
 但是团队的核心方法论改进应回流到 Playbook 主版本。
@@ -1478,7 +1478,7 @@ PM      → CHANGELOG 记录品牌化变更，触发相应版本号（通常 MIN
 | 层级 | 名称 | 版本格式 | 升级触发条件 | 维护文件 |
 |------|------|----------|-------------|----------|
 | **L1** | 项目版本 | `vMAJOR.MINOR.PATCH`（semver） | 功能新增 / 破坏性变更 / Bug 修复 | `CHANGELOG.md` + GitHub Tag/Release |
-| **L2** | Playbook 版本 | `Playbook vPB_MAJOR.PB_MINOR` | Playbook 章节新增/重构/删除 | `PLAYBOOK-CHANGELOG.md` + `team-playbook.md` 头部 |
+| **L2** | Playbook 版本 | `Playbook vPB_MAJOR.PB_MINOR` | Playbook 章节新增/重构/删除 | `docs/governance/PLAYBOOK-CHANGELOG.md` + `team-playbook.md` 头部 |
 | **L3** | Agent 版本 | `vAGENT_MAJOR.AGENT_MINOR` | Agent 职责/工具/边界调整 | 各 `.agent.md` 文件 `agentVersion` 字段 |
 
 ### 18.2 版本升级规则
@@ -1521,7 +1521,7 @@ team-playbook.md
 CHANGELOG.md
   └ L1 项目版本变更
 
-PLAYBOOK-CHANGELOG.md
+docs/governance/PLAYBOOK-CHANGELOG.md
   └ L2 Playbook + L3 Agent 版本变更
 ```
 
@@ -1703,7 +1703,7 @@ elif last_release == Minor AND no_next_sprint_plan:
 
 > 新增触发规则时，必须同步更新以下位置：
 
-- [ ] `docs/team-playbook.md` §20.1 规则总表（此处）
+- [ ] `docs/governance/team-playbook.md` §20.1 规则总表（此处）
 - [ ] `pm.agent.md` 的「自动触发规则」章节
 - [ ] `brain.agent.md` 的「会议触发规则」章节
 - [ ] `.github/skills/pm-sprint-planner/SKILL.md` 的 `triggers` 列表
@@ -1769,4 +1769,5 @@ PM 发现任务范围蔓延  汇报 Brain  Brain 与用户对齐
 ---
 
 *本手册由 Brain + PM 共同维护，每次复盘会议后更新版本。*  
-*Playbook v2.0 — 2026-02-26 — 三层版本体系 + 招募决策树 + Agent 快照卡 + §18 新增，变更记录见 PLAYBOOK-CHANGELOG.md。*
+*Playbook v2.0 — 2026-02-26 — 三层版本体系 + 招募决策树 + Agent 快照卡 + §18 新增，变更记录见 docs/governance/PLAYBOOK-CHANGELOG.md。*
+

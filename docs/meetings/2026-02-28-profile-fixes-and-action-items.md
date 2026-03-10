@@ -1,114 +1,94 @@
-# 工作会话纪要 — Profile 视觉修复 + 会议行动项执行
-
-**日期：** 2026-02-28  
-**类型：** 执行会话（无决策性讨论，纯执行）  
-**主持：** Brain  
-**执行角色：** Dev · Researcher · Brand · Code Reviewer（联合产出）  
-**触发背景：** 用户提交 4 张截图反映 Profile README 视觉问题 + Brand 欢迎会行动项待执行
-
+﻿# 宸ヤ綔浼氳瘽绾 鈥?Profile 瑙嗚淇 + 浼氳琛屽姩椤规墽琛?
+**鏃ユ湡锛?* 2026-02-28  
+**绫诲瀷锛?* 鎵ц浼氳瘽锛堟棤鍐崇瓥鎬ц璁猴紝绾墽琛岋級  
+**涓绘寔锛?* Brain  
+**鎵ц瑙掕壊锛?* Dev 路 Researcher 路 Brand 路 Code Reviewer锛堣仈鍚堜骇鍑猴級  
+**瑙﹀彂鑳屾櫙锛?* 鐢ㄦ埛鎻愪氦 4 寮犳埅鍥惧弽鏄?Profile README 瑙嗚闂 + Brand 娆㈣繋浼氳鍔ㄩ」寰呮墽琛?
 ---
 
-## 本次会话完成内容
+## 鏈浼氳瘽瀹屾垚鍐呭
 
-### Part 1：Profile README 视觉问题修复
+### Part 1锛歅rofile README 瑙嗚闂淇
 
-用户通过截图指出以下问题，全部已修复并推送：
+鐢ㄦ埛閫氳繃鎴浘鎸囧嚭浠ヤ笅闂锛屽叏閮ㄥ凡淇骞舵帹閫侊細
 
-| 问题 | 修复方案 | Commit |
+| 闂 | 淇鏂规 | Commit |
 |------|---------|--------|
-| Header 标题和副标题文字遮挡 | capsule-render fontSize 70→60，descAlignY 55→63 | `b8ffe3f` |
-| Tech Stack 只有 8 个图标 | 扩展至 20 个图标，新增 nodejs/nextjs/tailwind/pytorch/fastapi 等，`perline=10` | `b8ffe3f` |
-| Trophy 图片加载失败 | 改为 `<picture>` 元素，dark/light 分别使用不同主题（darkhub/flat） | `b8ffe3f` |
-| 3D 贡献图 light 模式显示问题 | 增加独立 light fallback SVG（green-animate） | `b8ffe3f` |
-| Featured Projects 频率限制 | pin cards URL 增加 `cache_seconds=86400` | `b8ffe3f` |
+| Header 鏍囬鍜屽壇鏍囬鏂囧瓧閬尅 | capsule-render fontSize 70鈫?0锛宒escAlignY 55鈫?3 | `b8ffe3f` |
+| Tech Stack 鍙湁 8 涓浘鏍?| 鎵╁睍鑷?20 涓浘鏍囷紝鏂板 nodejs/nextjs/tailwind/pytorch/fastapi 绛夛紝`perline=10` | `b8ffe3f` |
+| Trophy 鍥剧墖鍔犺浇澶辫触 | 鏀逛负 `<picture>` 鍏冪礌锛宒ark/light 鍒嗗埆浣跨敤涓嶅悓涓婚锛坉arkhub/flat锛?| `b8ffe3f` |
+| 3D 璐＄尞鍥?light 妯″紡鏄剧ず闂 | 澧炲姞鐙珛 light fallback SVG锛坓reen-animate锛?| `b8ffe3f` |
+| Featured Projects 棰戠巼闄愬埗 | pin cards URL 澧炲姞 `cache_seconds=86400` | `b8ffe3f` |
 
-**注：** `b8ffe3f` 为远程 RSynс Action 先行提交后，本地 rebase 推送结果。
+**娉細** `b8ffe3f` 涓鸿繙绋?RSyn褋 Action 鍏堣鎻愪氦鍚庯紝鏈湴 rebase 鎺ㄩ€佺粨鏋溿€?
+### Part 2锛氬崥瀹㈡繁鑹叉ā寮忛粯璁ゅ€?
+**闂锛?* 棣栨璁块棶鍗氬榛樿璺熼殢绯荤粺鍋忓ソ锛堜寒鑹茬郴缁?鈫?鏄剧ず鐧借壊涓婚锛? 
+**淇锛?* `ThemeToggle.astro` 鏀逛负 `stored || 'dark'`锛岄娆¤闂缁堟繁鑹? 
+**Commit锛?* `556e053`
 
-### Part 2：博客深色模式默认值
+### Part 3锛歍hemeToggle 閲嶅浜嬩欢鐩戝惉鍣ㄤ慨澶嶏紙backlog 椤癸級
 
-**问题：** 首次访问博客默认跟随系统偏好（亮色系统 → 显示白色主题）  
-**修复：** `ThemeToggle.astro` 改为 `stored || 'dark'`，首次访问始终深色  
-**Commit：** `556e053`
-
-### Part 3：ThemeToggle 重复事件监听器修复（backlog 项）
-
-**问题：** `is:inline` 脚本每次 ViewTransition 后运行，`astro:after-swap` 监听器累积注册  
-**修复：** 增加 `window._themeListenerBound` 标志位，确保监听器只注册一次  
-**状态：** 已修复，待提交
-
-### Part 4：CHANGELOG.md 补提交
-
-**内容：** 记录 Part 1/2 所有修复  
-**Commit：** `349d7e2`（OpenProfile main）
-
+**闂锛?* `is:inline` 鑴氭湰姣忔 ViewTransition 鍚庤繍琛岋紝`astro:after-swap` 鐩戝惉鍣ㄧ疮绉敞鍐? 
+**淇锛?* 澧炲姞 `window._themeListenerBound` 鏍囧織浣嶏紝纭繚鐩戝惉鍣ㄥ彧娉ㄥ唽涓€娆? 
+**鐘舵€侊細** 宸蹭慨澶嶏紝寰呮彁浜?
+### Part 4锛欳HANGELOG.md 琛ユ彁浜?
+**鍐呭锛?* 璁板綍 Part 1/2 鎵€鏈変慨澶? 
+**Commit锛?* `349d7e2`锛圤penProfile main锛?
 ---
 
-## Part 5：会议行动项执行结果
+## Part 5锛氫細璁鍔ㄩ」鎵ц缁撴灉
 
-### 行动项 1：Researcher Research Brief ✅
+### 琛屽姩椤?1锛歊esearcher Research Brief 鉁?
+**浜у嚭锛?* `docs/research/build-in-public-channels-2026.md`  
+**鏍稿績缁撹锛?*
+- GitHub Discussions锛氱珛鍗冲彲鐢紝**鎺ㄨ崘涓绘笭閬?*
+- X API锛氭垚鏈繃楂橈紙Basic ~$200/鏈堬級锛屼笉寤鸿鑷姩鍖栵紝鍙墜鍔ㄥ彂甯?- Bluesky锛氬厤璐?API锛屽紑鍙戣€呭弸濂斤紝浣滀负澶囬€夋柟鍚戣窡韪?- MCP锛歚github-mcp` 瀹樻柟 Server 宸插彲鐢ㄤ簬 Discussions 鎿嶄綔
 
-**产出：** `docs/research/build-in-public-channels-2026.md`  
-**核心结论：**
-- GitHub Discussions：立即可用，**推荐主渠道**
-- X API：成本过高（Basic ~$200/月），不建议自动化，可手动发布
-- Bluesky：免费 API，开发者友好，作为备选方向跟踪
-- MCP：`github-mcp` 官方 Server 已可用于 Discussions 操作
+### 琛屽姩椤?2锛欱rand 脳 Code Reviewer 鍐呭瀹℃煡娓呭崟 鉁?
+**浜у嚭锛?* `docs/strategy/brand-content-checklist.md`  
+**鍐呭锛?* 鍏淮搴﹀鏌ユ竻鍗曪紝鏄庣‘ Code Reviewer锛堢淮搴?1-5锛夊拰 Brand锛堢淮搴?6-8锛夎亴璐ｅ垎宸? 
+**鐘舵€佹爣绛句綋绯伙細** 瀹氫箟 5 涓?PR/Issue 鏍囩鐢ㄤ簬杩借釜瀹℃煡鐘舵€?
+### 琛屽姩椤?3锛欱rand GitHub Discussions 棣栨壒鍙戝竷璁″垝 鉁?
+**浜у嚭锛?* `docs/strategy/brand-discussions-plan.md`  
+**鍐呭锛?*
+- Discussions 鍒嗙被鏋舵瀯锛? 涓垎绫伙級
+- 鐜版湁鍐呭璧勪骇浼樺厛绾х煩闃碉紙涓€/浜?涓夌被锛?- 棣栨壒 3 鏉″笘瀛愯崏绋匡紙鏃楄埌棣栧彂 + 鍥㈤槦鏁呬簨 + AI-native 璁ㄨ锛?- 鍐呭鑺傚鍘熷垯锛堝崟鍛?鈮?3 鏉★紝闂撮殧 鈮?2 澶╋級
 
-### 行动项 2：Brand × Code Reviewer 内容审查清单 ✅
-
-**产出：** `docs/brand-content-checklist.md`  
-**内容：** 八维度审查清单，明确 Code Reviewer（维度 1-5）和 Brand（维度 6-8）职责分工  
-**状态标签体系：** 定义 5 个 PR/Issue 标签用于追踪审查状态
-
-### 行动项 3：Brand GitHub Discussions 首批发布计划 ✅
-
-**产出：** `docs/brand-discussions-plan.md`  
-**内容：**
-- Discussions 分类架构（5 个分类）
-- 现有内容资产优先级矩阵（一/二/三类）
-- 首批 3 条帖子草稿（旗舰首发 + 团队故事 + AI-native 讨论）
-- 内容节奏原则（单周 ≤ 3 条，间隔 ≥ 2 天）
-
-### 行动项 4：PLAYBOOK-CHANGELOG.md v2.1 补充 ✅
-
-**内容：**
-- 补充 `[Playbook v2.1]` 引用链接（之前缺失）
-- [Unreleased] 新增 Brand 内容审查体系文档记录
-- §13.6 Brand 工作流集成待补充标记（下一 Playbook 迭代）
-
+### 琛屽姩椤?4锛歅LAYBOOK-CHANGELOG.md v2.1 琛ュ厖 鉁?
+**鍐呭锛?*
+- 琛ュ厖 `[Playbook v2.1]` 寮曠敤閾炬帴锛堜箣鍓嶇己澶憋級
+- [Unreleased] 鏂板 Brand 鍐呭瀹℃煡浣撶郴鏂囨。璁板綍
+- 搂13.6 Brand 宸ヤ綔娴侀泦鎴愬緟琛ュ厖鏍囪锛堜笅涓€ Playbook 杩唬锛?
 ---
 
-## 仍待推送的变更
+## 浠嶅緟鎺ㄩ€佺殑鍙樻洿
 
-| 文件 | 状态 | 目标仓库 |
+| 鏂囦欢 | 鐘舵€?| 鐩爣浠撳簱 |
 |------|------|---------|
-| `ThemeToggle.astro`（重复监听器修复） | 已修改，未提交 | njueeray.github.io |
-| `docs/research/build-in-public-channels-2026.md` | 已创建，未提交 | OpenProfile |
-| `docs/brand-content-checklist.md` | 已创建，未提交 | OpenProfile |
-| `docs/brand-discussions-plan.md` | 已创建，未提交 | OpenProfile |
-| `PLAYBOOK-CHANGELOG.md`（引用链接 + Unreleased） | 已修改，未提交 | OpenProfile |
-| 本文件 | 已创建，未提交 | OpenProfile |
+| `ThemeToggle.astro`锛堥噸澶嶇洃鍚櫒淇锛?| 宸蹭慨鏀癸紝鏈彁浜?| njueeray.github.io |
+| `docs/research/build-in-public-channels-2026.md` | 宸插垱寤猴紝鏈彁浜?| OpenProfile |
+| `docs/strategy/brand-content-checklist.md` | 宸插垱寤猴紝鏈彁浜?| OpenProfile |
+| `docs/strategy/brand-discussions-plan.md` | 宸插垱寤猴紝鏈彁浜?| OpenProfile |
+| `docs/governance/PLAYBOOK-CHANGELOG.md`锛堝紩鐢ㄩ摼鎺?+ Unreleased锛?| 宸蹭慨鏀癸紝鏈彁浜?| OpenProfile |
+| 鏈枃浠?| 宸插垱寤猴紝鏈彁浜?| OpenProfile |
 
 ---
 
-## 尚未执行的行动项
+## 灏氭湭鎵ц鐨勮鍔ㄩ」
 
-| 行动项 | 负责人 | 状态 | 备注 |
+| 琛屽姩椤?| 璐熻矗浜?| 鐘舵€?| 澶囨敞 |
 |--------|--------|------|------|
-| Profile Designer「团队动态墙」方案 + Dev 实现（Phase K+1 核心） | Profile Designer → Dev | ⬜ 待规划 | 需要单独 Sprint 规划 |
-| Dev Phase K+1 知识图谱数据驱动规划 | Dev → PM | ⬜ 待规划 | Phase K+1 下一 Sprint |
-| Discussions 分类架构实际创建 | Ray（需管理员权限） | ⬜ 待 Ray 操作 | 参考 `brand-discussions-plan.md` 3.1 节 |
-| 首批 Discussions 帖子实际发布 | Brand | ⬜ 等待分类架构建好 | 草稿已在发布计划中 |
-| team-playbook.md §13.6 Brand 工作流集成 | Dev | ⬜ 下次 Playbook 迭代 | 已在 PLAYBOOK-CHANGELOG [Unreleased] 标记 |
+| Profile Designer銆屽洟闃熷姩鎬佸銆嶆柟妗?+ Dev 瀹炵幇锛圥hase K+1 鏍稿績锛?| Profile Designer 鈫?Dev | 猬?寰呰鍒?| 闇€瑕佸崟鐙?Sprint 瑙勫垝 |
+| Dev Phase K+1 鐭ヨ瘑鍥捐氨鏁版嵁椹卞姩瑙勫垝 | Dev 鈫?PM | 猬?寰呰鍒?| Phase K+1 涓嬩竴 Sprint |
+| Discussions 鍒嗙被鏋舵瀯瀹為檯鍒涘缓 | Ray锛堥渶绠＄悊鍛樻潈闄愶級 | 猬?寰?Ray 鎿嶄綔 | 鍙傝€?`brand-discussions-plan.md` 3.1 鑺?|
+| 棣栨壒 Discussions 甯栧瓙瀹為檯鍙戝竷 | Brand | 猬?绛夊緟鍒嗙被鏋舵瀯寤哄ソ | 鑽夌宸插湪鍙戝竷璁″垝涓?|
+| team-playbook.md 搂13.6 Brand 宸ヤ綔娴侀泦鎴?| Dev | 猬?涓嬫 Playbook 杩唬 | 宸插湪 PLAYBOOK-CHANGELOG [Unreleased] 鏍囪 |
 
 ---
 
-## 本次会话的关键技术决策
-
-1. **`window._themeListenerBound` 标志位**：在 `is:inline` 脚本中防止重复注册 `astro:after-swap` 的标准模式，适用于所有类似场景
-2. **README `<picture>` 元素**：Trophy 等组件使用 `<picture>` 而非 `[![img](url)](link)` 是最佳实践，避免 dark/light 模式下图片主题不一致
-3. **GitHub Discussions 主渠道选型**：基于 Researcher 调研确认，不接入 X API，以 Discussions 为发布锚点
-
+## 鏈浼氳瘽鐨勫叧閿妧鏈喅绛?
+1. **`window._themeListenerBound` 鏍囧織浣?*锛氬湪 `is:inline` 鑴氭湰涓槻姝㈤噸澶嶆敞鍐?`astro:after-swap` 鐨勬爣鍑嗘ā寮忥紝閫傜敤浜庢墍鏈夌被浼煎満鏅?2. **README `<picture>` 鍏冪礌**锛歍rophy 绛夌粍浠朵娇鐢?`<picture>` 鑰岄潪 `[![img](url)](link)` 鏄渶浣冲疄璺碉紝閬垮厤 dark/light 妯″紡涓嬪浘鐗囦富棰樹笉涓€鑷?3. **GitHub Discussions 涓绘笭閬撻€夊瀷**锛氬熀浜?Researcher 璋冪爺纭锛屼笉鎺ュ叆 X API锛屼互 Discussions 涓哄彂甯冮敋鐐?
 ---
 
-*本纪要由 Brain 整理，Dev/Researcher/Brand/Code Reviewer 联合执行。*
+*鏈邯瑕佺敱 Brain 鏁寸悊锛孌ev/Researcher/Brand/Code Reviewer 鑱斿悎鎵ц銆?
+
