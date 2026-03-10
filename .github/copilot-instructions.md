@@ -393,6 +393,8 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 | v5.7.0 | 工具层脚手架 — Agent Skills × Hooks × MCP 三位一体（P0+P1 完成） | ✅ 已发布 |
 | v5.8.0 | 博客内容精度 — 代码块增强 / Callout 组件 / 阅读时长 / 文章系列导航 | 🔜 规划中 |
 | v5.9.0 | 博客搜索与发现 — Pagefind 全文搜索 / 系列专题页 / 归档时间轴 | ⬜ 待规划 |
+| v5.10.0 | 首页品牌化重设计 — Hero 叙事重构 / Projects GitHub API 动态数据 / 视觉语言全站统一 | ⬜ 待规划 |
+| v6.0.0 | 架构升级（门槛触发）— Astro 6 迁移 / Hybrid SSR / Astro Actions 动态化探索 | ⬜ 待规划 |
 
 **待用户操作项：**
 - ✅ Discussions 分类架构已创建（Announcements / Team Insights / AI-native Journey）
@@ -561,7 +563,7 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - ✅ Memory × Hooks 融合（PostToolUse agent hook 自动保存关键文件 → Memory MCP）
 - ✅ PostToolUse async markdown lint（`.claude/hooks/lint-markdown.ps1`）
 - ✅ `.github/skills/` 路径统一
-- ⬜ 安装 `agent-skill-loader` npm 包（`npm install -g agent-skill-loader`，**用户操作**）
+- ✅ 安装 `agent-skill-loader` npm 包（`npm install -g agent-skill-loader`，2026-03-10 完成）
 - ⬜ Brand：Discussion #8 正式发布（等待 Hooks 在实际会话中验证有效后）
 - ⬜ Brand：Discussion 月度「读者反馈帖」机制启动（≈2026-03-20 开始）
 
@@ -584,6 +586,24 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - ⬜ S-1 Pagefind 全文搜索（构建时静态 index，前端搜索 UI + 快捷键 `/` 唤起）
 - ⬜ S-2 `/blog/series/` 系列专题页（归集同系列文章，展示系列简介 + 进度）
 - ⬜ S-3 `/blog/archive/` 归档时间轴（按年/月展示，仅日期 + 标题）
+
+**v5.10.0 首页品牌化重设计（⬜ 待规划）：**
+
+> 完成「博客主导」向「完整个人品牌」的升级。首页成为展示 AI-native 工作方式的门面。
+
+- ⬜ H-1 Hero 叙事重构：从 typing SVG 纯展示 → 具有叙事弧度的自我介绍区块（terminal + 卡片混排）
+- ⬜ H-2 Projects 区块 GitHub API 动态化：实时拉取 star / fork / 最近活跃，替换硬编码
+- ⬜ H-3 视觉语言全站统一：首页组件样式与 prose.css / BlogCard / FeaturedCard 设计语言对齐
+- ⬜ H-4 njueeRay-profile README 与站点双向联动：Profile 卡片引用站点最新博文（RSS 驱动）
+
+**v6.0.0 架构升级（⬜ 待规划，门槛触发）：**
+
+> 触发条件：Astro 6 正式发布 OR 站点需要服务端动态能力。与 v5.0.0 同属 Major 级变更。
+
+- ⬜ A-1 Astro 6 迁移：API 变更适配（参照 v5.0.0 迁移经验，预计半天工作量）
+- ⬜ A-2 Hybrid SSR 探索：评估将评论/搜索/统计切换为服务端渲染的可行性
+- ⬜ A-3 Astro Actions：表单/互动功能（如「留言」「订阅」）的动态化接入
+- ⬜ A-4 性能基准全面刷新：Lighthouse CI 阈值随架构升级重新评估（目标 performance ≥ 0.90）
 
 ---
 
