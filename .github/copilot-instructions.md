@@ -290,7 +290,7 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 **阶段：** v5.10.0 已发布（首页品牌化重设计，tag: v5.10.0） → 体系审视期 → v6.0.0 规划中
 **路线图：** v5.1→v5.10 ✅ 全部完成 · v6.0.0（架构升级，门控触发）规划中  
 **个人信息：** ✅ 已确认  
-**配置文件：** ✅ 已同步（含 USER.md v1.0）  
+**配置文件：** ✅ 已同步（治理目录以 `.github/` 为唯一真实来源）  
 **语言偏好：** ✅ 中文（所有原创内容默认中文，技术符号保持英文）
 
 **2026-03-10 体系审视全体会议（`docs/meetings/2026-03-10-04-all-hands-system-review.md`）：**
@@ -299,6 +299,12 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - ✅ P1：验证 Memory MCP (✔ 文件存在配置正确，⚠️ 自动 recall 不工作——PostToolUse hook 仅 Claude Code 有效，VS Code Copilot 会话需手动调用）
 - ⬜ P2：Brand Discussion 跟进机制（发布后 72h 回复，引用上次对话）
 - ✅ P3：evolution-events.jsonl 降级为人工档案（撤销自动触发承诺）
+
+**2026-03-10 全体深度审视扩展会（`docs/meetings/2026-03-10-05-all-hands-governance-refactor.md`）：**
+- ✅ 决议：停止新增技术开发，进入治理重构窗口（聚焦资源/资产/结构）
+- ✅ 决议：`.github/` 目录唯一化，`.claude/` 禁止承载长期治理配置
+- ✅ 决议：Brand 升级为治理变更共监督者（72h Discussion 跟进纳入硬约束）
+- ✅ 执行：Brand 72h 跟进模板落地（`docs/brand/discussion-72h-followup-template.md`）
 
 **北极星已确认 = B（AI-native 工作方式示范）**：Ray 明确表态，本项目的核心目标是展示「AI-native person 如何工作」，而非个人效率工具。
 影响：copilot-instructions.md 历史记录是「演进的见证」，保留并优化可观察性，不删除历史；
