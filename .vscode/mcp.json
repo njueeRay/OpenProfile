@@ -16,6 +16,19 @@
       "command": "uvx",
       "args": ["mcp-server-fetch"],
       "env": {}
+    },
+
+    // Memory MCP：跨会话知识图谱存储
+    // 存储位置：.github/agents/knowledge/memory.jsonl（随仓库 git 管理）
+    // 用途：用户偏好持久化、Agent 跨会话学习、重要决策记录
+    // 安装：npx -y @modelcontextprotocol/server-memory 会自动下载
+    "memory": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-memory"],
+      "env": {
+        "MEMORY_FILE_PATH": "${workspaceFolder}/.github/agents/knowledge/memory.jsonl"
+      }
     }
   }
 }

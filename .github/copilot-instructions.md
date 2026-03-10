@@ -499,9 +499,9 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - ✅ Dev + PM：「会话结束时 Dev 主动提炼新学」写入 Playbook §2.2 会话关闭协议
 
 **待推进（P2，下一版本前）：**
-- ⬜ Brand：Discussion 帖子 #2（技术深度分享，≈2026-03-08 已逾期，本周补发）
-- ⬜ Dev：Memory MCP 接入 `.vscode/mcp.json` 并验证跨会话知识存储
-- ⬜ Brand：Discussion 月度「读者反馈帖」机制启动（content-matrix.md 中规划）
+- ✅ Brand：Discussion 帖子 #2 已发布（Tech Deep-dives，Discussion #7 — https://github.com/njueeRay/njueeray.github.io/discussions/7）
+- ✅ Dev：Memory MCP 接入 `.vscode/mcp.json`，初始知识库种子文件已创建（`.github/agents/knowledge/memory.jsonl`）
+- ⬜ Brand：Discussion 月度「读者反馈帖」机制启动（content-matrix.md 中规划，≈2026-03-20 开始）
 
 ---
 
