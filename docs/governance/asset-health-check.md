@@ -90,7 +90,7 @@
 | 资产 | 路径 | 上次更新 | 状态 | 检查标准 |
 |------|------|---------|------|---------|
 | Brand 内容矩阵 | `docs/brand/content-matrix.md` | 2026-03-10 | ✅ | 内容规划表 |
-| Discussion 发布计划 | `docs/strategy/brand-discussions-plan.md` | 2026-02-28 | ⚠️ | #2/#3/#4 Discussion 仍⬜未执行 |
+| Discussion 发布计划 | `docs/strategy/brand-discussions-plan.md` | 2026-03-11 | ✅ | #9/#10/#11 已发布（2026-03-11）；首批 3 条计划帖全部完成 |
 | 内容审查清单 | `docs/strategy/brand-content-checklist.md` | 2026-03-01 | ✅ | Brand 自主发布判断基准 |
 | 72h 跟进模板 | `docs/brand/discussion-72h-followup-template.md` | 2026-03-10 | ✅ | Brand 发布后强制跟进流程 |
 | Release 模板 | `docs/strategy/brand-release-template.md` | 2026-03-01 | ✅ | 对外里程碑通告模板 |
@@ -104,7 +104,7 @@
 | GitHub Profile 组件调研 | `astro-v5-feasibility-2026.md` | 2026-03-01 | ✅ | 已执行迁移，结论已兑现 |
 | MCP 路线图 | `mcp-roadmap-2026.md` | 2026-03-10 | ✅ | P1 Memory MCP 已接入；P2 forage 待执行 |
 | Agent 团队演进 | `agent-team-evolution-2026.md` | 2026-03-10 | ✅ | 方法论参考 |
-| Build in Public 渠道 | `build-in-public-channels-2026.md` | 2026-02-28 | ⚠️ | 结论已采纳（GitHub Discussions），但执行进度滞后 |
+| Build in Public 渠道 | `build-in-public-channels-2026.md` | 2026-02-28 | ✅ | 结论已采纳（GitHub Discussions）；#9/#10/#11 执行落地（2026-03-11） |
 | Agent 工具层脚手架 | `agent-tooling-scaffold-2026.md` | 2026-03-10 | ✅ | P0/P1 已执行；P2 forage 待执行 |
 | Skills 生态 | `skills-ecosystem-2026.md` | 2026-03-10 | ✅ | SKILL.md 已落地 |
 
@@ -148,31 +148,28 @@
 | E2E 测试数 | 22 tests | ≥20 | ✅ |
 | CI 全绿 | ✅ | 所有 workflow 通过 | ✅ |
 | Blog 文章数 | 17 篇 | — | ✅ |
-| GitHub Discussions 已发布 | #6 / #7 / #8 | 每月 ≥1 篇 | ⚠️ #2/#3/#4 计划帖仍⬜ |
+| GitHub Discussions 已发布 | #6 / #7 / #8 / #9 / #10 / #11 | 每月 ≥1 篇 | ✅ 首批 3 条计划帖已完成（2026-03-11）|
 
 ---
 
 ## 四、综合健康摘要（上次检查结论）
 
-> 最后全量检查：2026-03-10（优化会议 #07）
+> 最后全量检查：2026-03-11（Meeting #08）
 
 **🔴 阻断项：** 无
 
-**⚠️ 待改善项（共 3 项）：**
+**⚠️ 待改善项：** 无（全部已关闭 ✅）
 
-| # | 项目 | 负责人 | 优先级 | 备注 |
-|---|------|--------|--------|------|
-| 4 | Discussion #2/#3/#4 未执行 | Brand | P1 | Brand 已获自主发布授权；Discussion #4 本会话内执行 |
-| 5 | build-in-public 执行频率偏低 | Brand | P1 | 调研结论已落地（✅），执行层面 Brand 72h 跟进机制已建立 |
-| 6 | v5.0.0 Major 发布无全员复盘 | Brain | P2 | 已决策：与 v6.0.0 规划会合并（「v5.x 系列总结 + v6.0.0 方向确认」双议程） |
-
-**✅ 本次优化已关闭项（✅1 ✅2 ✅3 ✅7）：**
+**✅ 本次优化已关闭项（✅1 ✅2 ✅3 ✅4 ✅5 ✅6 ✅7）：**
 
 | # | 原⚠️ 项 | 执行内容 | 关闭时间 |
-|---|---------|---------|---------|
+|---|---------|---------|----------|
 | 1 | Researcher / Code Reviewer agent v1.0 | 升级至 v1.1，将 L2 patterns 核心原则提炼入 agent.md | 2026-03-10 |
 | 2 | `agent-workflow.md` 五角色旧内容 | 补充 Brand/profile-designer；新增治理会议/工具层调用模式；更新日期 | 2026-03-10 |
 | 3 | `design-decisions.md` 同步状态不明 | 重定义文件范围（深度理由档案 ≠ 决策速查镜像）；补充 v5.0/v5.6 架构决策 | 2026-03-10 |
+| 4 | Discussion #2/#3/#4 未执行 | 发布 #9（Announcements 团队时间线）、#10（Team Insights 七位 Agent 首发）、#11（AI-native Journey 开放议论）| 2026-03-11 |
+| 5 | build-in-public 执行频率偏低 | #9/#10/#11 发布落地；Brand 72h 跟进机制激活；持续执行由 Brand 负责 | 2026-03-11 |
+| 6 | v5.0.0 Major 发布无全员复盘 | Meeting #08（2026-03-11）执行 v5.x 系列总结 + v6.0.0 方向确认；全员参与；决议 6 项 | 2026-03-11 |
 | 7 | Playbook 减法目标（-200 行） | §15.3/§15.5 交叉引用优化 + 附录C 瘦身，净减约 90 行；更新 PLAYBOOK-CHANGELOG v2.3 | 2026-03-10 |
 
 **🔵 信息项：**
@@ -191,3 +188,4 @@
 |------|--------|---------|---------|
 | 2026-03-10 | Ray（全体会议 #06）| 🔴 0 / ⚠️ 7 / ✅ 覆盖全量 | H-1 幽灵文件删除；H-2 settings.json 静态版本修复；H-3 Code Review 覆盖新规确立；patterns 补充 5 条 |
 | 2026-03-10 | Ray（全体优化会议 #07）| 🔴 0 / ⚠️ 3 / ✅ 覆盖全量 | 关闭 ⚠️1/2/3/7：Researcher+CR v1.1 升版；agent-workflow.md 七角色更新；design-decisions.md 范围重定义+v5.x 决策补充；Playbook §15 -90 行减法（v2.3）|
+| 2026-03-11 | Brain（Meeting #08）| 🔴 0 / ⚠️ 0 / ✅ 覆盖全量 | 关闭 ⚠️4/⚠️5：Discussion #9/#10/#11 发布；build-in-public 首批落地；关闭 ⚠️6：v5.x 系列总结 + v6.0.0 方向确认会；**所有 ⚠️ 项归零** |

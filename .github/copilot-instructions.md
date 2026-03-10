@@ -327,6 +327,13 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - ✅ asset-health-check.md 更新：⚠️ 7项 → ⚠️ 3项，封闭 ⚠️1/2/3/7 四项
 - ⬜ Brand：Discussion #4（月度读者反馈帖）本会话内发布（启动反馈循环）
 
+**2026-03-11 v5.x 系列总结 + v6.0.0 规划会（`docs/meetings/2026-03-11-08-v5x-retro-v6-planning.md`）：**
+- ✅ GitHub Discussions #9/#10/#11 发布（Announcements 团队时间线 / Team Insights 七位 Agent 首发 / AI-native Journey 开放讨论）
+- ✅ asset-health-check.md 更新：⚠️ 3项 → ⚠️ 0项，封闭 ⚠️4/5/6 三项，**全部 ⚠️ 归零**
+- ✅ v5.x 系列七维度质量复盘完成（全员参与）
+- ✅ v6.0.0 方向确认：expressive-code+Callout+阅读时长（v5.8 worktree 合并触发）→ v6.1.0 读者入口+外循环机制 → v6.2.0 OpenProfile 开源宣布
+- ✅ v6.x 新规：每 Minor 版本发布后 Brand 72h 输出外循环内容（从 v6.0.0 起）
+
 **北极星已确认 = B（AI-native 工作方式示范）**：Ray 明确表态，本项目的核心目标是展示「AI-native person 如何工作」，而非个人效率工具。
 影响：copilot-instructions.md 历史记录是「演进的见证」，保留并优化可观察性，不删除历史；
 所有版本决策、体系设计均以「是否推进 AI-native 工作方式示范」为第一判断标准。
