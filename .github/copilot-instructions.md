@@ -235,6 +235,10 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - [x] **Callout 组件**：四类（tip/warning/info/note），终端风 icon + uppercase 标签 + 对应色系（v5.8.0）
 - [x] **阅读时长算法**：中文 500 字/分钟 + 英文 200 词/分钟，剥离 frontmatter/代码块/HTML 标签（v5.8.0）
 - [x] **SeriesNav 位置**：文章详情页 author-card 后、相关文章前；仅当 series + seriesOrder 且系列 > 1 篇时渲染（v5.8.0）
+- [x] **博客搜索快捷键**：`Ctrl+K` + `/`（后者跳过 input/textarea/contentEditable 场景）；Nav 搜索按钮 title 同步提示
+- [x] **系列 URL 策略**：`/blog/series/[encodeURIComponent(seriesName)]`，支持中文系列名
+- [x] **归档页设计**：年/月分组，type-dot 圆点色彩编码 + 系列文章显示 `⊃` badge
+- [x] **博客页头发现导航**：`# 标签 / ▶ 系列 / ⌥ 归档` 三连 pill 链接（替换原单个「全部标签」链接）
 - [x] **OG 封面图方案**：v5.3.0 新增；satori（HTML/CSS → SVG）+ @resvg/resvg-js（WASM PNG）+ @fontsource/jetbrains-mono（本地字体）；构建时静态生成 1200×630 PNG；暗色终端风格
 - [x] **UTM 追踪策略**：ShareLinks.astro 集成 `utm_source=copy/github_discussions`，`utm_campaign=blog`
 - [x] **Claude Code Hooks 配置**：`.github/settings.json` 定义 4 个质量门禁 hooks — `TeammateIdle`（DoD 评估）/ `TaskCompleted`（DoD 验证）/ `Stop`（防止提前停止）/ `SessionStart`（注入项目上下文）；hooks 使用 `type: "prompt"` 做语义判断，避免复杂脚本维护
@@ -283,8 +287,8 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 
 ## 当前迭代状态
 
-**阶段：** v5.8.0 已发布（博客内容精度 Sprint — expressive-code / Callout / 阅读时长 / SeriesNav 全部完成）· v5.9.0 规划中  
-**路线图：** v5.1→v5.8 ✅ 全部完成 · v5.9.0（博客搜索与发现）规划启动  
+**阶段：** v5.9.0 已发布（博客搜索与发现 — / 快捷键 / 系列专题页 / 归档时间线 全部完成）· v5.10.0 规划中  
+**路线图：** v5.1→v5.9 ✅ 全部完成 · v5.10.0（首页品牌化重设计）规划启动  
 **个人信息：** ✅ 已确认  
 **配置文件：** ✅ 已同步（含 USER.md v1.0）  
 **语言偏好：** ✅ 中文（所有原创内容默认中文，技术符号保持英文）
@@ -395,7 +399,7 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 | v5.6.0 | 博客视觉专项 — FeaturedCard / prose.css / LatestPosts / 作者统计 / 标签终端风 | ✅ 已发布 |
 | v5.7.0 | 工具层脚手架 — Agent Skills × Hooks × MCP 三位一体（P0+P1 完成） | ✅ 已发布 |
 | v5.8.0 | 博客内容精度 — 代码块增强 / Callout 组件 / 阅读时长 / 文章系列导航 | ✅ 已发布 |
-| v5.9.0 | 博客搜索与发现 — Pagefind 全文搜索 / 系列专题页 / 归档时间轴 | 🔜 规划中 |
+| v5.9.0 | 博客搜索与发现 — Pagefind 全文搜索 / 系列专题页 / 归档时间轴 | ✅ 已发布 |
 | v5.10.0 | 首页品牌化重设计 — Hero 叙事重构 / Projects GitHub API 动态数据 / 视觉语言全站统一 | ⬜ 待规划 |
 | v6.0.0 | 架构升级（门槛触发）— Astro 6 迁移 / Hybrid SSR / Astro Actions 动态化探索 | ⬜ 待规划 |
 
@@ -594,11 +598,16 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - ✅ `tsconfig.json` 新增 `@lib/*` 路径别名
 - ✅ `astro check` 0 errors · `npm run build` ✅ Completed
 
-**v5.9.0 博客搜索与发现（🔜 规划中）：**
-
-> 让读者能在站内找到任何一篇文章。
-
-任务清单：
+**v5.9.0 博客搜索与发现（✅ 已发布 2026-03-10+，tag: v5.9.0，commit: `766e566`）：**
+- ✅ S-1 Search.astro 新增 `/` 键快捷键（跳过 input/textarea/contentEditable 场景）
+- ✅ S-1 Nav.astro title 提示更新为 Ctrl+K 和 /
+- ✅ series frontmatter：AI-Native 思考框架 系列（what-i-mean-by-ai-native seriesOrder:1 + ai-native-person-paradigm seriesOrder:2）
+- ✅ S-2 `/blog/series` 列表页（post count + 预览 3 篇 + 最近更新日期）
+- ✅ S-2 `/blog/series/[series]` 详情页（排序 + tag pill + 摘要），`encodeURIComponent` 中文 slug
+- ✅ S-3 `/blog/archive` 归档时间线（年/月分组 + type-dot 色彩编码 + 系列 ⊃ badge）
+- ✅ blog/index.astro 页头三连 pill 发现导航（# 标签 / ▶ 系列 / ⌥ 归档）
+- ✅ `astro check` 0 errors · `npm run build` 68 pages
+- ✅ GitHub Release: https://github.com/njueeRay/njueeray.github.io/releases/tag/v5.9.0
 
 **v5.10.0 首页品牌化重设计（⬜ 待规划）：**
 
