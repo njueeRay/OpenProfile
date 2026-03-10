@@ -162,6 +162,7 @@
 | 变更历史 | `CHANGELOG.md` | 每次有实质变更时 |
 | 会议决议 | `docs/meetings/YYYY-MM-DD-<类型>.md` | 会议当时 |
 | 方法论 & 规范 | `docs/governance/team-playbook.md`（本文件）| 复盘会议后 |
+| **团队资产健康状态** | **`docs/governance/asset-health-check.md`** | **用户主动触发「资产健康检查」时** |
 
 **目录治理硬规则：**
 - `.github/` 是团队治理资产唯一真实来源（SSOT）。
