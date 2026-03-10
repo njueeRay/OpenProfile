@@ -47,6 +47,29 @@
           }
         ]
       }
+    ],
+
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "pwsh -NonInteractive -File .claude\\hooks\\lint-markdown.ps1",
+            "async": true
+          }
+        ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "agent",
+            "prompt": "检查刚刚写入的文件路径：$ARGUMENTS\n\n如果写入的是以下关键文件之一（满足任一条件即执行）：\n- copilot-instructions.md\n- design-decisions.md\n- team-playbook.md\n- evolution-events.jsonl\n\n请调用 Memory MCP（create_entities 或 add_observations）将文件中最新的关键决策、设计选择或重要变更摘要保存到知识图谱中。实体名格式：`OpenProfile:<file>:<YYYY-MM-DD>`。\n\n如果不是上述关键文件，直接返回，不做任何操作。",
+            "async": true
+          }
+        ]
+      }
     ]
   }
 }

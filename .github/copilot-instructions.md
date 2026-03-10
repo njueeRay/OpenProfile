@@ -235,8 +235,10 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - [x] **OG 封面图方案**：v5.3.0 新增；satori（HTML/CSS → SVG）+ @resvg/resvg-js（WASM PNG）+ @fontsource/jetbrains-mono（本地字体）；构建时静态生成 1200×630 PNG；暗色终端风格
 - [x] **UTM 追踪策略**：ShareLinks.astro 集成 `utm_source=copy/github_discussions`，`utm_campaign=blog`
 - [x] **Claude Code Hooks 配置**：`.claude/settings.json` 定义 4 个质量门禁 hooks — `TeammateIdle`（DoD 评估）/ `TaskCompleted`（DoD 验证）/ `Stop`（防止提前停止）/ `SessionStart`（注入项目上下文）；hooks 使用 `type: "prompt"` 做语义判断，避免复杂脚本维护
-- [x] **Agent Skills 架构**：`.claude/skills/` 目录下 7 个 SKILL.md（每个 Agent 一个），遵循 Anthropic Agent Skills 开放标准（`agentskills.io`）；能力从「内部配置」升级为「可发现模块」
+- [x] **Agent Skills 架构**：`.github/skills/` 目录下 7 个 SKILL.md（每个 Agent 一个），遵循 Anthropic Agent Skills 开放标准（`agentskills.io`）；统一纳入 `.github/` 治理体系（与 `agents/` `workflows/` 平级），能力从「内部配置」升级为「可发现模块」
 - [x] **MCP 扩展 — agent-skill-loader**：`.vscode/mcp.json` 新增 `agent-skill-loader` MCP，Agent 可通过 `list_skills/read_skill/install_skill` 动态发现和加载技能库
+- [x] **PostToolUse Hooks（P1 扩展）**：`.claude/settings.json` 新增两条异步 PostToolUse hook — ① `command` 类型调用 `.claude/hooks/lint-markdown.ps1`（Write/Edit 触发 markdownlint）；② `agent` 类型自动保存关键文件变更到 Memory MCP（mengram 模式）
+- [x] **forage MCP（P2 路线图）**：`isaac-levine/forage-mcp` — Agent 自动搜索/安装/学习 MCP 工具的 find-skills 最佳实践；关键能力：`forage_search/forage_install/forage_learn`，安装后无需重启即可获取新工具
 
 **v4.2.0 工程质量 Sprint（✅ 已发布 2026-03-01）：**
 - ✅ `src/styles/global.css` — 全局 CSS 变量提取（从 BaseLayout 120 行内联样式提取为独立文件）
@@ -536,21 +538,34 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - ✅ 新建 `evolution-events.jsonl`（演进事件审计链，回填 15 条历史事件，对标 GEP EvolutionEvent）
 - ✅ Playbook 新增 §19 Agent 能力演进机制（三级结构 + 局限声明规范 + 策略预设 + PM 信号感知 + DoD）
 
-**工具层能力升级 Sprint（2026-03-10，工具层专题会）：**
+**工具层能力升级 Sprint — P0（2026-03-10，工具层专题会，commit: `d944c6a`）：**
 - ✅ Researcher：Agent 工具层深度调研报告 → `docs/research/agent-tooling-scaffold-2026.md`（Claude Skills / Hooks / MCP 生态，P0/P1/P2 路线图）
 - ✅ Dev：`.claude/settings.json` 写入质量 Hooks（TeammateIdle + TaskCompleted + Stop + SessionStart）
-- ✅ Dev：`.claude/skills/` 目录创建 7 个 Agent 的 SKILL.md（brain/pm/dev/researcher/code-reviewer/profile-designer/brand）
+- ✅ Dev：`.github/skills/` 目录创建 7 个 Agent 的 SKILL.md（从 `.claude/skills/` 经 `git mv` 迁移，统一 `.github/` 管理）
 - ✅ Dev：`.vscode/mcp.json` 新增 `agent-skill-loader` MCP（动态技能发现）
-- ✅ Brand：自主决策 Discussion #8 草稿（`docs/brand/discussion-8-draft.md`），等待 Hooks 实施后发布
+- ✅ Brand：自主决策 Discussion #8 草稿（`docs/brand/discussion-8-draft.md`），等待 Hooks 验证后发布
 - ✅ Brain：主持工具层专题会 → `docs/meetings/2026-03-10-02-tool-layer-capability-meeting.md`
 - ✅ evolution-events.jsonl 追加 6 条新事件（P-RS-002 / P-DV-005,6,7 / P-BD-001）
 
-**待推进（P1，下一版本前）：**
-- ⬜ 安装 `agent-skill-loader` npm 包（`npm install -g agent-skill-loader`，用户操作）
-- ⬜ Memory × Hooks 融合（SessionStart 自动加载，PostToolUse 自动保存）—— mengram 模式
-- ⬜ PostToolUse (Write) → async markdown lint （`.claude/hooks/lint-markdown.ps1`）
+**工具层能力升级 Sprint — P1（2026-03-10，本次执行）：**
+- ✅ Dev：`.github/skills/` 目录路径统一（`git mv .claude/skills/ .github/skills/`，保留 git 历史）
+- ✅ Dev：`settings.json` 新增双 PostToolUse hook — async markdown lint（`.claude/hooks/lint-markdown.ps1`）+ agent 类型 Memory MCP 自动保存关键决策
+- ✅ Dev：`.claude/hooks/lint-markdown.ps1` 创建（PowerShell，markdownlint-cli 可选，exit 0 不阻断）
+- ✅ Researcher：识别 `forage`（`isaac-levine/forage-mcp`）为 find-skills P2 方案（Agent 自动发现/安装 MCP）
+- ✅ evolution-events.jsonl 追加 3 条新事件（P-DV-008/P-DV-009/P-RS-003）
+
+**待推进（P1 → 已完成，P2 进行中）：**
+- ✅ Memory × Hooks 融合（PostToolUse agent hook 自动保存关键文件 → Memory MCP）
+- ✅ PostToolUse async markdown lint（`.claude/hooks/lint-markdown.ps1`）
+- ✅ `.github/skills/` 路径统一
+- ⬜ 安装 `agent-skill-loader` npm 包（`npm install -g agent-skill-loader`，**用户操作**）
 - ⬜ Brand：Discussion #8 正式发布（等待 Hooks 在实际会话中验证有效后）
 - ⬜ Brand：Discussion 月度「读者反馈帖」机制启动（≈2026-03-20 开始）
+
+**待推进（P2，下一 Sprint）：**
+- ⬜ `forage-mcp` 接入（`claude mcp add forage -- npx -y forage-mcp`）— Agent 自主发现/安装 MCP
+- ⬜ 将 `.github/skills/` 7 个 SKILL.md 贡献至 `anthropics/skills` 社区（Profile Designer 提案）
+- ⬜ Memory × SessionStart 深度融合：启动时自动 recall 最近 5 条演进事件
 
 ---
 

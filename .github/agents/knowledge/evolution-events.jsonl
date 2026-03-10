@@ -18,3 +18,6 @@
 {"date":"2026-03-10","trigger":"tool-layer-upgrade-research","agent":"dev","type":"new-scaffold","patternId":"P-DV-006","description":"创建 .claude/skills/（7 个 SKILL.md），Agent 能力升级为 Claude Skills 开放标准可发现模块"}
 {"date":"2026-03-10","trigger":"tool-layer-upgrade-research","agent":"dev","type":"new-scaffold","patternId":"P-DV-007","description":"mcp.json 新增 agent-skill-loader，实现 Agent 动态技能发现与加载能力"}
 {"date":"2026-03-10","trigger":"tool-layer-upgrade-research","agent":"brand","type":"decision","patternId":"P-BD-001","description":"Brand 自主决策 Discussion #8：先实施 Hooks 后发布，坚守「先做后说」原则"}
+{"date":"2026-03-10","trigger":"skills-directory-restructure","agent":"dev","type":"refactor","patternId":"P-DV-008","description":"git mv .claude/skills/  .github/skills/，统一纳入 .github/ 治理体系，与 agents/ workflows/ 平级管理"}
+{"date":"2026-03-10","trigger":"p1-hooks-expansion","agent":"dev","type":"new-scaffold","patternId":"P-DV-009","description":"settings.json 新增 PostToolUse 双 hook：async markdown lint（command+PS1）+ Memory MCP 自动保存关键决策（agent类型）"}
+{"date":"2026-03-10","trigger":"p2-research","agent":"researcher","type":"new-gene","patternId":"P-RS-003","description":"识别 forage（isaac-levine/forage-mcp）为 find-skills 最佳实践：Agent 自动搜索/安装/学习 MCP 工具，纳入 P2 路线图"}
