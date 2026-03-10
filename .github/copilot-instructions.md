@@ -280,8 +280,8 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 
 ## 当前迭代状态
 
-**阶段：** v5.7.0 已发布（工具层脚手架 Sprint — Skills × Hooks × MCP P0+P1 完成），P2 阶段规划中  
-**路线图：** v5.1→v5.5 ✅ 全部完成 · v5.6（博客视觉专项）✅ 已发布  
+**阶段：** v5.7.0 已发布（工具层脚手架 Sprint — Skills × Hooks × MCP P0+P1 完成）· v5.8.0 规划中（博客内容精度）  
+**路线图：** v5.1→v5.7 ✅ 全部完成 · v5.8.0（博客内容精度）规划启动  
 **个人信息：** ✅ 已确认  
 **配置文件：** ✅ 已同步（含 USER.md v1.0）  
 **语言偏好：** ✅ 中文（所有原创内容默认中文，技术符号保持英文）
@@ -391,6 +391,8 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 | v5.5.0 | 成熟里程碑 — 读者体验全集 + 外部真实回响 + 测试保障 | ✅ 已发布 |
 | v5.6.0 | 博客视觉专项 — FeaturedCard / prose.css / LatestPosts / 作者统计 / 标签终端风 | ✅ 已发布 |
 | v5.7.0 | 工具层脚手架 — Agent Skills × Hooks × MCP 三位一体（P0+P1 完成） | ✅ 已发布 |
+| v5.8.0 | 博客内容精度 — 代码块增强 / Callout 组件 / 阅读时长 / 文章系列导航 | 🔜 规划中 |
+| v5.9.0 | 博客搜索与发现 — Pagefind 全文搜索 / 系列专题页 / 归档时间轴 | ⬜ 待规划 |
 
 **待用户操作项：**
 - ✅ Discussions 分类架构已创建（Announcements / Team Insights / AI-native Journey）
@@ -567,6 +569,21 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - ⬜ `forage-mcp` 接入（`claude mcp add forage -- npx -y forage-mcp`）— Agent 自主发现/安装 MCP
 - ⬜ 将 `.github/skills/` 7 个 SKILL.md 贡献至 `anthropics/skills` 社区（Profile Designer 提案）
 - ⬜ Memory × SessionStart 深度融合：启动时自动 recall 最近 5 条演进事件
+
+**v5.8.0 博客内容精度 Sprint（🔜 规划中）：**
+
+> 从「内容存在」升级到「内容有质感」。让每篇文章在视觉和交互层面都更精品化。
+
+任务清单：
+- ⬜ B-1 代码块增强：一键复制按钮 + 文件名标注 + 可选行高亮（[`expressive-code`](https://expressive-code.com/) Astro 集成）
+- ⬜ B-2 Callout 组件：`Callout.astro`（tip / warning / info / note 四类）+ prose.css 终端风格适配
+- ⬜ B-3 阅读时长估算：词数统计 → 分钟数，BlogCard 卡片 + 文章页 header 均显示
+- ⬜ B-4 文章系列标记：`series` + `seriesOrder` frontmatter 字段 + 系列级别上/下篇导航组件
+
+**v5.9.0 博客搜索与发现（⬜ 待规划）：**
+- ⬜ S-1 Pagefind 全文搜索（构建时静态 index，前端搜索 UI + 快捷键 `/` 唤起）
+- ⬜ S-2 `/blog/series/` 系列专题页（归集同系列文章，展示系列简介 + 进度）
+- ⬜ S-3 `/blog/archive/` 归档时间轴（按年/月展示，仅日期 + 标题）
 
 ---
 
