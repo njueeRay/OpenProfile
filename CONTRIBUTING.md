@@ -32,7 +32,7 @@ cd OpenProfile
 # 分支命名规范：type/short-description
 git checkout -b feat/add-spotify-widget
 git checkout -b fix/broken-stats-url
-git checkout -b docs/improve-component-guide
+git checkout -b docs/guides/improve-component-guide
 ```
 
 ### 3. 提交修改
@@ -86,7 +86,7 @@ git commit -m "docs: 完善 capsule-render 参数说明"
 
 如果你想贡献一个新的 GitHub Profile 组件：
 
-1. 在 `docs/component-guide.md` 中添加该组件的**完整说明**
+1. 在 `docs/guides/component-guide.md` 中添加该组件的**完整说明**
 2. 在 README.md 中的对应区域添加**带注释的代码**
 3. 在 `CHANGELOG.md` 中记录变更
 4. PR 描述中附上**实际渲染效果截图**
