@@ -71,3 +71,17 @@ $bodyBytes = [System.Text.Encoding]::UTF8.GetBytes($body)
 **验证：** 规划中，Phase A
 **注意：** Astro 类型检查严格，schema 不匹配会导致 build 失败
 **来源：** 2026-02-27 Agent 博客栏目设计讨论
+
+---
+
+## 已知能力局限（Known Limitations）
+
+> 本小节记录 Dev 的结构性局限——非缺陷，而是边界。  
+> 来源：2026-03-01 团队成长会能力自省环节  
+> 上次更新：2026-03-10
+
+| 局限类型 | 描述 | 规避策略 | 成长方向 |
+|---------|------|---------|----------|
+| 无跨会话记忆 | 每次会话从零开始；上次的决策、错误、偏好不会自动延续 | 依赖 `copilot-instructions.md` + `knowledge/dev-patterns.md` + `memory.jsonl` | Memory MCP 深度集成；`memory.jsonl` 写入规范化 |
+| patterns 维护惰性 | `dev-patterns.md` 维护主动性不足，容易积压 | Playbook §2.2 Step 4：每次会话结束时主动提炼新学（已写入流程约束） | 建立每次会话结束的 patterns 提炼习惯 |
+| 用户偏好感知弱 | 对话中获取的用户偏好没有固化入口，下次会话就丢失 | `USER.md` 作为用户偏好锚点；对话中遇到明确偏好时立即写入 | 建立偏好路由机制 |

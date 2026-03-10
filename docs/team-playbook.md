@@ -1539,6 +1539,88 @@ PLAYBOOK-CHANGELOG.md
 
 ---
 
+## 19. Agent 能力演进机制（GEP 适配版）
+
+> 本章建立团队的「可学习协作系统」基础架构。  
+> 灵感来源：EvoMap/evolver GEP（Genome Evolution Protocol），1.4k ⭐  
+> 核心原则：演进是协议约束的，局限是第一类公民，轨迹是可审计的。  
+> 写入时间：2026-03-10（团队演进机制研究会）
+
+### 19.1 三级演进结构
+
+```
+Level 1：Genes（原子模式）
+  ↳ 位置：.github/agents/knowledge/<agent>-patterns.md
+  ↳ 格式：P-XX-NNN 编号 + 场景 + 模式 + 验证记录
+  ↳ 来源：每次 Sprint 结束 / 每次会话结束提炼（Playbook §2.2 Step 4）
+  
+Level 2：Capsules（元模式束）
+  ↳ 位置：.github/agents/knowledge/capsules.md
+  ↳ 格式：CAP-NNN + 场景 + 关联 Genes 列表 + 组合效果描述
+  ↳ 触发：多个 Gene 总是配合使用且产生 1+1>2 效果时提炼
+  ↳ 当前状态：框架已建立，等待 Gene 积累到 20+ 后填写
+  
+Level 3：Evolution Events（演进事件链）
+  ↳ 位置：.github/agents/knowledge/evolution-events.jsonl
+  ↳ 格式：JSONL，每行一条 {date, trigger, agent, type, patternId, description}
+  ↳ 触发：每次 patterns 文件新增/修改时写入一行
+  ↳ 目的：使演进可审计，防止「不知道为什么改了」
+```
+
+### 19.2 能力局限声明规范
+
+每个 `knowledge/<agent>-patterns.md` 文件末尾**必须**包含以下小节：
+
+```markdown
+## 已知能力局限（Known Limitations）
+
+> 来源：<最近一次成长会>
+> 上次更新：YYYY-MM-DD
+
+| 局限类型 | 描述 | 规避策略 | 成长方向 |
+|---------|------|---------|---------|
+| ...     | ...  | ...     | ...     |
+```
+
+**规则：**
+- 局限是反映事实，不是批评——每个 Agent 的局限源自角色约束，不代表失败
+- 局限声明和 Gene（L2 模式）在同一文件中，确保能力地图完整
+- 成长会（每 3 个 Minor 版本或 30 天触发）后必须检视并更新此小节
+
+### 19.3 演进触发机制（Strategy Presets）
+
+| 触发条件 | 策略模式 | 执行主体 | 行动 |
+|---------|---------|---------|------|
+| CI 连续失败 / 生产故障 | `repair-only` | Brain 紧急响应 | 立即开紧急响应会 |
+| 新 Major 版本前 | `harden` | Code Reviewer 强化 | 八维度审查 + 强化测试 |
+| 新 Sprint 启动（功能探索期）| `innovate` | Brain 主持技术决策会 | 验证新方向 |
+| 正常迭代 | `balanced` | 标准 Sprint 流程 | 正常执行 |
+| 距上次成长会 > 30 天 | `evolve-team` | Brain 自动触发 | 成长会 + patterns 更新 |
+| 连续 3 次 Minor 中 Fixed > Added | `harden` 信号 | PM 感知并上报 | 建议切 harden Sprint |
+
+### 19.4 版本间信号感知（PM 职责）
+
+PM 在每次 Minor 版本发布后执行「信号扫描」：
+
+1. 检视 CHANGELOG 的 `Fixed` 与 `Added` 比例
+   - `Fixed` > `Added` 连续 3 次 → 发出 `harden` 信号，建议调整下一 Sprint 策略
+2. 检视 Discussions 帖子的回复情况（Brand 提供数据）
+   - 无回复超过 2 个帖子 → 发出「内容触达」信号，Brand 调整内容策略
+3. 将信号记录在 Sprint 规划会议纪要的「外部信号」字段中
+
+### 19.5 新增 patterns 的 DoD
+
+向任何 `knowledge/<agent>-patterns.md` 新增条目必须满足：
+
+- [ ] 有唯一编号（P-XX-NNN，XX 为 Agent 缩写，NNN 三位数字）
+- [ ] 有「场景」字段（什么时候用）
+- [ ] 有「模式」字段（怎么做，步骤化）
+- [ ] 有「验证」字段（哪个版本/事件验证过）
+- [ ] 有「来源」字段（哪次会议/实践）
+- [ ] 向 `evolution-events.jsonl` 追加一行记录
+
+---
+
 ## 附录 C：Agent 能力快照卡格式
 
 > **用途：** 新接手者在 `copilot-instructions.md` 中查看此表，秒读当前团队状态。

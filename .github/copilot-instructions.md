@@ -503,6 +503,15 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - ✅ Dev：Memory MCP 接入 `.vscode/mcp.json`，初始知识库种子文件已创建（`.github/agents/knowledge/memory.jsonl`）
 - ⬜ Brand：Discussion 月度「读者反馈帖」机制启动（content-matrix.md 中规划，≈2026-03-20 开始）
 
+**团队演进机制建设（2026-03-10，团队演进研究会）：**
+- ✅ Researcher：Agent 演进模式调研报告 → `docs/research/agent-team-evolution-2026.md`（GEP 协议分析 + 5 种协作模式 + 三阶段路线图）
+- ✅ Brain：主持团队演进机制研究会 → `docs/meetings/2026-03-10-01-team-evolution-research.md`
+- ✅ 全体 patterns 文件（5 个）增加「已知能力局限」标准小节（来源：2026-03-01 能力自省）
+- ✅ 新建 `profile-designer-patterns.md`（2 条 L2 + 局限声明）
+- ✅ 新建 `brand-patterns.md`（2 条 L2 + 局限声明）
+- ✅ 新建 `evolution-events.jsonl`（演进事件审计链，回填 15 条历史事件，对标 GEP EvolutionEvent）
+- ✅ Playbook 新增 §19 Agent 能力演进机制（三级结构 + 局限声明规范 + 策略预设 + PM 信号感知 + DoD）
+
 ---
 
 ## 与 Agent 协作的期望

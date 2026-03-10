@@ -1,0 +1,15 @@
+{"date":"2026-02-27","trigger":"worktree-workflow-formalization","agent":"brain","type":"new-gene","patternId":"P-BR-001","description":"Worktree 任务分配触发语标准化模式，完整跑通 feature/readme-update"}
+{"date":"2026-02-27","trigger":"worktree-workflow-formalization","agent":"dev","type":"new-gene","patternId":"P-DV-001","description":"Git Worktree 在 Windows 下的操作细节，包括 VS Code 锁定目录时的 prune 替代方案"}
+{"date":"2026-02-27","trigger":"team-brand-agent-addition","agent":"brain","type":"new-gene","patternId":"P-BR-002","description":"新 Agent 招募决策树，来自 brand.agent.md 创建实践"}
+{"date":"2026-02-27","trigger":"all-hands-strategic-meeting","agent":"brain","type":"new-gene","patternId":"P-BR-003","description":"用户零散想法的结构化处理模式"}
+{"date":"2026-02-27","trigger":"worktree-workflow-formalization","agent":"dev","type":"new-gene","patternId":"P-DV-002","description":"Co-authorship .gitmessage 三仓库配置方式"}
+{"date":"2026-02-26","trigger":"v4-release-utf8-fix","agent":"dev","type":"new-gene","patternId":"P-DV-003","description":"GitHub Release body 的 UTF-8 编码陷阱及修复"}
+{"date":"2026-02-27","trigger":"all-hands-strategic-meeting","agent":"pm","type":"new-gene","patternId":"P-PM-001","description":"Sprint 收尾的知识沉淀触发机制"}
+{"date":"2026-02-27","trigger":"worktree-workflow-formalization","agent":"pm","type":"new-gene","patternId":"P-PM-002","description":"DoD 必须在 worktree-context.md 中提前定义"}
+{"date":"2026-02-25","trigger":"project-initialization","agent":"researcher","type":"new-gene","patternId":"P-RS-001","description":"GitHub Profile 动态组件可信信息源排序"}
+{"date":"2026-02-25","trigger":"project-initialization","agent":"code-reviewer","type":"new-gene","patternId":"P-CR-001","description":"Markdown README 的七维度质量检查顺序"}
+{"date":"2026-02-27","trigger":"astro-blog-system-build","agent":"dev","type":"new-gene","patternId":"P-DV-004","description":"Astro 博客 frontmatter 扩展的正确方式"}
+{"date":"2026-03-10","trigger":"team-evolution-research","agent":"all","type":"add-limitation","patternId":"all-patterns","description":"所有 patterns 文件增加「已知能力局限」小节，消除团队最关键认知盲区"}
+{"date":"2026-03-10","trigger":"team-evolution-research","agent":"profile-designer","type":"new-file","patternId":"profile-designer-patterns","description":"新建 profile-designer-patterns.md，包含视觉选型决策树和颜色体系约定"}
+{"date":"2026-03-10","trigger":"team-evolution-research","agent":"brand","type":"new-file","patternId":"brand-patterns","description":"新建 brand-patterns.md，包含 Discussions 发布 SOP 和内容矩阵映射"}
+{"date":"2026-03-10","trigger":"team-evolution-research","agent":"all","type":"system","patternId":"evolution-events.jsonl","description":"建立演进事件审计链（本文件），使团队演进轨迹可追溯，对标 GEP EvolutionEvent 概念"}
