@@ -1,42 +1,50 @@
-﻿# Release SOP 鈥?鐗堟湰鍙戝竷鏍囧噯鎿嶄綔娴佺▼
+# Release SOP — 版本发布标准操作流程
 
-> 鏈枃妗ｅ畾涔変粠浠ｇ爜鍐荤粨鍒?GitHub Release 鐨勫畬鏁存楠ゃ€?> 閫傜敤浜庢墍鏈?Minor (x.Y.0) 鍙婁互涓婄増鏈彂甯冦€侾atch 鐗堟湰鍙畝鍖栵紙璺宠繃 Code Review锛夈€?
----
-
-## 鍓嶇疆鏉′欢
-
-- [ ] `CHANGELOG.md` 涓?`[Unreleased]` 鏈夋槑纭殑鍙樻洿鏉＄洰
-- [ ] 鎵€鏈?CI锛坢arkdown-lint + link-check锛夐€氳繃 鉁?- [ ] 鏃犳湭鍚堝苟鐨勪緷璧?PR
+> 本文档定义从代码冻结到 GitHub Release 的完整步骤。
+> 适用于所有 Minor (x.Y.0) 及以上版本发布。Patch 版本可简化（跳过 Code Review）。
 
 ---
 
-## 鍙戝竷娴佺▼
+## 前置条件
 
-### 1. 浠ｇ爜鍐荤粨
+- [ ] `CHANGELOG.md` 中 `[Unreleased]` 有明确的变更条目
+- [ ] 所有 CI（markdown-lint + link-check）通过 ✅
+- [ ] 无未合并的依赖 PR
+
+---
+
+## 发布流程
+
+### 1. 代码冻结
 
 ```bash
-# 纭褰撳墠鍒嗘敮鏄?main
+# 确认当前分支是 main
 git status
-# 纭鏃犳湭鎻愪氦鐨勫彉鏇?git diff --stat
+# 确认无未提交的变更
+git diff --stat
 ```
 
-### 2. Code Reviewer 瀹℃煡锛圡inor+ 蹇呴』锛?
-- 瑙﹀彂 Code Reviewer Agent 杩涜鍏淮搴﹀鏌?- 瀹℃煡鎶ュ憡瀛樻。鑷?`docs/reviews/v{VERSION}-review.md`
-- 蹇呴』杈惧埌 `APPROVED` 鎴?`APPROVED WITH NOTES`锛堟棤 BLOCKER锛?- BLOCKER 椤瑰繀椤讳慨澶嶅悗閲嶆柊瀹℃煡
+### 2. Code Reviewer 审查（Minor+ 必须）
 
-### 3. 鐗堟湰鍙风‘瀹?
-閬靛惊璇箟鍖栫増鏈紙SemVer锛夛細
+- 触发 Code Reviewer Agent 进行七维度质量检查
+- 审查报告存档至 `docs/reviews/v{VERSION}-review.md`
+- 必须达到 `APPROVED` 或 `APPROVED WITH NOTES`（无 BLOCKER）
+- BLOCKER 项必须修复后重新审查
 
-| 绫诲瀷 | 鐗堟湰鍙樺寲 | 瑙﹀彂鏉′欢 |
+### 3. 版本号确定
+
+遵循语义化版本（SemVer）：
+
+| 类型 | 版本变化 | 触发条件 |
 |------|---------|---------|
-| Patch | x.y.Z | Bug 淇銆佹枃妗ｅ嫎璇€丆I 淇 |
-| Minor | x.Y.0 | 鏂板姛鑳姐€佹柊缁勪欢銆丼print 浜や粯 |
-| Major | X.0.0 | 鏋舵瀯绾у彉鏇达紙濡?Astro 5 杩佺Щ锛?|
+| Patch | x.y.Z | Bug 修复、文档勘误、CI 修复 |
+| Minor | x.Y.0 | 新增功能、新组件、Sprint 交付 |
+| Major | X.0.0 | 架构级变更（如 Astro 5 迁移）|
 
-### 4. 鏇存柊 CHANGELOG
+### 4. 更新 CHANGELOG
 
 ```markdown
-## [x.y.z] 鈥?YYYY-MM-DD
+## [x.y.z] — YYYY-MM-DD
 
 ### Added
 - ...
@@ -48,65 +56,75 @@ git status
 - ...
 ```
 
-- 灏?`[Unreleased]` 鍐呭绉诲姩鍒版柊鐗堟湰鏍囬涓?- 搴曢儴娣诲姞鐗堟湰姣旇緝閾炬帴锛歚[x.y.z]: https://github.com/njueeRay/OpenProfile/compare/vPREV...vNEW`
+- 将 `[Unreleased]` 内容移动到新版本标题下
+- 底部添加版本比较链接：`[x.y.z]: https://github.com/njueeRay/OpenProfile/compare/vPREV...vNEW`
 
-### 5. 鏇存柊椤圭洰鐘舵€?
-- `copilot-instructions.md`锛氭洿鏂扮増鏈彿銆佽凯浠ｇ姸鎬?- `docs/governance/design-decisions.md`锛氳褰曟柊鍐崇瓥锛堝鏈夛級
-- `docs/guides/component-guide.md`锛氳ˉ鍏呮柊缁勪欢锛堝鏈夛級
+### 5. 更新项目状态
 
-### 6. 鎻愪氦 Release Commit
+- `copilot-instructions.md`：更新版本号、迭代状态
+- `docs/governance/design-decisions.md`：记录新决策（如有）
+- `docs/guides/component-guide.md`：补充新组件（如有）
+
+### 6. 提交 Release Commit
 
 ```bash
 git add -A
 git commit -m "chore: release v{VERSION}
 
-- CHANGELOG 鍒囩増
-- 椤圭洰鐘舵€佸悓姝?- Code Review: docs/reviews/v{VERSION}-review.md
+- CHANGELOG 切版
+- 项目状态同步
+- Code Review: docs/reviews/v{VERSION}-review.md
 
 Co-authored-by: GitHub Copilot <copilot@github.com>"
 ```
 
-### 7. 鍒涘缓 Git Tag
+### 7. 创建 Git Tag
 
 ```bash
-git tag -a v{VERSION} -m "v{VERSION}: {涓€鍙ヨ瘽鎻忚堪}"
+git tag -a v{VERSION} -m "v{VERSION}: {一句话描述}"
 git push origin main --tags
 ```
 
-### 8. 鍒涘缓 GitHub Release
+### 8. 创建 GitHub Release
 
-閫氳繃 GitHub API 鎴?Web UI锛?
+通过 GitHub API 或 Web UI：
+
 - **Tag**: `v{VERSION}`
-- **Title**: `v{VERSION}: {Sprint 涓婚}`
-- **Body**: 浠?CHANGELOG 鎻愬彇锛屽寘鍚細
-  - 鐗堟湰浜偣锛?-3 鍙ユ€荤粨锛?  - Added / Changed / Fixed 瀹屾暣鍒楄〃
-  - 璐＄尞鑰呰嚧璋?- **缂栫爜娉ㄦ剰**: Body 鍐呭浣跨敤 UTF-8 缂栫爜鍙戦€?
-### 9. 鍙戝竷鍚庨獙璇?
-- [ ] Release 椤甸潰娓叉煋姝ｅ父锛堟棤涔辩爜锛?- [ ] Tag 鎸囧悜姝ｇ‘鐨?commit
-- [ ] CI badge 鏄剧ず鏈€鏂扮姸鎬?- [ ] CHANGELOG 鐗堟湰姣旇緝閾炬帴鍙敤
+- **Title**: `v{VERSION}: {Sprint 主题}`
+- **Body**: 从 CHANGELOG 提取，包含：
+  - 版本亮点（1-3 句总结）
+  - Added / Changed / Fixed 完整列表
+  - 贡献者致谢
+- **编码注意**: Body 内容使用 UTF-8 编码发送
+
+### 9. 发布后验证
+
+- [ ] Release 页面渲染正常（无乱码）
+- [ ] Tag 指向正确的 commit
+- [ ] CI badge 显示最新状态
+- [ ] CHANGELOG 版本比较链接可用
 
 ---
 
-## Patch 蹇€熷彂甯冿紙绠€鍖栨祦绋嬶級
+## Patch 快速发布（简化流程）
 
-1. 淇 bug 鈫?鎻愪氦
-2. 鏇存柊 CHANGELOG
+1. 修复 bug → 提交
+2. 更新 CHANGELOG
 3. `git tag -a v{VERSION} -m "..."`
 4. `git push origin main --tags`
-5. 鍒涘缓 GitHub Release锛堢畝鐭弿杩帮級
+5. 创建 GitHub Release（简短描述）
 
 ---
 
-## 妫€鏌ユ竻鍗曢€熸煡
+## 检查清单速查
 
 ```
-鈻?CI green
-鈻?Code Review passed (Minor+)
-鈻?CHANGELOG updated
-鈻?copilot-instructions.md synced
-鈻?Release commit pushed
-鈻?Git tag created & pushed
-鈻?GitHub Release created
-鈻?Post-release verification done
+▸ CI green
+▸ Code Review passed (Minor+)
+▸ CHANGELOG updated
+▸ copilot-instructions.md synced
+▸ Release commit pushed
+▸ Git tag created & pushed
+▸ GitHub Release created
+▸ Post-release verification done
 ```
-

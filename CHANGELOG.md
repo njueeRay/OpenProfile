@@ -8,6 +8,23 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Added
+
+- **blog 博文发布（Brand 策展）**：3 篇 2026-03-10 内容发布到个人主页
+  - `tool-layer-architecture-skills-hooks-mcp.mdx`（technical, featured）—— Skills × Hooks × MCP 三位一体架构解析
+  - `agent-team-evolution-gep-2026-03-10.mdx`（meeting）—— Researcher 调研 GEP，发现与我们 L2 知识体系同构
+  - `skills-scaffold-all-hands-2026-03-10.mdx`（meeting）—— 7 Agent 审查自身 Skills 卡片全体会
+- **docs/research/skills-ecosystem-2026.md**（Researcher D-6）：agent-skill-loader 生态深度调研 + 路线图建议
+- **全体会议纪要**：`docs/meetings/2026-03-10-04-skills-scaffold-all-hands.md`
+
+### Changed
+
+- `docs/` 目录分层重构完成（`cae48dd`）：governance / guides / strategy 分类归档
+- `USER.md` → `.github/USER.md`（跨项目可携带）
+- `PLAYBOOK-CHANGELOG.md` → `docs/governance/PLAYBOOK-CHANGELOG.md`
+- `docs/governance/tooling-scaffold.md`：mcp.json 唯一配置原则明确
+- `.github/skills/brand-publishing/SKILL.md`：D-4 完成，triggers 补充社交媒体关键词
+
 ---
 
 ## [5.7.0] 鈥?2026-03-10

@@ -1,157 +1,162 @@
-﻿# 璁捐鍐崇瓥鏃ュ織
+# 设计决策日志
 
-> 璁板綍姣忔杩唬涓‘璁ょ殑璁捐閫夋嫨锛岄伩鍏?Agent 鍦ㄥ悗缁細璇濅腑閲嶅璁ㄨ宸插喅瀹氱殑闂銆?> 鏍煎紡锛歚[鏃ユ湡] 鍐崇瓥鍐呭 鈥?鐞嗙敱 鈥?鍐崇瓥浜猴紙you/copilot/鍗忓晢锛塦
+> 记录每次迭代中确定的设计选择，避免 Agent 在后续会话中重复讨论已决定的问题。
+> 格式：`[日期] 决策内容 — 理由 — 决策人（you/copilot/协商）`
 
 ---
 
-## 瑙嗚椋庢牸
+## 视觉风格
 
-| 缁村害 | 鍐崇瓥 | 鐞嗙敱 | 鏃ユ湡 |
+| 维度 | 决策 | 理由 | 日期 |
 |------|------|------|------|
-| 鏁翠綋鑹茶皟 | GitHub Dark (#0d1117) | 涓?GitHub 鍘熺敓鏆楄壊妯″紡涓€鑷达紝闆惰繚鍜屾劅 | 2026-02-25 |
-| 涓诲己璋冭壊 | `#58a6ff`锛圙itHub Blue锛?| Profile README 涓?Astro 绔欑偣鍧囩粺涓€; 鍦ㄦ殫鑹茶儗鏅笂瀵规瘮搴﹂珮 | 2026-02-25 |
-| 杈呭姪鑹?| `#3fb950`锛圙reen锛? `#e3b341`锛圷ellow锛?| 缁堢鎻愮ず绗?/ fork 鏍囩宸紓鍖?| 2026-02-25 |
-| 瀛椾綋椋庢牸 | JetBrains Mono / Fira Code | 缁堢缇庡 + 浠ｇ爜鍙鎬?| 2026-02-25 |
-| 鍔ㄦ晥瀵嗗害 | 鍏嬪埗锛? 涓姩鏁堢粍浠讹級 | Typing SVG + capsule-render twinkling + 璐＄尞铔囷紝閬垮厤杩囧害鍔ㄦ晥 | 2026-02-25 |
+| 整体色调 | GitHub Dark (#0d1117) | 与 GitHub 原生暗色模式一致，零违和感 | 2026-02-25 |
+| 主强调色 | `#58a6ff`（GitHub Blue）| Profile README 与 Astro 站点均统一；在暗色背景上对比度高 | 2026-02-25 |
+| 辅助色 | `#3fb950`（Green）、`#e3b341`（Yellow）| 终端提示符/fork 标签差异化 | 2026-02-25 |
+| 字体风格 | JetBrains Mono / Fira Code | 终端美感 + 代码可读性 | 2026-02-25 |
+| 动效密度 | 克制（3 项动效组件） | Typing SVG + capsule-render twinkling + 贡献蛇，避免过度动效 | 2026-02-25 |
 
 ---
 
-## Header 鍖哄煙
+## Header 区域
 
-| 缁村害 | 鍐崇瓥 | 鐞嗙敱 | 鏃ユ湡 |
+| 维度 | 决策 | 理由 | 日期 |
 |------|------|------|------|
-| Header 绫诲瀷 | capsule-render waving | 娉㈡氮褰㈡笎鍙橈紝瑙嗚灞傛濂斤紝涓嶅粔浠?| 2026-02-25 |
-| 娓愬彉棰滆壊 | `0:0d1117 鈫?100:1a1b27` | 娣辫壊鍒版洿娣辫壊锛屼笉鎶㈠唴瀹规敞鎰忓姏 | 2026-02-25 |
-| 鍔ㄧ敾 | twinkling | 寰闂儊锛屾瘮 fadeIn/blinking 鏇村厠鍒?| 2026-02-25 |
-| 鏍囬鏂囧瓧 | `njueeRay` + 鎻忚堪琛?| 鐢ㄦ埛鍚?+ 涓変釜瑙掕壊鏍囩 | 2026-02-25 |
+| Header 类型 | capsule-render waving | 波浪形渐变，视觉层次好，不抢内容注意力 | 2026-02-25 |
+| 渐变颜色 | `0:0d1117 → 100:1a1b27` | 深色到更深色，不抢内容注意力 | 2026-02-25 |
+| 动画 | twinkling | 微闪烁，比 fadeIn/blinking 更克制 | 2026-02-25 |
+| 标题文字 | `njueeRay` + 描述行 | 用户名 + 三个角色标签 | 2026-02-25 |
 
 ---
 
-## 缁熻缁勪欢
+## 统计组件
 
-| 缁村害 | 鍐崇瓥 | 鐞嗙敱 | 鏃ユ湡 |
+| 维度 | 决策 | 理由 | 日期 |
 |------|------|------|------|
-| Stats 涓婚 | `github_dark_dimmed` | 缁熶竴娣辫壊璋冿紝涓?Streak 涓嶆挒鑹?| 2026-02-25 |
-| Streak 涓婚 | `github-dark-blue` | 钃濊壊绯讳笌涓诲己璋冭壊涓€鑷?| 2026-02-25 |
-| Activity Graph | 鉁?鍚敤锛宍github-compact` + area 濉厖 | 琛ュ叏"鏃堕棿缁村害"鏁版嵁鍙鍖?| 2026-02-25 |
-| WakaTime | 鉁?宸叉帴鍏ワ紝`anmol098/waka-readme-stats` | 淇℃伅瀵嗗害楂橈紝鍚?OS/缂栬緫鍣?椤圭洰鍒嗗竷 | 2026-02-25 |
-| 璐＄尞铔囧姩鐢?| 鉁?鍚敤锛宍Platane/snk` | 瑙嗚浜偣锛屾殫鑹茬増锛屾瘡鏃ヨ嚜鍔ㄦ洿鏂?| 2026-02-25 |
+| Stats 主题 | `github_dark_dimmed` | 统一深色调，与 Streak 不撞色 | 2026-02-25 |
+| Streak 主题 | `github-dark-blue` | 蓝色系与主强调色一致 | 2026-02-25 |
+| Activity Graph | ✅ 启用，`github-compact` + area 填充 | 补全"时间维度"数据可视化 | 2026-02-25 |
+| WakaTime | ✅ 已接入，`anmol098/waka-readme-stats` | 信息密度高，含 OS/编辑器/项目分布 | 2026-02-25 |
+| 贡献蛇动画 | ✅ 启用，`Platane/snk` | 视觉亮点，暗色版，每日自动更新 | 2026-02-25 |
 
 ---
 
-## 鎶€鏈爤灞曠ず
+## 技术栈展示
 
-| 缁村害 | 鍐崇瓥 | 鐞嗙敱 | 鏃ユ湡 |
+| 维度 | 决策 | 理由 | 日期 |
 |------|------|------|------|
-| 灞曠ず鏂瑰紡 | skill-icons锛堟繁鑹茬増锛?| 鍥炬爣绮剧編銆佽鲸璇嗗害楂樸€佹棤闇€棰濆璐﹀彿 | 2026-02-25 |
-| 鍖呭惈鐨勬妧鏈?| py, cpp, ts, js, react, docker, git, linux | 瑕嗙洊涓诲姏璇█ + 鏍稿績宸ュ叿閾?| 2026-02-25 |
-| 鍒嗙被鏂瑰紡 | 鍗曡灞曠ず锛屼笉鍒嗙被 | Profile README 绌洪棿鏈夐檺锛孉stro 绔欑偣鍋氳缁嗗垎绫?| 2026-02-25 |
+| 展示方式 | skill-icons（深色版） | 图标精美、辨识度高、无需额外账号 | 2026-02-25 |
+| 包含的技术 | py, cpp, ts, js, react, docker, git, linux | 覆盖主力语言 + 核心工具链 | 2026-02-25 |
+| 分类方式 | 单行展示，不分类 | Profile README 空间有限，Astro 站点做详细分类 | 2026-02-25 |
 
 ---
 
-## Featured 椤圭洰閫夋嫨
+## Featured 项目选择
 
-| 缁村害 | 鍐崇瓥 | 鐞嗙敱 | 鏃ユ湡 |
+| 维度 | 决策 | 理由 | 日期 |
 |------|------|------|------|
-| 椤圭洰 1 | OpenProfile | 鏈」鐩紝AI-Native 宸ヤ綔娴佹渶浣冲疄璺?| 2026-02-25 |
-| 椤圭洰 2 | wechat_article_exporter | 鍘熷垱宸ュ叿锛屼笌 LLM/RAG 鐩存帴鍏宠仈 | 2026-02-25 |
-| ~~MediaCrawler~~ | 鉂?宸茬Щ闄?| fork 椤圭洰锛屽睍绀哄彲鑳藉紩鍙戝綊灞炶瑙?| 2026-02-25 |
+| 项目 1 | OpenProfile | 本项目，AI-Native 工作流最佳实践 | 2026-02-25 |
+| 项目 2 | wechat_article_exporter | 原创工具，与 LLM/RAG 直接关联 | 2026-02-25 |
+| ~~MediaCrawler~~ | ❌ 已移除 | fork 项目，展示可能引发归属争议 | 2026-02-25 |
 
 ---
 
-## 宸插簾寮冪殑鏂规
+## 已废弃的方案
 
-> 璁板綍鏇剧粡鑰冭檻浣嗘渶缁堟斁寮冪殑閫夋嫨锛屼互鍙婃斁寮冨師鍥狅紙閬垮厤鏈潵閲嶅鑰冭檻锛?
-- `merko` Stats 涓婚 鈥?缁胯壊绯讳笌 Streak `tokyonight-duo` 钃濊壊绯诲悓灞忔挒鑹诧紝鏀逛负缁熶竴 `github_dark_dimmed`
-- `#00b4d8` (Cyan) 寮鸿皟鑹?鈥?涓?Profile README 鐨?`#58a6ff` 涓嶄竴鑷达紝缁熶竴涓哄悗鑰?- MediaCrawler 浣滀负 Featured 鈥?fork 椤圭洰锛屽瓨鍦ㄥ綊灞炶瑙ｉ闄?- `git.io` 鐭摼 鈥?鏈嶅姟宸蹭簬 2022 骞村仠姝㈡柊澧烇紝鏀圭敤瀹屾暣 URL
+> 记录曾经考虑但最终放弃的选择，以及放弃原因（避免未来重复考虑）
+
+- `merko` Stats 主题 — 绿色系与 Streak `tokyonight-duo` 蓝色系同屏撞色，改为统一 `github_dark_dimmed`
+- `#00b4d8` (Cyan) 强调色 — 与 Profile README 的 `#58a6ff` 不一致，统一为后者
+- MediaCrawler 作为 Featured — fork 项目，存在归属争议风险
+- `git.io` 短链 — 服务已于 2022 年停止新增，改用完整 URL
 
 ---
 
-## V2.0 鏂板鍐崇瓥
+## V2.0 新增决策
 
-### 鍙屾ā锛堟殫/浜級鍏煎绛栫暐
+### 双模式（暗/亮）兼容策略
 
-| 缁村害 | 鍐崇瓥 | 鐞嗙敱 | 鏃ユ湡 |
+| 维度 | 决策 | 理由 | 日期 |
 |------|------|------|------|
-| 鎶€鏈柟妗?| 鍏ㄧ粍浠朵娇鐢?`<picture><source media="(prefers-color-scheme: dark)">` | GitHub 鍘熺敓鏀寔锛屾棤 JS 渚濊禆锛孲SR 鍙嬪ソ | 2026-02-25 |
-| Stats 娴呰壊涓婚 | `theme=default` | 鏈€閫氱敤锛屼笉闇€瑕侀澶栬处鍙?| 2026-02-25 |
-| Streak 娴呰壊涓婚 | `theme=default` | 涓?Stats 淇濇寔涓€鑷?| 2026-02-25 |
-| Activity Graph 娴呰壊 | `theme=minimal` | 鐧藉簳鐏扮嚎锛屽共鍑€涓嶆姠鐪?| 2026-02-25 |
-| capsule-render 娴呰壊 | 娓愬彉 `0:dbeafe,100:bfdbfe`锛堣摑鐧斤級 | 涓庡搧鐗岃壊 `#58a6ff` 鍚岃壊绯?| 2026-02-25 |
-| 娓愬彉鍒嗛殧绾?| `type=soft&height=4`锛屾繁鑹茬増 `#1a2744`锛屾祬鑹茬増 `#93c5fd` | 姣?`---` 鏈夎瑙夊眰娆℃劅锛屼笉杩囦簬绐佸厐 | 2026-02-25 |
+| 技术方案 | 全组件使用 `<picture><source media="(prefers-color-scheme: dark)">` | GitHub 原生支持，无 JS 依赖，SSR 友好 | 2026-02-25 |
+| Stats 浅色主题 | `theme=default` | 最通用，不需要额外账号 | 2026-02-25 |
+| Streak 浅色主题 | `theme=default` | 与 Stats 保持一致 | 2026-02-25 |
+| Activity Graph 浅色 | `theme=minimal` | 白底灰线，干净不抢眼 | 2026-02-25 |
+| capsule-render 浅色 | 渐变 `0:dbeafe,100:bfdbfe`（蓝白）| 与品牌色 `#58a6ff` 同色系 | 2026-02-25 |
+| 渐变分隔线 | `type=soft&height=4`，深色版 `#1a2744`，浅色版 `#93c5fd` | 比 `---` 有视觉层次感，不过于突兀 | 2026-02-25 |
 
-### JSON 鑷堪鎵╁睍
+### JSON 自述扩展
 
-| 缁村害 | 鍐崇瓥 | 鏃ユ湡 |
+| 维度 | 决策 | 日期 |
 |------|------|------|
-| 鏂板瀛楁 | `llm_stack`, `languages`, `current_proj`, `open_to`, `fun_fact` | 2026-02-25 |
-| 鑻辨枃鍙欎簨娈?| 3 鍙ヨ瘽锛氬畾浣?+ 褰撳墠鎺㈢储鏂瑰悜 + 姣忎釜椤圭洰鏄疄楠?| 2026-02-25 |
+| 新增字段 | `llm_stack`, `languages`, `current_proj`, `open_to`, `fun_fact` | 2026-02-25 |
+| 英文叙事段 | 3 句话：定位 + 当前探索方向 + 每个项目是实验 | 2026-02-25 |
 
-### Astro 绔欑偣鎵╁睍
+### Astro 站点扩展
 
-| 缁村害 | 鍐崇瓥 | 鐞嗙敱 | 鏃ユ湡 |
+| 维度 | 决策 | 理由 | 日期 |
 |------|------|------|------|
-| 瀵艰埅椋庢牸 | 鍥哄畾椤舵爮 + 姣涚幓鐠?`backdrop-filter: blur(12px)` | 鐜颁唬 SPA 蹇呭锛岀粓绔搧鐗屽悕 `~/njueeray` | 2026-02-25 |
-| 椤佃剼椋庢牸 | 缁堢 `echo $FOOTER` + 鍏夋爣闂儊 | 寤剁画缁堢缇庡 | 2026-02-25 |
-| Blog 鏂规 | Astro Content Collections + MDX锛屾湰鍦版枃浠讹紝闆剁涓夋柟 CMS | 绠€鍗曞彲闈狅紝瀹屽叏绂荤嚎鍙紪杈戯紝涓?GitHub Pages 闆舵懇鎿?| 2026-02-25 |
-| MDX 鐗堟湰 | `@astrojs/mdx@3`锛圓stro 4.x 鍏煎锛墊 Astro 5.x 鐨?mdx@4 涓?Astro 4.16.x 涓嶅吋瀹?| 2026-02-25 |
-| View Transitions | Astro 鍐呯疆 `<ViewTransitions />` | 闆朵緷璧栵紝椤甸潰鍒囨崲骞虫粦锛屽 blog 椤甸潰灏ゅ叾鏈夋晥 | 2026-02-25 |
-| Projects 淇 | 绉婚櫎 MediaCrawler锛坒ork锛?| 涓?Profile README 鍚屾锛岄伩鍏嶅綊灞炶瑙?| 2026-02-25 |
+| 导航风格 | 固定顶栏 + 毛玻璃 `backdrop-filter: blur(12px)` | 现代 SPA 必备，终端品牌名 `~/njueeray` | 2026-02-25 |
+| 页脚风格 | 终端 `echo $FOOTER` + 光标闪烁 | 延续终端美感 | 2026-02-25 |
+| Blog 方案 | Astro Content Collections + MDX，本地文件，零第三方 CMS | 简单可控，完全离线可编辑，与 GitHub Pages 零摩擦 | 2026-02-25 |
+| MDX 版本 | `@astrojs/mdx@3`（Astro 4.x 兼容） | Astro 5.x 的 mdx@4 与 Astro 4.16.x 不兼容 | 2026-02-25 |
+| View Transitions | Astro 内置 `<ViewTransitions />` | 零依赖，页面切换平滑，对 blog 页面尤其有效 | 2026-02-25 |
+| Projects 修复 | 移除 MediaCrawler（fork） | 与 Profile README 同步，避免归属争议 | 2026-02-25 |
 
-### 宸ョ▼瑙勮寖
+### 工程规范
 
-| 缁村害 | 鍐崇瓥 | 鏃ユ湡 |
+| 维度 | 决策 | 日期 |
 |------|------|------|
-| Link check | lycheeverse/lychee-action锛屾帓闄ゅ姩鎬?badge 鍩熷悕锛堥伩鍏嶈鎶ワ級 | 2026-02-25 |
-| Markdown lint | DavidAnson/markdownlint-cli2-action锛屽叧闂?MD013/MD033/MD041锛圥rofile README 鍦烘櫙涓嶉€傜敤锛?| 2026-02-25 |
-| .editorconfig | LF 琛屽熬锛孶TF-8锛宨ndent 2锛圡arkdown/YAML/TS/Astro锛夛紝4锛圥ython/C++锛?| 2026-02-25 |
+| Link check | lycheeverse/lychee-action，排除动态 badge 域名（避免误报） | 2026-02-25 |
+| Markdown lint | DavidAnson/markdownlint-cli2-action，关闭 MD013/MD033/MD041（Profile README 场景不适用） | 2026-02-25 |
+| .editorconfig | LF 行尾，UTF-8，indent 2（Markdown/YAML/TS/Astro），4（Python/C++） | 2026-02-25 |
 
 ---
 
-## V3.0 鏂板鍐崇瓥
+## V3.0 新增决策
 
-### SEO 涓庤闃?
-| 缁村害 | 鍐崇瓥 | 鐞嗙敱 | 鏃ユ湡 |
+### SEO 与可达性
+
+| 维度 | 决策 | 理由 | 日期 |
 |------|------|------|------|
-| Sitemap | `@astrojs/sitemap` 鑷姩鐢熸垚 | 闆堕厤缃紝Google/Bing 鍙嬪ソ | 2026-02-26 |
-| RSS | `@astrojs/rss` 鈫?`/rss.xml` | 鍗氬璁㈤槄鏍囬厤锛寊h-cn | 2026-02-26 |
-| OG/Twitter meta | 鏉′欢鎬ф敞鍏?`ogImage` prop | 鍒嗕韩棰勮浼樺寲锛屾棤鍥炬椂 fallback summary 鍗?| 2026-02-26 |
-| 404 椤甸潰 | 缁堢椋庢牸 `$ 404 not_found` | 鍝佺墝涓€鑷存€э紝鍚揩鎹峰鑸?| 2026-02-26 |
+| Sitemap | `@astrojs/sitemap` 自动生成 | 零配置，Google/Bing 友好 | 2026-02-26 |
+| RSS | `@astrojs/rss` → `/rss.xml` | 博客订阅标配，zh-cn | 2026-02-26 |
+| OG/Twitter meta | 条件性注入 `ogImage` prop | 分享预览优化，无图时 fallback summary 卡 | 2026-02-26 |
+| 404 页面 | 终端风格 `$ 404 not_found` | 品牌一致性，吃快捷键导航 | 2026-02-26 |
 
-### Blog 鏍囩绯荤粺
+### Blog 标签系统
 
-| 缁村害 | 鍐崇瓥 | 鐞嗙敱 | 鏃ユ湡 |
+| 维度 | 决策 | 理由 | 日期 |
 |------|------|------|------|
-| 鏍囩浜?| 棰戞椹卞姩瀛楀彿娓愬彉 + count badge | 瑙嗚淇℃伅缂栫爜锛屼竴鐪肩湅鍑虹儹闂ㄤ富棰?| 2026-02-26 |
-| 鏍囩椤?| `[tag].astro` 闈欐€佽矾鐢?| SSG 妯″紡锛屾瀯寤烘椂鐢熸垚鎵€鏈夋爣绛捐矾鐢?| 2026-02-26 |
+| 标签云 | 频数驱动字号渐变 + count badge | 视觉信息编码，一眼看出热门主题 | 2026-02-26 |
+| 标签页 | `[tag].astro` 静态路由 | SSG 模式，构建时生成所有标签路由 | 2026-02-26 |
 
 ---
 
-## V4.0 鏂板鍐崇瓥
+## V4.0 新增决策
 
-### 绔欑偣浣撻獙娣卞寲
+### 站点体验深化
 
-| 缁村害 | 鍐崇瓥 | 鐞嗙敱 | 鏃ユ湡 |
+| 维度 | 决策 | 理由 | 日期 |
 |------|------|------|------|
-| 鍏ㄧ珯鎼滅储 | Pagefind锛坄is:inline` 鍔ㄦ€?import锛?| 闆舵湇鍔″櫒渚濊禆锛屾瀯寤哄悗绱㈠紩锛孋trl+K 寮圭獥 UX | 2026-02-26 |
-| 鏆?浜富棰?| `data-theme` + CSS 鍙橀噺瑕嗙洊 + localStorage | 鏃?FOUC锛堝悓姝ヨ鍙栵級锛岀郴缁熷亸濂?fallback | 2026-02-26 |
-| 闃呰杩涘害 | 椤堕儴 3px 鍥哄畾鏉★紙`position: fixed; z-index: 1001`锛?| 浠呭崥瀹㈡枃绔犻〉鏄剧ず锛屼笉骞叉壈瀵艰埅鏍?| 2026-02-26 |
-| 鐩綍 TOC | 鍙充晶杈规爮 @ 1280px+锛孖ntersectionObserver 楂樹寒 | 妗岄潰绔寮猴紝绉诲姩绔殣钘忥紝涓嶄镜鍏ュ唴瀹瑰尯 | 2026-02-26 |
-| 璇勮绯荤粺 | Giscus 鈫?GitHub Discussions (Announcements) | 闆舵暟鎹簱锛屼富棰樿仈鍔紙dark_dimmed / light锛夛紝pathname 鏄犲皠 | 2026-02-26 |
-| Navbar 鑳屾櫙 | `rgba(var(--nav-bg-rgb), 0.85)` | 鏀寔鏆?浜弻妯″垏鎹紝鍔ㄦ€侀€忔槑搴?| 2026-02-26 |
+| 全站搜索 | Pagefind（`is:inline` 动态 import） | 零服务器依赖，构建后索引，Ctrl+K 弹窗 UX | 2026-02-26 |
+| 暗/亮主题 | `data-theme` + CSS 变量覆盖 + localStorage | 无 FOUC（同步读取），系统偏好 fallback | 2026-02-26 |
+| 阅读进度 | 顶部 3px 固定条（`position: fixed; z-index: 1001`） | 仅博客文章页显示，不干扰导航栏 | 2026-02-26 |
+| 目录 TOC | 右侧边栏 @ 1280px+，IntersectionObserver 高亮 | 桌面端强烈，移动端隐藏，不侵入内容区 | 2026-02-26 |
+| 评论系统 | Giscus → GitHub Discussions (Announcements) | 零数据库，主题联动（dark_dimmed / light），pathname 映射 | 2026-02-26 |
+| Navbar 背景 | `rgba(var(--nav-bg-rgb), 0.85)` | 支持暗/亮双模切换，动态透明度 | 2026-02-26 |
 
-### 鐗堟湰浣撶郴
+### 版本体系
 
-| 缁村害 | 鍐崇瓥 | 鐞嗙敱 | 鏃ユ湡 |
+| 维度 | 决策 | 理由 | 日期 |
 |------|------|------|------|
-| L1 Project | semver (CHANGELOG.md + GitHub Tag) | 琛屼笟鏍囧噯 | 2026-02-26 |
-| L2 Playbook | 鐙珛鍙樻洿鏃ュ織 (docs/governance/PLAYBOOK-CHANGELOG.md) | 鏂规硶璁虹嫭绔嬩簬浜у搧杩唬 | 2026-02-26 |
-| L3 Agent | `agentVersion` in YAML front matter | 绮掑害鍒颁釜浣擄紝鑳藉姏杩芥函 | 2026-02-26 |
+| L1 Project | semver（CHANGELOG.md + GitHub Tag） | 行业标准 | 2026-02-26 |
+| L2 Playbook | 独立变更日志（docs/governance/PLAYBOOK-CHANGELOG.md） | 方法论独立于产品迭代 | 2026-02-26 |
+| L3 Agent | `agentVersion` in YAML front matter | 粒度到个体，能力追溯 | 2026-02-26 |
 
-## 鍙樻洿鍘嗗彶
+## 变更历史
 
-- `[2026-02-25]` 鈥?椤圭洰鍒濆鍖栵紝鍏ㄩ儴璁捐鍐崇瓥纭畾锛堣瑙夐鏍?+ Header + Stats + 鎶€鏈爤 + Featured锛?- `[2026-02-25]` 鈥?杩唬浜屽畬鎴愶細涓婚缁熶竴銆乄akaTime/Activity Graph/璐＄尞铔囨帴鍏ャ€佸己璋冭壊瀵归綈
-- `[2026-02-25]` 鈥?**V2.0**锛氬弻妯″吋瀹瑰叏缁勪欢 + README 鍙欎簨閲嶆瀯 + Astro 澶氶〉锛圢av/Footer/Blog锛? CI Actions + v1.0.0 tag
-- `[2026-02-26]` 鈥?**V3.0**锛歋EO 鍦板熀 + Blog 鏍囩 + Profile 3D 璐＄尞/Trophy + Playbook 鍙Щ妞嶅寲
-- `[2026-02-26]` 鈥?**V4.0**锛氫笁灞傜増鏈綋绯?+ Pagefind 鎼滅储 + 鏆?浜富棰?+ 杩涘害鏉?+ TOC + Giscus 璇勮
-
+- `[2026-02-25]` — 项目初始化，全部设计决策确定（视觉风格 + Header + Stats + 技术栈 + Featured）
+- `[2026-02-25]` — 迭代二完成：主题统一、WakaTime/Activity Graph/贡献蛇接入、强调色对齐
+- `[2026-02-25]` — **V2.0**：双模兼容全组件 + README 叙事重构 + Astro 多页（Nav/Footer/Blog）+ CI Actions + v1.0.0 tag
+- `[2026-02-26]` — **V3.0**：SEO 地基 + Blog 标签 + Profile 3D 贡献/Trophy + Playbook 可移植化
+- `[2026-02-26]` — **V4.0**：三层版本体系 + Pagefind 搜索 + 暗/亮主题 + 进度条 + TOC + Giscus 评论
