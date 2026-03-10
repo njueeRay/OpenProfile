@@ -1280,6 +1280,62 @@ Invoke-RestMethod "https://api.github.com/repos/{owner}/{repo}/releases" `
    - 确认 Release 标题正确、标签关联正确
 ```
 
+### 15.5 GitHub Discussions 发布 SOP（GraphQL API）
+
+> **适用场景：** gh CLI 在 VS Code 终端无法交互式登录时（无 TTY），通过 GraphQL API 直接发布 / 更新 Discussion。
+
+**已知固定 IDs（njueeray.github.io 仓库）：**
+
+| 变量 | 值 |
+|------|-----|
+| `repoId` | `R_kgDORYROOA` |
+| Tech Deep-dives `categoryId` | `DIC_kwDORYROOM4C3ai-` |
+
+**完整 SOP：**
+
+```
+1. 获取 token（§15.2 git credential fill）
+2. 将标题和正文分别保存为独立 .txt 文件（UTF-8，避免 PS5.1 脚本编码问题）
+3. 执行 _publish_discussion.ps1 脚本（见下方模板）
+4. 验证：访问 discussions 页面，确认中文正确渲染
+5. 执行完毕后删除 token 行和临时内容文件
+```
+
+**标准脚本模板（脚本本身只含 ASCII）：**
+
+```powershell
+$token = "gho_..."  # 执行后删除此行
+$h = @{ Authorization = "bearer $token"; "Content-Type" = "application/json" }
+$base = "path\to\content"
+
+# 读取中文内容（显式 UTF-8，不依赖 PS 默认编码）
+$title = [System.IO.File]::ReadAllText("$base\_title.txt", [System.Text.Encoding]::UTF8).Trim()
+$body  = [System.IO.File]::ReadAllText("$base\_body.txt",  [System.Text.Encoding]::UTF8)
+
+# createDiscussion（新建）
+$payload = [ordered]@{
+    query = 'mutation($rId:ID!,$cId:ID!,$t:String!,$b:String!){createDiscussion(input:{repositoryId:$rId,categoryId:$cId,title:$t,body:$b}){discussion{url number}}}'
+    variables = [ordered]@{ rId = "R_kgDORYROOA"; cId = "<categoryId>"; t = $title; b = $body }
+}
+$bytes = [System.Text.Encoding]::UTF8.GetBytes(($payload | ConvertTo-Json -Depth 5 -Compress))
+$r = Invoke-RestMethod -Uri "https://api.github.com/graphql" -Method POST -Headers $h -Body $bytes
+Write-Host $r.data.createDiscussion.discussion.url
+
+# updateDiscussion（修复已有 Discussion）—— 先查 node ID
+$qId = '{"query":"query{repository(owner:\"njueeRay\",name:\"njueeray.github.io\"){discussion(number:N){id}}}"}'
+$nodeId = (Invoke-RestMethod -Uri "https://api.github.com/graphql" -Method POST -Headers $h `
+           -Body ([System.Text.Encoding]::UTF8.GetBytes($qId))).data.repository.discussion.id
+$payload2 = [ordered]@{
+    query = 'mutation($id:ID!,$t:String!,$b:String!){updateDiscussion(input:{discussionId:$id,title:$t,body:$b}){discussion{url title}}}'
+    variables = [ordered]@{ id = $nodeId; t = $title; b = $body }
+}
+$r2 = Invoke-RestMethod -Uri "https://api.github.com/graphql" -Method POST -Headers $h `
+      -Body ([System.Text.Encoding]::UTF8.GetBytes(($payload2 | ConvertTo-Json -Depth 5 -Compress)))
+Write-Host $r2.data.updateDiscussion.discussion.title
+```
+
+> ⚠️ **绝对禁止** 在终端直接输入含大量中文的 here-string（`@" "@`）——会触发 PSReadLine 缓冲区溢出崩溃（`ArgumentOutOfRangeException: top = -26`）。始终通过脚本文件执行。
+
 ---
 
 ## 16. 开源项目品牌化规范
