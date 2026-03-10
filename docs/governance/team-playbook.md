@@ -1613,7 +1613,7 @@ Level 2：Capsules（元模式束）
 Level 3：Evolution Events（演进事件链）
   ↳ 位置：.github/agents/knowledge/evolution-events.jsonl
   ↳ 格式：JSONL，每行一条 {date, trigger, agent, type, patternId, description}
-  ↳ 触发：每次 patterns 文件新增/修改时写入一行
+  ↳ 触发：**人工归档**（不承诺自动触发，Agent 可主动追加但不是强刻）
   ↳ 目的：使演进可审计，防止「不知道为什么改了」
 ```
 
@@ -1667,7 +1667,7 @@ PM 在每次 Minor 版本发布后执行「信号扫描」：
 - [ ] 有「模式」字段（怎么做，步骤化）
 - [ ] 有「验证」字段（哪个版本/事件验证过）
 - [ ] 有「来源」字段（哪次会议/实践）
-- [ ] 向 `evolution-events.jsonl` 追加一行记录
+- [ ] （可选）向 `evolution-events.jsonl` 追加一行记录
 
 ---
 

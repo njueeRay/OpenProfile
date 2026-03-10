@@ -295,14 +295,14 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 
 **2026-03-10 体系审视全体会议（`docs/meetings/2026-03-10-04-all-hands-system-review.md`）：**
 - ✅ P0 执行：`lint-markdown.ps1` 修复（`exit 2` 替换 `exit 0`，真正输出 linting 信号）
-- ⬜ P1：七个 SKILL.md 文件瘦身（移除与 agent.md 重复的内容，保留 triggers/examples/constraints）
-- ⬜ P1：验证 Memory MCP (`memory.jsonl`) 实际读写状态
-- ⬜ P2（v6.0.0 准备期）：copilot-instructions.md 历史部分迁移至 design-decisions.md
+- ✅ P1：7 个 SKILL.md 瘦身（2026-03-10，移除与 agent.md 重复的内容，保留 triggers/examples/constraints + reference 指针）
+- ✅ P1：验证 Memory MCP (✔ 文件存在配置正确，⚠️ 自动 recall 不工作——PostToolUse hook 仅 Claude Code 有效，VS Code Copilot 会话需手动调用）
 - ⬜ P2：Brand Discussion 跟进机制（发布后 72h 回复，引用上次对话）
-- ⬜ P3：evolution-events.jsonl 降级为人工档案（撤销自动触发承诺）
-- ⬜ 长期：确认体系北极星 — 个人效率工具 vs AI-native 工作方式示范（需 Ray 决策）
+- ✅ P3：evolution-events.jsonl 降级为人工档案（撤销自动触发承诺）
 
-**待用户决策：** 这套体系的北极星是什么？（影响后续所有优先级）
+**北极星已确认 = B（AI-native 工作方式示范）**：Ray 明确表态，本项目的核心目标是展示「AI-native person 如何工作」，而非个人效率工具。
+影响：copilot-instructions.md 历史记录是「演进的见证」，保留并优化可观察性，不删除历史；
+所有版本决策、体系设计均以「是否推进 AI-native 工作方式示范」为第一判断标准。
 
 **V2.0 已完成（2026-02-25，tag: v2.0.0）：**
 - ✅ Phase A/B：Profile README 完整重写（双模 `<picture>` + 12 字段 JSON + Typing SVG）

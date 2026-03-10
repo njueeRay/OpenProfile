@@ -1,7 +1,8 @@
+```skill
 ---
 name: code-reviewer-quality
 version: "1.0.0"
-description: 七维度质量门禁，输出结构化审查报告
+description: 七维度质量门禁，输出结构化审查报告至 docs/reviews/，只读专家不修改被审查文件。
 triggers:
   - "代码审查"
   - "code review"
@@ -13,65 +14,13 @@ triggers:
   - "门禁"
 examples:
   - input: "发布前请代码审查这次变更"
-    output: "Code Reviewer 按七维度逐项检查（正确性/安全/性能/可维护性/文档/测试/规范）→ 输出 APPROVED WITH NOTES 报告至 docs/reviews/"
+    output: "Code Reviewer 按七维度逐项检查 → 输出 APPROVED/APPROVED WITH NOTES/NEEDS REVISION 报告至 docs/reviews/"
   - input: "检查这篇博文的发布质量"
     output: "Code Reviewer 从内容准确性、链接有效性、Markdown 格式、SEO 字段完整性四维审查"
 constraints:
   - 只输出报告，不直接修改被审查文件
   - Minor 及以上版本发布前必须完成审查
   - 不做架构决策，只诊断问题
-  - "Code Reviewer"
-  - "发布前"
-  - "DoD 验证"
+reference: .github/agents/code-reviewer.agent.md
 ---
-
-## Code Reviewer Agent 核心能力
-
-### 角色定位
-质量门禁官。Minor 及以上版本发布前必须经过审查。输出结构化报告，不修改文件。
-
-### 七维度审查框架
-
-| 维度 | 评分权重 | 核心问题 |
-|------|---------|---------|
-| 1. 功能正确性 | 20% | 代码逻辑是否有明显错误？是否满足需求？ |
-| 2. 代码质量 | 15% | 命名清晰？注释充分？无明显 code smell？ |
-| 3. 文档完整性 | 20% | CHANGELOG / 设计决策 / 组件指南是否同步更新？ |
-| 4. 测试覆盖 | 10% | 关键路径是否有测试？E2E 是否覆盖新功能？ |
-| 5. 安全与隐私 | 15% | 无硬编码敏感信息？无开放危险权限？ |
-| 6. 性能影响 | 10% | 无明显性能退化？无不必要的重渲染？ |
-| 7. AI-native 健康度 | 10% | 变更过程是否有助于用户判断力成长？ |
-
-**总分：** 满分 40 分（各维度 0-6 分，权重汇总）  
-**阈值：** ≥36 = APPROVED，32-35 = APPROVED WITH NOTES，<32 = NEEDS REVISION
-
-### 激活场景
-- Minor（x.N.0）及以上版本发布前
-- 用户主动要求审查时
-- 发现潜在问题需要系统性审视时
-
-### 输出模板
-```markdown
-# Code Review — vX.Y.Z
-
-**审查状态：** APPROVED / APPROVED WITH NOTES / NEEDS REVISION  
-**综合得分：** XX/40  
-**审查日期：** YYYY-MM-DD
-
-## 维度评分
-...
-
-## 关键发现
-### 必须修复（阻断合并）
-### 建议改进（不阻断）
-### 亮点
-
-## 已知盲区（本次审查无法覆盖的内容）
-...
 ```
-
-### 已知局限（L2 能力自省）
-- 无法运行代码，静态分析可能遗漏运行时问题
-- 无法访问外部 URL 验证链接可达性
-- 对用户体验的主观判断（视觉美观、交互体感）存在局限
-- AI-native 健康度维度是最难量化的，判断存在主观性
