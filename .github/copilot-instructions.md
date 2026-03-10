@@ -247,6 +247,16 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - ✅ CI 修复：markdownlint + link-check 持续失败问题解决
 - ✅ Code Reviewer 审查：`APPROVED WITH NOTES`（36/40，`docs/reviews/v4.2.0-review.md`）
 
+**v5.6.0 博客视觉专项（✅ 已发布 2026-03-10）：**
+- ✅ `src/styles/prose.css` — 全局文章排版（行高 1.8、`#161b22` 代码块、终端风 `❯` 引用块）
+- ✅ `BlogCard.astro` + `FeaturedCard.astro` — 博客列表首条宽卡（渐变顶边 + featured 徽章）
+- ✅ `LatestPosts.astro` — 首页最新 3 篇（Projects 与 Contact 之间）
+- ✅ `featured` frontmatter 字段写入 content schema
+- ✅ BlogCard author chip 增加 role 字段（accent 色 · mono 字体）
+- ✅ 标签云 `$` 前缀（绿色）+ hover 计数高亮为 accent 色
+- ✅ 作者详情页贡献统计面板（文章总数大数字 + contentType 水平进度条分布）
+- ✅ TypeScript strict + `astro check` 0 errors · `npm run build` 65 页
+
 ---
 
 ## 项目开源规划
@@ -268,8 +278,8 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 
 ## 当前迭代状态
 
-**阶段：** v5.5.0 已发布（成熟里程碑达成），当前进行工具层能力升级 Sprint  
-**路线图：** v5.1（技术债清理）→ v5.2（读者体验）→ v5.3（对外传播）→ v5.4（E2E 测试）→ v5.5（成熟里程碑）✅ 全部完成  
+**阶段：** v5.6.0 已发布（博客视觉 & 阅读体验专项完成），当前进行工具层能力升级 Sprint  
+**路线图：** v5.1→v5.5 ✅ 全部完成 · v5.6（博客视觉专项）✅ 已发布  
 **个人信息：** ✅ 已确认  
 **配置文件：** ✅ 已同步（含 USER.md v1.0）  
 **语言偏好：** ✅ 中文（所有原创内容默认中文，技术符号保持英文）
@@ -377,6 +387,7 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 | v5.3.0 | 对外传播 — OG 封面图 / Brand 首次外部发布 / UTM | ✅ 已发布 |
 | v5.4.0 | E2E 测试 — Playwright 测试覆盖率 6→8 | ✅ 已发布 |
 | v5.5.0 | 成熟里程碑 — 读者体验全集 + 外部真实回响 + 测试保障 | ✅ 已发布 |
+| v5.6.0 | 博客视觉专项 — FeaturedCard / prose.css / LatestPosts / 作者统计 / 标签终端风 | ✅ 已发布 |
 
 **待用户操作项：**
 - ✅ Discussions 分类架构已创建（Announcements / Team Insights / AI-native Journey）
@@ -493,6 +504,16 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - ✅ `brain.agent.md` 扩展：自由脑暴/思想峰会两类会议 + Brain 主动感知触发规则
 - ✅ `docs/team-playbook.md` §8：会议类型表扩展（7种）+ §8.3 主动感知治理规则
 - ✅ `first-discussion-draft.md` 发布清单已更新（Discussion #6 打勾）
+
+**v5.6.0 博客视觉 & 阅读体验专项（2026-03-10，commit: `9e7b40c`）：**
+- ✅ U-5 `src/styles/prose.css` — 文章排版：行高 1.8、`#161b22` 代码块 + 终端风 `❯` 引用块
+- ✅ U-6 `LatestPosts.astro` — 首页最新 3 篇博文区块（Projects 与 Contact 之间）
+- ✅ U-7 `FeaturedCard.astro` — 博客列表宽卡首条展示；`featured` frontmatter 字段
+- ✅ U-8 BlogCard author chip 增加 role 字段（accent 色 · mono 字体）
+- ✅ U-9 标签云 `$` 前缀（绿色）+ hover 时计数高亮为 accent 色
+- ✅ U-10 作者详情页贡献统计面板（文章总数大数字 + contentType 水平进度条）
+- ✅ `astro check` 0 errors · `npm run build` 65 页成功
+- 会议：`docs/meetings/2026-03-10-02-blog-visual-sprint-planning.md`
 
 **v5.5.0+ 后续行动（2026-03-10，各成员推进）：**
 - ✅ 团队成长反思会博文同步发布（`team-growth-retrospective-2026-03-01.mdx`，meeting 类型）
