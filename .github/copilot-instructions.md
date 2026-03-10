@@ -248,7 +248,8 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - [x] **forage MCP（P2 路线图）**：`isaac-levine/forage-mcp` — Agent 自动搜索/安装/学习 MCP 工具的 find-skills 最佳实践；关键能力：`forage_search/forage_install/forage_learn`，安装后无需重启即可获取新工具
 - [x] **会议文件命名规范**：`YYYY-MM-DD-NN-<type>.md`，序号 NN 为**当日序号**，每天从 01 重新计数，禁止跨日连续编号
 - [x] **self-improvement skill**：`.github/skills/self-improvement/SKILL.md`；用户说「复盘」时触发七维度自评，教训写入 `/memories/lessons-learned.md`
-- [x] **Meeting #09 转折点反怕结果**：团队提出的 Board 驱动 Ship 循环、三段式协议、Decision Journal、全面做减法——**五条全部被 Ray 否决**。问题诊断被认可，方案被否决。Ray 给出两个核心校准：① 会议纪要长度因会而异，深度和沉淀优先于效率指标；② Playbook 回归初衷——可移植的冷启动手册，去除项目特定内容，只保留最必要的部分，假设用户对下一个项目一无所知
+- [x] **Board 驱动 Ship 循环（Meeting #09 转折点）**：工作模式从「Ray 驱动迭代」转向「Sprint Board 驱动 Ship 循环」；三段式会话协议 Recall → Execute → Ship；Sprint Board（≤50 行，≤7 条，2 周存活期）为唯一活跃状态源；Decision Journal 自动记录 Ray 判断轨迹；对外任务与技术任务平级竞争优先级
+- [x] **做减法清单（Meeting #09）**：强制审查报告 / copilot-instructions 迭代状态积累——降级或停止；patterns 文件改为「有新认知再更新」；evolution-events.jsonl 改为季度归档；会议纪要以价值导向不设行数上限；Playbook 进化为项目无关的可迁移知识（去除项目专属内容，只保留“用户对下一个项目一无所知”时能用上的普适原则）
 
 ---
 
@@ -271,7 +272,7 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 
 ## 当前迭代状态
 
-**阶段：** v5.10.0 已发布 → Meeting #09 转折点反怕完成（方案被 Ray 全部否决，问题诊断被认可）
+**阶段：** v5.10.0 已发布 → Meeting #09 转折点决议（待 Ray 确认）→ Board 驱动 Ship 循环启动
 **路线图：** v5.1→v5.10 ✅ 全部完成 · v6.0.0（架构升级，门控触发）规划中  
 **个人信息：** ✅ 已确认  
 **配置文件：** ✅ 已同步（治理目录以 `.github/` 为唯一真实来源）  
@@ -279,11 +280,13 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 
 **北极星 = B（AI-native 工作方式示范）：** 本项目核心目标是展示「AI-native person 如何工作」，而非个人效率工具。所有版本决策、体系设计均以「是否推进 AI-native 工作方式示范」为第一判断标准。
 
-**Ray 校准信号（Meeting #09）：**
-- 会议纪要长度因会而异，深度和沉淀优先于效率指标
-- Playbook 回归「可移植冷启动手册」定位：去除项目特定内容，不应有局限性命令或描述，假设用户对下一个项目一无所知
+**⚡ Meeting #09 转折点决议（待 Ray 确认后生效）：**
+- ⬜ 工作模式转向「Board 驱动 Ship 循环」（Recall → Execute → Ship 三段式）
+- ⬜ Sprint Board（`docs/governance/sprint-board.md`）作为唯一活跃状态源
+- ⬜ Decision Journal 自动记录 Ray 判断轨迹
+- ⬜ 做减法清单（强制审查报告 / 本段迭代状态 → 降级或停止；纪要以价值导向；Playbook 进化为可迁移知识）
 
-**活跃待办（P2）：**
+**活跃待办（P2，将迁入 Sprint Board）：**
 - ⬜ Brand：Discussion 月度「读者反馈帖」机制启动（≈2026-03-20）
 - ⬜ `forage-mcp` 接入（`claude mcp add forage -- npx -y forage-mcp`）— Agent 自主发现/安装 MCP
 - ⬜ `.github/skills/` 7 个 SKILL.md 贡献至 `anthropics/skills` 社区
