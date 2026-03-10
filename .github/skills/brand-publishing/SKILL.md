@@ -10,6 +10,13 @@ triggers:
   - "Build in Public"
   - "对外"
   - "社区"
+  - "社交媒体"
+  - "内容日历"
+  - "帖子"
+  - "post"
+  - "social media"
+  - "announce"
+  - "公告"
 ---
 
 ## Brand Agent 核心能力
