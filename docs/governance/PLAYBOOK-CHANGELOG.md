@@ -10,6 +10,22 @@
 
 ---
 
+## [Playbook v2.3] — 2026-03-10
+
+> **内容瘦身 + 交叉引用优化：§15/附录C 减法，消除与 dev-patterns.md 的内容重叠**
+>
+> 全体优化讨论会 `2026-03-10-07-comprehensive-asset-optimization.md` 形成 D 决议。
+> 净减少约 90 行（§15.3 精简 -50 行 + §15.5 精简 -40 行 + 附录C 精简 -13 行）。
+
+### Changed
+
+- §15.3 标准操作速查：保留通用模板 + 铁律警告，移除项目特定代码示例，改为指向 `dev-patterns.md` P-DV-003
+- §15.5 GitHub Discussions GraphQL SOP：移除项目特定参数（repoId/categoryId），改为指向 `dev-patterns.md` P-DV-006；保留流程说明
+- 附录 C：移除重复的六列示例表，改为指针指向 `copilot-instructions.md` 团队能力快照区块（避免双维护）
+- Playbook 页脚版本标注更新：v2.0 → v2.3
+
+---
+
 ## [Playbook v2.2] — 2026-03-01
 
 > **文档治理 + Sprint/Priority 工程框架 + Git Worktree 规范 + copilot-instructions 迁移协议**

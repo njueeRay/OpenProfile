@@ -190,8 +190,8 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 | `brain` | v1.0 | 战略规划、任务分派、跨角色协调、用户汇报 | 读写 + 决策 | codebase, editFiles, fetch, search, problems, runCommands | 不写业务代码 |
 | `pm` | v1.0 | Sprint 规划、DoD 执行、版本发布、CHANGELOG 维护 | 读写 + 规划 | codebase, editFiles | 不写业务代码、不做技术决策 |
 | `dev` | v1.0 | 全语言全栈实现（Python/TS/Astro/YAML/Shell/Markdown） | 读写 | codebase, editFiles, fetch, search, runCommands | 不做架构决策、不做最终审查 |
-| `researcher` | v1.0 | 技术调研、方案分析、浓缩摘要输出 | 只读 | fetch, search, codebase | 不修改任何文件 |
-| `code-reviewer` | v1.0 | 七维度质量门禁、结构化审查报告 | 只读 + 诊断 | codebase, fetch, search, problems | 不修改文件、只输出报告 |
+| `researcher` | v1.1 | 技术调研、方案分析、浓缩摘要输出 | 只读 | fetch, search, codebase | 不修改任何文件 |
+| `code-reviewer` | v1.1 | 七维度质量门禁、结构化审查报告 | 只读 + 诊断 | codebase, fetch, search, problems | 不修改文件、只输出报告 |
 | `profile-designer` | v1.0 | GitHub Profile 视觉规划、组件选型 | 只读 + 决策 | fetch, search, codebase | 按需启用，不写实现代码 |
 | `brand` | v1.0 | 品牌运营、内容策略、Build in Public、社媒发布 | 读写（内容）+ 品牌决策 | editFiles, fetch, GitHub API | 不写技术代码、不做技术决策 |
 
@@ -315,8 +315,17 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - ✅ Brand 自主发布授权正式写入 `brand.agent.md`（符合 content-checklist 的 Discussion 无需确认可直接发布）
 - ✅ Memory MCP 重定位：放弃自动化幻象，定位为「结构化手动摘要 + Brain 主动读取」
 - ✅ Code Review 覆盖策略更新：从当前版本起执行「每 Minor 轻量 + 每3个 Minor 深度」新规（不补历史）
-- ⬜ P2：Playbook 减法（下次 Session，目标砍 -200 行，聚焦 §17 / 附录C / §15 重叠）
+- ✅ P2：Playbook §15 减法（2026-03-10，实际 -90 行：§15.3/§15.5 交叉引用 + 附录C 瘦身 → Playbook v2.3）
 - ⬜ P2：docs/guides/ 扩充（agent-workflow-intro.md + contributing-intro.md）
+
+**2026-03-10 团队资产全面优化讨论会（`docs/meetings/2026-03-10-07-comprehensive-asset-optimization.md`）：**
+- ✅ Researcher agent 升级至 v1.1（核心行为规范区块新增：输出格式规范 + 可信度分级 + 最小验证集）
+- ✅ Code Reviewer agent 升级至 v1.1（新增：审查触发规则表 + 治理文档审查四维框架）
+- ✅ `agent-workflow.md` 更新（五角色→七角色；补充 Brand/profile-designer；新增治理会议/工具层调用模式；更新配置文件表）
+- ✅ `design-decisions.md` 范围重定义（深度理由档案 ≠ 决策速查镜像；补充 Astro 5 迁移 / CSS 架构 / 博客视觉 v5.6 决策）
+- ✅ Playbook v2.3：§15.3/§15.5 交叉引用优化（净减约 -90 行）+ 附录C 瘦身
+- ✅ asset-health-check.md 更新：⚠️ 7项 → ⚠️ 3项，封闭 ⚠️1/2/3/7 四项
+- ⬜ Brand：Discussion #4（月度读者反馈帖）本会话内发布（启动反馈循环）
 
 **北极星已确认 = B（AI-native 工作方式示范）**：Ray 明确表态，本项目的核心目标是展示「AI-native person 如何工作」，而非个人效率工具。
 影响：copilot-instructions.md 历史记录是「演进的见证」，保留并优化可观察性，不删除历史；

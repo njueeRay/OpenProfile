@@ -5,6 +5,18 @@
 
 ---
 
+## 文件定位说明（v1.1 更新）
+
+> **本文件 ≠ copilot-instructions.md「已决定的设计选择」的镜像。**
+>
+> | 文档 | 定位 | 受众 |
+> |------|------|------|
+> | `copilot-instructions.md` → 已决定的设计选择 | **决策速查表**（快速对齐当前状态） | Agent 内部 |
+> | **本文件** | **深度理由档案**（为什么做这个决策，不只是做了什么）| 开源学习者 + Agent 历史追溯 |
+>
+> copilot-instructions.md 是问「是什么」的地方，这里是问「为什么」的地方。
+
+
 ## 视觉风格
 
 | 维度 | 决策 | 理由 | 日期 |
@@ -160,3 +172,45 @@
 - `[2026-02-25]` — **V2.0**：双模兼容全组件 + README 叙事重构 + Astro 多页（Nav/Footer/Blog）+ CI Actions + v1.0.0 tag
 - `[2026-02-26]` — **V3.0**：SEO 地基 + Blog 标签 + Profile 3D 贡献/Trophy + Playbook 可移植化
 - `[2026-02-26]` — **V4.0**：三层版本体系 + Pagefind 搜索 + 暗/亮主题 + 进度条 + TOC + Giscus 评论
+- `[2026-03-01]` — **V5.0**：Astro 5 迁移 + Content Layer API + 工程质量 Sprint（CSS 统一 / 组件拆分）
+- `[2026-03-10]` — **V5.6~5.10**：博客视觉专项 + 工具层脚手架 + 首页品牌化重设计
+
+---
+
+## V5.0 架构性决策
+
+### Astro 5 迁移（2026-03-01）
+
+| 维度 | 决策 | 深度理由 |
+|------|------|---------|
+| 迁移时机 | v5.0.0 作为 Major 版本触发 | Astro 5 有 Breaking Change（ViewTransitions → ClientRouter，script is:inline 规则），语义上是架构级升级，必须对应 Major 版本，不可藏在 Minor 中执行 |
+| `ViewTransitions` → `ClientRouter` | 从 `astro:transitions` 导入 `ClientRouter` | API 路径未变，只有组件名改变；选择直接迁移而非 compat shim，避免技术债在下一个 Major 时才爆发 |
+| JSON-LD `<script>` 添加 `is:inline` | Astro 5 中含属性的 script 块必须显式声明 `is:inline` | Astro 5 改变了含属性 script 的处理逻辑：不加 `is:inline` 则 Astro 会尝试模块化处理，导致运行时错误。这是框架约束，不是选择 |
+
+### Content Layer API 迁移（v5.1.0，2026-03-01）
+
+| 维度 | 决策 | 深度理由 |
+|------|------|---------|
+| `type: 'content'` → `loader: glob()` | 正式迁移至 Astro 5 Content Layer API | Astro 5 将 legacy API 标记为弃用。`glob()` 模型更显式（扫描路径可配置），是未来方向。迁移窗口选在 v5.1.0（紧接迁移），而非推迟，避免 Legacy API 在生产中长期积累 |
+| `post.slug` → `post.id` | `id` 是 Content Layer 的新标准 slug 字段 | 9 处替换。选择全量替换而非保留兼容层，因为这是单次一劳永逸的迁移，兼容层会引入「哪个字段才是 source of truth」的混淆 |
+| `post.render()` → `render(post)` | API 从实例方法变为独立函数 | Content Layer 渲染模型统一化，独立函数更容易做懒加载和代码分割 |
+
+---
+
+## V5.x 工程质量决策
+
+### CSS 架构重构（v4.2.0，2026-03-01）
+
+| 维度 | 决策 | 深度理由 |
+|------|------|---------|
+| `src/styles/global.css` 作为设计 Token 唯一真实来源 | 从 BaseLayout.astro 120 行内联样式提取 | **为什么放在独立文件而不是保留内联**：Astro `<style>` 块是 scoped 的（以 `data-astro-xxxx` 哈希注入），全局样式放在 scoped block 里会依赖 `:global()` 包装，容易漏掉；独立 CSS 文件通过 `import` 引入 BaseLayout 后成为全局 unscoped 样式，行为更可预测 |
+| 组件级样式保留在各 `.astro` `<style>` | 组件局部封装 | 全局文件只放设计 Token（颜色/字号/间距），组件样式不上移，避免全局文件变成"万能哑巴文件" |
+
+### 博客视觉专项（v5.6.0，2026-03-10）
+
+| 维度 | 决策 | 深度理由 |
+|------|------|---------|
+| `src/styles/prose.css` 独立排版文件 | 博文排版单独处理 | 博文排版（行高 1.8、引用块 `❯`）只在 `[...slug].astro` 中生效，不应污染全局。独立文件 + 定向 import 保持职责分离 |
+| 引用块使用 `❯` 前缀（终端提示符）| 替代传统 `▋` 竖线样式 | **视觉语言一致性**：整个项目的终端美学贯穿 Header（waving）、代码块（JetBrains Mono）、搜索（`$` 前缀标签）。引用块用 `❯` 而非普通边框，是「终端哲学在阅读体验层的延伸」，有意为之，不只是审美选择 |
+| FeaturedCard 渐变顶边 + 宽卡首位展示 | 信息分层结构 | 博客列表若所有卡片等权，读者无法快速判断「从哪篇开始」。宽卡 + 渐变顶边是视觉上的「主编推荐」信号，不需要文案解释就能传达「这条比较重要」|
+

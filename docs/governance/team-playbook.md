@@ -1211,63 +1211,31 @@ curl -s -H "Authorization: token $token" \
 
 ### 15.3 标准操作速查
 
-> 📄 **所有含中文的 API 请求必须用 `curl.exe --data-binary @file` 或 Python。**
+> 📄 **含中文的 API 请求铁律：必须用 `curl.exe --data-binary @file`，绝不用 `Invoke-RestMethod -Body <string>`。**
 >
-> `curl.exe` 内置于 Windows 10/11，`--data-binary @file` 读取文件原始字节直接发送，
-> 不经过任何字符串层，根本不存在编码问题。
-> 不要用 PowerShell 5.1 `Invoke-RestMethod -Body <string>` 发送含中文的请求体，中文会变 `?`。
+> `curl.exe` 内置于 Windows 10/11，读取文件原始字节发送，不经字符串层，杜绝中文变 `?` 问题。
 
-**获取 token：**
+**通用 token 一行获取：**
 
 ```powershell
 $t = ("protocol=https`nhost=github.com`n" | git credential fill |`
       Where-Object {$_ -like "password=*"}) -replace "password=",""
 ```
 
-**创建 GitHub Release：**
+**创建 / PATCH GitHub Release（通用模板）：**
 
 ```powershell
-# 1. 将 Release 内容写入 JSON 文件（内容由 Copilot create_file 创建，保证 UTF-8）
-# release.json 格式：
-# {
-#   "tag_name": "v1.0.0",
-#   "name": "v1.0.0 - 标题",
-#   "body": "中文与英文可混写...",
-#   "prerelease": false,
-#   "make_latest": "true"
-# }
-
-# 2. curl 一行发送
+# release.json 内容由 Copilot create_file 工具创建（保证 UTF-8）
+# 字段：tag_name / name / body / prerelease / make_latest
 curl.exe -s -X POST "https://api.github.com/repos/{owner}/{repo}/releases" `
-  -H "Authorization: token $t" `
-  -H "Content-Type: application/json" `
+  -H "Authorization: token $t" -H "Content-Type: application/json" `
   --data-binary "@$env:TEMP\release.json"
+
+# PATCH 更新已有 Release（替换 POST 为 PATCH，URL 加 /{release_id}）
 ```
 
-**PATCH 更新已有 Release：**
-
-```powershell
-curl.exe -s -X PATCH "https://api.github.com/repos/{owner}/{repo}/releases/{release_id}" `
-  -H "Authorization: token $t" `
-  -H "Content-Type: application/json" `
-  --data-binary "@$env:TEMP\release.json"
-```
-
-**设置仓库话题标签（Topics）—— 无中文，PS 可用：**
-
-```powershell
-$topics = '{"names":["tag1","tag2","tag3"]}'
-$bytes  = [System.Text.Encoding]::UTF8.GetBytes($topics)
-Invoke-RestMethod "https://api.github.com/repos/{owner}/{repo}/topics" `
-    -Method Put -Headers $headers -Body $bytes
-```
-
-**检查当前 Releases：**
-
-```powershell
-curl.exe -s -H "Authorization: token $t" `
-  "https://api.github.com/repos/{owner}/{repo}/releases" | python -c "import sys,json; [print(r['tag_name'], r['name']) for r in json.load(sys.stdin)]"
-```
+> 🔖 **项目特定参数**（njueeray 仓库 ID/Discussion Category ID 等）见
+> `.github/agents/knowledge/dev-patterns.md` → **P-DV-003**
 
 ### 15.4 PM 的 Release 操作清单
 
@@ -1290,60 +1258,19 @@ curl.exe -s -H "Authorization: token $t" `
 
 > **适用场景：** gh CLI 在 VS Code 终端无法交互式登录时（无 TTY），通过 GraphQL API 直接发布 / 更新 Discussion。
 
-**已知固定 IDs（njueeray.github.io 仓库）：**
-
-| 变量 | 值 |
-|------|-----|
-| `repoId` | `R_kgDORYROOA` |
-| Tech Deep-dives `categoryId` | `DIC_kwDORYROOM4C3ai-` |
-
-**完整 SOP：**
+**核心流程：**
 
 ```
 1. 获取 token（§15.2 git credential fill）
 2. 将请求 JSON 保存为文件（Copilot create_file 创建的文件是 UTF-8）
-3. curl.exe --data-binary @file.json 发送（见下方模板）
+3. curl.exe --data-binary @file.json 发送到 https://api.github.com/graphql
 4. 验证：访问 discussions 页面，确认中文正确渲染
 ```
 
-**createDiscussion 请求体（新建）：**
+> ⚠️ **绝对禁止** 在终端直接输入含大量中文的 here-string——会触发 PSReadLine 缓冲区溢出崩溃。
 
-```json
-{
-  "query": "mutation($rId:ID!,$cId:ID!,$t:String!,$b:String!){createDiscussion(input:{repositoryId:$rId,categoryId:$cId,title:$t,body:$b}){discussion{url number}}}",
-  "variables": {
-    "rId": "R_kgDORYROOA",
-    "cId": "<categoryId>",
-    "t": "标题",
-    "b": "正文内容"
-  }
-}
-```
-
-```powershell
-# JSON 文件由 Copilot 工具创建（UTF-8）
-curl.exe -s -X POST https://api.github.com/graphql `
-  -H "Authorization: bearer $t" `
-  -H "Content-Type: application/json" `
-  --data-binary "@$env:TEMP\create_discussion.json"
-```
-
-**updateDiscussion 流程（修改已有 Discussion）：**
-
-```powershell
-# 第一步：查 node ID（纯 ASCII query，可内联）
-$q = '{"query":"query{repository(owner:\"njueeRay\",name:\"njueeray.github.io\"){discussion(number:N){id}}}"}'
-$id = (curl.exe -s -X POST https://api.github.com/graphql `
-       -H "Authorization: bearer $t" -H "Content-Type: application/json" `
-       --data $q | python -c "import sys,json; print(json.load(sys.stdin)['data']['repository']['discussion']['id'])")
-
-# 第二步：将 updateDiscussion JSON 写入文件，curl 发送
-curl.exe -s -X POST https://api.github.com/graphql `
-  -H "Authorization: bearer $t" -H "Content-Type: application/json" `
-  --data-binary "@$env:TEMP\update_discussion.json"
-```
-
-> ⚠️ **绝对禁止** 在终端直接输入含大量中文的 here-string（`@" "@`）——会触发 PSReadLine 缓冲区溢出崩溃。JSON 内容由 Copilot 工具写入文件。
+> 🔖 **项目特定参数**（repoId / categoryId / Query 模板 / updateDiscussion 完整流程）见
+> `.github/agents/knowledge/dev-patterns.md` → **P-DV-006**
 
 ---
 
@@ -1782,21 +1709,12 @@ elif last_release == Minor AND no_next_sprint_plan:
 > **用途：** 新接手者在 `copilot-instructions.md` 中查看此表，秒读当前团队状态。
 > Brain 每次团队变化后更新此表。
 
-**标准字段：**
+**标准字段（六列）：** Agent | 版本 | 核心能力 | 权限级别 | 依赖工具 | 已知局限
 
-| 字段 | 说明 | 示例 |
-|------|------|------|
-| Agent | Agent 名称（与文件名对应） | `dev` |
-| 版本 | L3 版本号 | `v1.0` |
-| 核心能力 | 该 Agent 擅长做什么（一句话） | 全语言全栈实现 |
-| 权限级别 | 读写 / 只读 / 决策 | 读写 |
-| 依赖工具 | YAML front matter 中的 `tools` 列表 | codebase, editFiles, runCommands |
-| 已知局限 | 该 Agent **不做**的事 | 不做架构决策 |
+> 当前版本能力快照见 `.github/copilot-instructions.md` → **团队能力快照** 区块（Brain 维护）。
+> 本附录只定义格式规范，不维护实际数据，避免两个文件同时维护同一内容。
 
-**维护周期：**
-
-- 团队结构变化时（招募/改造/停用）→ 立即更新
-- 每次迭代收尾 → Brain 复核一致性
+**维护周期：** 团队结构变化时（招募/改造/停用）→ 立即更新 copilot-instructions.md，本附录不需要同步更新。
 
 ---
 
@@ -1834,5 +1752,5 @@ PM 发现任务范围蔓延  汇报 Brain  Brain 与用户对齐
 ---
 
 *本手册由 Brain + PM 共同维护，每次复盘会议后更新版本。*  
-*Playbook v2.0 — 2026-02-26 — 三层版本体系 + 招募决策树 + Agent 快照卡 + §18 新增，变更记录见 docs/governance/PLAYBOOK-CHANGELOG.md。*
+*Playbook v2.3 — 2026-03-10 — §15 交叉引用优化（-90 行减法）+ 附录 C 瘦身，变更记录见 docs/governance/PLAYBOOK-CHANGELOG.md。*
 

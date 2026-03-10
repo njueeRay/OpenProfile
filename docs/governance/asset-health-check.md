@@ -154,26 +154,32 @@
 
 ## 四、综合健康摘要（上次检查结论）
 
-> 最后全量检查：2026-03-10
+> 最后全量检查：2026-03-10（优化会议 #07）
 
 **🔴 阻断项：** 无
 
-**⚠️ 待改善项（共 7 项）：**
+**⚠️ 待改善项（共 3 项）：**
 
 | # | 项目 | 负责人 | 优先级 | 备注 |
 |---|------|--------|--------|------|
-| 1 | Researcher / Code Reviewer agent 版本停在 v1.0 | Dev | P2 | 功能正常，版本号未升 |
-| 2 | `agent-workflow.md` 可能与现状偏差（未更新）| Dev | P2 | 上次更新 2026-02-27 |
-| 3 | `design-decisions.md` 可能与 copilot-instructions 不同步 | Dev + Brain | P2 | 需对照确认 |
-| 4 | Discussion #2/#3/#4 未执行 | Brand | P1 | Brand 已获自主发布授权 |
-| 5 | `build-in-public-channels-2026.md` 结论执行进度滞后 | Brand | P1 | 渠道已选定，内容发布频率低 |
-| 6 | v5.0.0 Major 发布无全员复盘（§20 规则） | Brain | P1 | 可与 v6.0.0 规划合并 |
-| 7 | Playbook 减法（目标 -200 行）| Brain + PM | P2 | 下次 Session 执行 |
+| 4 | Discussion #2/#3/#4 未执行 | Brand | P1 | Brand 已获自主发布授权；Discussion #4 本会话内执行 |
+| 5 | build-in-public 执行频率偏低 | Brand | P1 | 调研结论已落地（✅），执行层面 Brand 72h 跟进机制已建立 |
+| 6 | v5.0.0 Major 发布无全员复盘 | Brain | P2 | 已决策：与 v6.0.0 规划会合并（「v5.x 系列总结 + v6.0.0 方向确认」双议程） |
+
+**✅ 本次优化已关闭项（✅1 ✅2 ✅3 ✅7）：**
+
+| # | 原⚠️ 项 | 执行内容 | 关闭时间 |
+|---|---------|---------|---------|
+| 1 | Researcher / Code Reviewer agent v1.0 | 升级至 v1.1，将 L2 patterns 核心原则提炼入 agent.md | 2026-03-10 |
+| 2 | `agent-workflow.md` 五角色旧内容 | 补充 Brand/profile-designer；新增治理会议/工具层调用模式；更新日期 | 2026-03-10 |
+| 3 | `design-decisions.md` 同步状态不明 | 重定义文件范围（深度理由档案 ≠ 决策速查镜像）；补充 v5.0/v5.6 架构决策 | 2026-03-10 |
+| 7 | Playbook 减法目标（-200 行） | §15.3/§15.5 交叉引用优化 + 附录C 瘦身，净减约 90 行；更新 PLAYBOOK-CHANGELOG v2.3 | 2026-03-10 |
 
 **🔵 信息项：**
 - Profile Designer agent 按需启用，低活跃属正常
 - Memory MCP 在 VS Code 需手动 recall，非缺陷，是平台限制
 - Code Review 历史覆盖缺口已决议不补，新规从 v5.10.0 后执行
+- Playbook 减法目标原为 -200 行，本次执行 -90 行（更保守但质量更高，不破坏 Playbook 独立可读性）
 
 ---
 
@@ -184,3 +190,4 @@
 | 日期 | 触发人 | 状态分布 | 主要发现 |
 |------|--------|---------|---------|
 | 2026-03-10 | Ray（全体会议 #06）| 🔴 0 / ⚠️ 7 / ✅ 覆盖全量 | H-1 幽灵文件删除；H-2 settings.json 静态版本修复；H-3 Code Review 覆盖新规确立；patterns 补充 5 条 |
+| 2026-03-10 | Ray（全体优化会议 #07）| 🔴 0 / ⚠️ 3 / ✅ 覆盖全量 | 关闭 ⚠️1/2/3/7：Researcher+CR v1.1 升版；agent-workflow.md 七角色更新；design-decisions.md 范围重定义+v5.x 决策补充；Playbook §15 -90 行减法（v2.3）|
