@@ -3,7 +3,7 @@
 > **本手册是团队最高优先级的核心资产。**
 > 它不绑定任何特定项目——记录的是方法论、协同规范与共识，可随团队带入任意新项目。
 >
-> **Playbook 版本：** `Playbook v2.2`（独立于项目版本，变更记录见 `docs/governance/PLAYBOOK-CHANGELOG.md`）
+> **Playbook 版本：** `Playbook v2.4`（独立于项目版本，变更记录见 `docs/governance/PLAYBOOK-CHANGELOG.md`）
 > **适用团队：** Brain · PM · Dev · Researcher · Code-Reviewer
 > **核心原则：** 角色边界清晰 · 会话连续 · CI 先行 · 有据可查 · 团队可自主进化 · **AI-native 哲学立场**
 >
@@ -355,14 +355,14 @@ feature/<name> worktree 任务已完成。
 Scope 写在括号内，填入受影响的模块标识：
 
 ```
-feat(blog): add RSS feed generation
-fix(ci): exclude rate-limited domains from link-check
+feat(auth): add OAuth2 login flow
+fix(ci): exclude flaky domains from link-check
 docs(playbook): add session continuity protocol
-chore(deps): pin astro to 4.16.18
+chore(deps): update framework to latest
 ```
 
 通用 Scope：`docs`  `ci`  `agent`  `deps`  `config`  `readme`  
-（项目特定 Scope 由 Brain 在接手时写入 copilot-instructions.md，如 `blog`、`api`、`ui` 等）
+（项目特定 Scope 由 Brain 在接手时写入项目指令文件，如 `blog`、`api`、`ui` 等）
 
 ### 4.4 多仓库 commit 约定
 
@@ -405,8 +405,8 @@ Affects: {repo-a}, {repo-b}
 **示例：**
 
 ```
-✨ feat(blog): add RSS feed generation
-🐛 fix(ci): exclude rate-limited domains from lychee
+✨ feat(auth): add OAuth2 login flow
+🐛 fix(ci): exclude flaky domains from link-check
 📝 docs(playbook): add emoji commit guide
 🚀 docs(changelog): release v3.0.0
 🎉 chore(init): bootstrap new project
@@ -690,13 +690,12 @@ Playbook: vX.Y.Z"
 ### 内容完整性
 
 - [ ] `CHANGELOG.md [Unreleased]` 已记录本轮所有 Added / Changed / Fixed
-- [ ] `docs/governance/design-decisions.md` 中新做出的设计决策已归档（含日期和理由）
-- [ ] `docs/guides/component-guide.md` 中新引入的组件已补充说明
+- [ ] 设计决策记录文件中新决策已归档（含日期和理由）
+- [ ] 新引入的组件/模块已补充使用说明
 
 ### 配置同步
 
-- [ ] `copilot-instructions.md`  「已决定的设计选择」已更新
-- [ ] `copilot-instructions.md`  「当前迭代状态」已更新
+- [ ] 项目指令文件中的设计决策和迭代状态已更新
 
 ### 质量门
 
@@ -1069,9 +1068,9 @@ tools: [allowed-tool-1, allowed-tool-2]
 
 | 日期 | 类型 | 角色 | 改动摘要 | 原因 |
 |------|------|------|---------|------|
-| YYYY-MM-DD | 新增 | `data-analyst` | 创建 data-analyst.agent.md | 项目引入数据分析需求 |
-| YYYY-MM-DD | 改造 | `dev` | 扩展 Python 工具集权限 | 新项目后端为 Python |
-| YYYY-MM-DD | 停用 | `profile-designer` | 移入 archive/ | 主站已稳定，不再需要专项设计角色 |
+| YYYY-MM-DD | 新增 | `<role>` | 创建 <role>.agent.md | 项目引入某领域需求 |
+| YYYY-MM-DD | 改造 | `<role>` | 扩展工具集权限 | 新项目技术栈变更 |
+| YYYY-MM-DD | 停用 | `<role>` | 移入 archive/ | 项目已稳定，不再需要专项角色 |
 ```
 
 ---
@@ -1234,8 +1233,8 @@ curl.exe -s -X POST "https://api.github.com/repos/{owner}/{repo}/releases" `
 # PATCH 更新已有 Release（替换 POST 为 PATCH，URL 加 /{release_id}）
 ```
 
-> 🔖 **项目特定参数**（njueeray 仓库 ID/Discussion Category ID 等）见
-> `.github/agents/knowledge/dev-patterns.md` → **P-DV-003**
+> 🔖 **项目特定参数**（仓库 ID、Discussion Category ID 等）应记录在
+> 项目的 L2 知识库中，不在本手册范围内。
 
 ### 15.4 PM 的 Release 操作清单
 
@@ -1269,8 +1268,8 @@ curl.exe -s -X POST "https://api.github.com/repos/{owner}/{repo}/releases" `
 
 > ⚠️ **绝对禁止** 在终端直接输入含大量中文的 here-string——会触发 PSReadLine 缓冲区溢出崩溃。
 
-> 🔖 **项目特定参数**（repoId / categoryId / Query 模板 / updateDiscussion 完整流程）见
-> `.github/agents/knowledge/dev-patterns.md` → **P-DV-006**
+> 🔖 **项目特定参数**（repoId / categoryId / Query 模板 / updateDiscussion 完整流程）应记录在
+> 项目的 L2 知识库中，不在本手册范围内。
 
 ---
 
@@ -1330,8 +1329,8 @@ curl.exe -s -X POST "https://api.github.com/repos/{owner}/{repo}/releases" `
 
 **选择原则：**
 
-- 技术标签（具体）：`astro`, `typescript`, `github-actions`
-- 场景标签（中等宽度）：`github-profile`, `developer-portfolio`
+- 技术标签（具体）：项目使用的框架、语言、工具
+- 场景标签（中等宽度）：项目解决的问题域
 - 理念标签（宽泛）：`ai-native`, `open-source`, `workflow-template`
 - **避免过泛标签**：`web`, `tool`, `project`（竞争太大，无区分度）
 
@@ -1542,26 +1541,26 @@ docs/governance/PLAYBOOK-CHANGELOG.md
 
 ```
 Level 1：Genes（原子模式）
-  ↳ 位置：.github/agents/knowledge/<agent>-patterns.md
-  ↳ 格式：P-XX-NNN 编号 + 场景 + 模式 + 验证记录
+  ↳ 位置：每个 Agent 的知识库文件
+  ↳ 格式：唯一编号 + 场景 + 模式 + 验证记录
   ↳ 来源：每次 Sprint 结束 / 每次会话结束提炼（Playbook §2.2 Step 4）
   
 Level 2：Capsules（元模式束）
-  ↳ 位置：.github/agents/knowledge/capsules.md
-  ↳ 格式：CAP-NNN + 场景 + 关联 Genes 列表 + 组合效果描述
+  ↳ 位置：集中的元模式文件
+  ↳ 格式：编号 + 场景 + 关联 Genes 列表 + 组合效果描述
   ↳ 触发：多个 Gene 总是配合使用且产生 1+1>2 效果时提炼
   ↳ 当前状态：框架已建立，等待 Gene 积累到 20+ 后填写
   
 Level 3：Evolution Events（演进事件链）
-  ↳ 位置：.github/agents/knowledge/evolution-events.jsonl
-  ↳ 格式：JSONL，每行一条 {date, trigger, agent, type, patternId, description}
-  ↳ 触发：**人工归档**（不承诺自动触发，Agent 可主动追加但不是强刻）
+  ↳ 位置：演进事件归档文件（建议 JSONL 格式）
+  ↳ 格式：每行一条 {date, trigger, agent, type, patternId, description}
+  ↳ 触发：**季度归档**（不承诺自动触发，Agent 可主动追加）
   ↳ 目的：使演进可审计，防止「不知道为什么改了」
 ```
 
 ### 19.2 能力局限声明规范
 
-每个 `knowledge/<agent>-patterns.md` 文件末尾**必须**包含以下小节：
+每个 Agent 的知识库文件末尾**必须**包含以下小节：
 
 ```markdown
 ## 已知能力局限（Known Limitations）
@@ -1602,14 +1601,14 @@ PM 在每次 Minor 版本发布后执行「信号扫描」：
 
 ### 19.5 新增 patterns 的 DoD
 
-向任何 `knowledge/<agent>-patterns.md` 新增条目必须满足：
+向任何 Agent 知识库新增条目必须满足：
 
-- [ ] 有唯一编号（P-XX-NNN，XX 为 Agent 缩写，NNN 三位数字）
+- [ ] 有唯一编号（团队自定编号规则，如 P-XX-NNN，XX 为 Agent 缩写，NNN 三位数字）
 - [ ] 有「场景」字段（什么时候用）
 - [ ] 有「模式」字段（怎么做，步骤化）
 - [ ] 有「验证」字段（哪个版本/事件验证过）
 - [ ] 有「来源」字段（哪次会议/实践）
-- [ ] （可选）向 `evolution-events.jsonl` 追加一行记录
+- [ ] （可选）向演进事件归档文件追加一行记录
 
 ---
 
@@ -1695,12 +1694,11 @@ elif last_release == Minor AND no_next_sprint_plan:
 
 > 新增触发规则时，必须同步更新以下位置：
 
-- [ ] `docs/governance/team-playbook.md` §20.1 规则总表（此处）
-- [ ] `pm.agent.md` 的「自动触发规则」章节
-- [ ] `brain.agent.md` 的「会议触发规则」章节
-- [ ] `.github/skills/pm-sprint-planner/SKILL.md` 的 `triggers` 列表
-- [ ] `.github/skills/brain-coordinator/SKILL.md` 的 `triggers` 列表
-- [ ] `.github/settings.json` 对应 Hook 的 `prompt` 字段
+- [ ] 本手册 §20.1 规则总表
+- [ ] PM Agent 的「自动触发规则」章节
+- [ ] Brain Agent 的「会议触发规则」章节
+- [ ] 对应 Skill 文件的 `triggers` 列表
+- [ ] Hook 配置中对应的 `prompt` 字段
 
 ---
 
@@ -1752,5 +1750,5 @@ PM 发现任务范围蔓延  汇报 Brain  Brain 与用户对齐
 ---
 
 *本手册由 Brain + PM 共同维护，每次复盘会议后更新版本。*  
-*Playbook v2.3 — 2026-03-10 — §15 交叉引用优化（-90 行减法）+ 附录 C 瘦身，变更记录见 docs/governance/PLAYBOOK-CHANGELOG.md。*
+*Playbook v2.4 — 2026-03-11 — 项目绑定内容精简（§4/§11/§13/§15/§16/§19/§20 去项目特定引用），变更记录见 docs/governance/PLAYBOOK-CHANGELOG.md。*
 
