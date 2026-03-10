@@ -1,7 +1,7 @@
 # 会议纪要：v5.x 系列总结 + v6.0.0 方向规划会
 
 **日期：** 2026-03-11  
-**序号：** 08  
+**序号：** 02  
 **类型：** 里程碑复盘 + 战略规划（全员）  
 **主持：** Brain  
 **参会：** Brain · PM · Dev · Researcher · Code Reviewer · Brand · Profile Designer  
