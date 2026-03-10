@@ -2,7 +2,7 @@
 
 **决策方：** Brand Agent  
 **日期：** 2026-03-10  
-**状态：** ✅ 决策已确定
+**状态：** ✅ 内容已定稿，待手动发布至 GitHub Discussions (Tech Deep-dives)
 
 ---
 
@@ -90,10 +90,10 @@ Hook 系统？还是其他方式？
 ---
 
 > *这是来自 njueeray.github.io 「AI-native 工作流实验室」系列*  
-> *如果你对具体技术实现感兴趣，欢迎说，后续会有一篇技术博文跟进*
+> *技术实现细节已整理为博文：[工具层架构三件套：Skills × Hooks × MCP](https://njueeray.github.io/blog/tool-layer-architecture-skills-hooks-mcp/?utm_source=github_discussions&utm_campaign=blog)*
 
 ---
 
-**发布时间：** Dev 完成 Hooks 实施后，可在同一天发布（先做后说，保持真实性）  
+**发布时间：** ✅ 条件已满足（Hooks 实施完成 + 对应博文已上线 2026-03-10）  
 **发布分类：** Tech Deep-dives  
-**UTM：** `utm_source=github_discussions&utm_campaign=blog`
+**操作步骤：** https://github.com/njueeRay/njueeray.github.io/discussions/new → 选 Tech Deep-dives → 粘贴上方 Draft 正文
