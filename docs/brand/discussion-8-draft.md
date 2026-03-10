@@ -2,7 +2,7 @@
 
 **决策方：** Brand Agent  
 **日期：** 2026-03-10  
-**状态：** ✅ 内容已定稿，待手动发布至 GitHub Discussions (Tech Deep-dives)
+**状态：** ✅ 已发布 — https://github.com/njueeRay/njueeray.github.io/discussions/8 (2026-03-10)
 
 ---
 
@@ -94,6 +94,5 @@ Hook 系统？还是其他方式？
 
 ---
 
-**发布时间：** ✅ 条件已满足（Hooks 实施完成 + 对应博文已上线 2026-03-10）  
-**发布分类：** Tech Deep-dives  
-**操作步骤：** https://github.com/njueeRay/njueeray.github.io/discussions/new → 选 Tech Deep-dives → 粘贴上方 Draft 正文
+**发布时间：** ✅ 已发布 2026-03-10 — https://github.com/njueeRay/njueeray.github.io/discussions/8
+**发布分类：** Tech Deep-dives

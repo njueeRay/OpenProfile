@@ -555,7 +555,7 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - ✅ Dev：`.github/settings.json` 写入质量 Hooks（TeammateIdle + TaskCompleted + Stop + SessionStart）
 - ✅ Dev：`.github/skills/` 目录创建 7 个 Agent 的 SKILL.md（从 `.claude/skills/` 经 `git mv` 迁移，统一 `.github/` 管理）
 - ✅ Dev：`.vscode/mcp.json` 新增 `agent-skill-loader` MCP（动态技能发现）
-- ✅ Brand：自主决策 Discussion #8 草稿（`docs/brand/discussion-8-draft.md`），等待 Hooks 验证后发布
+- ✅ Brand：自主决策 Discussion #8 草稿（`docs/brand/discussion-8-draft.md`），已于 2026-03-10 通过 GraphQL API 发布： https://github.com/njueeRay/njueeray.github.io/discussions/8
 - ✅ Brain：主持工具层专题会 → `docs/meetings/2026-03-10-02-tool-layer-capability-meeting.md`
 - ✅ evolution-events.jsonl 追加 6 条新事件（P-RS-002 / P-DV-005,6,7 / P-BD-001）
 
@@ -571,7 +571,7 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - ✅ PostToolUse async markdown lint（`.github/hooks/lint-markdown.ps1`）
 - ✅ `.github/skills/` 路径统一
 - ✅ 安装 `agent-skill-loader` npm 包（`npm install -g agent-skill-loader`，2026-03-10 完成）
-- ⬜ Brand：Discussion #8 正式发布（等待 Hooks 在实际会话中验证有效后）
+- ✅ Brand： Discussion #8 正式发布（2026-03-10，通过 GraphQL API 直接创建）： https://github.com/njueeRay/njueeray.github.io/discussions/8
 - ⬜ Brand：Discussion 月度「读者反馈帖」机制启动（≈2026-03-20 开始）
 
 **待推进（P2，下一 Sprint）：**
