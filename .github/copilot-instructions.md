@@ -237,10 +237,10 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - [x] **SeriesNav 位置**：文章详情页 author-card 后、相关文章前；仅当 series + seriesOrder 且系列 > 1 篇时渲染（v5.8.0）
 - [x] **OG 封面图方案**：v5.3.0 新增；satori（HTML/CSS → SVG）+ @resvg/resvg-js（WASM PNG）+ @fontsource/jetbrains-mono（本地字体）；构建时静态生成 1200×630 PNG；暗色终端风格
 - [x] **UTM 追踪策略**：ShareLinks.astro 集成 `utm_source=copy/github_discussions`，`utm_campaign=blog`
-- [x] **Claude Code Hooks 配置**：`.claude/settings.json` 定义 4 个质量门禁 hooks — `TeammateIdle`（DoD 评估）/ `TaskCompleted`（DoD 验证）/ `Stop`（防止提前停止）/ `SessionStart`（注入项目上下文）；hooks 使用 `type: "prompt"` 做语义判断，避免复杂脚本维护
+- [x] **Claude Code Hooks 配置**：`.github/settings.json` 定义 4 个质量门禁 hooks — `TeammateIdle`（DoD 评估）/ `TaskCompleted`（DoD 验证）/ `Stop`（防止提前停止）/ `SessionStart`（注入项目上下文）；hooks 使用 `type: "prompt"` 做语义判断，避免复杂脚本维护
 - [x] **Agent Skills 架构**：`.github/skills/` 目录下 7 个 SKILL.md（每个 Agent 一个），遵循 Anthropic Agent Skills 开放标准（`agentskills.io`）；统一纳入 `.github/` 治理体系（与 `agents/` `workflows/` 平级），能力从「内部配置」升级为「可发现模块」
 - [x] **MCP 扩展 — agent-skill-loader**：`.vscode/mcp.json` 新增 `agent-skill-loader` MCP，Agent 可通过 `list_skills/read_skill/install_skill` 动态发现和加载技能库
-- [x] **PostToolUse Hooks（P1 扩展）**：`.claude/settings.json` 新增两条异步 PostToolUse hook — ① `command` 类型调用 `.claude/hooks/lint-markdown.ps1`（Write/Edit 触发 markdownlint）；② `agent` 类型自动保存关键文件变更到 Memory MCP（mengram 模式）
+- [x] **PostToolUse Hooks（P1 扩展）**：`.github/settings.json` 新增两条异步 PostToolUse hook — ① `command` 类型调用 `.github/hooks/lint-markdown.ps1`（Write/Edit 触发 markdownlint）；② `agent` 类型自动保存关键文件变更到 Memory MCP（mengram 模式）
 - [x] **forage MCP（P2 路线图）**：`isaac-levine/forage-mcp` — Agent 自动搜索/安装/学习 MCP 工具的 find-skills 最佳实践；关键能力：`forage_search/forage_install/forage_learn`，安装后无需重启即可获取新工具
 
 **v4.2.0 工程质量 Sprint（✅ 已发布 2026-03-01）：**
@@ -548,7 +548,7 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 
 **工具层能力升级 Sprint — P0（2026-03-10，工具层专题会，commit: `d944c6a`）：**
 - ✅ Researcher：Agent 工具层深度调研报告 → `docs/research/agent-tooling-scaffold-2026.md`（Claude Skills / Hooks / MCP 生态，P0/P1/P2 路线图）
-- ✅ Dev：`.claude/settings.json` 写入质量 Hooks（TeammateIdle + TaskCompleted + Stop + SessionStart）
+- ✅ Dev：`.github/settings.json` 写入质量 Hooks（TeammateIdle + TaskCompleted + Stop + SessionStart）
 - ✅ Dev：`.github/skills/` 目录创建 7 个 Agent 的 SKILL.md（从 `.claude/skills/` 经 `git mv` 迁移，统一 `.github/` 管理）
 - ✅ Dev：`.vscode/mcp.json` 新增 `agent-skill-loader` MCP（动态技能发现）
 - ✅ Brand：自主决策 Discussion #8 草稿（`docs/brand/discussion-8-draft.md`），等待 Hooks 验证后发布
@@ -557,14 +557,14 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 
 **工具层能力升级 Sprint — P1（2026-03-10，本次执行）：**
 - ✅ Dev：`.github/skills/` 目录路径统一（`git mv .claude/skills/ .github/skills/`，保留 git 历史）
-- ✅ Dev：`settings.json` 新增双 PostToolUse hook — async markdown lint（`.claude/hooks/lint-markdown.ps1`）+ agent 类型 Memory MCP 自动保存关键决策
-- ✅ Dev：`.claude/hooks/lint-markdown.ps1` 创建（PowerShell，markdownlint-cli 可选，exit 0 不阻断）
+- ✅ Dev：`.github/settings.json` 新增双 PostToolUse hook — async markdown lint（`.github/hooks/lint-markdown.ps1`）+ agent 类型 Memory MCP 自动保存关键决策
+- ✅ Dev：`.github/hooks/lint-markdown.ps1` 创建（PowerShell，markdownlint-cli 可选，exit 0 不阻断）
 - ✅ Researcher：识别 `forage`（`isaac-levine/forage-mcp`）为 find-skills P2 方案（Agent 自动发现/安装 MCP）
 - ✅ evolution-events.jsonl 追加 3 条新事件（P-DV-008/P-DV-009/P-RS-003）
 
 **待推进（P1 → 已完成，P2 进行中）：**
 - ✅ Memory × Hooks 融合（PostToolUse agent hook 自动保存关键文件 → Memory MCP）
-- ✅ PostToolUse async markdown lint（`.claude/hooks/lint-markdown.ps1`）
+- ✅ PostToolUse async markdown lint（`.github/hooks/lint-markdown.ps1`）
 - ✅ `.github/skills/` 路径统一
 - ✅ 安装 `agent-skill-loader` npm 包（`npm install -g agent-skill-loader`，2026-03-10 完成）
 - ⬜ Brand：Discussion #8 正式发布（等待 Hooks 在实际会话中验证有效后）
@@ -574,6 +574,17 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - ⬜ `forage-mcp` 接入（`claude mcp add forage -- npx -y forage-mcp`）— Agent 自主发现/安装 MCP
 - ⬜ 将 `.github/skills/` 7 个 SKILL.md 贡献至 `anthropics/skills` 社区（Profile Designer 提案）
 - ⬜ Memory × SessionStart 深度融合：启动时自动 recall 最近 5 条演进事件
+
+**治理整合 + 历史修复会话（2026-03-10，接续 v5.7.0）：**
+- ✅ `.claude/` 彻底清除：`git mv .claude/settings.json .github/settings.json`，删除 `.claude/` 目录（git 追踪为 `RM .claude/settings.json -> .github/settings.json`）
+- ✅ Playbook §20 自动治理触发机制：7 条规则（版本积压 → PM 切版 / Major → Brain 全员复盘 / ≥3 Minor 无复盘 → 主动提会）
+- ✅ `pm.agent.md` + `brain.agent.md` 新增「自动触发规则」章节（无需人工提醒）
+- ✅ `pm-sprint-planner/SKILL.md` + `brain-coordinator/SKILL.md` 更新 triggers + 触发规则表
+- ✅ `.github/settings.json` hooks：SessionStart / TaskCompleted / TeammateIdle 三个 hook 注入 §20 逻辑
+- ✅ GitHub Releases 历史修复：创建 v5.2.0–v5.7.0（6 个）+ 修复 v4.4.0/v4.5.0 中文乱码（PATCH API）
+- ✅ 团队能力验证会议：`docs/meetings/2026-03-10-03-capability-validation-meeting.md`（7 Agent 全员，§20 规则一致通过）
+- ✅ evolution-events.jsonl +6 条（P-DV-010/011、P-BR-001/002/003、P-PM-001，共 29 行）
+- ✅ 全项目路径引用统一：4 个文件中 `.claude/settings.json` → `.github/settings.json`、`.claude/hooks/` → `.github/hooks/`
 
 **v5.8.0 博客内容精度 Sprint（2026-03-10，tag: v5.8.0）：**
 - ✅ B-1 `astro-expressive-code` 集成：`github-dark-dimmed` 主题，代码块一键复制 + 文件名标注 + 行高亮

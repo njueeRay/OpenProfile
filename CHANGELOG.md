@@ -23,26 +23,46 @@ Claude Code Hooks 实现自动质量门禁，Memory MCP 接入实现跨会话知
 - **工具层升级 — Agent Skills（7 个 SKILL.md）**（`.github/skills/`）
   - 为全体 7 个 Agent 创建 SKILL.md：brain-coordinator / pm-sprint-planner / dev-fullstack / researcher-analysis / code-reviewer-quality / profile-designer-visual / brand-publishing
   - Agent 能力从「内部配置」升级为「可发现的模块化知识单元」，兼容 Claude Code Skills 官方开放标准（`agentskills.io`）
-  - **目录迁移 P1**：从 `.claude/skills/` → `.github/skills/`（`git mv` 保留历史），统一纳入 `.github/` 治理体系
+  - **P1 目录统一**：从 `.claude/skills/` 迁移至 `.github/skills/`（`git mv` 保留历史），统一纳入 `.github/` 治理体系
 - **工具层升级 — Claude Code Hooks**（`.claude/settings.json`）
-  - `TeammateIdle` hook（`type: "prompt"`）：Agent 成员完成任务前自动 DoD 质量评估
-  - `TaskCompleted` hook（`type: "prompt"`）：任务关闭前自动 DoD Checklist 验证
-  - `Stop` hook（`type: "prompt"`）：防止用户请求未完成时 Claude 提前停止
-  - `SessionStart` hook（`type: "command"`）：每次会话自动注入项目上下文
-  - **P1 扩展**：`PostToolUse` 双 hook — async markdown lint（command 类型 + `.claude/hooks/lint-markdown.ps1`）+ Memory MCP 自动保存关键决策（agent 类型）
-- **Hooks 扩展脚本**（`.claude/hooks/lint-markdown.ps1`）
-  - PowerShell 脚本，PostToolUse 触发，对 .md/.mdx 文件执行 markdownlint 检查
-  - `async: true` 不阻断主流程；markdownlint-cli 未安装时静默跳过
+  - `TeammateIdle` / `TaskCompleted` / `Stop` / `SessionStart` 四个质量门禁 hooks
+  - **P1 扩展**：`PostToolUse` 双 hook — async markdown lint（`.github/hooks/lint-markdown.ps1`）+ Memory MCP 自动保存关键决策
+- **Hooks 扩展脚本**（`.github/hooks/lint-markdown.ps1`）
+  - 从 `.claude/hooks/` 迁移至 `.github/hooks/`，PowerShell 脚本，不阻断主流程
 - **MCP 扩展 — agent-skill-loader**（`.vscode/mcp.json`）
-  - 新增 `agent-skill-loader` MCP，暴露 `list_skills/read_skill/install_skill` 工具
-  - Skills 目录更新为 `.github/skills/`（统一管理）
-- **研究报告**（`docs/research/agent-tooling-scaffold-2026.md`）
-  - 深度调研 Claude Agent Skills / Hooks / MCP 生态（18 个 Hook 事件、4 种 Hook 处理器、关键 MCP 项目）
-  - P0/P1/P2 落地路线图；P2 识别 `forage-mcp`（find-skills 最佳实践）
-- **Brand 内容决策**（`docs/brand/discussion-8-draft.md`）
-  - Brand 自主决策 Discussion #8 主题和发布时机（先做后说）
-- **会议纪要**（`docs/meetings/2026-03-10-02-tool-layer-capability-meeting.md`）
-  - Brain 主持工具层能力升级专题会，全体 7 Agent 参与，确认实施路线图
+  - 暴露 `list_skills/read_skill/install_skill` 工具，动态发现 `.github/skills/` 技能库
+- **调研报告**（`docs/research/agent-tooling-scaffold-2026.md`）：P0/P1/P2 工具层路线图；识别 forage-mcp 为 P2 find-skills 方案
+- **Brand 内容决策**（`docs/brand/discussion-8-draft.md`）：Brand 自主决策 Discussion #8（先做后说）
+
+---
+
+## [5.6.0] — 2026-03-10
+
+> **博客视觉专项 🎨 — 阅读体验全面提升（文章排版 / 首页最新 / 宽卡首条 / 作者统计 / 终端标签风）**
+
+### Added
+
+- **`src/styles/prose.css`** — 全局文章排版样式
+  - 行高 1.8，段落间距 1.2em，`#161b22` 代码块背景 + 圆角 + 内边距
+  - 终端风格引用块（`❯` 彩色左边框 + 斜体文字）
+  - 表格 / 有序无序列表 / 图片 / 水平分隔线 全面样式化
+- **`src/components/FeaturedCard.astro`** — 博客列表宽卡首条
+  - 渐变顶边（accent 色线条）+ `featured` 徽章
+  - 大字号标题 + 作者信息 + 完整摘要展示
+  - 博客列表第一篇设为 featured 展示
+- **`src/components/LatestPosts.astro`** — 首页最新博文区块
+  - 位置：Projects 与 Contact 之间，展示最新 3 篇
+  - 终端命令行风格 header（`$ ls posts --latest`）
+  - 点击标题直链博文详情
+- **`featured` frontmatter 字段** — content schema 新增 `featured?: boolean`
+- **BlogCard author chip** — 新增 `role` 字段（accent 色 · mono 字体），作者身份标识更清晰
+- **标签云终端风格** — `$` 前缀绿色 + hover 时计数数字高亮为 accent 色
+- **作者详情页贡献统计面板** — 文章总数大数字 + contentType 水平进度条（四色分布）
+
+### Build
+
+- `astro check`：0 errors · 0 warnings · 0 hints
+- `npm run build`：65 页构建成功
 
 ---
 

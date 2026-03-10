@@ -1621,6 +1621,97 @@ PM 在每次 Minor 版本发布后执行「信号扫描」：
 
 ---
 
+## 20. 自动治理触发机制（Auto-Governance Triggers）
+
+> **指导思想：** 仅靠人工提醒触发版本发布、会议召集、状态同步是不可靠的。
+> 将这些判断逻辑编码为 PM 和 Brain 角色的内在行为规则。
+
+### 20.1 触发规则总表
+
+| 触发条件 | 责任角色 | 执行动作 | 优先级 |
+|---------|---------|---------|-------|
+| [Unreleased] 有 ≥3 条目且距上次 Release ≥3 天 | PM | 向 Brain 提出版本切版提案 | P1 |
+| [Unreleased] 中有条目但距上次 Release >5 天 | PM | 发出「积压告警」，请求 Brain 指令 | P0 |
+| 新 [X.Y.Z] 段已写入 CHANGELOG，但无对应 git tag | PM | 提示 Dev 立即执行 `git tag` + `git push --tags` + 创建 GitHub Release | P1 |
+| 任意 Minor 版本发布后，本 Session 或下一 Session 未规划下一步 | Brain | 提出 Sprint 规划议程或请用户确认下一目标 | P1 |
+| Major 版本发布后 | Brain | 必须召开全员里程碑复盘会（可与下一规划合并） | P1 |
+| 连续 ≥3 个 Minor 版本发布，无任何复盘会 | Brain | 主动提议里程碑复盘，不等用户发起 | P2 |
+| Session 开始时 [Unreleased] 非空（>0 条目） | PM（SessionStart 信号） | 输出简报：「当前 [Unreleased] 有 N 条目，上次 Release 是 vX.Y.Z（N 天前）」 | P2 |
+
+### 20.2 PM 触发规则（细则）
+
+**触发检查时机（PM 必须在以下节点执行）：**
+1. **任何任务被标记为完成时** → 扫描 CHANGELOG [Unreleased] 段
+2. **DoD Checklist 执行时** → 检查版本积压状态
+3. **SessionStart** → 读取 CHANGELOG 首行，输出积压摘要
+
+**积压判断逻辑（伪代码）：**
+```
+if len([Unreleased].items) >= 3 AND days_since_last_release >= 3:
+    → 提出版本提案（建议版本号 + 理由）
+
+elif len([Unreleased].items) > 0 AND days_since_last_release > 5:
+    → 发出积压告警到 Brain（P0）
+
+elif changelog 有 [X.Y.Z] 段 AND git tag vX.Y.Z 不存在:
+    → 提示 Dev 执行 tag + release 流程
+```
+
+**版本号提案规则（PM 建议，Brain 确认）：**
+- 只有 `Fixed` 类条目 → Patch（x.x.N+1）
+- 有 `Added` 类条目，无 Breaking Change → Minor（x.N+1.0）
+- 有 API 破坏 / 架构重构 → Major（需 Brain 确认）
+
+### 20.3 Brain 触发规则（细则）
+
+**触发检查时机（Brain 必须在以下节点执行）：**
+1. **任意 Release 完成后**（PM 发出 `release-complete` 信号）
+2. **Session 开始时**（读取会议纪要，检查上一个 Release 是否有后续动作）
+3. **连续工作 ≥3 个 Sprint 的收尾节点**
+
+**会议触发逻辑：**
+```
+if last_release == Major (X.0.0):
+    → 必须召开全员里程碑复盘会（可与 Sprint 规划合并为双议程会议）
+
+elif minor_releases_since_last_retro >= 3:
+    → 主动提议召开「里程碑节点会」或「自由脑暴」
+
+elif last_release == Minor AND no_next_sprint_plan:
+    → 在本 Session 末尾或下次 Session 开头提出 Sprint 规划议程
+```
+
+**Brain 主动感知扩展（补充 §8 Brain 触发规则）：**
+- 检测到 CHANGELOG [Unreleased] 积压告警（来自 PM）→ 纳入当前 Session 议程
+- PM 提出版本提案后 → Brain 确认或调整版本号，推进 Release 流程
+
+### 20.4 Hook 集成（执行层）
+
+`.github/settings.json` 中的 Hooks 承担以下自动触发职责：
+
+| Hook 类型 | 触发时机 | PM 行为 | Brain 行为 |
+|----------|---------|---------|-----------|
+| `SessionStart` | 会话开始 | 读取 CHANGELOG，输出积压状态摘要 | 检查上一个 Release 是否有未完成的后续动作 |
+| `TaskCompleted` | 任务完成 | 扫描 [Unreleased]，判断是否触发版本提案 | 确认是否需要规划下一步 |
+| `TeammateIdle` | 无活跃任务 | 检查是否有积压超 5 天的 [Unreleased] | 判断是否应主动提议会议或新 Sprint |
+
+**Hook prompt 触发词（写入 settings.json 的语义触发）：**
+- PM：`"检查 CHANGELOG [Unreleased] 积压状态，输出积压天数和条目数"`
+- Brain：`"检查是否有未跟进的 Release 后续动作（规划/复盘）"`
+
+### 20.5 触发规则的 DoD
+
+> 新增触发规则时，必须同步更新以下位置：
+
+- [ ] `docs/team-playbook.md` §20.1 规则总表（此处）
+- [ ] `pm.agent.md` 的「自动触发规则」章节
+- [ ] `brain.agent.md` 的「会议触发规则」章节
+- [ ] `.github/skills/pm-sprint-planner/SKILL.md` 的 `triggers` 列表
+- [ ] `.github/skills/brain-coordinator/SKILL.md` 的 `triggers` 列表
+- [ ] `.github/settings.json` 对应 Hook 的 `prompt` 字段
+
+---
+
 ## 附录 C：Agent 能力快照卡格式
 
 > **用途：** 新接手者在 `copilot-instructions.md` 中查看此表，秒读当前团队状态。

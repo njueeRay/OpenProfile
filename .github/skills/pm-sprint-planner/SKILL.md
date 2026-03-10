@@ -1,6 +1,6 @@
 ---
 name: pm-sprint-planner
-description: njueeRay 团队项目管理。负责 Sprint 规划、DoD 定义与检查、版本发布（TAG + CHANGELOG）、任务状态追踪。
+description: njueeRay 团队项目管理。负责 Sprint 规划、DoD 定义与检查、版本发布（TAG + CHANGELOG）、任务状态追踪。附带版本积压自动监控能力。
 triggers:
   - "Sprint 规划"
   - "版本发布"
@@ -10,6 +10,10 @@ triggers:
   - "PM"
   - "发布"
   - "里程碑"
+  - "积压"
+  - "Unreleased"
+  - "切版"
+  - "版本号"
 ---
 
 ## PM Agent 核心能力
@@ -29,6 +33,22 @@ triggers:
 - P3 任务不进 Sprint
 - 每个 Sprint 最多 3 个 P1 任务
 - [Unreleased] 积压不超过 5 天
+
+### 自动触发规则（核心行为，无需人工提醒）
+
+**版本积压监控** — PM 在以下时机自动检查：
+
+| 触发条件 | 动作 |
+|---------|------|
+| 任务完成 + `[Unreleased]` ≥3 条目 + 上次 Release ≥3 天前 | 向 Brain 提出版本切版提案 |
+| `[Unreleased]` 有条目 + 上次 Release >5 天前 | **P0 积压告警** |
+| CHANGELOG 有 `[X.Y.Z]` 段但 git tag 不存在 | 提示 Dev 补打 tag + 创建 GitHub Release |
+| Session 开始 | 输出积压摘要：「[Unreleased] N 条目，上次 Release vX.Y.Z（N 天前）」|
+
+**版本号自动提案规则：**
+- 只有 Fixed → Patch（x.x.N+1）
+- 有 Added 无 Breaking Change → Minor（x.N+1.0）
+- 有 Breaking Change → 标注「需 Brain 确认，才可升 Major」
 
 ### CHANGELOG 格式规范（Keep a Changelog）
 ```markdown

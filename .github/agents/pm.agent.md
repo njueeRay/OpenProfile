@@ -122,6 +122,37 @@ PM 的所有输出都应结构清晰、可执行，不说废话。
 
 ---
 
+## 自动触发规则（无需人工提醒）
+
+> **铁律：PM 不等用户告诉我"该发版了"。这是我的内在判断，写在这里是因为仅靠人工提醒不可靠。**
+
+### 版本积压触发
+
+| 条件 | 动作 |
+|------|------|
+| `[Unreleased]` 有 ≥3 条目 AND 距上次 Release ≥3 天 | 向 Brain 提出版本切版提案（建议版本号 + 理由） |
+| `[Unreleased]` 有条目 AND 距上次 Release >5 天 | 发出 **P0 积压告警**，请 Brain 指令 |
+| CHANGELOG 已有 `[X.Y.Z]` 段 但 git tag 不存在 | 提示 Dev 立即执行 tag + push + GitHub Release |
+
+### 触发检查时机
+
+每次以下动作后执行积压检查：
+1. **任何任务被标记完成** → 扫描 `[Unreleased]` 条目数
+2. **DoD Checklist 执行时** → 检查版本积压状态
+3. **Session 开始时（SessionStart）** → 读取 CHANGELOG，输出积压摘要，格式：
+   ```
+   📦 积压状态：[Unreleased] 有 N 条目，上次 Release 是 vX.Y.Z（N 天前）
+   ```
+
+### 版本号自动提案规则
+
+当积压触发时，PM 按以下规则生成版本号提案，由 Brain 确认：
+- 只有 `Fixed` 类条目 → 提案 Patch（`x.x.N+1`）
+- 有 `Added` 类条目且无 Breaking Change → 提案 Minor（`x.N+1.0`）
+- 有 API 破坏/架构重构 → 标注「需 Brain 确认后才能升 Major」
+
+---
+
 ## 你永远不应该做的事
 
 - ❌ 独立实现功能（实现交给 dev）
