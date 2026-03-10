@@ -139,11 +139,14 @@
 1. 逐项核查 DoD Checklist（见第 7 节）
 2. 更新 CHANGELOG.md  [Unreleased] 补充本次变更
 3. 更新 copilot-instructions.md  「当前迭代状态」区块
-4. 评估是否达到 Release 条件（见第 5 节）
-5. 提交 commit（遵循本手册第 4 节规范）
-6. 向用户输出会话收尾摘要：
+4. Dev 提炼本次新学 → 追加至 .github/agents/knowledge/dev-patterns.md
+   格式：[日期] [场景] [解法/教训]（一到三行即可，重在及时记录）
+5. 评估是否达到 Release 条件（见第 5 节）
+6. 提交 commit（遵循本手册第 4 节规范）
+7. 向用户输出会话收尾摘要：
    
    本次完成：[变更列表，含 commit hash]
+   Dev 本次新学：[1 条关键经验，无则写「无新增」]
    遗留事项：[未完成的任务 or "无"]
    建议下次：[下一步优先行动 or "无"]
    

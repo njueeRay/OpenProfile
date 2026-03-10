@@ -491,12 +491,17 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - ✅ `docs/team-playbook.md` §8：会议类型表扩展（7种）+ §8.3 主动感知治理规则
 - ✅ `first-discussion-draft.md` 发布清单已更新（Discussion #6 打勾）
 
+**v5.5.0+ 后续行动（2026-03-10，各成员推进）：**
+- ✅ 团队成长反思会博文同步发布（`team-growth-retrospective-2026-03-01.mdx`，meeting 类型）
+- ✅ Researcher：MCP 引入路线图调研报告（`docs/research/mcp-roadmap-2026.md`，结论：Memory MCP P1 立即引入，Playwright MCP P2 v5.7，社交发布 P3）
+- ✅ Brand：内容矩阵规划初稿（`docs/brand/content-matrix.md`，读者旅程地图 + 4类内容规划 + Discussion 序列）
+- ✅ Code Reviewer：审查报告模板新增「已知盲区」小节（`code-reviewer.agent.md` 已更新）
+- ✅ Dev + PM：「会话结束时 Dev 主动提炼新学」写入 Playbook §2.2 会话关闭协议
+
 **待推进（P2，下一版本前）：**
-- ⬜ Brand：首发帖 7 天后发布帖子 2（技术深度分享）
-- ⬜ Researcher：MCP 引入路线图调研报告（Memory / Browser / Social 三个切入点）
-- ⬜ Brand：内容矩阵规划初稿（教程/案例/对话类补全）
-- ⬜ Code Reviewer：审查报告模板新增「已知盲区」小节
-- ⬜ Dev + PM：建立「每次会话结束时 Dev 主动提炼新学」流程约定
+- ⬜ Brand：Discussion 帖子 #2（技术深度分享，≈2026-03-08 已逾期，本周补发）
+- ⬜ Dev：Memory MCP 接入 `.vscode/mcp.json` 并验证跨会话知识存储
+- ⬜ Brand：Discussion 月度「读者反馈帖」机制启动（content-matrix.md 中规划）
 
 ---
 
