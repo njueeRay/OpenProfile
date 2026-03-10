@@ -247,9 +247,8 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - [x] **PostToolUse Hooks（P1 扩展）**：`.github/settings.json` 新增两条异步 PostToolUse hook — ① `command` 类型调用 `.github/hooks/lint-markdown.ps1`（Write/Edit 触发 markdownlint）；② `agent` 类型自动保存关键文件变更到 Memory MCP（mengram 模式）
 - [x] **forage MCP（P2 路线图）**：`isaac-levine/forage-mcp` — Agent 自动搜索/安装/学习 MCP 工具的 find-skills 最佳实践；关键能力：`forage_search/forage_install/forage_learn`，安装后无需重启即可获取新工具
 - [x] **会议文件命名规范**：`YYYY-MM-DD-NN-<type>.md`，序号 NN 为**当日序号**，每天从 01 重新计数，禁止跨日连续编号
-- [x] **self-improvement skill**：`.github/skills/self-improvement/SKILL.md`；用户说「复盘」时触发七维度自评，教训写入 `/memories/lessons-learned.md`
-- [x] **Board 驱动 Ship 循环（Meeting #09 转折点）**：工作模式从「Ray 驱动迭代」转向「Sprint Board 驱动 Ship 循环」；三段式会话协议 Recall → Execute → Ship；Sprint Board（≤50 行，≤7 条，2 周存活期）为唯一活跃状态源；Decision Journal 自动记录 Ray 判断轨迹；对外任务与技术任务平级竞争优先级
-- [x] **做减法清单（Meeting #09）**：强制审查报告 / copilot-instructions 迭代状态积累——降级或停止；patterns 文件改为「有新认知再更新」；evolution-events.jsonl 改为季度归档；会议纪要以价值导向不设行数上限；Playbook 进化为项目无关的可迁移知识（去除项目专属内容，只保留“用户对下一个项目一无所知”时能用上的普适原则）
+- [x] **self-improvement skill**：`.github/skills/self-improvement/SKILL.md`；用户说「复盘」时触发七维度自评，跨项目教训写入 `/memories/lessons-learned.md`，OpenProfile 特定教训写入 `/memories/repo/openprofile-lessons.md`
+- [x] **Meeting #09 校准结论**：会议纪要长度因会而异，深度和沉淀优先于效率指标；Playbook 回归「可移植的冷启动手册」定位，去除项目特定内容，假设用户对下一个项目一无所知
 
 ---
 
@@ -272,21 +271,19 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 
 ## 当前迭代状态
 
-**阶段：** v5.10.0 已发布 → Meeting #09 转折点决议（待 Ray 确认）→ Board 驱动 Ship 循环启动
-**路线图：** v5.1→v5.10 ✅ 全部完成 · v6.0.0（架构升级，门控触发）规划中  
+**阶段：** v5.10.0 已发布 → Meeting #09 完成校准 → v6.0.0 待规划
+**路线图：** 当前发布线已稳定；下一阶段聚焦 v6.0.0 规划与治理收敛  
 **个人信息：** ✅ 已确认  
 **配置文件：** ✅ 已同步（治理目录以 `.github/` 为唯一真实来源）  
 **语言偏好：** ✅ 中文（所有原创内容默认中文，技术符号保持英文）
 
 **北极星 = B（AI-native 工作方式示范）：** 本项目核心目标是展示「AI-native person 如何工作」，而非个人效率工具。所有版本决策、体系设计均以「是否推进 AI-native 工作方式示范」为第一判断标准。
 
-**⚡ Meeting #09 转折点决议（待 Ray 确认后生效）：**
-- ⬜ 工作模式转向「Board 驱动 Ship 循环」（Recall → Execute → Ship 三段式）
-- ⬜ Sprint Board（`docs/governance/sprint-board.md`）作为唯一活跃状态源
-- ⬜ Decision Journal 自动记录 Ray 判断轨迹
-- ⬜ 做减法清单（强制审查报告 / 本段迭代状态 → 降级或停止；纪要以价值导向；Playbook 进化为可迁移知识）
+**Ray 校准信号（Meeting #09）：**
+- 会议纪要长度因会而异，深度和沉淀优先于效率指标
+- Playbook 回归「可移植冷启动手册」定位：去除项目特定内容，不应有局限性命令或描述，假设用户对下一个项目一无所知
 
-**活跃待办（P2，将迁入 Sprint Board）：**
+**活跃待办（P2）：**
 - ⬜ Brand：Discussion 月度「读者反馈帖」机制启动（≈2026-03-20）
 - ⬜ `forage-mcp` 接入（`claude mcp add forage -- npx -y forage-mcp`）— Agent 自主发现/安装 MCP
 - ⬜ `.github/skills/` 7 个 SKILL.md 贡献至 `anthropics/skills` 社区
@@ -294,37 +291,6 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 - ⬜ `docs/guides/` 扩充（agent-workflow-intro.md + contributing-intro.md）
 
 > 完整历史记录见 `CHANGELOG.md` · 历次会议决议见 `docs/meetings/`
-
-**V5 路线图版本规划：**
-
-| 版本 | 主题 | 状态 |
-|------|------|------|
-| v4.1.0 | 团队品牌化 + 内容架构 | ✅ 已发布 |
-| v4.2.0 | 工程质量 — CSS 统一 / 组件拆分 / 响应式 / CI 修复 | ✅ 已发布 |
-| v4.3.0 | 社区首发 — Discussions / README 着陆页 / Good First Issues | ✅ 已发布 |
-| v4.4.0 | 体验精修 — 微交互 / 首页增强 / a11y / 团队动态墙 | ✅ 已发布 |
-| v4.5.0 | SEO & 性能 — JSON-LD / Lighthouse CI / Astro 5 调研 | ✅ 已发布 |
-| v5.0.0 | 架构性升级 — Astro 5 迁移（门槛触发） | ✅ 已发布 |
-| v5.1.0 | 技术债清理 — Content Layer API / profile-designer.yaml | ✅ 已发布 |
-| v5.2.0 | 读者体验 — ToC / Giscus 评论 / ReadingProgress / 相关推荐 | ✅ 已发布 |
-| v5.3.0 | 对外传播 — OG 封面图 / Brand 首次外部发布 / UTM | ✅ 已发布 |
-| v5.4.0 | E2E 测试 — Playwright 测试覆盖率 6→8 | ✅ 已发布 |
-| v5.5.0 | 成熟里程碑 — 读者体验全集 + 外部真实回响 + 测试保障 | ✅ 已发布 |
-| v5.6.0 | 博客视觉专项 — FeaturedCard / prose.css / LatestPosts / 作者统计 / 标签终端风 | ✅ 已发布 |
-| v5.7.0 | 工具层脚手架 — Agent Skills × Hooks × MCP 三位一体（P0+P1 完成） | ✅ 已发布 |
-| v5.8.0 | 博客内容精度 — 代码块增强 / Callout 组件 / 阅读时长 / 文章系列导航 | ✅ 已发布 |
-| v5.9.0 | 博客搜索与发现 — Pagefind 全文搜索 / 系列专题页 / 归档时间轴 | ✅ 已发布 |
-| v5.10.0 | 首页品牌化重设计 — Hero 叙事重构 / Projects GitHub API 动态数据 / 视觉语言全站统一 | ✅ 已发布 |
-| v6.0.0 | 架构升级（门槛触发）— Astro 6 迁移 / Hybrid SSR / Astro Actions 动态化探索 | ⬜ 待规划 |
-
-**v6.0.0 架构升级（⬜ 待规划，门槛触发）：**
-
-> 触发条件：Astro 6 正式发布 OR 站点需要服务端动态能力。与 v5.0.0 同属 Major 级变更。
-
-- ⬜ A-1 Astro 6 迁移：API 变更适配（参照 v5.0.0 迁移经验，预计半天工作量）
-- ⬜ A-2 Hybrid SSR 探索：评估将评论/搜索/统计切换为服务端渲染的可行性
-- ⬜ A-3 Astro Actions：表单/互动功能（如「留言」「订阅」）的动态化接入
-- ⬜ A-4 性能基准全面刷新：Lighthouse CI 阈值随架构升级重新评估（目标 performance ≥ 0.90）
 
 ---
 

@@ -2,7 +2,7 @@
 ---
 name: self-improvement
 version: "1.0.0"
-description: 触发复盘流程 — 当用户说「复盘」时，执行七维度自我评估、记录教训、并写入 /memories/ 记忆文件。
+description: 触发复盘流程 — 当用户说「复盘」时，执行七维度自我评估，并按范围写入 Memory MCP 的分层记忆文件。
 triggers:
   - "复盘"
   - "retrospective"
@@ -13,15 +13,16 @@ triggers:
   - "哪里可以更好"
 examples:
   - input: "复盘这次的操作"
-    output: "按七维度评估 → 识别问题模式 → 写入 /memories/session/retro-YYYY-MM-DD.md → 摘要同步至 /memories/lessons-learned.md"
+    output: "按七维度评估 → 识别问题模式 → 写入 /memories/session/retro-YYYY-MM-DD.md → 跨项目教训同步至 /memories/lessons-learned.md，仓库特定教训同步至 /memories/repo/openprofile-lessons.md"
   - input: "对这次会话做一个复盘"
     output: "遍历本次会话所有操作，识别错误/改进点，形成结构化报告，记录至记忆文件"
 constraints:
   - 复盘报告必须包含七个维度（见下方「评估维度」）
-  - 发现的教训必须写入 /memories/lessons-learned.md（追加，不覆盖）
+  - 发现的教训必须按范围写入记忆：跨项目教训写入 /memories/lessons-learned.md；OpenProfile 特定教训写入 /memories/repo/openprofile-lessons.md
   - 每次复盘都创建独立的会话记录文件 /memories/session/retro-YYYY-MM-DD-HH.md
   - 复盘要诚实，不能只写优点；如果发现了模棱两可的指令，要记录处理方式是否正确
   - 涉及会议的复盘还需检查：会议序号是否正确（当日从 01 开始）、DoD 是否全部关闭
+  - /memories/* 是 Memory MCP 的虚拟路径，不是工作区里的物理文件路径，默认不会出现在仓库文件树中
 reference: .github/agents/brain.agent.md
 ---
 ```
@@ -59,5 +60,8 @@ reference: .github/agents/brain.agent.md
 - [摘录关键教训]
 ```
 
-**长期记忆** (`/memories/lessons-learned.md`)：  
+**长期记忆（跨项目）** (`/memories/lessons-learned.md`)：  
 按类别追加，格式：`- [YYYY-MM-DD] [类别] 教训内容`
+
+**仓库记忆（OpenProfile 特定）** (`/memories/repo/openprofile-lessons.md`)：  
+记录只对 OpenProfile 成立的规范、命名约束、信息归属规则。
