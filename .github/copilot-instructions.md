@@ -287,11 +287,22 @@ Co-authored-by: GitHub Copilot <copilot@github.com>
 
 ## 当前迭代状态
 
-**阶段：** v5.10.0 已发布（首页品牌化重设计 — Hero 双栏叙事 / Projects API 动态化 / 视觉 Token 统一，tag: v5.10.0） → v6.0.0 规划中
+**阶段：** v5.10.0 已发布（首页品牌化重设计，tag: v5.10.0） → 体系审视期 → v6.0.0 规划中
 **路线图：** v5.1→v5.10 ✅ 全部完成 · v6.0.0（架构升级，门控触发）规划中  
 **个人信息：** ✅ 已确认  
 **配置文件：** ✅ 已同步（含 USER.md v1.0）  
 **语言偏好：** ✅ 中文（所有原创内容默认中文，技术符号保持英文）
+
+**2026-03-10 体系审视全体会议（`docs/meetings/2026-03-10-04-all-hands-system-review.md`）：**
+- ✅ P0 执行：`lint-markdown.ps1` 修复（`exit 2` 替换 `exit 0`，真正输出 linting 信号）
+- ⬜ P1：七个 SKILL.md 文件瘦身（移除与 agent.md 重复的内容，保留 triggers/examples/constraints）
+- ⬜ P1：验证 Memory MCP (`memory.jsonl`) 实际读写状态
+- ⬜ P2（v6.0.0 准备期）：copilot-instructions.md 历史部分迁移至 design-decisions.md
+- ⬜ P2：Brand Discussion 跟进机制（发布后 72h 回复，引用上次对话）
+- ⬜ P3：evolution-events.jsonl 降级为人工档案（撤销自动触发承诺）
+- ⬜ 长期：确认体系北极星 — 个人效率工具 vs AI-native 工作方式示范（需 Ray 决策）
+
+**待用户决策：** 这套体系的北极星是什么？（影响后续所有优先级）
 
 **V2.0 已完成（2026-02-25，tag: v2.0.0）：**
 - ✅ Phase A/B：Profile README 完整重写（双模 `<picture>` + 12 字段 JSON + Typing SVG）

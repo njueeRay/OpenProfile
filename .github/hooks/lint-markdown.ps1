@@ -1,6 +1,7 @@
-# .claude/hooks/lint-markdown.ps1
-# Hook: PostToolUse (Write|Edit) — async markdown linting
-# 对 .md / .mdx 文件的写操作触发，异步检查 markdownlint
+# .github/hooks/lint-markdown.ps1
+# Hook: PostToolUse (Write|Edit) — markdown linting quality signal
+# 对 .md / .mdx 文件的写操作触发，检查 markdownlint
+# 发现问题时返回 exit 2（非零），让 Claude Code 感知到 linting 警告
 #
 # 入参（通过 stdin JSON 由 Claude Code 传入）：
 #   .tool_input.path  — 被修改的文件路径（absolute）
@@ -49,9 +50,12 @@ if (-not $ml_path) {
 
 if ($LASTEXITCODE -ne 0 -and $result) {
     $rel_path = $file_path -replace [regex]::Escape((Get-Location).Path + "\"), ""
-    Write-Host "[markdownlint] $rel_path" -ForegroundColor Yellow
+    Write-Host "[markdownlint] WARN: $rel_path" -ForegroundColor Yellow
     $result | ForEach-Object { Write-Host "  $_" -ForegroundColor DarkYellow }
+    # 返回非零退出码，让 Claude Code 感知到 linting 问题（可选择是否修复）
+    # PostToolUse hook：非零 exit 不会阻断，但会让模型感知到警告
+    exit 2
 }
 
-# 异步 hook，不阻断（始终 exit 0）
+# 无问题，正常退出
 exit 0

@@ -1,95 +1,113 @@
-﻿# 璐＄尞鎸囧崡
+# 贡献指南
 
-> 鎰熻阿浣犲鏈」鐩劅鍏磋叮锛佹湰椤圭洰鏄竴涓€岀敤 AI Agent 鍗忎綔鏋勫缓 GitHub Profile銆嶇殑寮€婧愮ず鑼冨伐绋嬨€?
+> 感谢你对本项目感兴趣！本项目是一个「用 AI Agent 协作构建 GitHub Profile」的开源示范工程。
+
 ---
 
-## 璐＄尞鍐呭绫诲瀷
+## 贡献内容类型
 
-| 绫诲瀷 | 璇存槑 |
+| 类型 | 说明 |
 |------|------|
-| 馃悰 Bug 淇 | 缁勪欢 URL 澶辨晥銆丮arkdown 娓叉煋閿欒绛?|
-| 鉁?鏂扮粍浠?| 鎺ㄨ崘涓€涓柊鐨?GitHub Profile 鍔ㄦ€佺粍浠?|
-| 馃摉 鏂囨。鏀硅繘 | 琛ュ厖 component-guide.md銆佺籂姝ｈ鏄庨敊璇?|
-| 馃 Agent 浼樺寲 | 鏀硅繘 `.github/agents/` 涓殑 Agent 鎸囦护 |
-| 馃帹 瑙嗚鏀硅繘 | 鎻愯鏇村ソ鐨勯鑹层€佸竷灞€鎴栧姩鏁堟柟妗?|
+| 🐛 Bug 修复 | 组件 URL 失效、Markdown 渲染错误等 |
+| ✨ 新组件 | 推荐一个新的 GitHub Profile 动态组件 |
+| 📖 文档改进 | 补充 component-guide.md、纠正说明错误 |
+| 🤖 Agent 优化 | 改进 `.github/agents/` 中的 Agent 指令 |
+| 🎨 视觉改进 | 提议更好的颜色、布局或动效方案 |
 
 ---
 
-## 蹇€熷紑濮?
-### 1. Fork 浠撳簱
+## 快速开始
+
+### 1. Fork 仓库
 
 ```bash
-# Fork 鍚庡厠闅嗗埌鏈湴
+# Fork 后克隆到本地
 git clone https://github.com/YOUR_USERNAME/OpenProfile.git
 cd OpenProfile
 ```
 
-### 2. 鍒涘缓鍒嗘敮
+### 2. 创建分支
 
 ```bash
-# 鍒嗘敮鍛藉悕瑙勮寖锛歵ype/short-description
+# 分支命名规范：type/short-description
 git checkout -b feat/add-spotify-widget
 git checkout -b fix/broken-stats-url
 git checkout -b docs/improve-component-guide
 ```
 
-### 3. 鎻愪氦淇敼
+### 3. 提交修改
 
-閬靛惊**璇箟鍖?commit message**锛?
+遵循**语义化 commit message**：
+
 ```
-feat: 鏂板姛鑳?fix: 缂洪櫡淇
-docs: 鏂囨。鏇存柊
-style: 鏍峰紡/鏍煎紡璋冩暣锛堜笉褰卞搷閫昏緫锛?chore: 鏋勫缓/宸ュ叿閾剧浉鍏?```
-
-绀轰緥锛?```bash
-git commit -m "feat: 娣诲姞 Spotify 姝ｅ湪鎾斁缁勪欢"
-git commit -m "fix: 淇鏆楄壊涓婚涓?stats 鍗＄墖杈规闂"
-git commit -m "docs: 瀹屽杽 capsule-render 鍙傛暟璇存槑"
+feat: 新功能
+fix: 缺陷修复
+docs: 文档更新
+style: 样式/格式调整（不影响逻辑）
+chore: 构建/工具链相关
 ```
 
-### 4. 鎻愪氦 PR
+示例：
+```bash
+git commit -m "feat: 添加 Spotify 正在播放组件"
+git commit -m "fix: 修复暗色主题下 stats 卡片边框问题"
+git commit -m "docs: 完善 capsule-render 参数说明"
+```
 
-- 濉啓 PR 妯℃澘涓殑鎵€鏈夊瓧娈?- 纭繚 PR 鎻忚堪鍖呭惈銆孊efore / After銆嶅姣旓紙濡傛秹鍙婅瑙夊彉鏇达級
-- 鏍囨敞鐩稿叧 Issue锛堝 `Closes #123`锛?
+### 4. 提交 PR
+
+- 填写 PR 模板中的所有字段
+- 确保 PR 描述包含「Before / After」对比（如涉及视觉变更）
+- 标注相关 Issue（如 `Closes #123`）
+
 ---
 
-## 浠ｇ爜椋庢牸
+## 代码风格
 
-### Markdown 瑙勮寖
-- 浣跨敤 2 绌烘牸缂╄繘锛堝祵濂楀垪琛級
-- 鍥剧墖蹇呴』鍖呭惈 `alt` 鎻忚堪鏂囧瓧
-- 閾炬帴浣跨敤缁濆 URL锛屼笉浣跨敤鐩稿璺緞
-- 姣忎釜鍥剧墖缁勪欢娉ㄩ噴璇存槑鏉ユ簮鍜屽弬鏁?
-### 缁勪欢 URL 瑙勮寖
+### Markdown 规范
+- 使用 2 空格缩进（嵌套列表）
+- 图片必须包含 `alt` 描述文字
+- 链接使用绝对 URL，不使用相对路径
+- 每个图片组件注释说明来源和参数
+
+### 组件 URL 规范
 ```markdown
-<!-- 鉁?姝ｇ‘锛氬寘鍚敞閲婂拰 alt -->
+<!-- ✅ 正确：包含注释和 alt -->
 <!-- github-readme-stats: https://github.com/anuraghazra/github-readme-stats -->
 ![Ray's GitHub stats](https://github-readme-stats.vercel.app/api?username=njueeray&theme=tokyonight&show_icons=true)
 
-<!-- 鉂?閿欒锛氭棤娉ㄩ噴銆佹棤 alt -->
+<!-- ❌ 错误：无注释、无 alt -->
 ![](https://github-readme-stats.vercel.app/api?username=njueeray)
 ```
 
 ---
 
-## 娣诲姞鏂扮粍浠?
-濡傛灉浣犳兂璐＄尞涓€涓柊鐨?GitHub Profile 缁勪欢锛?
-1. 鍦?`docs/guides/component-guide.md` 涓坊鍔犺缁勪欢鐨?*瀹屾暣璇存槑**
-2. 鍦?README.md 涓殑瀵瑰簲鍖哄煙娣诲姞**甯︽敞閲婄殑浠ｇ爜**
-3. 鍦?`CHANGELOG.md` 涓褰曞彉鏇?4. PR 鎻忚堪涓檮涓?*瀹為檯娓叉煋鏁堟灉鎴浘**
+## 添加新组件
+
+如果你想贡献一个新的 GitHub Profile 组件：
+
+1. 在 `docs/component-guide.md` 中添加该组件的**完整说明**
+2. 在 README.md 中的对应区域添加**带注释的代码**
+3. 在 `CHANGELOG.md` 中记录变更
+4. PR 描述中附上**实际渲染效果截图**
 
 ---
 
-## 绀惧尯涓庤璁?
-- 馃挰 **GitHub Discussions**锛氬湪 [njueeray.github.io Discussions](https://github.com/njueeRay/njueeray.github.io/discussions) 涓彁闂€佸垎浜兂娉?- 馃尡 **鍏ラ棬浠诲姟**锛氭煡鎵炬爣璁颁负 [`good first issue`](https://github.com/njueeRay/OpenProfile/labels/good%20first%20issue) 鐨?Issue锛岄€傚悎鏂拌础鐚€?
+## 社区与讨论
+
+- 💬 **GitHub Discussions**：在 [njueeray.github.io Discussions](https://github.com/njueeRay/njueeray.github.io/discussions) 中提问、分享想法
+- 🌱 **入门任务**：查找标记为 [`good first issue`](https://github.com/njueeRay/OpenProfile/labels/good%20first%20issue) 的 Issue，适合新贡献者
+
 ---
 
-## 闂鍙嶉
+## 问题反馈
 
-- 浣跨敤 [Issue 妯℃澘](.github/ISSUE_TEMPLATE/) 鎻愪氦闂
-- 鍦ㄦ彁浜ゅ墠鍏堟悳绱㈡槸鍚︽湁鐩稿悓闂
-- 灏介噺鎻愪緵澶嶇幇姝ラ鍜屾埅鍥?
+- 使用 [Issue 模板](.github/ISSUE_TEMPLATE/) 提交问题
+- 在提交前先搜索是否有相同问题
+- 尽量提供复现步骤和截图
+
 ---
 
-## 璁稿彲璇?
-鎻愪氦 PR 鍗宠〃绀轰綘鍚屾剰浣犵殑璐＄尞鍦?[MIT 璁稿彲璇乚(LICENSE) 涓嬪彂甯冦€?
+## 许可证
+
+提交 PR 即表示你同意你的贡献在 [MIT 许可证](LICENSE) 下发布。
