@@ -48,42 +48,61 @@ git -C "<repo-path>" config commit.template ".gitmessage"
 
 ---
 
-### P-DV-003：GitHub API 调用中的 UTF-8 编码陷阱（REST + GraphQL 通用）
+### P-DV-003：GitHub API 调用含中文内容 — curl 优先方案
 
-**场景：** 使用 PowerShell 5.1 通过任意 GitHub API（REST / GraphQL）发送含中文的 body
+**场景：** 通过命令行向 GitHub REST / GraphQL API 发送含中文的请求体
 
-**根因：** PowerShell 5.1 的 `Invoke-RestMethod -Body <string>` 使用系统默认代码页（Windows-1252 / GBK）将字符串序列化为字节；中文字符无法在 Windows-1252 中表示，会变成 `?`。
+**根因（PS5.1 不可用）：** `Invoke-RestMethod -Body <string>` 使用系统默认编码（Windows-1252/GBK）序列化字符串 → 中文变 `?`。PS5.1 读取无 BOM UTF-8 `.ps1` 脚本文件时，中文在进入内存前就已损坏，后续 `GetBytes(UTF8)` 也无法修复。**不要用 PS5.1 发送含中文的 API 请求。**
 
-**修复模式（必须执行）：**
+---
 
-```powershell
-# ✅ 正确：显式转为 UTF-8 字节数组传给 -Body
-$json  = $payload | ConvertTo-Json -Depth 5 -Compress
-$bytes = [System.Text.Encoding]::UTF8.GetBytes($json)
-Invoke-RestMethod -Uri $url -Method POST -Headers $h -Body $bytes
+**✅ 首选：`curl.exe --data-binary @file.json`（零编码问题）**
 
-# ❌ 错误：直接传字符串，中文变 ?
-Invoke-RestMethod -Uri $url -Method POST -Headers $h -Body $json
-```
-
-**PS5.1 脚本文件本身含中文时的额外陷阱：**
-
-PS5.1 读取无 BOM 的 UTF-8 `.ps1` 文件时，同样按系统编码解析 → 脚本内的中文字符串在进入内存前就已损坏，`GetBytes(UTF8)` 也救不回来。
-
-**规避方法：将中文内容存入独立 .txt 文件，脚本用显式 UTF-8 读取：**
+`--data-binary @file` 读取文件原始字节直接发送，完全不经过字符串层，不存在任何编码转换。Windows 10/11 内置 curl.exe，无需安装。
 
 ```powershell
-# 内容文件（_body.txt）由工具或编辑器创建，保证 UTF-8
-$body = [System.IO.File]::ReadAllText("$base\_body.txt", [System.Text.Encoding]::UTF8)
-# 脚本本身只包含 ASCII，避免 PS5.1 读取编码问题
+# 1. 将请求体保存为 JSON 文件（Copilot create_file 工具创建的文件是 UTF-8）
+# $env:TEMP\payload.json 已准备好
+
+# 2. 一行 curl，字节透传
+curl.exe -s -X POST https://api.github.com/graphql `
+  -H "Authorization: bearer $token" `
+  -H "Content-Type: application/json" `
+  --data-binary "@$env:TEMP\payload.json" `
+  -o "$env:TEMP\response.json"
+
+# 3. 读取响应
+Get-Content "$env:TEMP\response.json" -Encoding UTF8
 ```
+
+REST 接口同理（`-X POST` / `-X PATCH`，URL 换成 REST endpoint）。
+
+---
+
+**✅ 备选：Python 单行（同样无编码问题）**
+
+Python 字符串原生 Unicode，`json.dumps().encode()` 输出 UTF-8 字节，直接发送：
+
+```powershell
+python -c "
+import json, urllib.request, os
+token = 'gho_...'
+payload = json.dumps({'query': '...'}).encode()  # UTF-8 bytes
+req = urllib.request.Request('https://api.github.com/graphql',
+    data=payload,
+    headers={'Authorization': f'bearer {token}', 'Content-Type': 'application/json'})
+print(urllib.request.urlopen(req).read().decode())
+"
+```
+
+---
 
 **验证：**
-- v4.0.0 Release body 修复，2026-02-26（REST PATCH）
-- Discussion #8 正文修复，2026-03-10（GraphQL updateDiscussion）
+- `curl.exe` 查询 Discussion #8 标题，返回正确中文，2026-03-10
+- v4.0.0 Release body 修复，2026-02-26
 
-**注意：** 每次发布含中文内容到 GitHub API，必须走 UTF-8 bytes 路径
-**来源：** 2026-02-26 Release encoding 修复 + 2026-03-10 Discussion encoding 修复
+**根本原则：** 需要发含中文的 HTTP 请求 → 用 curl 或 Python，不用 PS5.1 字符串。
+**来源：** 2026-03-10 Discussion #8 修复总结
 
 ---
 

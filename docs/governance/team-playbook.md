@@ -1196,70 +1196,62 @@ curl -s -H "Authorization: token $token" \
 
 ### 15.3 标准操作速查
 
+> 📄 **所有含中文的 API 请求必须用 `curl.exe --data-binary @file` 或 Python。**
+>
+> `curl.exe` 内置于 Windows 10/11，`--data-binary @file` 读取文件原始字节直接发送，
+> 不经过任何字符串层，根本不存在编码问题。
+> 不要用 PowerShell 5.1 `Invoke-RestMethod -Body <string>` 发送含中文的请求体，中文会变 `?`。
+
+**获取 token：**
+
+```powershell
+$t = ("protocol=https`nhost=github.com`n" | git credential fill |`
+      Where-Object {$_ -like "password=*"}) -replace "password=",""
+```
+
 **创建 GitHub Release：**
 
-> ⚠️ **编码安全规范（必读，曾多次踩坑）：**
->
-> 1. Release body **必须先写成独立变量**，再传入 hashtable，不可内联多行字符串
-> 2. **使用 `[System.Text.Encoding]::UTF8.GetBytes()` 发送**，不可直接传字符串
-> 3. **body 内容使用英文**（避免 PowerShell 中文字符编码问题）
-> 4. **禁止把 JSON 对象赋值再整体当成 body 发送**（会导致 `{"value"=>"..."}` 乱码）
-
 ```powershell
-# Step 1: 单独构建 Release Notes
-$releaseNotes = "## v1.0.0 - Release Title`n`n" +
-    "Release notes content here.`n`n" +
-    "**Full Changelog**: https://github.com/{owner}/{repo}/blob/main/CHANGELOG.md"
+# 1. 将 Release 内容写入 JSON 文件（内容由 Copilot create_file 创建，保证 UTF-8）
+# release.json 格式：
+# {
+#   "tag_name": "v1.0.0",
+#   "name": "v1.0.0 - 标题",
+#   "body": "中文与英文可混写...",
+#   "prerelease": false,
+#   "make_latest": "true"
+# }
 
-# Step 2: 构建 payload 并序列化
-$payload = @{
-    tag_name    = "v1.0.0"
-    name        = "v1.0.0 - [Release Title]"
-    body        = $releaseNotes
-    prerelease  = $false
-    make_latest = "true"
-} | ConvertTo-Json -Depth 2
-
-# Step 3: UTF-8 字节编码发送（关键步骤）
-$bytes = [System.Text.Encoding]::UTF8.GetBytes($payload)
-Invoke-RestMethod "https://api.github.com/repos/{owner}/{repo}/releases" `
-    -Method Post -Headers $headers `
-    -ContentType "application/json; charset=utf-8" `
-    -Body $bytes
+# 2. curl 一行发送
+curl.exe -s -X POST "https://api.github.com/repos/{owner}/{repo}/releases" `
+  -H "Authorization: token $t" `
+  -H "Content-Type: application/json" `
+  --data-binary "@$env:TEMP\release.json"
 ```
 
-**PATCH 更新已有 Release（修复 Release body）：**
+**PATCH 更新已有 Release：**
 
 ```powershell
-# 同上模式，改 -Method Patch 与 URI（需知道 release_id）
-$bytes = [System.Text.Encoding]::UTF8.GetBytes($payload)
-Invoke-RestMethod "https://api.github.com/repos/{owner}/{repo}/releases/{release_id}" `
-    -Method Patch -Headers $headers `
-    -ContentType "application/json; charset=utf-8" `
-    -Body $bytes
+curl.exe -s -X PATCH "https://api.github.com/repos/{owner}/{repo}/releases/{release_id}" `
+  -H "Authorization: token $t" `
+  -H "Content-Type: application/json" `
+  --data-binary "@$env:TEMP\release.json"
 ```
 
-**设置仓库话题标签（Topics）：**
+**设置仓库话题标签（Topics）—— 无中文，PS 可用：**
 
 ```powershell
-$topics = @{ names = @("tag1", "tag2", "tag3") } | ConvertTo-Json
+$topics = '{"names":["tag1","tag2","tag3"]}'
+$bytes  = [System.Text.Encoding]::UTF8.GetBytes($topics)
 Invoke-RestMethod "https://api.github.com/repos/{owner}/{repo}/topics" `
-    -Method Put -Headers $headers -Body $topics
-```
-
-**更新仓库描述：**
-
-```powershell
-$desc = @{ description = "一句话项目描述（120 字符内）" } | ConvertTo-Json
-Invoke-RestMethod "https://api.github.com/repos/{owner}/{repo}" `
-    -Method Patch -Headers $headers -Body $desc
+    -Method Put -Headers $headers -Body $bytes
 ```
 
 **检查当前 Releases：**
 
 ```powershell
-Invoke-RestMethod "https://api.github.com/repos/{owner}/{repo}/releases" `
-    -Headers $headers | Select-Object tag_name, name, html_url
+curl.exe -s -H "Authorization: token $t" `
+  "https://api.github.com/repos/{owner}/{repo}/releases" | python -c "import sys,json; [print(r['tag_name'], r['name']) for r in json.load(sys.stdin)]"
 ```
 
 ### 15.4 PM 的 Release 操作清单
@@ -1269,14 +1261,13 @@ Invoke-RestMethod "https://api.github.com/repos/{owner}/{repo}/releases" `
 ```
 1. 执行 §5.2 步骤 1-7（CHANGELOG → commit → tag → push）
 2. 准备 Release Notes：
-   - 使用英文（严禁向 body 字段写入中文字符）
-   - 先写成独立字符串变量，不要内联 heredoc
-3. API: 创建 GitHub Release（严格按 §15.3 的 UTF-8 发送模式）
+   - 用 Copilot create_file 将 Release JSON 写入临时文件（中英文均可）
+3. API: curl.exe --data-binary @file 发送（§15.3 标准模板）
    - 首个正式版：make_latest = false
    - 最新稳定版：make_latest = true
 4. 验证（关键）：
-   - 访问 /releases 页面，确认 body 以 "## v..." 正常开头
-   - 如显示 {"value"=>"..."} 或乱码，立即用 PATCH 脚本修复
+   - 访问 /releases 页面，确认标题和正文中文正确渲染
+   - 如乱码，检查是否用了 PS Invoke-RestMethod 传字符串（改用 curl）
    - 确认 Release 标题正确、标签关联正确
 ```
 
@@ -1295,46 +1286,49 @@ Invoke-RestMethod "https://api.github.com/repos/{owner}/{repo}/releases" `
 
 ```
 1. 获取 token（§15.2 git credential fill）
-2. 将标题和正文分别保存为独立 .txt 文件（UTF-8，避免 PS5.1 脚本编码问题）
-3. 执行 _publish_discussion.ps1 脚本（见下方模板）
+2. 将请求 JSON 保存为文件（Copilot create_file 创建的文件是 UTF-8）
+3. curl.exe --data-binary @file.json 发送（见下方模板）
 4. 验证：访问 discussions 页面，确认中文正确渲染
-5. 执行完毕后删除 token 行和临时内容文件
 ```
 
-**标准脚本模板（脚本本身只含 ASCII）：**
+**createDiscussion 请求体（新建）：**
+
+```json
+{
+  "query": "mutation($rId:ID!,$cId:ID!,$t:String!,$b:String!){createDiscussion(input:{repositoryId:$rId,categoryId:$cId,title:$t,body:$b}){discussion{url number}}}",
+  "variables": {
+    "rId": "R_kgDORYROOA",
+    "cId": "<categoryId>",
+    "t": "标题",
+    "b": "正文内容"
+  }
+}
+```
 
 ```powershell
-$token = "gho_..."  # 执行后删除此行
-$h = @{ Authorization = "bearer $token"; "Content-Type" = "application/json" }
-$base = "path\to\content"
-
-# 读取中文内容（显式 UTF-8，不依赖 PS 默认编码）
-$title = [System.IO.File]::ReadAllText("$base\_title.txt", [System.Text.Encoding]::UTF8).Trim()
-$body  = [System.IO.File]::ReadAllText("$base\_body.txt",  [System.Text.Encoding]::UTF8)
-
-# createDiscussion（新建）
-$payload = [ordered]@{
-    query = 'mutation($rId:ID!,$cId:ID!,$t:String!,$b:String!){createDiscussion(input:{repositoryId:$rId,categoryId:$cId,title:$t,body:$b}){discussion{url number}}}'
-    variables = [ordered]@{ rId = "R_kgDORYROOA"; cId = "<categoryId>"; t = $title; b = $body }
-}
-$bytes = [System.Text.Encoding]::UTF8.GetBytes(($payload | ConvertTo-Json -Depth 5 -Compress))
-$r = Invoke-RestMethod -Uri "https://api.github.com/graphql" -Method POST -Headers $h -Body $bytes
-Write-Host $r.data.createDiscussion.discussion.url
-
-# updateDiscussion（修复已有 Discussion）—— 先查 node ID
-$qId = '{"query":"query{repository(owner:\"njueeRay\",name:\"njueeray.github.io\"){discussion(number:N){id}}}"}'
-$nodeId = (Invoke-RestMethod -Uri "https://api.github.com/graphql" -Method POST -Headers $h `
-           -Body ([System.Text.Encoding]::UTF8.GetBytes($qId))).data.repository.discussion.id
-$payload2 = [ordered]@{
-    query = 'mutation($id:ID!,$t:String!,$b:String!){updateDiscussion(input:{discussionId:$id,title:$t,body:$b}){discussion{url title}}}'
-    variables = [ordered]@{ id = $nodeId; t = $title; b = $body }
-}
-$r2 = Invoke-RestMethod -Uri "https://api.github.com/graphql" -Method POST -Headers $h `
-      -Body ([System.Text.Encoding]::UTF8.GetBytes(($payload2 | ConvertTo-Json -Depth 5 -Compress)))
-Write-Host $r2.data.updateDiscussion.discussion.title
+# JSON 文件由 Copilot 工具创建（UTF-8）
+curl.exe -s -X POST https://api.github.com/graphql `
+  -H "Authorization: bearer $t" `
+  -H "Content-Type: application/json" `
+  --data-binary "@$env:TEMP\create_discussion.json"
 ```
 
-> ⚠️ **绝对禁止** 在终端直接输入含大量中文的 here-string（`@" "@`）——会触发 PSReadLine 缓冲区溢出崩溃（`ArgumentOutOfRangeException: top = -26`）。始终通过脚本文件执行。
+**updateDiscussion 流程（修改已有 Discussion）：**
+
+```powershell
+# 第一步：查 node ID（纯 ASCII query，可内联）
+$q = '{"query":"query{repository(owner:\"njueeRay\",name:\"njueeray.github.io\"){discussion(number:N){id}}}"}'
+$id = (curl.exe -s -X POST https://api.github.com/graphql `
+       -H "Authorization: bearer $t" -H "Content-Type: application/json" `
+       --data $q | python -c "import sys,json; print(json.load(sys.stdin)['data']['repository']['discussion']['id'])")
+
+# 第二步：将 updateDiscussion JSON 写入文件，curl 发送
+curl.exe -s -X POST https://api.github.com/graphql `
+  -H "Authorization: bearer $t" -H "Content-Type: application/json" `
+  --data-binary "@$env:TEMP\update_discussion.json"
+```
+
+> ⚠️ **绝对禁止** 在终端直接输入含大量中文的 here-string（`@" "@`）——会触发 PSReadLine 缓冲区溢出崩溃。JSON 内容由 Copilot 工具写入文件。
 
 ---
 
