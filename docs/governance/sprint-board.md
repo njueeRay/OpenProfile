@@ -14,7 +14,7 @@
 | 5 | Brand Discussion：v6.0.0+v6.1.0+v6.2.0 发版公告 | Brand | ✅ 完成 | 03-13 | Discussion #5 + #6 由 Playwright 自动发布 |
 | 6 | v6.2.0 开源公告博文 + CONTRIBUTING.md 上手指引 | Dev+Brand | ✅ 完成 | 03-11 | open-source-announcement.mdx + CONTRIBUTING.md Fork 章节 |
 | 7 | Agent Persona Layer Phase 0+1：/agents 页面 + 视觉身份系统 | Dev | ✅ 完成 | 03-14 | config.ts schema + 7 YAML + visual-spec + /agents/index.astro + Nav 入口；v6.3.0 tag 发布 |
-| 8 | v6.4.0 Agent 详情页 + 活动时间线 + Brand Discussion | Dev+Brand | ⬜ 待开始 | 04-05 | /agents/[id].astro (F-2) + discussion-agent-personas.md 草稿 (F-3) |
+| 8 | v6.4.0 Agent 详情页 + 活动时间线 + Brand Discussion | Dev+Brand | ✅ 完成 | 03-14 | /agents/[id].astro (F-2) + discussion-agent-personas-draft.md (F-3)；v6.4.0 tag 发布 |
 
 ---
 
@@ -43,3 +43,4 @@
 | 03-13 | v6.0.0+v6.1.0+v6.2.0 Brand Discussion 发布 | ✅ 完成 | 首次 Playwright 自动发布成功（Discussion #5、#6） |
 | 03-14 | v6.3.0 scope = Phase 0+1，E-1~E-5 | ✅ Agent 自主决策 | B 方案；含 /agents 静态页 + Nav 入口，一次发完有闭合感 |
 | 03-14 | v6.4.0 目标 = F-1~F-3（Agent 详情页 + Brand Discussion 稿）| ✅ 同意扩展 | 用户确认 "直到推到 v6.4.0 完成" |
+| 03-14 | /agents/[id].astro 详情页实现策略 | ✅ Agent 自主决策 | Profile Card + 双栏 + 时序时间线；SoftwareApplication JSON-LD；复用 --agent-color 系统 |
