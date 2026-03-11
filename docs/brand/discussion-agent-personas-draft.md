@@ -2,7 +2,7 @@
 
 **决策方：** Brand Agent  
 **日期：** 2026-03-14  
-**状态：** 📝 草稿待发布
+**状态：** ✅ 已发布 — [Discussion #12](https://github.com/njueeRay/njueeray.github.io/discussions/12)（2026-03-14）
 
 ---
 
