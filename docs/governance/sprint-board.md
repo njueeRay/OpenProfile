@@ -1,9 +1,42 @@
 # Sprint Board
 
-> 上次更新：2026-03-14 · 活跃项 ≤ 7
+> 上次更新：2026-03-14（v6.6.0 Agent Office）· 活跃项 ≤ 7
 >
 > **铁律：** ≤50 行 · ≤7 条 · 超 2 周未动则 triage（做 / 删 / 降级到 backlog）
 > **协议：** 每个会话执行 Recall → Execute → Ship（只做一件事，做完）
+
+| # | 事项 | Owner | 状态 | Deadline | 完成物 |
+|---|------|-------|------|---------|--------|
+| 1~8 | （历史已完成见 CHANGELOG） | — | ✅ | — | — |
+| 9 | v6.5.0 Agent Knowledge Graph | Dev+Researcher | ✅ 完成 | 03-14 | AgentKnowledgeGraph.tsx + /agents/graph + v6.5.0 tag |
+| 10 | v6.6.0 Agent Persona Deep Layer 第一阶段 | Dev+Researcher | ✅ 完成 | 03-14 | agent-activities.ts + AgentOffice.tsx + /agents/office + [id] 协作网络面板 |
+
+---
+
+## Backlog（不计入活跃项上限）
+
+- v6.6.0 后续：Agent Office 像素风 sprite 美化（当前为终端 token 风格）
+- v6.7.0：`/agents/graph` 节点点击跳转 + 边动画流粒子
+- v6.8.0：Agent Activity 历史归档（从会议纪要自动提取）
+- `forage-mcp` 接入
+- `.github/skills/` 贡献至社区
+
+---
+
+## Decision Journal（最近 10 条）
+
+> 自动记录 Ray 的判断。AI-native 健康度的唯一指标。
+
+| 日期 | 决策 | Ray 的判断 | 理由（一句话）|
+|------|------|-----------|-------------|
+| 03-11 | Board 驱动 Ship 循环 | ✅ 同意 | 认可范式转移方向 |
+| 03-11 | 停止维护 Playbook | ❌ 否决 → 修订 | Playbook 应继续维护，进化为项目无关的可迁移知识 |
+| 03-14 | v6.3.0 scope = Phase 0+1 | ✅ Agent 自主决策 | /agents 静态页 + Nav 入口 |
+| 03-14 | v6.4.0 目标 = F-1~F-3 | ✅ 同意扩展 | 用户确认 "直到推到 v6.4.0 完成" |
+| 03-14 | v6.5.0 Agent Knowledge Graph | ✅ Agent 自主决策 | react-force-graph + 静态降级表格 |
+| 03-14 | v6.6.0 Agent Office 视觉风格 | ✅ Agent 自主决策 | 参考 pixel-office + mohano；终端 token 风格（无需 sprite 素材）|
+| 03-14 | 参考现有开源工程（pixel-office、mohano）而非从零建造 | ✅ Ray 驱动 | "学会参考别人工程研究" — AI-native 方式：站在巨人肩膀 |
+
 
 | # | 事项 | Owner | 状态 | Deadline | 完成物 |
 |---|------|-------|------|---------|--------|
