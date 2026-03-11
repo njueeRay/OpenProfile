@@ -1,6 +1,43 @@
 # 贡献指南
 
 > 感谢你对本项目感兴趣！本项目是一个「用 AI Agent 协作构建 GitHub Profile」的开源示范工程。
+>
+> **项目结构说明：**
+> - `njueeRay/OpenProfile`（本仓库）：治理规范 + Agent 定义 + 决策日志
+> - `njueeRay/njueeray.github.io`：Astro 5 站点，可作为个人博客/主页模板 Fork
+
+---
+
+## Fork 上手（5 分钟）
+
+想把这套架构用到自己项目上，最少只需要 3 步：
+
+### 1. Fork 站点模板
+
+```bash
+# Fork njueeray.github.io 后克隆
+git clone https://github.com/YOUR_USERNAME/njueeray.github.io.git
+cd njueeray.github.io
+npm install
+npm run dev         # 本地预览 http://localhost:4321
+```
+
+### 2. 替换个人信息
+
+关键文件：
+- `src/components/Hero.astro` — 姓名、标签、简介
+- `src/content/authors/njueeray.yaml` — 作者 YAML
+- `src/data/` — 技术栈、团队成员数据
+- `astro.config.mjs` — `site` 字段改为你的域名
+
+### 3. Fork 治理模板（可选，但推荐）
+
+```bash
+# Fork OpenProfile 后克隆
+git clone https://github.com/YOUR_USERNAME/OpenProfile.git
+```
+
+替换 `.github/copilot-instructions.md` 中的个人信息字段（`username`、`name`、`role`），其余尽可能保留——这套规范是核心价值所在。
 
 ---
 

@@ -10,6 +10,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [5.9.0] — 2026-03-11
+
+> **OpenProfile 开源宣布配套治理更新 🎉**
+
+### Added
+
+- **D-2** `CONTRIBUTING.md` — 补充「Fork 上手（5 分钟）」章节：站点模板 Fork 流程 + 关键替换文件 + 治理模板 Fork 指引；面向外部贡献者友好入门
+
+### Changed
+
+- 治理文档更新：v6.2.0 开源公告博文确认，`docs/strategy/project-roadmap-v6.md` 后续路线图更新
+
+---
+
 ## [5.8.0] — 2026-03-11
 
 > **协作范式转移 🔄 — Board 驱动 Ship 循环正式确立**

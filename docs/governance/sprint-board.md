@@ -11,7 +11,9 @@
 | 2 | Sprint Board 初始化 + 三段式协议落地 | Brain | ✅ 完成 | 03-11 | 本文件 |
 | 3 | v6.0.0 expressive-code + Callout + reading-time | Dev | ✅ 完成 | 03-11 | B1~B4 已在 v5.8.0 完成，v6.0.0 tag 已推送 |
 | 4 | v6.1.0 读者入口文章 + Brand 72h 外循环正式化 | Brand+Dev | ✅ 完成 | 03-11 | 2-min-guide 博文 + CHANGELOG C-2 外循环规则 |
-| 5 | Brand Discussion：v6.0.0+v6.1.0 发版公告 | Brand | 🔵 进行中 | 03-13 | （72h 内需发布）|
+| 5 | Brand Discussion：v6.0.0+v6.1.0 发版公告 | Brand | 🔵 进行中 | 03-13 | 草稿就绪，等 gh auth 完成后自动发布 |
+| 6 | v6.2.0 开源公告博文 + CONTRIBUTING.md 上手指引 | Dev+Brand | ✅ 完成 | 03-11 | open-source-announcement.mdx + CONTRIBUTING.md Fork 章节 |
+| 7 | Agent Persona Layer Phase 0：authors/ 扩展 + visual-spec | Dev | ⬜ 待开始 | 03-25 | config.ts schema + 7 个 author YAML + visual-spec 文档 |
 
 ---
 
@@ -36,3 +38,4 @@
 | 03-11 | Decision Journal 机制 | ✅ 同意 | 自动记录判断轨迹 |
 | 03-11 | Sprint Board 唯一状态源 | ✅ 同意 | 取代 copilot-instructions 迭代状态段落 |
 | 03-11 | Roadmap 执行通 v6.1.0 | ✅ 同意 | 按规划逐个 check 执行 |
+| 03-11 | 继续推进到 v6.2.0 并自主规划后续 | ✅ 同意 | Dev 自主规划 Agent Persona Layer 为下一站 |
