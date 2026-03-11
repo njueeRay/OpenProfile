@@ -3,6 +3,9 @@
 > 这是 njueeray 个人 GitHub 主页项目的 AI 协作指南。
 > 本文件在每次 Copilot Agent 会话中自动生效，无需重复说明。
 
+> **团队来源：** Agent 定义、Skills、Playbook 统一维护于 [`njueeRay/ai-team`](https://github.com/njueeRay/ai-team)（submodule 路径：`.team/`）。
+> 更新团队：`git submodule update --remote .team` → `.\.team\bootstrap.ps1`
+
 ---
 
 ## 哲学锚点 — AI-native person
