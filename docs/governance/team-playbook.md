@@ -508,6 +508,14 @@ Brain  评估影响面：PATCH / MINOR / MAJOR（见 §5.1）
 等待用户确认后执行 §5.2 发布流程。
 ```
 
+**PM 自动检查规则（内在行为，无需用户触发）：**
+
+| 执行节点 | 检查动作 |
+|---------|---------|
+| SessionStart | 读取 CHANGELOG 首行，输出积压摘要：「[Unreleased] 有 N 条目，上次 Release vX.Y.Z（N 天前）」 |
+| 任务完成时 | [Unreleased] ≥3 条目且 ≥3 天 → 发起版本提案；>0 条目且 >5 天 → 向 Brain 发积压告警（P0） |
+| DoD Checklist | 发现 [X.Y.Z] 段存在但无对应 git tag → 提示 Dev 立即执行 tag + release 流程 |
+
 ---
 
 ## 6. Code-Reviewer 八维度质量门
@@ -629,6 +637,8 @@ Brain  评估影响面：PATCH / MINOR / MAJOR（见 §5.1）
 | 检测到技术重大变化（框架迁移、新工具引入）| 主动提议 Sprint 规划会 |
 | 用户输入话题明显偏离当前 Sprint 方向 | 主动提议快速站会澄清意图 |
 | 会话中识别到用户新偏好（"我希望以后…" 类表达）| 静默更新 .github/USER.md，不打扰用户 |
+| Major 版本发布后 | 召开全员里程碑复盘会（可与 Sprint 规划合并为双议程会议） |
+| Session 开始，发现上一个 Release 后无后续规划 | 提出 Sprint 规划议程或请用户确认下一目标 |
 
 **不应触发的情况：**
 
@@ -1293,70 +1303,17 @@ curl.exe -s -X POST "https://api.github.com/repos/{owner}/{repo}/releases" `
 
 | 组件 | 必须 | 规范 |
 |------|------|------|
-| **Logo** | ✅ | SVG 格式，`assets/logo.svg`，见 §16.3 |
+| **Logo** | ✅ | SVG 格式，`assets/logo.svg`，规格见 brand-guide.md |
 | **项目一句话描述** | ✅ | ≤ 120 字符，置于 README 副标题 |
 | **仓库 Description** | ✅ | 同上，通过 API 设置（§15.3） |
-| **话题标签 Topics** | ✅ | 5-8 个，见 §16.4 |
-| **Badge 套件** | ✅ | Stars / License / Release / CI，见 §16.5 |
+| **话题标签 Topics** | ✅ | 5-8 个，选择策略见 brand-guide.md |
+| **Badge 套件** | ✅ | Stars / License / Release / CI，配置见 brand-guide.md |
 | **品牌色** | ✅ | 在 `copilot-instructions.md` 中锁定 |
 | **字体标识** | 推荐 | 与项目调性匹配的字体 + 品牌色 |
 
-### 16.3 Logo 设计规范
+> Logo 设计规格、话题标签选择策略、Badge 套件配置详见 [`docs/brand/brand-guide.md`](../brand/brand-guide.md)。
 
-**规格：**
-
-- 尺寸：宽版 `480×160px`（README 用）+ 方形 `160×160px`（头像/图标用）
-- 格式：SVG（可缩放，体积小）
-- 存储：`assets/logo.svg`，`assets/logo-square.svg`
-
-**视觉语言（由 Brain 根据项目定位决定）：**
-
-- 背景：深色（如 `#0d1117`）或浅色，视项目调性而定
-- 强调色：项目品牌色（在 copilot-instructions.md 中锁定）
-- 字体风格：与项目气质匹配（如工程项目用等宽字体，设计项目用无衬线字体）
-- 视觉元素：与项目领域相关的图标或风格
-
-**光标动画（可选，增加活力）：**
-
-```svg
-<rect ...>
-  <animate attributeName="opacity" values="0.9;0.1;0.9"
-           dur="1.2s" repeatCount="indefinite"/>
-</rect>
-```
-
-### 16.4 话题标签策略
-
-**选择原则：**
-
-- 技术标签（具体）：项目使用的框架、语言、工具
-- 场景标签（中等宽度）：项目解决的问题域
-- 理念标签（宽泛）：`ai-native`, `open-source`, `workflow-template`
-- **避免过泛标签**：`web`, `tool`, `project`（竞争太大，无区分度）
-
-**设置方式：** 使用 §15.3 中的 API 操作，不要在 GitHub 网页上手动拖拽。
-
-### 16.5 Badge 套件规范
-
-**标准 Badge 顺序（README 顶部 `div align="center"` 内）：**
-
-```markdown
-[![Stars](https://img.shields.io/github/stars/{owner}/{repo}?style=flat-square&color=gold&logo=github)]()
-[![Forks](https://img.shields.io/github/forks/{owner}/{repo}?style=flat-square&color=58a6ff&logo=github)]()
-[![Latest Release](https://img.shields.io/github/v/release/{owner}/{repo}?style=flat-square&color=3fb950)]()
-[![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)]()
-[![CI](https://img.shields.io/github/actions/workflow/status/{owner}/{repo}/{workflow}.yml?style=flat-square&label=CI)]()
-```
-
-**可选 Badge（按需添加）：**
-
-```markdown
-[![Built with Copilot](https://img.shields.io/badge/Built%20with-GitHub%20Copilot-0078d4?style=flat-square&logo=github)]()
-```
-
-**一句话描述位置：** Logo 图片下方，badges 上方，**加粗**显示。
-
-### 16.6 执行角色分工
+### 16.3 执行角色分工
 
 ```
 Brain   → 决定品牌化时机，确认调性方向（深色/浅色，终端风/简约风）
@@ -1530,175 +1487,12 @@ docs/governance/PLAYBOOK-CHANGELOG.md
 
 ---
 
-## 19. Agent 能力演进机制（GEP 适配版）
+## 19. Agent 能力演进机制（GEP）
 
-> 本章建立团队的「可学习协作系统」基础架构。  
-> 灵感来源：EvoMap/evolver GEP（Genome Evolution Protocol），1.4k ⭐  
-> 核心原则：演进是协议约束的，局限是第一类公民，轨迹是可审计的。  
-> 写入时间：2026-03-10（团队演进机制研究会）
-
-### 19.1 三级演进结构
-
-```
-Level 1：Genes（原子模式）
-  ↳ 位置：每个 Agent 的知识库文件
-  ↳ 格式：唯一编号 + 场景 + 模式 + 验证记录
-  ↳ 来源：每次 Sprint 结束 / 每次会话结束提炼（Playbook §2.2 Step 4）
-  
-Level 2：Capsules（元模式束）
-  ↳ 位置：集中的元模式文件
-  ↳ 格式：编号 + 场景 + 关联 Genes 列表 + 组合效果描述
-  ↳ 触发：多个 Gene 总是配合使用且产生 1+1>2 效果时提炼
-  ↳ 当前状态：框架已建立，等待 Gene 积累到 20+ 后填写
-  
-Level 3：Evolution Events（演进事件链）
-  ↳ 位置：演进事件归档文件（建议 JSONL 格式）
-  ↳ 格式：每行一条 {date, trigger, agent, type, patternId, description}
-  ↳ 触发：**季度归档**（不承诺自动触发，Agent 可主动追加）
-  ↳ 目的：使演进可审计，防止「不知道为什么改了」
-```
-
-### 19.2 能力局限声明规范
-
-每个 Agent 的知识库文件末尾**必须**包含以下小节：
-
-```markdown
-## 已知能力局限（Known Limitations）
-
-> 来源：<最近一次成长会>
-> 上次更新：YYYY-MM-DD
-
-| 局限类型 | 描述 | 规避策略 | 成长方向 |
-|---------|------|---------|---------|
-| ...     | ...  | ...     | ...     |
-```
-
-**规则：**
-- 局限是反映事实，不是批评——每个 Agent 的局限源自角色约束，不代表失败
-- 局限声明和 Gene（L2 模式）在同一文件中，确保能力地图完整
-- 成长会（每 3 个 Minor 版本或 30 天触发）后必须检视并更新此小节
-
-### 19.3 演进触发机制（Strategy Presets）
-
-| 触发条件 | 策略模式 | 执行主体 | 行动 |
-|---------|---------|---------|------|
-| CI 连续失败 / 生产故障 | `repair-only` | Brain 紧急响应 | 立即开紧急响应会 |
-| 新 Major 版本前 | `harden` | Code Reviewer 强化 | 八维度审查 + 强化测试 |
-| 新 Sprint 启动（功能探索期）| `innovate` | Brain 主持技术决策会 | 验证新方向 |
-| 正常迭代 | `balanced` | 标准 Sprint 流程 | 正常执行 |
-| 距上次成长会 > 30 天 | `evolve-team` | Brain 自动触发 | 成长会 + patterns 更新 |
-| 连续 3 次 Minor 中 Fixed > Added | `harden` 信号 | PM 感知并上报 | 建议切 harden Sprint |
-
-### 19.4 版本间信号感知（PM 职责）
-
-PM 在每次 Minor 版本发布后执行「信号扫描」：
-
-1. 检视 CHANGELOG 的 `Fixed` 与 `Added` 比例
-   - `Fixed` > `Added` 连续 3 次 → 发出 `harden` 信号，建议调整下一 Sprint 策略
-2. 检视 Discussions 帖子的回复情况（Brand 提供数据）
-   - 无回复超过 2 个帖子 → 发出「内容触达」信号，Brand 调整内容策略
-3. 将信号记录在 Sprint 规划会议纪要的「外部信号」字段中
-
-### 19.5 新增 patterns 的 DoD
-
-向任何 Agent 知识库新增条目必须满足：
-
-- [ ] 有唯一编号（团队自定编号规则，如 P-XX-NNN，XX 为 Agent 缩写，NNN 三位数字）
-- [ ] 有「场景」字段（什么时候用）
-- [ ] 有「模式」字段（怎么做，步骤化）
-- [ ] 有「验证」字段（哪个版本/事件验证过）
-- [ ] 有「来源」字段（哪次会议/实践）
-- [ ] （可选）向演进事件归档文件追加一行记录
-
----
-
-## 20. 自动治理触发机制（Auto-Governance Triggers）
-
-> **指导思想：** 仅靠人工提醒触发版本发布、会议召集、状态同步是不可靠的。
-> 将这些判断逻辑编码为 PM 和 Brain 角色的内在行为规则。
-
-### 20.1 触发规则总表
-
-| 触发条件 | 责任角色 | 执行动作 | 优先级 |
-|---------|---------|---------|-------|
-| [Unreleased] 有 ≥3 条目且距上次 Release ≥3 天 | PM | 向 Brain 提出版本切版提案 | P1 |
-| [Unreleased] 中有条目但距上次 Release >5 天 | PM | 发出「积压告警」，请求 Brain 指令 | P0 |
-| 新 [X.Y.Z] 段已写入 CHANGELOG，但无对应 git tag | PM | 提示 Dev 立即执行 `git tag` + `git push --tags` + 创建 GitHub Release | P1 |
-| 任意 Minor 版本发布后，本 Session 或下一 Session 未规划下一步 | Brain | 提出 Sprint 规划议程或请用户确认下一目标 | P1 |
-| Major 版本发布后 | Brain | 必须召开全员里程碑复盘会（可与下一规划合并） | P1 |
-| 连续 ≥3 个 Minor 版本发布，无任何复盘会 | Brain | 主动提议里程碑复盘，不等用户发起 | P2 |
-| Session 开始时 [Unreleased] 非空（>0 条目） | PM（SessionStart 信号） | 输出简报：「当前 [Unreleased] 有 N 条目，上次 Release 是 vX.Y.Z（N 天前）」 | P2 |
-
-### 20.2 PM 触发规则（细则）
-
-**触发检查时机（PM 必须在以下节点执行）：**
-1. **任何任务被标记为完成时** → 扫描 CHANGELOG [Unreleased] 段
-2. **DoD Checklist 执行时** → 检查版本积压状态
-3. **SessionStart** → 读取 CHANGELOG 首行，输出积压摘要
-
-**积压判断逻辑（伪代码）：**
-```
-if len([Unreleased].items) >= 3 AND days_since_last_release >= 3:
-    → 提出版本提案（建议版本号 + 理由）
-
-elif len([Unreleased].items) > 0 AND days_since_last_release > 5:
-    → 发出积压告警到 Brain（P0）
-
-elif changelog 有 [X.Y.Z] 段 AND git tag vX.Y.Z 不存在:
-    → 提示 Dev 执行 tag + release 流程
-```
-
-**版本号提案规则（PM 建议，Brain 确认）：**
-- 只有 `Fixed` 类条目 → Patch（x.x.N+1）
-- 有 `Added` 类条目，无 Breaking Change → Minor（x.N+1.0）
-- 有 API 破坏 / 架构重构 → Major（需 Brain 确认）
-
-### 20.3 Brain 触发规则（细则）
-
-**触发检查时机（Brain 必须在以下节点执行）：**
-1. **任意 Release 完成后**（PM 发出 `release-complete` 信号）
-2. **Session 开始时**（读取会议纪要，检查上一个 Release 是否有后续动作）
-3. **连续工作 ≥3 个 Sprint 的收尾节点**
-
-**会议触发逻辑：**
-```
-if last_release == Major (X.0.0):
-    → 必须召开全员里程碑复盘会（可与 Sprint 规划合并为双议程会议）
-
-elif minor_releases_since_last_retro >= 3:
-    → 主动提议召开「里程碑节点会」或「自由脑暴」
-
-elif last_release == Minor AND no_next_sprint_plan:
-    → 在本 Session 末尾或下次 Session 开头提出 Sprint 规划议程
-```
-
-**Brain 主动感知扩展（补充 §8 Brain 触发规则）：**
-- 检测到 CHANGELOG [Unreleased] 积压告警（来自 PM）→ 纳入当前 Session 议程
-- PM 提出版本提案后 → Brain 确认或调整版本号，推进 Release 流程
-
-### 20.4 Hook 集成（执行层）
-
-`.github/settings.json` 中的 Hooks 承担以下自动触发职责：
-
-| Hook 类型 | 触发时机 | PM 行为 | Brain 行为 |
-|----------|---------|---------|-----------|
-| `SessionStart` | 会话开始 | 读取 CHANGELOG，输出积压状态摘要 | 检查上一个 Release 是否有未完成的后续动作 |
-| `TaskCompleted` | 任务完成 | 扫描 [Unreleased]，判断是否触发版本提案 | 确认是否需要规划下一步 |
-| `TeammateIdle` | 无活跃任务 | 检查是否有积压超 5 天的 [Unreleased] | 判断是否应主动提议会议或新 Sprint |
-
-**Hook prompt 触发词（写入 settings.json 的语义触发）：**
-- PM：`"检查 CHANGELOG [Unreleased] 积压状态，输出积压天数和条目数"`
-- Brain：`"检查是否有未跟进的 Release 后续动作（规划/复盘）"`
-
-### 20.5 触发规则的 DoD
-
-> 新增触发规则时，必须同步更新以下位置：
-
-- [ ] 本手册 §20.1 规则总表
-- [ ] PM Agent 的「自动触发规则」章节
-- [ ] Brain Agent 的「会议触发规则」章节
-- [ ] 对应 Skill 文件的 `triggers` 列表
-- [ ] Hook 配置中对应的 `prompt` 字段
+> **实验性框架，内容已移至独立文件。**
+> 待 Gene 积累到 20+ 后评估是否纳入正式章节。
+>
+> 详见 [`docs/governance/playbook-experimental-gep.md`](playbook-experimental-gep.md)
 
 ---
 
@@ -1750,5 +1544,5 @@ PM 发现任务范围蔓延  汇报 Brain  Brain 与用户对齐
 ---
 
 *本手册由 Brain + PM 共同维护，每次复盘会议后更新版本。*  
-*Playbook v2.4 — 2026-03-11 — 项目绑定内容精简（§4/§11/§13/§15/§16/§19/§20 去项目特定引用），变更记录见 docs/governance/PLAYBOOK-CHANGELOG.md。*
+*Playbook v2.5 — 2026-03-11 — §19 GEP 移出至实验文档 · §20 整章删除并内联至 §5.4/§8.3 · §16 品牌化细则移至 brand-guide.md，变更记录见 docs/governance/PLAYBOOK-CHANGELOG.md。*
 

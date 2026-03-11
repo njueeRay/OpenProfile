@@ -10,6 +10,28 @@
 
 ---
 
+## [Playbook v2.5] — 2026-03-11
+
+> **精简三章：§19 实验分离 · §20 整章删除并内联 · §16 细则移至 Brand Guide**
+>
+> 第二轮内容审查（审计报告 Top 5 高影响改进中的 3 项），净减少 206 行（-12%）。
+
+### Changed
+
+- §19 Agent 能力演进机制（GEP）：整章内容移出至 `docs/governance/playbook-experimental-gep.md`（实验性框架，待 Gene 积累 20+ 后再评估纳入）；Playbook 中保留 5 行指针
+- §20 自动治理触发机制：**整章删除**（激进方案）；关键规则内联回归：
+  - PM 自动检查规则表（SessionStart / 任务完成 / DoD 三节点）合并至 §5.4 末尾
+  - Brain Major/session 后触发规则新增至 §8.3 触发表
+- §16 开源品牌化：§16.3（Logo）+ §16.4（话题标签）+ §16.5（Badge）详细规范迁移至新建 `docs/brand/brand-guide.md`；§16 保留时机判断、组件清单和执行角色分工（约 30 行）
+- 页脚版本标注更新：v2.4 → v2.5
+
+### Added
+
+- `docs/governance/playbook-experimental-gep.md`：GEP 实验专区，含验证标准和纳入条件
+- `docs/brand/brand-guide.md`：开源品牌化实施细则（Logo 规格 / 话题标签 / Badge 套件）
+
+---
+
 ## [Playbook v2.4] — 2026-03-11
 
 > **项目绑定精简：7 个章节去除 OpenProfile 特定内容，回归可迁移知识定位**
