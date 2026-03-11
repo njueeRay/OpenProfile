@@ -214,3 +214,54 @@
 | 引用块使用 `❯` 前缀（终端提示符）| 替代传统 `▋` 竖线样式 | **视觉语言一致性**：整个项目的终端美学贯穿 Header（waving）、代码块（JetBrains Mono）、搜索（`$` 前缀标签）。引用块用 `❯` 而非普通边框，是「终端哲学在阅读体验层的延伸」，有意为之，不只是审美选择 |
 | FeaturedCard 渐变顶边 + 宽卡首位展示 | 信息分层结构 | 博客列表若所有卡片等权，读者无法快速判断「从哪篇开始」。宽卡 + 渐变顶边是视觉上的「主编推荐」信号，不需要文案解释就能传达「这条比较重要」|
 
+---
+
+## V5.6+ 设计决策速查表
+
+> 从 copilot-instructions.md 迁移（2026-03-11）。这里存放 v5.6 之后的增量决策，格式以「决策 + 生效版本」为主，深度理由在同文件前置章节或会议纪要中可查。
+
+| 决策 | 生效版本 | 说明 |
+|------|---------|------|
+| **expressive-code 主题**：`astro-expressive-code` + `github-dark-dimmed`，`borderRadius: 6px`，copy button accent 色 | v5.8.0 | 代码块终端风格统一 |
+| **Callout 组件**：四类（tip/warning/info/note），终端风 icon + uppercase 标签 + 对应色系 | v5.8.0 | — |
+| **阅读时长算法**：中文 500 字/分钟 + 英文 200 词/分钟，剥离 frontmatter/代码块/HTML | v5.8.0 | — |
+| **SeriesNav 位置**：author-card 后、相关文章前；series+seriesOrder 且系列 > 1 篇时渲染 | v5.8.0 | — |
+| **博客搜索快捷键**：`Ctrl+K` + `/`（后者跳过 input/textarea/contentEditable） | v5.x | Nav 搜索按钮 title 同步提示 |
+| **系列 URL 策略**：`/blog/series/[encodeURIComponent(seriesName)]`，支持中文系列名 | v5.x | — |
+| **归档页设计**：年/月分组，type-dot 圆点色彩编码 + 系列文章显示 `⊃` badge | v5.x | — |
+| **博客页头发现导航**：`# 标签 / ▶ 系列 / ⌥ 归档` 三连 pill 链接 | v5.x | 替换原单个「全部标签」链接 |
+| **OG 封面图方案**：satori + @resvg/resvg-js + @fontsource/jetbrains-mono，构建时静态生成 1200×630 PNG | v5.3.0 | 暗色终端风格 |
+| **UTM 追踪策略**：ShareLinks.astro 集成 `utm_source=copy/github_discussions`，`utm_campaign=blog` | v5.x | — |
+| **Claude Code Hooks 配置**：`TeammateIdle` / `TaskCompleted` / `Stop` / `SessionStart` 四个门禁 hooks | v5.7.0 | type: prompt 语义判断 |
+| **PostToolUse Hooks**：① markdownlint（Write/Edit 触发）② Memory MCP 自动保存关键文件变更 | v5.7.0 | 异步执行，不阻断主流程 |
+| **Agent Skills 架构**：`.github/skills/` 下 7 个 SKILL.md，遵循 Anthropic Agent Skills 开放标准 | v5.7.0 | 能力从「内部配置」升级为「可发现模块」|
+| **MCP 扩展 — agent-skill-loader**：`list_skills/read_skill/install_skill` 动态发现技能库 | v5.7.0 | 配置在 `.vscode/mcp.json` |
+| **forage MCP**：P2 路线图，`forage_search/forage_install/forage_learn` | 待实施 | — |
+| **会议文件命名规范**：`YYYY-MM-DD-NN-<type>.md`，NN 每天从 01 重计，禁止跨日连续编号 | v5.6.0 | — |
+| **self-improvement skill**：用户说「复盘」时触发七维度自评 | v5.7.0 | 教训写入 `/memories/` |
+| **博客内容类型**：insight / technical / member-essay / meeting 四类，四色徽章 + 左边框 | v5.x | — |
+| **JSON-LD schema 策略**：Agent 作者用 `SoftwareApplication`，人类用 `Person` | v5.x | — |
+| **hreflang 策略**：双语文章自动生成 zh/en/x-default；单语文章无 hreflang | v5.x | — |
+| **Lighthouse CI 阈值**：a11y ≥ 0.90 / seo ≥ 0.90（error 阻断）/ perf ≥ 0.85 / bp ≥ 0.90（warn） | v5.x | — |
+| **axe-core CI 范围**：首页 + 博客列表 + team 页；`--exit` flag violation 阻断 | v5.x | — |
+| **构建缓存策略**：缓存 `.astro/` Vite 增量产物；缓存键含 src/public/astro.config/package-lock hash | v5.x | — |
+| **Astro 5 script 规范**：含属性的 `<script>` 块必须显式加 `is:inline` | v5.0.0 | — |
+
+---
+
+## V6.x 协作模式决策（2026-03-11，Meeting #09）
+
+> 来源：`docs/meetings/2026-03-11-04-turning-point-strategic-reflection.md`
+
+| 决策 | 理由 |
+|------|------|
+| **Board 驱动 Ship 循环**：每个会话 Recall → Execute → Ship，只做一件事做完 | 从「Ray 驱动迭代」转向「系统驱动循环」；旧模式是 AI-assisted，新模式是 AI-native |
+| **Sprint Board 是唯一活跃状态源**：`docs/governance/sprint-board.md`，≤50 行 / ≤7 条 / 2 周存活期 | 超限强制 triage；取代 copilot-instructions 中易膨胀的「当前迭代状态」段落 |
+| **Decision Journal 自动记录**：记录 Ray 的每次判断（同意/否决/调整），AI-native 健康的唯一指标 | 判断力增长体现在「精准否决」而非「想到更多需求」 |
+| **对外是平级任务**：Brand 直接向 Sprint Board 贡献事项，与技术任务平等竞争优先级 | 终止「对外始终排在链条末端」的结构性问题 |
+| **会议纪要以价值为先，不设行数上限** | 会议是团队思想的重要证明；深度和沉淀优先于格式效率 |
+| **Playbook 进化为项目无关的可迁移知识** | 大前提：用户对下一个项目一无所知；去除项目专属内容 |
+| **停止强制出审查报告**：Ship 环节做轻量级检查，只有 Major 版本出完整报告 | 释放执行带宽；「做减法」的体现 |
+| **patterns 文件降为「有新认知再更新」** | 不再作为每次迭代的 DoD 项 |
+| **Agent Persona Layer（Pixel Agents）放在 v6.x 后专项实施** | 当前路线图以 v6.0~v6.2 内容和治理为主；可视化层不抢占当前带宽 |
+

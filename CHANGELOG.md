@@ -8,17 +8,37 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+---
+
+## [5.8.0] — 2026-03-11
+
+> **协作范式转移 🔄 — Board 驱动 Ship 循环正式确立**
+>
+> 团队完成了从「Ray 驱动的迭代循环」到「Board 驱动的 Ship 循环」的范式转移。Sprint Board 成为唯一活跃状态源，三段式会话协议（Recall → Execute → Ship）正式落地，Decision Journal 自动记录 Ray 的判断轨迹。
+
 ### Added
 
+- **协作模式文档** — `docs/governance/sprint-board.md`：团队唯一活跃状态源，≤50 行 / ≤7 条 / 2 周存活期铁律 + Decision Journal
+- **Agent Persona Layer Roadmap** — `docs/strategy/agent-persona-layer-roadmap.md`：Agent 可视化六层功能架构 + 四阶段实施路线图（含 Obsidian Publish 操作指南）
+- **Researcher 调研报告** — `docs/research/agent-visualization-landscape-2026.md`：18 个参照项目全量分析
 - **blog 博文发布（Brand 策展）**：3 篇 2026-03-10 内容发布到个人主页
   - `tool-layer-architecture-skills-hooks-mcp.mdx`（technical, featured）—— Skills × Hooks × MCP 三位一体架构解析
   - `agent-team-evolution-gep-2026-03-10.mdx`（meeting）—— Researcher 调研 GEP，发现与我们 L2 知识体系同构
   - `skills-scaffold-all-hands-2026-03-10.mdx`（meeting）—— 7 Agent 审查自身 Skills 卡片全体会
 - **docs/research/skills-ecosystem-2026.md**（Researcher D-6）：agent-skill-loader 生态深度调研 + 路线图建议
-- **全体会议纪要**：`docs/meetings/2026-03-10-04-skills-scaffold-all-hands.md`
+- **全体会议纪要（2026-03-11）**：
+  - `docs/meetings/2026-03-11-01-pixel-agents-all-hands.md`（Pixel Agents 构想全体会）
+  - `docs/meetings/2026-03-11-02-v5x-retro-v6-planning.md`（v5.x 系列复盘 + v6.0.0 方向规划）
+  - `docs/meetings/2026-03-11-03-agent-visualization-tech-seminar.md`（Agent 可视化技术专题研讨）
+  - `docs/meetings/2026-03-11-04-tech-decision-internal-discussion.md`（Agent Persona Layer 技术决策内部讨论）
+  - `docs/meetings/2026-03-11-04-turning-point-strategic-reflection.md`（转折点深度反思会 #09）
+- **全体会议纪要（2026-03-10）** — `docs/meetings/2026-03-10-04-skills-scaffold-all-hands.md`
 
 ### Changed
 
+- **Playbook v2.5**：项目绑定内容全面精简，推进为「项目无关的可迁移知识」；移除项目专属路径、局限性命令、实验文档，新增 Brand Guide 独立文档
+- **`docs/governance/design-decisions.md`**：新增 V5.6+ 设计决策速查表 + V6.x 协作模式决策（从 copilot-instructions.md 迁移）
+- **`.github/copilot-instructions.md`**：「已决定的设计选择」迁移到 design-decisions.md；「当前迭代状态」迁移到 Sprint Board；新增「当前协作协议（Board 驱动 Ship 循环）」段落
 - `docs/` 目录分层重构完成（`cae48dd`）：governance / guides / strategy 分类归档
 - `USER.md` → `.github/USER.md`（跨项目可携带）
 - `PLAYBOOK-CHANGELOG.md` → `docs/governance/PLAYBOOK-CHANGELOG.md`
