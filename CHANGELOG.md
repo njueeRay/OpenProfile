@@ -44,6 +44,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - `PLAYBOOK-CHANGELOG.md` → `docs/governance/PLAYBOOK-CHANGELOG.md`
 - `docs/governance/tooling-scaffold.md`：mcp.json 唯一配置原则明确
 - `.github/skills/brand-publishing/SKILL.md`：D-4 完成，triggers 补充社交媒体关键词
+- **`.github/copilot-instructions.md`（HTML 注释清理）**：移除遗留 180 行 HTML 注释残留块，设计决策迁移正式闭环；更新 DoD Checklist 移除冪余项目并指向 Sprint Board
 
 ---
 
@@ -486,7 +487,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
-[Unreleased]: https://github.com/njueeRay/OpenProfile/compare/v4.3.0...HEAD
+[Unreleased]: https://github.com/njueeRay/OpenProfile/compare/v5.8.0...HEAD
+[5.8.0]: https://github.com/njueeRay/OpenProfile/compare/v5.7.0...v5.8.0
+[5.7.0]: https://github.com/njueeRay/OpenProfile/compare/v5.6.0...v5.7.0
+[5.6.0]: https://github.com/njueeRay/OpenProfile/compare/v5.5.0...v5.6.0
+[5.5.0]: https://github.com/njueeRay/OpenProfile/compare/v5.4.0...v5.5.0
+[5.4.0]: https://github.com/njueeRay/OpenProfile/compare/v5.3.0...v5.4.0
+[5.3.0]: https://github.com/njueeRay/OpenProfile/compare/v4.3.0...v5.3.0
 [4.3.0]: https://github.com/njueeRay/OpenProfile/compare/v4.2.0...v4.3.0
 [4.2.0]: https://github.com/njueeRay/OpenProfile/compare/v4.1.0...v4.2.0
 [4.1.0]: https://github.com/njueeRay/OpenProfile/compare/v4.0.0...v4.1.0
