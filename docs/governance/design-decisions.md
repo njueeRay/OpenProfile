@@ -174,6 +174,7 @@
 - `[2026-02-26]` — **V4.0**：三层版本体系 + Pagefind 搜索 + 暗/亮主题 + 进度条 + TOC + Giscus 评论
 - `[2026-03-01]` — **V5.0**：Astro 5 迁移 + Content Layer API + 工程质量 Sprint（CSS 统一 / 组件拆分）
 - `[2026-03-10]` — **V5.6~5.10**：博客视觉专项 + 工具层脚手架 + 首页品牌化重设计
+- `[2026-03-14]` — **v6.3.0~v6.5.0**：Agent Persona Layer 全量交付（/agents 列表 + 详情页 + Knowledge Graph + Discussion #12）
 
 ---
 
@@ -246,6 +247,8 @@
 | **axe-core CI 范围**：首页 + 博客列表 + team 页；`--exit` flag violation 阻断 | v5.x | — |
 | **构建缓存策略**：缓存 `.astro/` Vite 增量产物；缓存键含 src/public/astro.config/package-lock hash | v5.x | — |
 | **Astro 5 script 规范**：含属性的 `<script>` 块必须显式加 `is:inline` | v5.0.0 | — |
+| **React Island 集成方案**：`@astrojs/react` + `client:load`，仅用于交互式 Graph 组件；动态 `import()` 懒加载 `react-force-graph` | v6.5.0 | 最小化 React 引入范围；图谱是唯一需要运行时 DOM 操作的组件 |
+| **Graph 降级策略**：`/agents/graph` 始终渲染静态协作关系表格；React Island 叠加在上方，JS 失败不影响可读性 | v6.5.0 | SSG 优先原则；可访问性第一 |
 
 ---
 

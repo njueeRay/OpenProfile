@@ -15,7 +15,7 @@
 | 6 | v6.2.0 开源公告博文 + CONTRIBUTING.md 上手指引 | Dev+Brand | ✅ 完成 | 03-11 | open-source-announcement.mdx + CONTRIBUTING.md Fork 章节 |
 | 7 | Agent Persona Layer Phase 0+1：/agents 页面 + 视觉身份系统 | Dev | ✅ 完成 | 03-14 | config.ts schema + 7 YAML + visual-spec + /agents/index.astro + Nav 入口；v6.3.0 tag 发布 |
 | 8 | v6.4.0 Agent 详情页 + 活动时间线 + Brand Discussion | Dev+Brand | ✅ 完成 | 03-14 | /agents/[id].astro (F-2) + discussion-agent-personas-draft.md (F-3)；v6.4.0 tag 发布 |
-| 9 | v6.5.0 Agent Knowledge Graph：供应链审计 + 图谱数据 + /agents/graph 页面 | Dev+Researcher | ⬜ 待开始 | 04-20 | G-1 npm audit + react-force-graph 许可证 → G-2 数据结构 → G-3 React Island → G-4 页面完整交付 |
+| 9 | v6.5.0 Agent Knowledge Graph：供应链审计 + 图谱数据 + /agents/graph 页面 | Dev+Researcher | ✅ 完成 | 2026-03-14 | G-1 npm audit fix (svgo) / G-2 agent-graph-data.ts / G-3 AgentKnowledgeGraph.tsx / G-4 /agents/graph 页面 + tag v6.5.0 |
 
 ---
 
