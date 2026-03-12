@@ -10,6 +10,27 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [6.0.0] — 2026-03-12
+
+> **GitHub Profile 三步美化 — AI 团队首次在 Profile 主页亮相**
+
+### Added
+
+- **`assets/agent-pixel-badge-dark.svg`** — 7 个 Agent 像素头像横幅（深色模式，396×81px，DPR 感知）
+- **`assets/agent-pixel-badge-light.svg`** — 7 个 Agent 像素头像横幅（亮色模式）
+- **`scripts/gen-pixel-badge.py`** — 像素横幅生成脚本，数据来源与 `njueeray.github.io` Pixel Avatar 系统保持同步
+- **`README.md` — `## 🤖 My AI Team` 新区块**（v-profile-2.0）：7 个 Agent 像素横幅 + 三个 badge（Meet the Team / Live Office / Knowledge Graph）
+- **`README.md` — `## 🛠️ How I Build` 新区块**（v-profile-3.0）：Recall → Execute → Ship 三步循环可视化表格 + `/how-we-work` 指引
+
+### Changed
+
+- **`README.md` — JSON bio `current_proj` 更新**（v-profile-1.0）：新增 `njueeray.github.io`
+- **`README.md` — Featured Projects 扩展至 3 列**（v-profile-1.0）：首列新增 `njueeray.github.io` 主站
+- **`README.md` — Blog Posts 同步至 2026-03-10/11**（v-profile-1.0）：更新为最近 5 篇（open-source-announcement、2-min-guide、tool-layer、gep-research、skills-scaffold）
+- **`README.md` — Connect 区块新增 AI Team 入口**（v-profile-1.0）：`🧠 Meet the Agents → /agents`
+
+---
+
 ## [5.9.0] — 2026-03-11
 
 > **OpenProfile 开源宣布配套治理更新 🎉**
