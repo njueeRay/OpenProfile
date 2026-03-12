@@ -10,6 +10,40 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [6.2.0] — 2026-03-12
+
+> **Phase 2 Discoverability + 技术债 B — 知识图谱刷新 × Discussion #9 草稿**
+
+### Added
+
+- **`scripts/gen-knowledge-graph.py`**（njueeRay-profile）— 团队知识图谱 SVG 生成脚本，7 Agent 全品牌色径向布局；Profile-Designer 首次纳入图谱
+- **`docs/brand/discussion-09-pixel-badge-tech.md`** — Discussion #9 草稿：「我在 GitHub Profile 里放了一张 AI 团队的像素头像墙」，含技术实现说明和社区问题
+
+### Changed
+
+- **`assets/team-knowledge-graph.svg`**（njueeRay-profile）— 重新生成：7 Agent 均匀径向布局，各 Agent 使用品牌色，新增 Profile-Designer 节点和「Pixel-Avatar」概念节点；移除旧版 6-Agent 蓝色统一配色
+
+### Fixed
+
+- **`blog-posts.yml`** — 在 workflow 文件头部补充「Blog Posts 精选标准」注释，防止手动覆盖时标准不一致
+
+---
+
+## [6.1.0] — 2026-03-12
+
+> **Phase 2 启动 + 技术债 A — RSS Action bug 修复**
+
+### Fixed
+
+- **`blog-posts.yml`**（njueeRay-profile）— `date_format` 从 `yyyy-MM-dd` 修正为 `YYYY-MM-DD`（moment.js / dayjs 正确大写格式），解决 Action 写入 `2026-00-xx` 日期格式异常问题
+
+### Notes
+
+- Sprint #26（sitemap + rss.xml）发现已由 njueeray.github.io 完成（`src/pages/rss.xml.ts` + `@astrojs/sitemap`），直接标记为完成；无需补充工程实现
+- Sprint #23（GitHub topics）需 Ray 手动操作（30 秒，见下方说明）
+
+---
+
 ## [6.0.0] — 2026-03-12
 
 > **GitHub Profile 三步美化 — AI 团队首次在 Profile 主页亮相**

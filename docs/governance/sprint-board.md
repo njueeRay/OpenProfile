@@ -1,6 +1,6 @@
 # Sprint Board
 
-> 上次更新：2026-03-12（A+B Sprint 启动）· 活跃项 7
+> 上次更新：2026-03-12（v6.1.0 + v6.2.0 交付）· 活跃项 2（#27 + #28）
 >
 > **铁律：** ≤50 行 · ≤7 条 · 超 2 周未动则 triage（做 / 删 / 降级到 backlog）
 > **协议：** 每个会话执行 Recall → Execute → Ship（只做一件事，做完）
@@ -15,11 +15,11 @@
 | 19 | v7.3.0 /how-we-work 工作流指南 | PM+Dev | ✅ | 03-14 | how-we-work.astro（5区块，95页面） |
 | 20 | v7.4.0 站内可发现性强化 | Dev | ✅ | 03-14 | Nav workflow 链接 + Footer 三栏 + agents/team CTA |
 | 21 | v7.5.0 Brand Discussion #8 — v7 三部曲传播 | Brand | ✅ | 03-14 | https://github.com/njueeRay/OpenProfile/discussions/8 |
-| 22 | v6.1.0 修复 RSS Action 日期格式 bug | Dev + CR | 🔲 | 03-19 | `.github/workflows/` 检查 + fix |
-| 23 | v6.1.0 OpenProfile 添加 GitHub topics | PM | 🔲 | 03-19 | `github-copilot` `ai-native` `github-profile` `developer-tools` |
-| 24 | v6.2.0 Discussion #9：像素头像墙技术分享 | Brand + PD | 🔲 | 03-21 | OpenProfile Discussion 草稿 |
-| 25 | v6.2.0 Blog Posts 选取标准文档化 + knowledge-graph.svg 刷新 | PM + PD | 🔲 | 03-21 | copilot-instructions 或 Profile doc 更新 |
-| 26 | v6.3.0 njueeray.github.io SEO：sitemap + rss.xml | Dev | 🔲 | 03-26 | `@astrojs/sitemap` + `@astrojs/rss` 集成 |
+| 22 | v6.1.0 修复 RSS Action 日期格式 bug | Dev + CR | ✅ | 03-12 | `date_format: YYYY-MM-DD`（blog-posts.yml）|
+| 23 | v6.1.0 OpenProfile 添加 GitHub topics | PM | ⏳ Ray 手动 | 03-19 | github.com/njueeRay/OpenProfile → Settings → Topics |
+| 24 | v6.2.0 Discussion #9：像素头像墙技术分享 | Brand + PD | ✅ | 03-12 | docs/brand/discussion-09-pixel-badge-tech.md 草稿已就绪 |
+| 25 | v6.2.0 Blog Posts 选取标准文档化 + knowledge-graph.svg 刷新 | PM + PD | ✅ | 03-12 | blog-posts.yml 头部注释 + gen-knowledge-graph.py + 新 SVG |
+| 26 | v6.3.0 njueeray.github.io SEO：sitemap + rss.xml | Dev | ✅ | 已完成 | rss.xml.ts + @astrojs/sitemap 已集成（发现时补录）|
 | 27 | v6.4.0 forage-mcp 调研报告 | Researcher | 🔲 | — | 内部报告，输出到 docs/research/ |
 | 28 | v6.4.0 Blog 文章：Copilot Agent 维护 GitHub Profile | Researcher | 🔲 | — | 发布到 njueeray.github.io |
 
